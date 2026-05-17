@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+  <title id="title">波导截止的三种状态</title>
+  <desc id="desc">当 k 小于截止波数时沿轴向衰减，等于截止波数时 beta 为零，大于截止波数时 beta 为实数并能导行。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#263641"/>
+    </marker>
+    <style>
+      .bg{fill:#f7fbff}
+      .panel{fill:#fff;stroke:#d8e2e8;stroke-width:2}
+      .guide{fill:#eef3f5;stroke:#263641;stroke-width:3}
+      .field{fill:none;stroke:#d86b22;stroke-width:5;stroke-linecap:round}
+      .fade{fill:none;stroke:#d86b22;stroke-width:5;stroke-linecap:round;stroke-dasharray:10 12;opacity:.55}
+      .axis{stroke:#263641;stroke-width:3;marker-end:url(#arrow)}
+      .cut{stroke:#b93d3d;stroke-width:4;stroke-dasharray:8 8}
+      .ok{fill:#e8f6ee;stroke:#8bc6a3;stroke-width:2}
+      .bad{fill:#fff0ed;stroke:#dfb5aa;stroke-width:2}
+      .label{font-family:"Noto Sans SC","PingFang SC",Arial,sans-serif;fill:#1f2d36;font-size:24px;font-weight:700}
+      .small{font-family:"Noto Sans SC","PingFang SC",Arial,sans-serif;fill:#435666;font-size:17px}
+      .math{font-family:"Times New Roman","Noto Serif SC",serif;fill:#263d4a;font-size:23px;font-style:italic}
+    </style>
+  </defs>
+  <rect width="1000" height="560" rx="18" class="bg"/>
+  <text x="52" y="70" class="label">截止不是“损耗吃掉”，而是 k 不够撑起横截面本征分布</text>
+
+  <rect x="52" y="112" width="276" height="224" rx="16" class="bad"/>
+  <text x="82" y="154" class="label" font-size="21">低于截止</text>
+  <rect x="92" y="206" width="196" height="70" rx="10" class="guide"/>
+  <path d="M116 242 C145 212 174 272 203 242 C232 212 252 232 270 242" class="fade"/>
+  <text x="82" y="302" class="math">k &lt; kc,  β = jα</text>
+  <text x="82" y="326" class="small">沿 z 衰减，不能正常导行</text>
+
+  <rect x="362" y="112" width="276" height="224" rx="16" fill="#fff7e6" stroke="#ead09c" stroke-width="2"/>
+  <text x="392" y="154" class="label" font-size="21">刚好截止</text>
+  <rect x="402" y="206" width="196" height="70" rx="10" class="guide"/>
+  <path d="M426 242 C464 218 536 218 574 242" class="field" opacity=".7"/>
+  <text x="392" y="302" class="math">k = kc,  β = 0</text>
+  <text x="392" y="326" class="small">轴向相位不推进</text>
+
+  <rect x="672" y="112" width="276" height="224" rx="16" class="ok"/>
+  <text x="702" y="154" class="label" font-size="21">高于截止</text>
+  <rect x="712" y="206" width="196" height="70" rx="10" class="guide"/>
+  <path d="M736 242 C760 212 784 272 808 242 C832 212 856 272 880 242" class="field"/>
+  <text x="702" y="302" class="math">k &gt; kc,  β 为实数</text>
+  <text x="702" y="326" class="small">沿 z 导行，相位周期为 λg</text>
+
+  <rect x="95" y="382" width="810" height="118" rx="16" class="panel"/>
+  <line x1="160" y1="454" x2="840" y2="454" class="axis"/>
+  <line x1="480" y1="396" x2="480" y2="476" class="cut"/>
+  <text x="452" y="392" class="small" fill="#b93d3d">fc</text>
+  <text x="148" y="486" class="small">频率 f 低</text>
+  <text x="802" y="486" class="small">频率 f 高</text>
+  <text x="244" y="432" class="small">截止区</text>
+  <text x="616" y="432" class="small">导行区</text>
+  <text x="310" y="526" class="math">β = √(k² − kc²)</text>
+</svg>

@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第三次作业（Lec13–Lec16）第 3 题：$a\times b=10\times 6\,\mathrm{mm^2}$，求 $\mathrm{TE}_{10}$、$\mathrm{TE}_{20}$、$\mathrm{TE}_{21}$ 的截止频率 · 微波技术基础</title>
+  <link rel="icon" href="../../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../../../assets/style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      chtml: {
+        mtextInheritFont: true,
+        scale: 1.04
+      }
+    };
+    window.SITE_ROOT = "../../../../";
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script defer src="../../../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="topbar">
+    <button class="icon-button menu-button" type="button" data-sidebar-toggle aria-label="打开目录">☰</button>
+    <a class="brand" href="../../../../index.html">
+      <span class="brand-mark">λg</span>
+      <span><strong>微波技术基础</strong><small>先看物理图像，再算标准答案</small></span>
+    </a>
+    <label class="search-box">
+      <span class="search-icon">⌕</span>
+      <input id="siteSearch" type="search" placeholder="搜索知识点、题号、公式符号" autocomplete="off">
+    </label>
+    <button class="icon-button" type="button" data-theme-toggle aria-label="切换明暗主题">◐</button>
+  </header>
+  <div id="searchResults" class="search-results" hidden></div>
+  <div class="shell">
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-head">
+        <strong>目录</strong>
+        <button class="icon-button" type="button" data-sidebar-close aria-label="关闭目录">×</button>
+      </div>
+      <a class="nav-root-link" href="../../../../index.html">首页</a>
+<details class="nav-group">
+<summary>学习指南</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../guide/beginner-handbook.html" title="学习指南 / 《微波技术基础》初学者学习手册">初学者学习手册</a></li>
+</ol>
+</details>
+<details class="nav-group">
+<summary>知识点讲义</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/index.html" title="知识点讲义 / 《微波技术基础》知识点讲义目录">知识点总览</a></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../../knowledge/01-传播与传输线/index.html">01 · 传播与传输线</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/01-长线短线与分布参数.html" title="知识点讲义 / 01-传播与传输线 / Lec01 · 长线、短线与分布参数">长线/短线</a></li>
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/02-行波相位常数与特性阻抗.html" title="知识点讲义 / 01-传播与传输线 / Lec02 · 行波、相位常数与特性阻抗">行波与特性阻抗</a></li>
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/03-反射驻波与输入阻抗.html" title="知识点讲义 / 01-传播与传输线 / Lec03 · 反射系数、驻波比与输入阻抗">反射与驻波</a></li>
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/04-行波纯驻波与行驻波.html" title="知识点讲义 / 01-传播与传输线 / Lec04 · 行波、纯驻波与行驻波">三种工作状态</a></li>
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/05-开短路线周期性与测量.html" title="知识点讲义 / 01-传播与传输线 / Lec05 · 开短路线、周期性与测量">开短路与周期性</a></li>
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/99-自检清单与常见误区.html" title="知识点讲义 / 01-传播与传输线 / Lec01-Lec05 · 自检清单与常见误区">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../../knowledge/02-反射与匹配/index.html">02 · 反射与匹配</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/02-反射与匹配/01-多段线并联与四分之一波长.html" title="知识点讲义 / 02-反射与匹配 / Lec06 · 多段线、并联与四分之一波长变换">多段线与 λ/4</a></li>
+<li class="nav-item"><a href="../../../knowledge/02-反射与匹配/02-Smith圆图怎么读.html" title="知识点讲义 / 02-反射与匹配 / Lec07 · Smith 圆图怎么读">Smith 圆图</a></li>
+<li class="nav-item"><a href="../../../knowledge/02-反射与匹配/03-并联支节匹配.html" title="知识点讲义 / 02-反射与匹配 / Lec08-Lec09 · 并联支节匹配">并联支节匹配</a></li>
+<li class="nav-item"><a href="../../../knowledge/02-反射与匹配/99-自检清单与常见误区.html" title="知识点讲义 / 02-反射与匹配 / Lec06-Lec09 · 自检清单与常见误区">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../../knowledge/03-波导中的场与边界/index.html">03 · 波导中的场与边界</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/00-从传输线到波导.html" title="知识点讲义 / 03-波导中的场与边界 / 00 · 术语与路线图（Lec10–Lec11）">从传输线到波导</a></li>
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/01-TEM-TE-TM波型.html" title="知识点讲义 / 03-波导中的场与边界 / 01 · 波型与传输线结构（TEM / TE / TM）">TEM / TE / TM</a></li>
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/02-纵向分量与分离变量.html" title="知识点讲义 / 03-波导中的场与边界 / 02 · 波动方程与分离变量（纵向分量）">纵向场与分离变量</a></li>
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/03-金属边界与截止.html" title="知识点讲义 / 03-波导中的场与边界 / 03 · 矩形波导边界与截止（$k_{\mathrm c}$，$f_{\mathrm c}$，$\lambda_{\mathrm c}$）">边界与截止</a></li>
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/04-从纵向场到全场.html" title="知识点讲义 / 03-波导中的场与边界 / 04 · 从 $E_z$ 到全场的推导套路（$\mathrm{TM}$ 例 · $\mathrm{TM}_{11}$）">纵向场到全场</a></li>
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/99-自检清单与常见误区.html" title="知识点讲义 / 03-波导中的场与边界 / 05 · 自检清单与常见误区（Lec10–Lec11）">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../../knowledge/04-截止色散与速度/index.html">04 · 截止、色散与速度</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/00-从截止到色散.html" title="知识点讲义 / 04-截止色散与速度 / 00 · 术语与路线图（Lec11～12）">从截止到色散</a></li>
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/01-三种波长.html" title="知识点讲义 / 04-截止色散与速度 / 01 · 三种波长（$\lambda_0$，$\lambda_{\mathrm c}$，$\lambda_{\mathrm g}$）">三种波长</a></li>
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/02-色散相速与群速.html" title="知识点讲义 / 04-截止色散与速度 / 02 · 色散、相速与群速">相速与群速</a></li>
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/03-波导色散与材料色散.html" title="知识点讲义 / 04-截止色散与速度 / 03 · 波导色散与光学色散">结构色散 vs 材料色散</a></li>
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/04-为什么空心波导没有TEM.html" title="知识点讲义 / 04-截止色散与速度 / 04 · 单导体波导为何无 TEM？">空心波导无 TEM</a></li>
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/99-自检清单与常见误区.html" title="知识点讲义 / 04-截止色散与速度 / 05 · 自检清单与常见误区（Lec11～12）">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../../knowledge/05-矩形波导工程计算/index.html">05 · 矩形波导工程计算</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/00-工程计算路线图.html" title="知识点讲义 / 05-矩形波导工程计算 / 00 · 术语与路线图（Lec13–Lec16）">工程路线</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/01-模谱主模与简并.html" title="知识点讲义 / 05-矩形波导工程计算 / 01 · $k_{\mathrm c}$ 与模谱、主模 $\mathrm{TE}_{10}$ 与简并">模谱与主模</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/02-单模工作区与介质填充.html" title="知识点讲义 / 05-矩形波导工程计算 / 02 · 单模工作区与全介质填充">单模工作区</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/03-导波波长相速群速算例.html" title="知识点讲义 / 05-矩形波导工程计算 / 03 · $\lambda_{\mathrm g}$、相速、群速与工程算例">λg 与速度算例</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/04-可传输模判定与枚举.html" title="知识点讲义 / 05-矩形波导工程计算 / 04 · 可传输模的判定与枚举">可传输模枚举</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/05-波导段反射驻波与匹配.html" title="知识点讲义 / 05-矩形波导工程计算 / 05 · 波导段上的反射、驻波与匹配（衔接长线理论）">波导段匹配</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/99-自检清单与常见误区.html" title="知识点讲义 / 05-矩形波导工程计算 / 06 · 自检清单与常见误区（Lec13–Lec16）">自检与误区</a></li>
+</ol>
+</details></li>
+</ol>
+</details>
+<details class="nav-group" open>
+<summary>作业解答</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../index.html" title="作业解答 / 《微波技术基础》作业解答目录">作业总览</a></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../01-传输线基础/index.html">01 · 传输线作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../01-传输线基础/00-符号与导读.html" title="作业解答 / 01-传输线基础 / 第一次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/01-Lec01.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec01">Lec01 · 长短线</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/02-Lec02.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec02">Lec02 · 行波</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/03-Lec03.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec03">Lec03 · 反射驻波</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/04-Lec04.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec04">Lec04 · 工作状态</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/05-Lec05.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec05">Lec05 · 开短路</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/99-公式与图像.html" title="作业解答 / 01-传输线基础 / 第一次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../02-圆图与匹配/index.html">02 · 圆图匹配作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../02-圆图与匹配/00-符号与导读.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../../02-圆图与匹配/01-Lec06.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · Lec06">Lec06 · 多段线</a></li>
+<li class="nav-item"><a href="../../02-圆图与匹配/02-Lec07.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · Lec07">Lec07 · Smith 图</a></li>
+<li><details class="nav-subgroup depth-1">
+<summary><a class="nav-summary-link" href="../../02-圆图与匹配/03-Lec08-09/index.html">Lec08-09</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../02-圆图与匹配/03-Lec08-09/第01题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 1 题">第1题</a></li>
+<li class="nav-item"><a href="../../02-圆图与匹配/03-Lec08-09/第02题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 2 题">第2题</a></li>
+<li class="nav-item"><a href="../../02-圆图与匹配/03-Lec08-09/第03题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 3 题">第3题</a></li>
+<li class="nav-item"><a href="../../02-圆图与匹配/03-Lec08-09/第04题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 4 题">第4题</a></li>
+<li class="nav-item"><a href="../../02-圆图与匹配/03-Lec08-09/第05题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 5 题">第5题</a></li>
+<li class="nav-item"><a href="../../02-圆图与匹配/03-Lec08-09/第06题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 6 题">第6题</a></li>
+<li class="nav-item"><a href="../../02-圆图与匹配/03-Lec08-09/第07题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 7 题">第7题</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../../02-圆图与匹配/99-公式与图像.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../index.html">03 · 波导作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../00-符号与导读.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../01-Lec10-11.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · Lec10–Lec11（波导波动方程与 $\mathrm{TM}_{11}$）">Lec10-11 · 波型方程</a></li>
+<li class="nav-item"><a href="../02-Lec11-12.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · Lec11～12（波导波长与色散、无 TEM）">Lec11-12 · 波长色散</a></li>
+<li><details class="nav-subgroup depth-1" open>
+<summary><a class="nav-summary-link" href="index.html">Lec13-16</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="第01题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–16）第 1 题：只传输 $\mathrm{TE}_{10}$ 的尺寸条件">第1题</a></li>
+<li class="nav-item"><a href="第02题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 2 题：$f=10\,\mathrm{GHz}$ 只传 $\mathrm{TE}_{10}$ 的尺寸与 $\lambda_{\mathrm g},v_{\mathrm p},v_{\mathrm g}$">第2题</a></li>
+<li class="nav-item active"><a href="第03题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 3 题：$a\times b=10\times 6\,\mathrm{mm^2}$，求 $\mathrm{TE}_{10}$、$\mathrm{TE}_{20}$、$\mathrm{TE}_{21}$ 的截止频率">第3题</a></li>
+<li class="nav-item"><a href="第04题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 4 题：BJ-100，$\lambda_0=18\,\mathrm{mm}$，可能存在几种波型？">第4题</a></li>
+<li class="nav-item"><a href="第05题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 5 题：两种波导尺寸、四种工作波长">第5题</a></li>
+<li class="nav-item"><a href="第06题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 6 题：BJ-100，若干模的 $\lambda_{\mathrm c}$；只传 $\mathrm{TE}_{10}$ 的 $\lambda_0$ 范围">第6题</a></li>
+<li class="nav-item"><a href="第07题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 7 题：相邻两波节间距 $22.40\,\mathrm{mm}$，求 $\lambda_{\mathrm g}$">第7题</a></li>
+<li class="nav-item"><a href="第08题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 8 题：BJ-100，$\lambda_0=32\,\mathrm{mm}$，$\rho=3$，第一波节距负载 $9\,\mathrm{mm}$">第8题</a></li>
+<li class="nav-item"><a href="第09题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 9 题：长 $1\,\mathrm{m}$，$\lambda_0=3.2\,\mathrm{cm}$，$\bar Z_L=0.5$（$\mathrm{TE}_{10}$ 归一化）">第9题</a></li>
+<li class="nav-item"><a href="第10题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 10 题（选做）：$72.14\times 34.04\,\mathrm{mm^2}$，$f=6\,\mathrm{GHz}$">第10题（选做）</a></li>
+<li class="nav-item"><a href="第11题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 11 题（选做）：BJ-100 传 $\mathrm{TE}_{10}$，两种 $\lambda_0$ 区间">第11题（选做）</a></li>
+<li class="nav-item"><a href="第12题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 12 题（选做）：击穿场强限制下的最大功率（量级）">第12题（选做）</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../99-公式与图像.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../../04-后续专题/index.html" title="作业解答 / 04-后续专题 / 《微波技术基础》第四次作业标准解答">04 · 后续专题</a></li>
+</ol>
+</details>
+<details class="nav-group">
+<summary>附录</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../appendices/讲次-作业-教材章节-知识点矩阵.html" title="附录 / 讲次 · 作业 · 教材章节 · 核心知识点矩阵">讲次知识矩阵</a></li>
+</ol>
+</details>
+    </aside>
+    <main id="content" class="content">
+      <div class="breadcrumbs"><span class="crumb">作业解答</span>
+<span class="crumb">03-规则波导与矩形波导</span>
+<span class="crumb">03-Lec13-16</span>
+<span class="crumb">第三次作业（Lec13–Lec16）第 3 题：$a\times b=10\times 6\,\mathrm{mm^2}$，求 $\mathrm{TE}_{10}$、$\mathrm{TE}_{20}$、$\mathrm{TE}_{21}$ 的截止频率</span></div>
+      <article class="article">
+        <h1 id="lec13lec16-3-math4-math5math6math7">第三次作业（Lec13–Lec16）第 3 题：$a\times b=10\times 6\,\mathrm{mm^2}$，求 $\mathrm{TE}_{10}$、$\mathrm{TE}_{20}$、$\mathrm{TE}_{21}$ 的截止频率<a class="headerlink" href="#lec13lec16-3-math4-math5math6math7" title="Permanent link">§</a></h1>
+<p><strong>导航：</strong> <a href="../index.html">总目录</a> · <a href="../00-符号与导读.html">符号与导读</a> · <a href="../01-Lec10-11.html">Lec10–11</a> · <a href="../02-Lec11-12.html">Lec11～12</a> · <a href="index.html">Lec13–Lec16 主册</a> · <strong>分题</strong> <a href="第01题.html"><strong>1</strong></a> · <a href="第02题.html"><strong>2</strong></a> · <a href="第03题.html"><strong>3</strong></a> · <a href="第04题.html"><strong>4</strong></a> · <a href="第05题.html"><strong>5</strong></a> · <a href="第06题.html"><strong>6</strong></a> · <a href="第07题.html"><strong>7</strong></a> · <a href="第08题.html"><strong>8</strong></a> · <a href="第09题.html"><strong>9</strong></a> · <a href="第10题.html"><strong>10</strong></a> · <a href="第11题.html"><strong>11</strong></a> · <a href="第12题.html"><strong>12</strong></a> · <strong>上一题</strong> <a href="第02题.html">第2题</a> · <strong>下一题</strong> <a href="第04题.html">第4题</a> · <a href="../99-公式与图像.html">附录</a></p>
+<blockquote>
+<p>文首 $k_\mathrm c,\lambda_\mathrm c,f_\mathrm c$ 通式见 <a href="index.html">Lec13–Lec16 主册</a>。</p>
+</blockquote>
+<hr>
+<h2 id="_1">一、前置知识<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<h3 id="1">1. 专有名词<a class="headerlink" href="#1" title="Permanent link">§</a></h3>
+<ul>
+<li><strong>$k_\mathrm c$（截止波数）</strong> ：矩形波导模 $(m,n)$ 的<strong>横向</strong>本征值，由截面尺寸决定，<strong>与是否激励该模、工作频率无关</strong>（在均匀填充、理想导体壁模型下）。  </li>
+<li><strong>$f_\mathrm c$（截止频率）</strong> ：该模<strong>开始出现导行</strong>的最低工作频率，空气时 <strong>$f_\mathrm c=c\,k_\mathrm c/(2\pi)$</strong>。  </li>
+<li><strong>$\mathrm{TE}_{mn}$ / $\mathrm{TM}_{mn}$ 的指数</strong> ：$\mathrm{TE}_{mn}$ 中 <strong>$m$</strong> 或 <strong>$n$</strong> 允许为 0（<strong>不同时</strong>为 0）。$\mathrm{TM}_{mn}$ 要求 <strong>$m,n\ge 1$</strong>。本题<strong>只出现 TE</strong>。  </li>
+<li><strong>$\pi/a$、$\pi/b$</strong> 出现在 $k_\mathrm c$ 中：物理上是横截面驻波在 <strong>宽边/窄边</strong> 方向的<strong>空间</strong>变化率，代入公式时 <strong>$a,b$</strong> 须与 <strong>$\mathrm{m\,,n}$</strong> 一一对应。</li>
+</ul>
+<h3 id="2">2. 核心公式（含义）<a class="headerlink" href="#2" title="Permanent link">§</a></h3>
+<ul>
+<li><strong>$\displaystyle k_\mathrm c=\sqrt{\left(\frac{m\pi}{a}\right)^2+\left(\frac{n\pi}{b}\right)^2}$</strong> — 几何决定，量纲 m$^{-1}$。  </li>
+<li><strong>$\displaystyle f_\mathrm c=\frac{c}{2\pi}\,k_\mathrm c=\frac{c}{2\pi}\sqrt{\left(\frac{m\pi}{a}\right)^2+\left(\frac{n\pi}{b}\right)^2}$</strong> — 空气，量纲 <strong>Hz</strong>；本题取 <strong>$c=2.99792458\times 10^8\,\mathrm{m/s}$</strong> 与主册/教材常值一致。  </li>
+<li>同一 <strong>$a,b$</strong> 下，<strong>$(m,n)$</strong> 不同则 <strong>$f_\mathrm c$</strong> 不同；$\mathrm{TE}_{20}$ 的 <strong>$f_\mathrm c$</strong> 是 $\mathrm{TE}_{10}$ 的<strong>两倍</strong>仅当同一边（此处沿 $a$ 的 $(1,0)$ 与 $(2,0)$）<strong>且同一 $a$</strong> 成立。</li>
+</ul>
+<hr>
+<h2 id="_2">二、分析思路<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<ol>
+<li>把 <strong>10 mm、6 mm</strong> 换成 <strong>$\mathrm{m}$</strong> 或全程 <strong>$\mathrm{mm}$</strong> 与 <strong>$c$</strong> 自洽。  </li>
+<li>对 <strong>$(1,0)$、$(2,0)$、$(2,1)$</strong> 分别算 <strong>$k_\mathrm c$</strong>，再得 <strong>$f_\mathrm c$</strong>。  </li>
+<li>可检查 <strong>$\mathrm{TE}_{20}$</strong> 的 <strong>$f_\mathrm c$</strong> 是否约为 <strong>$\mathrm{TE}_{10}$</strong> 的 <strong>2 倍</strong>（同一边主导）。  </li>
+<li>用 <strong>2～4 位</strong>有效数字与教材风格对齐。</li>
+</ol>
+<hr>
+<h2 id="_3">三、标准解答<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
+<p>已知 <strong>$a=10\,\mathrm{mm}=0.01\,\mathrm{m}$</strong>、<strong>$b=6\,\mathrm{mm}=0.006\,\mathrm{m}$</strong>，空气</p>
+<p>$$
+f_\mathrm c=\frac{c}{2\pi}\sqrt{\left(\frac{m\pi}{a}\right)^2+\left(\frac{n\pi}{b}\right)^2}.
+$$</p>
+<ul>
+<li><strong>$\mathrm{TE}_{10}$（$m=1,n=0$）</strong>：$k_\mathrm c=\pi/a$，$\displaystyle f_\mathrm c=\frac{c}{2a}$  </li>
+</ul>
+<p>$$
+  f_{\mathrm c,10}=\frac{2.99792458\times 10^8}{2\times 0.01}\ \mathrm{Hz}\approx \boxed{14.99\,\mathrm{GHz}}.
+  $$</p>
+<ul>
+<li><strong>$\mathrm{TE}_{20}$（$m=2,n=0$）</strong>：$k_\mathrm c=2\pi/a=2k_{\mathrm c,10}$，故  </li>
+</ul>
+<p>$$
+  f_{\mathrm c,20}\approx 2f_{\mathrm c,10}\approx \boxed{29.98\,\mathrm{GHz}}.
+  $$</p>
+<ul>
+<li><strong>$\mathrm{TE}_{21}$（$m=2,n=1$）</strong>：代一般式，  </li>
+</ul>
+<p>$$
+  f_{\mathrm c,21}\approx\boxed{39.02\,\mathrm{GHz}}.
+  $$</p>
+<p>汇总：</p>
+<table>
+<thead>
+<tr>
+<th>模</th>
+<th>$f_\mathrm c$（数值）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\mathrm{TE}_{10}$</td>
+<td>$\approx 14.99\,\mathrm{GHz}$</td>
+</tr>
+<tr>
+<td>$\mathrm{TE}_{20}$</td>
+<td>$\approx 29.98\,\mathrm{GHz}$</td>
+</tr>
+<tr>
+<td>$\mathrm{TE}_{21}$</td>
+<td>$\approx 39.02\,\mathrm{GHz}$</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">图示<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
+<p><img alt="$10\times 6\,\mathrm{mm}^2$ 波导中三种 TE 模的截止频率对照" src="../../../../assets/images/lec13_16_q03_fc_bar.png"></p>
+<p><em>图：先由 $a,b,m,n$ 求 $k_\mathrm c$，再换成 $f_\mathrm c$。图只强调三者的相对顺序；精确数值以上表为准。</em></p>
+<hr>
+      </article>
+      <nav class="pager" aria-label="章节导航"><a class="pager-link prev" href="第02题.html"><span>上一篇</span><strong>第三次作业（Lec13–Lec16）第 2 题：$f=10\,\mathrm{GHz}$ 只传 $\mathrm{TE}_{10}$ 的尺寸与 $\lambda_{\mathrm g},v_{\mathrm p},v_{\mathrm g}$</strong></a><a class="pager-link next" href="第04题.html"><span>下一篇</span><strong>第三次作业（Lec13–Lec16）第 4 题：BJ-100，$\lambda_0=18\,\mathrm{mm}$，可能存在几种波型？</strong></a></nav>
+    </main>
+    <aside class="toc-panel" aria-label="页内目录">
+      <strong>本页</strong>
+      <div class="toc">
+<ul>
+<li><a href="#_1">一、前置知识</a><ul>
+<li><a href="#1">1. 专有名词</a></li>
+<li><a href="#2">2. 核心公式（含义）</a></li>
+</ul>
+</li>
+<li><a href="#_2">二、分析思路</a></li>
+<li><a href="#_3">三、标准解答</a></li>
+<li><a href="#_4">图示</a></li>
+</ul>
+</div>
+
+    </aside>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" role="img" aria-labelledby="title desc">
+  <title id="title">单导体空心波导没有 TEM</title>
+  <desc id="desc">同轴线有内外导体电压差，可以形成横向静电场；单导体空心管内壁同一电位，Laplace 解为常数势，不能形成 TEM。</desc>
+  <defs>
+    <marker id="arrO" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L8 5 L1 9 Z" fill="#d86b22"/>
+    </marker>
+    <style>
+      .bg{fill:#fffdf7}
+      .panel{fill:#fff;stroke:#d8e2e8;stroke-width:2}
+      .metal{fill:#e9eef1;stroke:#263641;stroke-width:4}
+      .hole{fill:#fffef9;stroke:#263641;stroke-width:3}
+      .e{stroke:#d86b22;stroke-width:4;marker-end:url(#arrO);fill:none}
+      .equip{fill:none;stroke:#9cb0bf;stroke-width:2;stroke-dasharray:5 7}
+      .label{font-family:"Noto Sans SC","PingFang SC",Arial,sans-serif;fill:#1f2d36;font-size:24px;font-weight:700}
+      .small{font-family:"Noto Sans SC","PingFang SC",Arial,sans-serif;fill:#435666;font-size:17px}
+      .math{font-family:"Times New Roman","Noto Serif SC",serif;fill:#263d4a;font-size:23px;font-style:italic}
+      .yes{fill:#e8f6ee;stroke:#85bd9b;stroke-width:2}
+      .no{fill:#fff0ed;stroke:#d9aa9d;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1000" height="520" rx="18" class="bg"/>
+  <text x="52" y="68" class="label">TEM 需要横截面内有非平凡静电势</text>
+
+  <rect x="60" y="112" width="410" height="340" rx="16" class="yes"/>
+  <text x="92" y="154" class="label" font-size="22">同轴线：可以 TEM</text>
+  <circle cx="250" cy="270" r="100" class="metal"/>
+  <circle cx="250" cy="270" r="72" fill="#fffdf8" stroke="#263641" stroke-width="3"/>
+  <circle cx="250" cy="270" r="26" class="metal"/>
+  <path d="M250 244 L250 190" class="e"/>
+  <path d="M276 270 L340 270" class="e"/>
+  <path d="M250 296 L250 350" class="e"/>
+  <path d="M224 270 L160 270" class="e"/>
+  <circle cx="250" cy="270" r="52" class="equip"/>
+  <text x="145" y="400" class="math">Φinner ≠ Φouter</text>
+  <text x="112" y="430" class="small">两个独立导体之间有电压差</text>
+
+  <rect x="530" y="112" width="410" height="340" rx="16" class="no"/>
+  <text x="562" y="154" class="label" font-size="22">空心矩形波导：无 TEM</text>
+  <rect x="628" y="208" width="214" height="132" rx="10" class="metal"/>
+  <rect x="660" y="238" width="150" height="72" rx="8" fill="#fffdf8" stroke="#263641" stroke-width="3"/>
+  <path d="M674 274 H796" class="equip"/>
+  <path d="M735 244 V304" class="equip"/>
+  <text x="645" y="382" class="math">Φwall = 常数 ⇒ Φinside = 常数</text>
+  <text x="586" y="418" class="small">没有第二个导体建立横向电压差</text>
+  <text x="586" y="444" class="small">因此非平凡横向 E 场不存在</text>
+</svg>

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第二次作业 · Lec08–09 · 第 7 题 · 微波技术基础</title>
+  <link rel="icon" href="../../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../../../assets/style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      chtml: {
+        mtextInheritFont: true,
+        scale: 1.04
+      }
+    };
+    window.SITE_ROOT = "../../../../";
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script defer src="../../../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="topbar">
+    <button class="icon-button menu-button" type="button" data-sidebar-toggle aria-label="打开目录">☰</button>
+    <a class="brand" href="../../../../index.html">
+      <span class="brand-mark">λg</span>
+      <span><strong>微波技术基础</strong><small>先看物理图像，再算标准答案</small></span>
+    </a>
+    <label class="search-box">
+      <span class="search-icon">⌕</span>
+      <input id="siteSearch" type="search" placeholder="搜索知识点、题号、公式符号" autocomplete="off">
+    </label>
+    <button class="icon-button" type="button" data-theme-toggle aria-label="切换明暗主题">◐</button>
+  </header>
+  <div id="searchResults" class="search-results" hidden></div>
+  <div class="shell">
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-head">
+        <strong>目录</strong>
+        <button class="icon-button" type="button" data-sidebar-close aria-label="关闭目录">×</button>
+      </div>
+      <a class="nav-root-link" href="../../../../index.html">首页</a>
+<details class="nav-group">
+<summary>学习指南</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../guide/beginner-handbook.html" title="学习指南 / 《微波技术基础》初学者学习手册">初学者学习手册</a></li>
+</ol>
+</details>
+<details class="nav-group">
+<summary>知识点讲义</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/index.html" title="知识点讲义 / 《微波技术基础》知识点讲义目录">知识点总览</a></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../../knowledge/01-传播与传输线/index.html">01 · 传播与传输线</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/01-长线短线与分布参数.html" title="知识点讲义 / 01-传播与传输线 / Lec01 · 长线、短线与分布参数">长线/短线</a></li>
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/02-行波相位常数与特性阻抗.html" title="知识点讲义 / 01-传播与传输线 / Lec02 · 行波、相位常数与特性阻抗">行波与特性阻抗</a></li>
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/03-反射驻波与输入阻抗.html" title="知识点讲义 / 01-传播与传输线 / Lec03 · 反射系数、驻波比与输入阻抗">反射与驻波</a></li>
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/04-行波纯驻波与行驻波.html" title="知识点讲义 / 01-传播与传输线 / Lec04 · 行波、纯驻波与行驻波">三种工作状态</a></li>
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/05-开短路线周期性与测量.html" title="知识点讲义 / 01-传播与传输线 / Lec05 · 开短路线、周期性与测量">开短路与周期性</a></li>
+<li class="nav-item"><a href="../../../knowledge/01-传播与传输线/99-自检清单与常见误区.html" title="知识点讲义 / 01-传播与传输线 / Lec01-Lec05 · 自检清单与常见误区">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../../knowledge/02-反射与匹配/index.html">02 · 反射与匹配</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/02-反射与匹配/01-多段线并联与四分之一波长.html" title="知识点讲义 / 02-反射与匹配 / Lec06 · 多段线、并联与四分之一波长变换">多段线与 λ/4</a></li>
+<li class="nav-item"><a href="../../../knowledge/02-反射与匹配/02-Smith圆图怎么读.html" title="知识点讲义 / 02-反射与匹配 / Lec07 · Smith 圆图怎么读">Smith 圆图</a></li>
+<li class="nav-item"><a href="../../../knowledge/02-反射与匹配/03-并联支节匹配.html" title="知识点讲义 / 02-反射与匹配 / Lec08-Lec09 · 并联支节匹配">并联支节匹配</a></li>
+<li class="nav-item"><a href="../../../knowledge/02-反射与匹配/99-自检清单与常见误区.html" title="知识点讲义 / 02-反射与匹配 / Lec06-Lec09 · 自检清单与常见误区">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../../knowledge/03-波导中的场与边界/index.html">03 · 波导中的场与边界</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/00-从传输线到波导.html" title="知识点讲义 / 03-波导中的场与边界 / 00 · 术语与路线图（Lec10–Lec11）">从传输线到波导</a></li>
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/01-TEM-TE-TM波型.html" title="知识点讲义 / 03-波导中的场与边界 / 01 · 波型与传输线结构（TEM / TE / TM）">TEM / TE / TM</a></li>
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/02-纵向分量与分离变量.html" title="知识点讲义 / 03-波导中的场与边界 / 02 · 波动方程与分离变量（纵向分量）">纵向场与分离变量</a></li>
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/03-金属边界与截止.html" title="知识点讲义 / 03-波导中的场与边界 / 03 · 矩形波导边界与截止（$k_{\mathrm c}$，$f_{\mathrm c}$，$\lambda_{\mathrm c}$）">边界与截止</a></li>
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/04-从纵向场到全场.html" title="知识点讲义 / 03-波导中的场与边界 / 04 · 从 $E_z$ 到全场的推导套路（$\mathrm{TM}$ 例 · $\mathrm{TM}_{11}$）">纵向场到全场</a></li>
+<li class="nav-item"><a href="../../../knowledge/03-波导中的场与边界/99-自检清单与常见误区.html" title="知识点讲义 / 03-波导中的场与边界 / 05 · 自检清单与常见误区（Lec10–Lec11）">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../../knowledge/04-截止色散与速度/index.html">04 · 截止、色散与速度</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/00-从截止到色散.html" title="知识点讲义 / 04-截止色散与速度 / 00 · 术语与路线图（Lec11～12）">从截止到色散</a></li>
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/01-三种波长.html" title="知识点讲义 / 04-截止色散与速度 / 01 · 三种波长（$\lambda_0$，$\lambda_{\mathrm c}$，$\lambda_{\mathrm g}$）">三种波长</a></li>
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/02-色散相速与群速.html" title="知识点讲义 / 04-截止色散与速度 / 02 · 色散、相速与群速">相速与群速</a></li>
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/03-波导色散与材料色散.html" title="知识点讲义 / 04-截止色散与速度 / 03 · 波导色散与光学色散">结构色散 vs 材料色散</a></li>
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/04-为什么空心波导没有TEM.html" title="知识点讲义 / 04-截止色散与速度 / 04 · 单导体波导为何无 TEM？">空心波导无 TEM</a></li>
+<li class="nav-item"><a href="../../../knowledge/04-截止色散与速度/99-自检清单与常见误区.html" title="知识点讲义 / 04-截止色散与速度 / 05 · 自检清单与常见误区（Lec11～12）">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../../knowledge/05-矩形波导工程计算/index.html">05 · 矩形波导工程计算</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/00-工程计算路线图.html" title="知识点讲义 / 05-矩形波导工程计算 / 00 · 术语与路线图（Lec13–Lec16）">工程路线</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/01-模谱主模与简并.html" title="知识点讲义 / 05-矩形波导工程计算 / 01 · $k_{\mathrm c}$ 与模谱、主模 $\mathrm{TE}_{10}$ 与简并">模谱与主模</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/02-单模工作区与介质填充.html" title="知识点讲义 / 05-矩形波导工程计算 / 02 · 单模工作区与全介质填充">单模工作区</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/03-导波波长相速群速算例.html" title="知识点讲义 / 05-矩形波导工程计算 / 03 · $\lambda_{\mathrm g}$、相速、群速与工程算例">λg 与速度算例</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/04-可传输模判定与枚举.html" title="知识点讲义 / 05-矩形波导工程计算 / 04 · 可传输模的判定与枚举">可传输模枚举</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/05-波导段反射驻波与匹配.html" title="知识点讲义 / 05-矩形波导工程计算 / 05 · 波导段上的反射、驻波与匹配（衔接长线理论）">波导段匹配</a></li>
+<li class="nav-item"><a href="../../../knowledge/05-矩形波导工程计算/99-自检清单与常见误区.html" title="知识点讲义 / 05-矩形波导工程计算 / 06 · 自检清单与常见误区（Lec13–Lec16）">自检与误区</a></li>
+</ol>
+</details></li>
+</ol>
+</details>
+<details class="nav-group" open>
+<summary>作业解答</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../index.html" title="作业解答 / 《微波技术基础》作业解答目录">作业总览</a></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../01-传输线基础/index.html">01 · 传输线作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../01-传输线基础/00-符号与导读.html" title="作业解答 / 01-传输线基础 / 第一次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/01-Lec01.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec01">Lec01 · 长短线</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/02-Lec02.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec02">Lec02 · 行波</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/03-Lec03.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec03">Lec03 · 反射驻波</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/04-Lec04.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec04">Lec04 · 工作状态</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/05-Lec05.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec05">Lec05 · 开短路</a></li>
+<li class="nav-item"><a href="../../01-传输线基础/99-公式与图像.html" title="作业解答 / 01-传输线基础 / 第一次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../index.html">02 · 圆图匹配作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../00-符号与导读.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../01-Lec06.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · Lec06">Lec06 · 多段线</a></li>
+<li class="nav-item"><a href="../02-Lec07.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · Lec07">Lec07 · Smith 图</a></li>
+<li><details class="nav-subgroup depth-1" open>
+<summary><a class="nav-summary-link" href="index.html">Lec08-09</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="第01题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 1 题">第1题</a></li>
+<li class="nav-item"><a href="第02题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 2 题">第2题</a></li>
+<li class="nav-item"><a href="第03题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 3 题">第3题</a></li>
+<li class="nav-item"><a href="第04题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 4 题">第4题</a></li>
+<li class="nav-item"><a href="第05题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 5 题">第5题</a></li>
+<li class="nav-item"><a href="第06题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 6 题">第6题</a></li>
+<li class="nav-item active"><a href="第07题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 7 题">第7题</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../99-公式与图像.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../03-规则波导与矩形波导/index.html">03 · 波导作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/00-符号与导读.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/01-Lec10-11.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · Lec10–Lec11（波导波动方程与 $\mathrm{TM}_{11}$）">Lec10-11 · 波型方程</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/02-Lec11-12.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · Lec11～12（波导波长与色散、无 TEM）">Lec11-12 · 波长色散</a></li>
+<li><details class="nav-subgroup depth-1">
+<summary><a class="nav-summary-link" href="../../03-规则波导与矩形波导/03-Lec13-16/index.html">Lec13-16</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第01题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–16）第 1 题：只传输 $\mathrm{TE}_{10}$ 的尺寸条件">第1题</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第02题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 2 题：$f=10\,\mathrm{GHz}$ 只传 $\mathrm{TE}_{10}$ 的尺寸与 $\lambda_{\mathrm g},v_{\mathrm p},v_{\mathrm g}$">第2题</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第03题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 3 题：$a\times b=10\times 6\,\mathrm{mm^2}$，求 $\mathrm{TE}_{10}$、$\mathrm{TE}_{20}$、$\mathrm{TE}_{21}$ 的截止频率">第3题</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第04题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 4 题：BJ-100，$\lambda_0=18\,\mathrm{mm}$，可能存在几种波型？">第4题</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第05题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 5 题：两种波导尺寸、四种工作波长">第5题</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第06题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 6 题：BJ-100，若干模的 $\lambda_{\mathrm c}$；只传 $\mathrm{TE}_{10}$ 的 $\lambda_0$ 范围">第6题</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第07题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 7 题：相邻两波节间距 $22.40\,\mathrm{mm}$，求 $\lambda_{\mathrm g}$">第7题</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第08题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 8 题：BJ-100，$\lambda_0=32\,\mathrm{mm}$，$\rho=3$，第一波节距负载 $9\,\mathrm{mm}$">第8题</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第09题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 9 题：长 $1\,\mathrm{m}$，$\lambda_0=3.2\,\mathrm{cm}$，$\bar Z_L=0.5$（$\mathrm{TE}_{10}$ 归一化）">第9题</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第10题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 10 题（选做）：$72.14\times 34.04\,\mathrm{mm^2}$，$f=6\,\mathrm{GHz}$">第10题（选做）</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第11题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 11 题（选做）：BJ-100 传 $\mathrm{TE}_{10}$，两种 $\lambda_0$ 区间">第11题（选做）</a></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/03-Lec13-16/第12题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 12 题（选做）：击穿场强限制下的最大功率（量级）">第12题（选做）</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../../03-规则波导与矩形波导/99-公式与图像.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../../04-后续专题/index.html" title="作业解答 / 04-后续专题 / 《微波技术基础》第四次作业标准解答">04 · 后续专题</a></li>
+</ol>
+</details>
+<details class="nav-group">
+<summary>附录</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../../appendices/讲次-作业-教材章节-知识点矩阵.html" title="附录 / 讲次 · 作业 · 教材章节 · 核心知识点矩阵">讲次知识矩阵</a></li>
+</ol>
+</details>
+    </aside>
+    <main id="content" class="content">
+      <div class="breadcrumbs"><span class="crumb">作业解答</span>
+<span class="crumb">02-圆图与匹配</span>
+<span class="crumb">03-Lec08-09</span>
+<span class="crumb">第二次作业 · Lec08–09 · 第 7 题</span></div>
+      <article class="article">
+        <h1 id="lec0809-7">第二次作业 · Lec08–09 · 第 7 题<a class="headerlink" href="#lec0809-7" title="Permanent link">§</a></h1>
+<p><strong>导航：</strong> <a href="../index.html">总目录</a> · <a href="../00-符号与导读.html">符号与导读</a> · <a href="index.html">Lec08–09 总册</a> · <a href="../01-Lec06.html">Lec06</a> · <a href="../02-Lec07.html">Lec07</a> · <a href="../99-公式与图像.html">附录</a></p>
+<blockquote>
+<p><strong>说明</strong>：<strong>并联枝节</strong>列式与 <a href="第01题.html">第 1 题</a> 同族；<strong>不可</strong>套用 <a href="第06题.html">第 6 题</a>「两并联双支节」公式——本题 $d_2$ 处为 <strong>串联</strong> 枝节。</p>
+</blockquote>
+<hr>
+<h3 id="7">第 7 题<a class="headerlink" href="#7" title="Permanent link">§</a></h3>
+<p><em>（对应大纲 </em><em>Lec08–09 作业</em><em> 第 7 题；该讲教材章节 </em><em>§1.6</em><em>。）</em></p>
+<h4 id="_1">题目复述<a class="headerlink" href="#_1" title="Permanent link">§</a></h4>
+<p>$Z_L=(75+\mathrm{j}150)\,\Omega$，$Z_c=75\,\Omega$；在 $d_1=0.12\lambda$ 处<strong>并联</strong>短路支节 $l_1$；再沿主线到 $d_2=3\lambda/8$ 处，把短路支节 $l_2$ 与主线<strong>串联</strong>。求 $l_1$、$l_2$。</p>
+<p><img alt="Lec08-7：并联支节 + 串联支节概念示意" src="../../../../assets/images/lec08_q7_topology_sketch.png"></p>
+<p><em>图：$d_1$ 处为并联短路线；$d_2$ 处支节与主线</em><em>串联</em><em>（与第 6 题「两并联支节」不同）。</em></p>
+<p><img alt="图解辅读：并联结点 + 串联枝节混合拓扑（勿与双并联混淆）" src="../../../../assets/images/lec08_study_05_q7_hybrid_topology.png"></p>
+<p><em>图（辅读）：列式时 </em><em>$d_1$ 并联用 $Y$ 相加，$d_2$ 串联用 $Z$ 相加</em><em>。</em></p>
+<h4 id="_2">详细思路<a class="headerlink" href="#_2" title="Permanent link">§</a></h4>
+<p><strong>工程/物理目标</strong>：按上图 <strong>混合拓扑</strong>（$d_1$ <strong>并联</strong>、$d_2$ <strong>串联</strong>）列方程求 $l_1,l_2$，使端口满足匹配；核心纪律是 <strong>并联只动 $Y$、串联只动 $Z$</strong>，不可套用第 6 题「两并联」公式。</p>
+<ol>
+<li><strong>并联支节</strong>：结点导纳相加。</li>
+<li><strong>串联支节</strong>：在主线串联一阻抗 $Z_s=\mathrm{j}Z_c\tan\beta l_2$（短路线模型），总阻抗为线段输入阻抗与 $Z_s$ 的<strong>串联</strong>（与并联完全不同，须按图中电路顺序写）。</li>
+</ol>
+<p><strong>思路叙述：</strong></p>
+<p>（$d_1$ 处<strong>并联</strong>短路线与 <a href="第01题.html">第 1 题</a> 同一套；$d_2$ 处<strong>串联</strong>必须用阻抗相加，勿抄并联导纳式。）明确顺序：<strong>自负载起</strong>先到 $d_1$，并联 $l_1$；再沿主线到 $d_2$，<strong>串入</strong> $\mathrm{j}75\tan\beta l_2$；剩余线使端口匹配（或题设要求端口为纯阻等）。列两个方程（实部、虚部）解 $(l_1,l_2)$，或 Smith 圆图分步。</p>
+<h4 id="_3">解法一：公式（列式与数值）<a class="headerlink" href="#_3" title="Permanent link">§</a></h4>
+<h4 id="_4">一步步解答<a class="headerlink" href="#_4" title="Permanent link">§</a></h4>
+<p><strong>通用列式（与上图拓扑绑定）</strong></p>
+<ol>
+<li>算 <strong>$d_1$ 并联前</strong> 向负载看的 <strong>$Z(d_1^-)$</strong>（或 $\bar Z$），再 <strong>并联短路枝节</strong> 得 <strong>$Y_{\mathrm{after1}}$</strong>（导纳相加）。</li>
+<li>沿主线变换到 <strong>$d_2$ 串联前</strong> 截面得 <strong>$Z(d_2^-)$</strong>。</li>
+<li><strong>串联</strong> 短路枝节 <strong>$Z_s=\mathrm{j}Z_c\tan\beta l_2$</strong>，得 <strong>$Z'=Z(d_2^-)+Z_s$</strong>。</li>
+<li>端口要求匹配到 <strong>$Z_c$</strong>，在 <strong>归一化</strong> 下写 <strong>$\mathrm{Re}\,\bar Z'=1$</strong>、<strong>$\mathrm{Im}\,\bar Z'=0$</strong>（与 <strong>$\mathrm{Re}\,Z'=Z_c$</strong>、<strong>$\mathrm{Im}\,Z'=0$</strong> 等价）。</li>
+</ol>
+<p><strong>数值推演（拓扑约定：负载 $\to$ 经 $d_1$ 到第一</strong>并联<strong>枝节 $\to$ 沿主线经 $d_2=3\lambda/8$ 到第二</strong>串联<strong>枝节 $\to$ 向源；端口要求匹配到 $Z_c$，即第二枝节后 </strong>$\bar Z=1$<strong>。）</strong></p>
+<p><strong>（1）$d_1$ 并联前（归一化）</strong> $\bar Z_L=1+\mathrm{j}2$，$\tan\beta d_1=\tan(0.24\pi)\approx 0.93906$：</p>
+<p>$$
+\bar Z(d_1^-)=\frac{\bar Z_L+\mathrm{j}\tan\beta d_1}{1+\mathrm{j}\bar Z_L\tan\beta d_1}\approx 1.1385-\mathrm{j}2.1295,
+$$</p>
+<p>$$
+\bar Y(d_1^-)=\frac{1}{\bar Z(d_1^-)}\approx 0.19525+\mathrm{j}0.36521.
+$$</p>
+<p><strong>（2）第一并联短路枝节</strong> 归一化导纳 <strong>$-\mathrm{j}\cot\beta l_1$</strong>，结点相加：</p>
+<p>$$
+\bar Y_B=0.19525+\mathrm{j}\bigl(0.36521-\cot\beta l_1\bigr),\qquad
+\bar Z_B=\frac{1}{\bar Y_B}=a+\mathrm{j}b.
+$$</p>
+<p><strong>（3）经 $d_2=3\lambda/8$</strong> 时 <strong>$\beta d_2=3\pi/4$</strong>，<strong>$t_2=\tan\beta d_2=-1$</strong>：</p>
+<p>$$
+\bar Z_C=\frac{\bar Z_B+\mathrm{j}t_2}{1+\mathrm{j}\bar Z_B t_2}
+=\frac{\bar Z_B-\mathrm{j}}{1-\mathrm{j}\bar Z_B}.
+$$</p>
+<p><strong>（4）串联第二短路枝节</strong> 归一化阻抗 <strong>$\mathrm{j}\tan\beta l_2$</strong>，匹配要求</p>
+<p>$$
+\bar Z_{\mathrm{out}}=\bar Z_C+\mathrm{j}\tan\beta l_2=1.
+$$</p>
+<p>先令 <strong>$\mathrm{Re}\,\bar Z_C=1$</strong>（否则仅靠串联纯电抗无法把实部调到 $1$）。把 $\bar Z_B=a+\mathrm{j}b$ 代入 $\bar Z_C=(\bar Z_B-\mathrm{j})/(1-\mathrm{j}\bar Z_B)$，可化得（直接展开即得）</p>
+<p>$$
+\mathrm{Re}\,\bar Z_C=\frac{2a}{a^2+(b+1)^2}.
+$$</p>
+<p>令其为 $1$：</p>
+<p>$$
+2a=a^2+(b+1)^2.
+$$</p>
+<p>其中 $a,b$ 由 <strong>$\bar Y_B$</strong>（因而由 <strong>$\cot\beta l_1$</strong>）决定；上式是关于 <strong>$\cot\beta l_1$</strong> 的一个实方程，一般可用数值求根（或化为二次式后代入本题具体数）。</p>
+<p><strong>（5）定 $l_2$</strong> 在 <strong>$\mathrm{Re}\,\bar Z_C=1$</strong> 成立后，令 <strong>$\mathrm{Im}\,\bar Z_{\mathrm{out}}=0$</strong>：</p>
+<p>$$
+\tan\beta l_2=-\,\mathrm{Im}\,\bar Z_C.
+$$</p>
+<p><strong>（6）本题数值（与上拓扑一致时）</strong> 常见两组解为：</p>
+<ul>
+<li><strong>分支 A：</strong> <strong>$l_1\approx 0.391\lambda$</strong>，<strong>$l_2\approx 0.211\lambda$</strong>。</li>
+<li><strong>分支 B：</strong> <strong>$l_1\approx 0.257\lambda$</strong>，<strong>$l_2\approx 0.323\lambda$</strong>。</li>
+</ul>
+<p>（末位因求根步长/舍入略有出入属正常。）</p>
+<h4 id="_5">标准解答<a class="headerlink" href="#_5" title="Permanent link">§</a></h4>
+<ul>
+<li><strong>列式：</strong> $d_1$ <strong>并联</strong> 用 <strong>$Y$ 相加</strong>；到 $d_2$ <strong>串联</strong> 用 <strong>$Z$ 相加</strong>；<strong>不可</strong>把第 6 题「两并联」公式搬来用。</li>
+<li>
+<p><strong>数值：</strong> <strong>$(l_1,l_2)$</strong> 可取 <strong>约 $(0.391\lambda,\,0.211\lambda)$</strong> 或 <strong>约 $(0.257\lambda,\,0.323\lambda)$</strong> 两组。</p>
+</li>
+<li>
+<p><strong>检验/注意：</strong> 并联与串联支节不能混用同一公式；先画拓扑再列方程。</p>
+</li>
+</ul>
+<h4 id="smith">解法二：圆图（Smith）<a class="headerlink" href="#smith" title="Permanent link">§</a></h4>
+<p><img alt="Lec08-7：$\bar Z_L=1+\mathrm{j}2$；$d_1$ 处并联用导纳、$d_2$ 处串联在阻抗域叠加" src="../../../../assets/images/smith_lec08_q7_hybrid.png"></p>
+<p><em>图：左侧先画清拓扑：$d_1$ 处并联短路支节用导纳相加，$d_2$ 处串联短路支节用阻抗相加；右侧列出按这一路径求得的两组长度。</em></p>
+<p><strong>读图说明（零基础）</strong></p>
+<ul>
+<li><strong>分段纪律</strong>：<strong>$d_1$ 并联</strong> → 在 <strong>导纳面</strong> 用 <strong>$Y_{\mathrm{tot}}=Y_{\mathrm{line}}+Y_{\mathrm{stub}}$</strong>（外圆调 $l_1$）；<strong>$d_2$ 串联</strong> → 在 <strong>阻抗面</strong> <strong>$\bar Z'=\bar Z_{\mathrm{line}}+\bar Z_s$</strong>，<strong>不可</strong>写成导纳相加。</li>
+<li><strong>本图作用</strong>：先防止拓扑混淆：<strong>并联段</strong> 与 <strong>Q4/Q5</strong> 同族，必须用导纳；<strong>串联段</strong> 在 Smith 上 <strong>不是</strong> 简单沿等 $|\Gamma|$ 圆走一段外圆，必须回到阻抗域做相加。</li>
+<li><strong>为何 Smith 不「一眼读完」</strong>：串联电抗在 $\Gamma$ 平面上 <strong>非</strong> 沿外圆的纯电纳轨迹；本题以 <strong>解法一</strong> 列式为主，圆图作 <strong>校验并联 + 线长旋转</strong>。</li>
+<li><strong>自检</strong>：$d_1$ 并联后导纳实部仍须满足物理可实现；$l_2$ 只进入 <strong>$\mathrm{j}\tan\beta l_2$</strong> 的 <strong>阻抗</strong> 支路。</li>
+</ul>
+<p><strong>圆图操作步骤</strong></p>
+<ol>
+<li><strong>$\bar Z_L=1+\mathrm{j}2$</strong>（$Z_L/Z_c$）；在 <strong>阻抗圆图</strong> 上标负载，<strong>向源</strong> 走 <strong>$d_1=0.12\lambda$</strong> 到 $d_1^-$ 截面读 <strong>$\bar Z$</strong>（或用公式算再图上核对）。</li>
+<li><strong>$d_1$ 并联短路枝节</strong>：在 <strong>导纳圆图</strong> 上，从 <strong>$\bar Y(d_1^-)$</strong> 出发，枝节提供 <strong>纯电纳</strong>，沿 <strong>$g=\text{常数}$</strong> 的竖直方向在导纳面上移动（等价于并联短路点沿外圆取长度 $l_1$），使结点 <strong>$\bar Y$</strong> 变化；读图或列式与 <strong>$Y_{\mathrm{tot}}=Y_{\mathrm{line}}+Y_{\mathrm{stub}}$</strong> 一致。</li>
+<li>再沿主线 <strong>向源</strong> 变换到 <strong>$d_2^-$</strong>（阻抗或导纳圆上转相应电长度）。</li>
+<li><strong>$d_2$ 串联短路线</strong>：在 <strong>阻抗域</strong> <strong>$\bar Z'=\bar Z(d_2^-)+\bar Z_s$</strong>，<strong>$\bar Z_s=\mathrm{j}\tan\beta l_2$</strong>（归一化）；Smith 上为沿 <strong>实轴平移</strong> 的直观较弱，通常 <strong>在阻抗平面作矢量相加</strong> 或直接用公式解 $(l_1,l_2)$，圆图用于校验 <strong>并联段</strong> 与 <strong>线长旋转</strong> 是否正确。</li>
+</ol>
+<h4 id="_6">常见疑惑点<a class="headerlink" href="#_6" title="Permanent link">§</a></h4>
+<ul>
+<li><strong>疑惑：</strong> 串联支节还能写成 $Y_{\mathrm{tot}}=Y_{\mathrm{line}}+Y_{\mathrm{stub}}$ 吗？<strong>解答：</strong> <strong>不能</strong>。串联是在<strong>阻抗</strong>域相加：$Z'=Z_{\mathrm{line}}+Z_s$；并联才在结点用导纳相加。混用会导致完全错误的方程。</li>
+<li><strong>疑惑：</strong> $Z_s=\mathrm{j}Z_c\tan\beta l_2$ 何时改成开路支节？<strong>解答：</strong> 若题目明确为开路终端，短路线模型改为 $Z_s=-\mathrm{j}Z_c\cot\beta l_2$，须与题设终端条件一致。</li>
+<li><strong>疑惑：</strong> 为什么本题比第 6 题更容易混？<strong>解答：</strong> 第 6 题两个支节都并联，统一用导纳相加；本题第一处并联、第二处串联，需要在两个参考面之间切换 <strong>导纳视角</strong> 与 <strong>阻抗视角</strong>。</li>
+</ul>
+<hr>
+<p><em>同讲各题：<a href="第01题.html">1</a> · <a href="第02题.html">2</a> · <a href="第03题.html">3</a> · <a href="第04题.html">4</a> · <a href="第05题.html">5</a> · <a href="第06题.html">6</a> · <a href="第07题.html">7</a></em></p>
+<p><em>返回总册：<a href="index.html">Lec08–09 总册</a></em></p>
+      </article>
+      <nav class="pager" aria-label="章节导航"><a class="pager-link prev" href="第06题.html"><span>上一篇</span><strong>第二次作业 · Lec08–09 · 第 6 题</strong></a><a class="pager-link next" href="../99-公式与图像.html"><span>下一篇</span><strong>第二次作业 · 附录</strong></a></nav>
+    </main>
+    <aside class="toc-panel" aria-label="页内目录">
+      <strong>本页</strong>
+      <div class="toc">
+<ul>
+<li><a href="#7">第 7 题</a></li>
+</ul>
+</div>
+
+    </aside>
+  </div>
+</body>
+</html>

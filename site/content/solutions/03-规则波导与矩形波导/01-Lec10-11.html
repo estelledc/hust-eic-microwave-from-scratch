@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第三次作业 · Lec10–Lec11（波导波动方程与 $\mathrm{TM}_{11}$） · 微波技术基础</title>
+  <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../../assets/style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      chtml: {
+        mtextInheritFont: true,
+        scale: 1.04
+      }
+    };
+    window.SITE_ROOT = "../../../";
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script defer src="../../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="topbar">
+    <button class="icon-button menu-button" type="button" data-sidebar-toggle aria-label="打开目录">☰</button>
+    <a class="brand" href="../../../index.html">
+      <span class="brand-mark">λg</span>
+      <span><strong>微波技术基础</strong><small>先看物理图像，再算标准答案</small></span>
+    </a>
+    <label class="search-box">
+      <span class="search-icon">⌕</span>
+      <input id="siteSearch" type="search" placeholder="搜索知识点、题号、公式符号" autocomplete="off">
+    </label>
+    <button class="icon-button" type="button" data-theme-toggle aria-label="切换明暗主题">◐</button>
+  </header>
+  <div id="searchResults" class="search-results" hidden></div>
+  <div class="shell">
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-head">
+        <strong>目录</strong>
+        <button class="icon-button" type="button" data-sidebar-close aria-label="关闭目录">×</button>
+      </div>
+      <a class="nav-root-link" href="../../../index.html">首页</a>
+<details class="nav-group">
+<summary>学习指南</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../guide/beginner-handbook.html" title="学习指南 / 《微波技术基础》初学者学习手册">初学者学习手册</a></li>
+</ol>
+</details>
+<details class="nav-group">
+<summary>知识点讲义</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../knowledge/index.html" title="知识点讲义 / 《微波技术基础》知识点讲义目录">知识点总览</a></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../knowledge/01-传播与传输线/index.html">01 · 传播与传输线</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../knowledge/01-传播与传输线/01-长线短线与分布参数.html" title="知识点讲义 / 01-传播与传输线 / Lec01 · 长线、短线与分布参数">长线/短线</a></li>
+<li class="nav-item"><a href="../../knowledge/01-传播与传输线/02-行波相位常数与特性阻抗.html" title="知识点讲义 / 01-传播与传输线 / Lec02 · 行波、相位常数与特性阻抗">行波与特性阻抗</a></li>
+<li class="nav-item"><a href="../../knowledge/01-传播与传输线/03-反射驻波与输入阻抗.html" title="知识点讲义 / 01-传播与传输线 / Lec03 · 反射系数、驻波比与输入阻抗">反射与驻波</a></li>
+<li class="nav-item"><a href="../../knowledge/01-传播与传输线/04-行波纯驻波与行驻波.html" title="知识点讲义 / 01-传播与传输线 / Lec04 · 行波、纯驻波与行驻波">三种工作状态</a></li>
+<li class="nav-item"><a href="../../knowledge/01-传播与传输线/05-开短路线周期性与测量.html" title="知识点讲义 / 01-传播与传输线 / Lec05 · 开短路线、周期性与测量">开短路与周期性</a></li>
+<li class="nav-item"><a href="../../knowledge/01-传播与传输线/99-自检清单与常见误区.html" title="知识点讲义 / 01-传播与传输线 / Lec01-Lec05 · 自检清单与常见误区">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../knowledge/02-反射与匹配/index.html">02 · 反射与匹配</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../knowledge/02-反射与匹配/01-多段线并联与四分之一波长.html" title="知识点讲义 / 02-反射与匹配 / Lec06 · 多段线、并联与四分之一波长变换">多段线与 λ/4</a></li>
+<li class="nav-item"><a href="../../knowledge/02-反射与匹配/02-Smith圆图怎么读.html" title="知识点讲义 / 02-反射与匹配 / Lec07 · Smith 圆图怎么读">Smith 圆图</a></li>
+<li class="nav-item"><a href="../../knowledge/02-反射与匹配/03-并联支节匹配.html" title="知识点讲义 / 02-反射与匹配 / Lec08-Lec09 · 并联支节匹配">并联支节匹配</a></li>
+<li class="nav-item"><a href="../../knowledge/02-反射与匹配/99-自检清单与常见误区.html" title="知识点讲义 / 02-反射与匹配 / Lec06-Lec09 · 自检清单与常见误区">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../knowledge/03-波导中的场与边界/index.html">03 · 波导中的场与边界</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../knowledge/03-波导中的场与边界/00-从传输线到波导.html" title="知识点讲义 / 03-波导中的场与边界 / 00 · 术语与路线图（Lec10–Lec11）">从传输线到波导</a></li>
+<li class="nav-item"><a href="../../knowledge/03-波导中的场与边界/01-TEM-TE-TM波型.html" title="知识点讲义 / 03-波导中的场与边界 / 01 · 波型与传输线结构（TEM / TE / TM）">TEM / TE / TM</a></li>
+<li class="nav-item"><a href="../../knowledge/03-波导中的场与边界/02-纵向分量与分离变量.html" title="知识点讲义 / 03-波导中的场与边界 / 02 · 波动方程与分离变量（纵向分量）">纵向场与分离变量</a></li>
+<li class="nav-item"><a href="../../knowledge/03-波导中的场与边界/03-金属边界与截止.html" title="知识点讲义 / 03-波导中的场与边界 / 03 · 矩形波导边界与截止（$k_{\mathrm c}$，$f_{\mathrm c}$，$\lambda_{\mathrm c}$）">边界与截止</a></li>
+<li class="nav-item"><a href="../../knowledge/03-波导中的场与边界/04-从纵向场到全场.html" title="知识点讲义 / 03-波导中的场与边界 / 04 · 从 $E_z$ 到全场的推导套路（$\mathrm{TM}$ 例 · $\mathrm{TM}_{11}$）">纵向场到全场</a></li>
+<li class="nav-item"><a href="../../knowledge/03-波导中的场与边界/99-自检清单与常见误区.html" title="知识点讲义 / 03-波导中的场与边界 / 05 · 自检清单与常见误区（Lec10–Lec11）">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../knowledge/04-截止色散与速度/index.html">04 · 截止、色散与速度</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../knowledge/04-截止色散与速度/00-从截止到色散.html" title="知识点讲义 / 04-截止色散与速度 / 00 · 术语与路线图（Lec11～12）">从截止到色散</a></li>
+<li class="nav-item"><a href="../../knowledge/04-截止色散与速度/01-三种波长.html" title="知识点讲义 / 04-截止色散与速度 / 01 · 三种波长（$\lambda_0$，$\lambda_{\mathrm c}$，$\lambda_{\mathrm g}$）">三种波长</a></li>
+<li class="nav-item"><a href="../../knowledge/04-截止色散与速度/02-色散相速与群速.html" title="知识点讲义 / 04-截止色散与速度 / 02 · 色散、相速与群速">相速与群速</a></li>
+<li class="nav-item"><a href="../../knowledge/04-截止色散与速度/03-波导色散与材料色散.html" title="知识点讲义 / 04-截止色散与速度 / 03 · 波导色散与光学色散">结构色散 vs 材料色散</a></li>
+<li class="nav-item"><a href="../../knowledge/04-截止色散与速度/04-为什么空心波导没有TEM.html" title="知识点讲义 / 04-截止色散与速度 / 04 · 单导体波导为何无 TEM？">空心波导无 TEM</a></li>
+<li class="nav-item"><a href="../../knowledge/04-截止色散与速度/99-自检清单与常见误区.html" title="知识点讲义 / 04-截止色散与速度 / 05 · 自检清单与常见误区（Lec11～12）">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../knowledge/05-矩形波导工程计算/index.html">05 · 矩形波导工程计算</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../knowledge/05-矩形波导工程计算/00-工程计算路线图.html" title="知识点讲义 / 05-矩形波导工程计算 / 00 · 术语与路线图（Lec13–Lec16）">工程路线</a></li>
+<li class="nav-item"><a href="../../knowledge/05-矩形波导工程计算/01-模谱主模与简并.html" title="知识点讲义 / 05-矩形波导工程计算 / 01 · $k_{\mathrm c}$ 与模谱、主模 $\mathrm{TE}_{10}$ 与简并">模谱与主模</a></li>
+<li class="nav-item"><a href="../../knowledge/05-矩形波导工程计算/02-单模工作区与介质填充.html" title="知识点讲义 / 05-矩形波导工程计算 / 02 · 单模工作区与全介质填充">单模工作区</a></li>
+<li class="nav-item"><a href="../../knowledge/05-矩形波导工程计算/03-导波波长相速群速算例.html" title="知识点讲义 / 05-矩形波导工程计算 / 03 · $\lambda_{\mathrm g}$、相速、群速与工程算例">λg 与速度算例</a></li>
+<li class="nav-item"><a href="../../knowledge/05-矩形波导工程计算/04-可传输模判定与枚举.html" title="知识点讲义 / 05-矩形波导工程计算 / 04 · 可传输模的判定与枚举">可传输模枚举</a></li>
+<li class="nav-item"><a href="../../knowledge/05-矩形波导工程计算/05-波导段反射驻波与匹配.html" title="知识点讲义 / 05-矩形波导工程计算 / 05 · 波导段上的反射、驻波与匹配（衔接长线理论）">波导段匹配</a></li>
+<li class="nav-item"><a href="../../knowledge/05-矩形波导工程计算/99-自检清单与常见误区.html" title="知识点讲义 / 05-矩形波导工程计算 / 06 · 自检清单与常见误区（Lec13–Lec16）">自检与误区</a></li>
+</ol>
+</details></li>
+</ol>
+</details>
+<details class="nav-group" open>
+<summary>作业解答</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../index.html" title="作业解答 / 《微波技术基础》作业解答目录">作业总览</a></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../01-传输线基础/index.html">01 · 传输线作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../01-传输线基础/00-符号与导读.html" title="作业解答 / 01-传输线基础 / 第一次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../01-传输线基础/01-Lec01.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec01">Lec01 · 长短线</a></li>
+<li class="nav-item"><a href="../01-传输线基础/02-Lec02.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec02">Lec02 · 行波</a></li>
+<li class="nav-item"><a href="../01-传输线基础/03-Lec03.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec03">Lec03 · 反射驻波</a></li>
+<li class="nav-item"><a href="../01-传输线基础/04-Lec04.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec04">Lec04 · 工作状态</a></li>
+<li class="nav-item"><a href="../01-传输线基础/05-Lec05.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec05">Lec05 · 开短路</a></li>
+<li class="nav-item"><a href="../01-传输线基础/99-公式与图像.html" title="作业解答 / 01-传输线基础 / 第一次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../02-圆图与匹配/index.html">02 · 圆图匹配作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../02-圆图与匹配/00-符号与导读.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../02-圆图与匹配/01-Lec06.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · Lec06">Lec06 · 多段线</a></li>
+<li class="nav-item"><a href="../02-圆图与匹配/02-Lec07.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · Lec07">Lec07 · Smith 图</a></li>
+<li><details class="nav-subgroup depth-1">
+<summary><a class="nav-summary-link" href="../02-圆图与匹配/03-Lec08-09/index.html">Lec08-09</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../02-圆图与匹配/03-Lec08-09/第01题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 1 题">第1题</a></li>
+<li class="nav-item"><a href="../02-圆图与匹配/03-Lec08-09/第02题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 2 题">第2题</a></li>
+<li class="nav-item"><a href="../02-圆图与匹配/03-Lec08-09/第03题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 3 题">第3题</a></li>
+<li class="nav-item"><a href="../02-圆图与匹配/03-Lec08-09/第04题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 4 题">第4题</a></li>
+<li class="nav-item"><a href="../02-圆图与匹配/03-Lec08-09/第05题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 5 题">第5题</a></li>
+<li class="nav-item"><a href="../02-圆图与匹配/03-Lec08-09/第06题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 6 题">第6题</a></li>
+<li class="nav-item"><a href="../02-圆图与匹配/03-Lec08-09/第07题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 7 题">第7题</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../02-圆图与匹配/99-公式与图像.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="index.html">03 · 波导作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="00-符号与导读.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item active"><a href="01-Lec10-11.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · Lec10–Lec11（波导波动方程与 $\mathrm{TM}_{11}$）">Lec10-11 · 波型方程</a></li>
+<li class="nav-item"><a href="02-Lec11-12.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · Lec11～12（波导波长与色散、无 TEM）">Lec11-12 · 波长色散</a></li>
+<li><details class="nav-subgroup depth-1">
+<summary><a class="nav-summary-link" href="03-Lec13-16/index.html">Lec13-16</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="03-Lec13-16/第01题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–16）第 1 题：只传输 $\mathrm{TE}_{10}$ 的尺寸条件">第1题</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第02题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 2 题：$f=10\,\mathrm{GHz}$ 只传 $\mathrm{TE}_{10}$ 的尺寸与 $\lambda_{\mathrm g},v_{\mathrm p},v_{\mathrm g}$">第2题</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第03题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 3 题：$a\times b=10\times 6\,\mathrm{mm^2}$，求 $\mathrm{TE}_{10}$、$\mathrm{TE}_{20}$、$\mathrm{TE}_{21}$ 的截止频率">第3题</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第04题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 4 题：BJ-100，$\lambda_0=18\,\mathrm{mm}$，可能存在几种波型？">第4题</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第05题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 5 题：两种波导尺寸、四种工作波长">第5题</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第06题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 6 题：BJ-100，若干模的 $\lambda_{\mathrm c}$；只传 $\mathrm{TE}_{10}$ 的 $\lambda_0$ 范围">第6题</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第07题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 7 题：相邻两波节间距 $22.40\,\mathrm{mm}$，求 $\lambda_{\mathrm g}$">第7题</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第08题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 8 题：BJ-100，$\lambda_0=32\,\mathrm{mm}$，$\rho=3$，第一波节距负载 $9\,\mathrm{mm}$">第8题</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第09题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 9 题：长 $1\,\mathrm{m}$，$\lambda_0=3.2\,\mathrm{cm}$，$\bar Z_L=0.5$（$\mathrm{TE}_{10}$ 归一化）">第9题</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第10题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 10 题（选做）：$72.14\times 34.04\,\mathrm{mm^2}$，$f=6\,\mathrm{GHz}$">第10题（选做）</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第11题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 11 题（选做）：BJ-100 传 $\mathrm{TE}_{10}$，两种 $\lambda_0$ 区间">第11题（选做）</a></li>
+<li class="nav-item"><a href="03-Lec13-16/第12题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 12 题（选做）：击穿场强限制下的最大功率（量级）">第12题（选做）</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="99-公式与图像.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../04-后续专题/index.html" title="作业解答 / 04-后续专题 / 《微波技术基础》第四次作业标准解答">04 · 后续专题</a></li>
+</ol>
+</details>
+<details class="nav-group">
+<summary>附录</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../appendices/讲次-作业-教材章节-知识点矩阵.html" title="附录 / 讲次 · 作业 · 教材章节 · 核心知识点矩阵">讲次知识矩阵</a></li>
+</ol>
+</details>
+    </aside>
+    <main id="content" class="content">
+      <div class="breadcrumbs"><span class="crumb">作业解答</span>
+<span class="crumb">03-规则波导与矩形波导</span>
+<span class="crumb">第三次作业 · Lec10–Lec11（波导波动方程与 $\mathrm{TM}_{11}$）</span></div>
+      <article class="article">
+        <h1 id="lec10lec11-math27">第三次作业 · Lec10–Lec11（波导波动方程与 $\mathrm{TM}_{11}$）<a class="headerlink" href="#lec10lec11-math27" title="Permanent link">§</a></h1>
+<p><strong>导航：</strong> <a href="index.html">总目录</a> · <a href="00-符号与导读.html">符号与导读</a> · <strong>Lec10–11</strong> · <a href="02-Lec11-12.html">Lec11～12</a> · <a href="03-Lec13-16/index.html">Lec13–Lec16</a> · <a href="99-公式与图像.html">附录</a></p>
+<hr>
+<p><strong>对应大纲</strong>：Lec10–Lec11；教材：北理工 §2.1，华科 §2.1–2.2。</p>
+<hr>
+<h2 id="1">作业 1）什么是波型？简述几种主要波型的特点<a class="headerlink" href="#1" title="Permanent link">§</a></h2>
+<p><strong>波型（mode）</strong>：在规则波导等<strong>受限</strong>结构中，满足 Maxwell 方程与边界条件、能够<strong>独立存在</strong>且沿轴向具有简单谐变传播因子 $\mathrm e^{-\mathrm j\beta z}$（或 $\mathrm e^{+\mathrm j\beta z}$）的一类场分布；同一几何下可有无穷多离散模，每一模有其截止特性与场结构。</p>
+<p><img alt="TEM、TE、TM 三类波型的纵向场分量对比" src="../../../assets/images/gpt-hw3-wave-types-tem-te-tm.png"></p>
+<p>这道题先看纵向分量：有没有 $E_z$、有没有 $H_z$，基本就能把 TEM、TE、TM 分开。再补一句“结构是否允许”，就能解释为什么空心矩形波导没有 TEM。</p>
+<p><strong>TEM 模</strong>：$E_z=H_z=0$，场完全在横截面内；要求<strong>双导体</strong>或多导体结构以支持静电势解；<strong>空心单导体波导中不存在 TEM</strong>（见 Lec11～12 分册）。</p>
+<p><strong>TE 模（$H$ 波）</strong>：$E_z=0,\ H_z\neq 0$；电场在侧壁满足切向 $E_t=0$ 的边界条件，由纵向磁场通过 Maxwell 方程推出横向电场。</p>
+<p><strong>TM 模（$E$ 波）</strong>：$H_z=0,\ E_z\neq 0$；在理想导体壁上 $E_z=0$。</p>
+<p><strong>要点</strong>：$\mathrm{TE}$/$\mathrm{TM}$ 由<strong>是否存在纵向场分量</strong>划分；同一 $(m,n)$ 指数对可对应不同模族；矩形波导中 <strong>$\mathrm{TE}_{mn}$</strong> 与 <strong>$\mathrm{TM}_{mn}$</strong> 的截止波数 $k_{\mathrm c}$ 形式相同（$m,n$ 取值约束不同：TM 要求 $m,n\ge 1$）。</p>
+<hr>
+<h2 id="2">作业 2）利用分离变量法给出波动方程的通解（纲要）<a class="headerlink" href="#2" title="Permanent link">§</a></h2>
+<p>以无源区简谐场、直角坐标下 <strong>纵向分量</strong> $\psi$（代表 $E_z$ 或 $H_z$）为例，齐次 Helmholtz 方程</p>
+<p>$$
+\nabla^2\psi+k^2\psi=0,\qquad k^2=\omega^2\mu\varepsilon.
+$$</p>
+<p><img alt="分离变量法：先解纵向种子分量，再得到横截面本征值" src="../../../assets/images/gpt-wg-longitudinal-separation.png"></p>
+<p>这张图对应本题的答题骨架：先把三维场拆成横截面问题和 $z$ 向传播，再由边界条件把连续的 $k_x,k_y$ 变成离散的模指标。</p>
+<p>设 $\psi(x,y,z)=X(x)Y(y)Z(z)$，代入并除以 $\psi$ 得</p>
+<p>$$
+\frac{X''}{X}+\frac{Y''}{Y}+\frac{Z''}{Z}+k^2=0.
+$$</p>
+<p>令 $X''/X=-k_x^2$、$Y''/Y=-k_y^2$、$Z''/Z=-k_z^2$（分离常数），则</p>
+<p>$$
+k_x^2+k_y^2+k_z^2=k^2.
+$$</p>
+<p>各方向通解为三角函数或指数函数的线性组合（由边界与传播方向定）：例如</p>
+<p>$$
+X(x)=A\cos k_x x+B\sin k_x x,\quad
+Y(y)=C\cos k_y y+D\sin k_y y,\quad
+Z(z)=F\mathrm e^{-\mathrm j\beta z}+G\mathrm e^{+\mathrm j\beta z},
+$$</p>
+<p>其中 $\beta$ 与 $k_x,k_y$ 满足色散关系 $k_x^2+k_y^2+\beta^2=k^2$（记法与教材一致即可）。<strong>矩形波导</strong>中在理想导体壁强加 <strong>$E_t=0$</strong> 得 $k_x=m\pi/a$、$k_y=n\pi/b$，从而得到离散模谱与 $k_{\mathrm c}=\sqrt{k_x^2+k_y^2}$。</p>
+<hr>
+<h2 id="3-math64">作业 3）推导矩形波导中 $\mathrm{TM}_{11}$ 模的场量表达式<a class="headerlink" href="#3-math64" title="Permanent link">§</a></h2>
+<p><img alt="从 $\mathrm{TM}_{11}$ 的 $E_z$ 推到全场分量" src="../../../assets/images/gpt-wg-tm11-ez-to-full-field.png"></p>
+<p>本题最稳的路线是“先纵向、后横向”：先用四壁 $E_z=0$ 解出 $\sin(\pi x/a)\sin(\pi y/b)$，再求偏导并代入 Maxwell 旋度关系。不要一开始就分别猜五个非零场分量。</p>
+<h3 id="_1">前置知识：什么是矩形波导？<a class="headerlink" href="#_1" title="Permanent link">§</a></h3>
+<p><strong>矩形波导（rectangular waveguide）</strong>指横截面为矩形的<strong>空心金属管</strong>，电磁波主要在管内<strong>空气</strong>（或介质）中沿管的<strong>轴向</strong>（教材常记为 $z$ 轴）传播。金属壁一般为良导体近似为<strong>理想导体</strong>，用来<strong>约束</strong>电磁场并形成<strong>分立的模式（模）</strong>，在微波频段常用于馈线、馈网或与器件连接。</p>
+<p><strong>几何与记号（与本题一致）</strong>：设截面在 $xy$ 平面，管长沿 $z$。内侧宽边长记为 <strong>$a$</strong>，窄边为 <strong>$b$</strong>，常见取 <strong>$a>b$</strong>（例如标准波导 BJ-100 / WR-90 的尺寸即为一例）。本题在区域 <strong>$0\le x\le a,\ 0\le y\le b$</strong> 内写场，边界即四面金属壁。</p>
+<p><strong>和同轴线 / 双线相比（直观区别）</strong>：同轴线、平行双导线等<strong>双导体</strong>结构可以支撑 <strong>TEM 模</strong>（场完全在横截面内）；而<strong>空心单导体</strong>矩形管<strong>不能</strong>传 TEM，只能传 <strong>$\mathrm{TE}$</strong>、<strong>$\mathrm{TM}$</strong> 等波导模——这是「为什么课上要先讲波导模分类」的原因之一。</p>
+<p><strong>为什么要单独讲它</strong>：形状简单，边界与直角坐标对齐，<strong>数学上可用分离变量</strong>得到 $\sin(m\pi x/a)$、$\sin(n\pi y/b)$ 等本征函数；工程上尺寸与截止频率一一对应，便于设计「单模工作」频段。</p>
+<hr>
+<h3 id="math80">前置知识：截止波数 $k_{\mathrm c}$ 是什么？<a class="headerlink" href="#math80" title="Permanent link">§</a></h3>
+<p><strong>一句话</strong>：对某一给定波导模（例如本题 $\mathrm{TM}_{11}$），<strong>截止波数</strong> $k_{\mathrm c}$ 是由<strong>横截面几何 + 边界条件</strong>决定的常数，出现在<strong>导行条件</strong>与<strong>色散关系</strong>里；它<strong>不是</strong>自由空间波数 $k=\omega\sqrt{\mu\varepsilon}$ 的别名。</p>
+<p><strong>① 它和传播常数 $\beta$ 的关系（最常用写法）</strong><br>
+沿 $z$ 导行时，无耗均匀填充下常写成</p>
+<p>$$
+k^2=k_{\mathrm c}^2+\beta^2
+\qquad\text{等价于}\qquad
+\beta=\sqrt{k^2-k_{\mathrm c}^2}\,.
+$$
+（当 $k>k_{\mathrm c}$ 时 $\beta$ 为实数，对应可导行。）</p>
+<p>这里 $k=\omega\sqrt{\mu\varepsilon}$ 由<strong>工作频率</strong>决定；$k_{\mathrm c}$ 对<strong>该模</strong>固定。$k>k_{\mathrm c}$ 时 $\beta$ 为实数，场沿 $z$ 行波传播；$k<k_{\mathrm c}$ 时 $\beta$ 为虚数，场沿 $z$ <strong>衰减</strong>（截止区，不能远距离导行）。</p>
+<p><strong>② 为什么叫「截止」</strong><br>
+当 <strong>$k=k_{\mathrm c}$</strong>（即 <strong>$\beta=0$</strong>）时，对应<strong>截止角频率</strong> $\omega_{\mathrm c}$、<strong>截止频率</strong> $f_{\mathrm c}$、<strong>截止波长</strong> $\lambda_{\mathrm c}$（空气填充时常用 $\lambda_{\mathrm c}=2\pi/k_{\mathrm c}$、$f_{\mathrm c}=c\,k_{\mathrm c}/(2\pi)$）。<strong>高于</strong> $f_{\mathrm c}$（或<strong>短于</strong> $\lambda_{\mathrm c}$）时该模才能导行；<strong>低于</strong> $f_{\mathrm c}$ 则该模被截止。</p>
+<p><strong>③ 它从哪里来（和本题 Helmholtz 方程的联系）</strong><br>
+横截面上纵向分量满足 $(\nabla_t^2+k_{\mathrm c}^2)\psi=0$ 的<strong>本征值问题</strong>；边界条件使 $k_{\mathrm c}$ 只能取<strong>离散谱</strong>。矩形波导中由 $\displaystyle k_x=\frac{m\pi}{a},\ k_y=\frac{n\pi}{b}$ 得</p>
+<p>$$
+k_{\mathrm c}=\sqrt{k_x^2+k_y^2},
+$$</p>
+<p><strong>每一组</strong> $(m,n)$ 对应<strong>一个模</strong>、<strong>一个</strong> $k_{\mathrm c}$。本题 $\mathrm{TM}_{11}$ 即 $m=n=1$ 的那一组。</p>
+<p><strong>④ 小结</strong><br>
+记 $k_{\mathrm c}$ 时心里可对照三句话：<strong>色散里和 $\beta$ 配对</strong>、<strong>截止处与 $f_{\mathrm c},\lambda_{\mathrm c}$ 对应</strong>、<strong>由横截面本征问题算出</strong>。</p>
+<hr>
+<h3 id="math116-helmholtz">前置知识：为什么还要先写 $E_z$ 的 Helmholtz 方程？<a class="headerlink" href="#math116-helmholtz" title="Permanent link">§</a></h3>
+<p>本题的目标是<strong>先求出 $E_z(x,y,z)$，再用 Maxwell 方程推出 $E_x,E_y,H_x,H_y$</strong>。下面说明第（1）步里那句「$E_z$ 在横截面上满足二维 Helmholtz 方程」的来龙去脉——<strong>它整道题的出发点</strong>。</p>
+<p><strong>① 无源、均匀介质中的矢量 Helmholtz 方程</strong><br>
+时谐场（$\partial/\partial t\to \mathrm j\omega$）、无源区（$\rho=0,\ \boldsymbol J=0$）下，由 Maxwell 方程组可推出电场（同样地，磁场也满足）：</p>
+<p>$$
+\nabla^2\boldsymbol E+k^2\boldsymbol E=\boldsymbol 0,
+\qquad k^2=\omega^2\mu\varepsilon.
+$$</p>
+<p>这是<strong>矢量</strong>方程：在直角坐标系里，<strong>每个直角分量</strong> $E_x,E_y,E_z$ 都各自满足<strong>同一个标量</strong> Helmholtz 方程 $\nabla^2\psi+k^2\psi=0$（$\psi$ 代表任一分量）。</p>
+<p><strong>② 沿 $z$ 导行的行波假设</strong><br>
+规则波导沿 $z$ 方向均匀，可设所有场量分离出传播因子 $\mathrm e^{-\mathrm j\beta z}$，即对任意标量场有</p>
+<p>$$
+\frac{\partial^2}{\partial z^2}\to -\beta^2.
+$$</p>
+<p>于是对 $E_z$（仅是 $x,y,z$ 的函数）有全 Laplacian：</p>
+<p>$$
+\nabla^2 E_z
+=\nabla_t^2 E_z+\frac{\partial^2 E_z}{\partial z^2}
+=\nabla_t^2 E_z-\beta^2 E_z,
+$$</p>
+<p>其中 $\displaystyle \nabla_t^2=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}$ 为<strong>横向</strong> Laplacian。</p>
+<p><strong>③ 从标量 Helmholtz 到「横向二维」方程</strong><br>
+将上式代入 $\nabla^2 E_z+k^2 E_z=0$，得到</p>
+<p>$$
+\nabla_t^2 E_z+(k^2-\beta^2)E_z=0.
+$$</p>
+<p>记 $k_{\mathrm c}^2=k^2-\beta^2$，即</p>
+<p>$$
+(\nabla_t^2+k_{\mathrm c}^2)E_z=0.
+$$</p>
+<p><strong>这就是第（1）节中要写的第一条式子</strong>：它只在<strong>横截面 $(x,y)$</strong> 上求解，<strong>$z$ 的传播常数 $\beta$ 已吸收进 $k_{\mathrm c}$ 的定义里</strong>。物理上，$k_{\mathrm c}$ 是本征值问题定出的<strong>截止波数</strong>；给定截面与模式 $(m,n)$ 后 $k_{\mathrm c}$ 固定，再由 $k^2=k_{\mathrm c}^2+\beta^2$ 得到色散关系 $\beta=\sqrt{k^2-k_{\mathrm c}^2}$。</p>
+<p><strong>④ 与 TM 分类的关系（本题为何先盯 $E_z$）</strong><br>
+- <strong>TM 模</strong>约定 $H_z\equiv 0,\ E_z\neq 0$：纵向电场不恒为零，且在<strong>理想导体壁</strong>上切向电场为零 $\Rightarrow$ 壁上 $E_z=0$ 成为<strong>对 $E_z$ 的直接 Dirichlet 条件</strong>，最容易先解出 $E_z$ 的本征函数。<br>
+- 求出 $E_z$ 后，无 $H_z$ 时横向场 $\boldsymbol E_t,\boldsymbol H_t$ 由 Maxwell 的旋度方程用 $\partial E_z/\partial x,\ \partial E_z/\partial y$ 表出（正文第（4）步），所以<strong>Helmholtz + 边界条件</strong>是整道题的「上半局」，<strong>旋度关系</strong>是「下半局」。</p>
+<p><strong>⑤ 若你愿意对照更「教科书」的写法</strong><br>
+有的教材先从 $\nabla\times\boldsymbol E=-\mathrm j\omega\mu\boldsymbol H$、$\nabla\times\boldsymbol H=\mathrm j\omega\varepsilon\boldsymbol E$ 对 $\mathrm{TM}$ 模消去 $\boldsymbol H$ 或直接对 $E_z$ 推波动方程，也会得到等价的 $(\nabla_t^2+k_{\mathrm c}^2)E_z=0$。<strong>本题作业只需掌握「标量 Helmholtz + 矩形边界 $\Rightarrow$ $\sin$ 本征函数」这一条线即可作答。</strong></p>
+<hr>
+<h4 id="_2">延伸：建议搭配学习的前置 / 相邻知识点<a class="headerlink" href="#_2" title="Permanent link">§</a></h4>
+<table>
+<thead>
+<tr>
+<th>主题</th>
+<th>与本题的关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>矩形波导的几何</strong>（$a\times b$ 截面、沿 $z$ 传播、空心导体管）</td>
+<td>定下求解域与壁上边界条件；与「双导体传输线」概念对比。</td>
+</tr>
+<tr>
+<td><strong>截止波数 $k_{\mathrm c}$</strong>、<strong>$\beta$</strong>、<strong>$f_{\mathrm c}$/$\lambda_{\mathrm c}$</strong></td>
+<td>$k^2=k_{\mathrm c}^2+\beta^2$；$k_{\mathrm c}$ 由截面与 $(m,n)$ 决定；截止即 $\beta=0$。</td>
+</tr>
+<tr>
+<td><strong>时谐 Maxwell、复数记号 $\mathrm j\omega$</strong></td>
+<td>把场方程化为频域，才有 $k=\omega\sqrt{\mu\varepsilon}$。</td>
+</tr>
+<tr>
+<td><strong>理想导体边界条件</strong>（$\boldsymbol n\times\boldsymbol E=0\Rightarrow$ 切向 $E=0$，法向 $H=0$ 等）</td>
+<td>TM：壁上 $E_z=0$；TE 则常先解 $H_z$。</td>
+</tr>
+<tr>
+<td><strong>$\mathrm{TE}$/$\mathrm{TM}$ 分类与「先求哪个纵向分量」</strong></td>
+<td>本题 TM 先 $E_z$；TE 则常先求 $H_z$。</td>
+</tr>
+<tr>
+<td><strong>分离变量法</strong>、<strong>Sturm–Liouville 本征值</strong></td>
+<td>矩形域 $\Rightarrow$ $k_x=m\pi/a,\ k_y=n\pi/b$。</td>
+</tr>
+<tr>
+<td><strong>色散</strong> $k^2=k_{\mathrm c}^2+\beta^2$、<strong>截止</strong> $k=k_{\mathrm c}$</td>
+<td>理解 $k_{\mathrm c}$ 不是额外假设，而是由本征问题给出的常数。</td>
+</tr>
+<tr>
+<td><strong>由 $\nabla\times\boldsymbol E$、$\nabla\times\boldsymbol H$ 写横向场</strong>（或横向–纵向场公式）</td>
+<td>求得 $E_z$ 后算 $E_x,E_y,H_x,H_y$。</td>
+</tr>
+<tr>
+<td>（进阶）<strong>矢量 Helmholtz 与直角分量为何可分离</strong></td>
+<td>直角坐标下 $\nabla^2\boldsymbol E$ 的各分量形式在均匀介质中互不耦合，故可用标量方程逐个处理。</td>
+</tr>
+<tr>
+<td><strong>$k,k_0,k_x,k_y,k_{\mathrm c},\beta$ 与 $\lambda_0,\lambda_{\mathrm c},\lambda_{\mathrm g}$</strong></td>
+<td>见下文 <strong>「与波数相关的概念一览」</strong> 速查表。</td>
+</tr>
+</tbody>
+</table>
+<p>教材上可重点阅读：<strong>规则波导中纵向场满足的波动方程推导</strong>、<strong>矩形波导 TM 模边界条件</strong>、<strong>横纵向场互推</strong>三节，再动笔做本题会顺很多。</p>
+<hr>
+<h4 id="_3">延伸：与「波数」相关的概念一览（供系统学习）<a class="headerlink" href="#_3" title="Permanent link">§</a></h4>
+<p>下面把微波基础里<strong>常和「波数」一起出现</strong>的记号收拢成表，便于对照教材与作业。记号以<strong>空气/均匀介质、时谐、无耗</strong>为主；有耗或各向异性介质时，教材可能引入<strong>复波数</strong>或<strong>张量</strong>，此处不展开。</p>
+<p><strong>（A）最基本：介质中的波数 $k$ 与波长</strong></p>
+<table>
+<thead>
+<tr>
+<th>记号 / 名称</th>
+<th>含义（常见说法）</th>
+<th>常用关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>$k$</strong></td>
+<td><strong>（介质）波数</strong>，无界均匀介质中平面波的相位常数大小</td>
+<td>$k=\omega\sqrt{\mu\varepsilon}=k_0\sqrt{\mu_{\mathrm r}\varepsilon_{\mathrm r}}$</td>
+</tr>
+<tr>
+<td><strong>$k_0$</strong></td>
+<td><strong>真空波数</strong></td>
+<td>$k_0=\omega/c=\omega\sqrt{\mu_0\varepsilon_0}$</td>
+</tr>
+<tr>
+<td><strong>$\lambda_0$</strong>、<strong>工作波长</strong></td>
+<td>无界介质中由 $f$ 决定的波长（空气常写 $\lambda_0=c/f$）</td>
+<td>$\lambda_0=2\pi/k$（对应该介质中的 $k$）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（B）波导：横向分离常数 $k_x,k_y$ 与截止波数 $k_{\mathrm c}$</strong></p>
+<table>
+<thead>
+<tr>
+<th>记号 / 名称</th>
+<th>含义</th>
+<th>矩形波导中（与本题相关）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>$k_x,k_y$</strong></td>
+<td>分离变量得到的<strong>横向波数</strong>（本征值）</td>
+<td>$k_x=m\pi/a,\ k_y=n\pi/b$</td>
+</tr>
+<tr>
+<td><strong>$k_{\mathrm c}$</strong></td>
+<td><strong>截止波数</strong>；该模在横截面上的<strong>本征值</strong></td>
+<td>$k_{\mathrm c}=\sqrt{k_x^2+k_y^2}$；每一 $(m,n)$ 一组</td>
+</tr>
+<tr>
+<td><strong>$\beta$</strong></td>
+<td>沿 $z$ 的<strong>相位常数</strong>（导行波的<strong>传播常数</strong>的虚部；无耗时常为实数）</td>
+<td><strong>色散</strong>：$k^2=k_{\mathrm c}^2+\beta^2$（无耗均匀填充）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（C）与「波长」有关的几种 $\lambda$（勿混）</strong></p>
+<table>
+<thead>
+<tr>
+<th>记号</th>
+<th>名称</th>
+<th>与波数关系（常见）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>$\lambda_0$</strong></td>
+<td>工作波长（自由空间或介质中「等效」波长，依教材定义）</td>
+<td>$\lambda_0=2\pi/k$</td>
+</tr>
+<tr>
+<td><strong>$\lambda_{\mathrm c}$</strong></td>
+<td><strong>截止波长</strong>（该模刚好截止时）</td>
+<td>$\lambda_{\mathrm c}=2\pi/k_{\mathrm c}$（常这样对应）</td>
+</tr>
+<tr>
+<td><strong>$\lambda_{\mathrm g}$</strong></td>
+<td><strong>波导波长</strong>（沿 $z$ 相位差 $2\pi$ 的距离）</td>
+<td>$\lambda_{\mathrm g}=2\pi/\beta$，且一般 $\lambda_{\mathrm g}\neq\lambda_0$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（D）其它易混名称（说法）</strong></p>
+<table>
+<thead>
+<tr>
+<th>说法</th>
+<th>通常指什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>传播常数</strong></td>
+<td>沿传播方向（此处为 $z$）的常数；无耗导行时常记 <strong>$\gamma=\mathrm j\beta$</strong>，只含 <strong>$\beta$</strong>；有耗时 $\gamma=\alpha+\mathrm j\beta$（<strong>衰减常数</strong> $\alpha$ + <strong>相位常数</strong> $\beta$）。</td>
+</tr>
+<tr>
+<td><strong>相位常数</strong></td>
+<td>场沿 $z$ 相位变化快慢，即上面的 <strong>$\beta$</strong>（与「波数」同量纲 $\mathrm{rad/m}$）。</td>
+</tr>
+<tr>
+<td><strong>空间角频率</strong></td>
+<td>有时把 <strong>$k$</strong> 口语说成场的「空间角频率」，与时间上 $\omega$ 对应。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（E）本题一条链（把符号串起来）</strong></p>
+<p>矩形 $\mathrm{TM}_{mn}$：先由边界得 <strong>$k_x,k_y$</strong> $\Rightarrow$ <strong>$k_{\mathrm c}=\sqrt{k_x^2+k_y^2}$</strong>；再由工作频率定 <strong>$k=\omega\sqrt{\mu\varepsilon}$</strong> $\Rightarrow$ <strong>$\beta=\sqrt{k^2-k_{\mathrm c}^2}$</strong>（$k>k_{\mathrm c}$）；若需要沿 $z$ 波长，用 <strong>$\lambda_{\mathrm g}=2\pi/\beta$</strong>。</p>
+<p>更全的符号约定见 <a href="00-符号与导读.html">第三次作业解答-00-符号与导读.md</a>。</p>
+<hr>
+<h3 id="1tm">（1）TM 模与纵向分量的方程（结论式）<a class="headerlink" href="#1tm" title="Permanent link">§</a></h3>
+<p><strong>TM 模</strong>：$H_z\equiv 0$，$E_z\neq 0$。承接上文「$\nabla^2 E_z+k^2 E_z=0$ + $\partial_z\to -\mathrm j\beta$」，横截面上 $E_z(x,y)$ 满足的方程可<strong>缩写</strong>为</p>
+<p>$$
+\nabla_t^2 E_z+(k^2-\beta^2)E_z=0,
+$$</p>
+<p>记 <strong>截止波数</strong> $k_{\mathrm c}^2=k^2-\beta^2$（$k^2=\omega^2\mu\varepsilon$），即</p>
+<p>$$
+(\nabla_t^2+k_{\mathrm c}^2)E_z=0.
+$$</p>
+<hr>
+<h3 id="2_1">（2）分离变量与本征函数（矩形域）<a class="headerlink" href="#2_1" title="Permanent link">§</a></h3>
+<p>在 $0\le x\le a,\ 0\le y\le b$ 内设</p>
+<p>$$
+E_z(x,y)=X(x)Y(y),\qquad
+\text{全解再乘传播因子}\quad \mathrm e^{-\mathrm j\beta z}.
+$$</p>
+<p>代入 $(\partial_x^2+\partial_y^2)E_z+k_{\mathrm c}^2 E_z=0$ 并分离变量，得</p>
+<p>$$
+\frac{X''}{X}+\frac{Y''}{Y}+k_{\mathrm c}^2=0
+\quad\Rightarrow\quad
+X''+k_x^2 X=0,\quad Y''+k_y^2 Y=0,\quad
+k_x^2+k_y^2=k_{\mathrm c}^2.
+$$</p>
+<p><strong>边界条件（理想导体壁）</strong>：切向电场在壁上为零；$\mathrm{TM}$ 模在壁上 $E_z=0$，故</p>
+<p>$$
+E_z\big|_{x=0,a}=0,\qquad E_z\big|_{y=0,b}=0.
+$$</p>
+<p>从而 $X,\ Y$ 取正弦本征函数，<strong>本征值</strong>为</p>
+<p>$$
+k_x=\frac{m\pi}{a},\quad
+k_y=\frac{n\pi}{b},\quad
+m,n=1,2,\ldots
+$$</p>
+<p>（$\mathrm{TM}$ 模要求 $m,n\ge 1$，不能为 $0$，否则 $E_z\equiv 0$。）</p>
+<p><strong>$\mathrm{TM}_{11}$ 模</strong>取 $m=n=1$，记待定常数 $E_0$，则</p>
+<p>$$
+E_z(x,y,z)=E_0\sin\frac{\pi x}{a}\sin\frac{\pi y}{b}\,\mathrm e^{-\mathrm j\beta z}.
+$$</p>
+<p>此时</p>
+<p>$$
+k_{\mathrm c}^2=k_x^2+k_y^2
+=\left(\frac{\pi}{a}\right)^2+\left(\frac{\pi}{b}\right)^2,
+\qquad
+\beta=\sqrt{k^2-k_{\mathrm c}^2}
+$$</p>
+<p>（导行时要求 $k>k_{\mathrm c}$，即 $\beta$ 为实数。）</p>
+<hr>
+<h3 id="3-math265">（3）由 $E_z$ 求各偏导<a class="headerlink" href="#3-math265" title="Permanent link">§</a></h3>
+<p>记 $\displaystyle \phi(x,y)=\sin\frac{\pi x}{a}\sin\frac{\pi y}{b}$，则 $E_z=E_0\,\phi\,\mathrm e^{-\mathrm j\beta z}$。对 $x,y$ 求偏导：</p>
+<p>$$
+\frac{\partial E_z}{\partial x}
+= E_0\,\frac{\pi}{a}\cos\frac{\pi x}{a}\sin\frac{\pi y}{b}\,\mathrm e^{-\mathrm j\beta z},
+$$</p>
+<p>$$
+\frac{\partial E_z}{\partial y}
+= E_0\,\frac{\pi}{b}\sin\frac{\pi x}{a}\cos\frac{\pi y}{b}\,\mathrm e^{-\mathrm j\beta z}.
+$$</p>
+<hr>
+<h3 id="4">（4）横向场与纵向场的关系（常用形式）<a class="headerlink" href="#4" title="Permanent link">§</a></h3>
+<p>由 Maxwell 方程，$\mathrm{TM}$ 模（$H_z=0$）下可将横向场用 $E_z$ 表为（与本文 $\mathrm e^{-\mathrm j\beta z}$ 约定一致时教材常见写法）：</p>
+<p>$$
+E_x=\frac{-\mathrm j\beta}{k_{\mathrm c}^2}\frac{\partial E_z}{\partial x},\quad
+E_y=\frac{-\mathrm j\beta}{k_{\mathrm c}^2}\frac{\partial E_z}{\partial y},
+$$</p>
+<p>$$
+H_x=\frac{\mathrm j\omega\varepsilon}{k_{\mathrm c}^2}\frac{\partial E_z}{\partial y},\quad
+H_y=\frac{-\mathrm j\omega\varepsilon}{k_{\mathrm c}^2}\frac{\partial E_z}{\partial x}.
+$$</p>
+<p>将（3）中偏导代入，得到 <strong>$\mathrm{TM}_{11}$ 模各分量显式</strong>（以下各式的公共因子均为 $\mathrm e^{-\mathrm j\beta z}$）：</p>
+<p>$$
+E_x=-\frac{\mathrm j\beta}{k_{\mathrm c}^2}\,E_0\,\frac{\pi}{a}\cos\frac{\pi x}{a}\sin\frac{\pi y}{b}\,\mathrm e^{-\mathrm j\beta z},
+$$</p>
+<p>$$
+E_y=-\frac{\mathrm j\beta}{k_{\mathrm c}^2}\,E_0\,\frac{\pi}{b}\sin\frac{\pi x}{a}\cos\frac{\pi y}{b}\,\mathrm e^{-\mathrm j\beta z},
+$$</p>
+<p>$$
+H_x=\frac{\mathrm j\omega\varepsilon}{k_{\mathrm c}^2}\,E_0\,\frac{\pi}{b}\sin\frac{\pi x}{a}\cos\frac{\pi y}{b}\,\mathrm e^{-\mathrm j\beta z},
+$$</p>
+<p>$$
+H_y=-\frac{\mathrm j\omega\varepsilon}{k_{\mathrm c}^2}\,E_0\,\frac{\pi}{a}\cos\frac{\pi x}{a}\sin\frac{\pi y}{b}\,\mathrm e^{-\mathrm j\beta z}.
+$$</p>
+<p>其中 $\displaystyle k_{\mathrm c}^2=\left(\frac{\pi}{a}\right)^2+\left(\frac{\pi}{b}\right)^2$。<strong>纵向场</strong>已在前文给出：$E_z=E_0\sin\frac{\pi x}{a}\sin\frac{\pi y}{b}\,\mathrm e^{-\mathrm j\beta z}$；$H_z=0$。</p>
+<hr>
+<h3 id="5">（5）小结与系数说明<a class="headerlink" href="#5" title="Permanent link">§</a></h3>
+<p><strong>推导顺序</strong>：$\mathrm{TM}$ 定义 $\to$ $E_z$ 的 Helmholtz 方程与 $k_{\mathrm c}$ 定义 $\to$ 分离变量 $+$ 四壁 $E_z=0$ $\to$ $\mathrm{TM}_{11}$ 的 $E_z$ $\to$ 求 $\partial E_z/\partial x,\partial E_z/\partial y$ $\to$ 代入横向–纵向关系得 $E_x,E_y,H_x,H_y$。</p>
+<p><strong>系数 $E_0$</strong> 由激励强度或功率归一化确定；作业只要「表达式」时常保留为常数即可。若采用不同的时间因子或传播因子，横向场公式里的 $\pm\mathrm j$ 会随整套相位约定同步变化；作答时保持同一套约定自洽即可。</p>
+      </article>
+      <nav class="pager" aria-label="章节导航"><a class="pager-link prev" href="00-符号与导读.html"><span>上一篇</span><strong>第三次作业 · 符号约定与导读</strong></a><a class="pager-link next" href="02-Lec11-12.html"><span>下一篇</span><strong>第三次作业 · Lec11～12（波导波长与色散、无 TEM）</strong></a></nav>
+    </main>
+    <aside class="toc-panel" aria-label="页内目录">
+      <strong>本页</strong>
+      <div class="toc">
+<ul>
+<li><a href="#1">作业 1）什么是波型？简述几种主要波型的特点</a></li>
+<li><a href="#2">作业 2）利用分离变量法给出波动方程的通解（纲要）</a></li>
+<li><a href="#3-math64">作业 3）推导矩形波导中 $\mathrm{TM}_{11}$ 模的场量表达式</a><ul>
+<li><a href="#_1">前置知识：什么是矩形波导？</a></li>
+<li><a href="#math80">前置知识：截止波数 $k_{\mathrm c}$ 是什么？</a></li>
+<li><a href="#math116-helmholtz">前置知识：为什么还要先写 $E_z$ 的 Helmholtz 方程？</a></li>
+<li><a href="#1tm">（1）TM 模与纵向分量的方程（结论式）</a></li>
+<li><a href="#2_1">（2）分离变量与本征函数（矩形域）</a></li>
+<li><a href="#3-math265">（3）由 $E_z$ 求各偏导</a></li>
+<li><a href="#4">（4）横向场与纵向场的关系（常用形式）</a></li>
+<li><a href="#5">（5）小结与系数说明</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    </aside>
+  </div>
+</body>
+</html>
