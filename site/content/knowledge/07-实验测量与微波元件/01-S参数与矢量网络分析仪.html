@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 · S 参数与矢量网络分析仪 · 微波技术基础</title>
+  <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../../assets/style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      chtml: {
+        mtextInheritFont: true,
+        scale: 1.04
+      }
+    };
+    window.SITE_ROOT = "../../../";
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script defer src="../../../assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="topbar">
+    <button class="icon-button menu-button" type="button" data-sidebar-toggle aria-label="打开目录">☰</button>
+    <a class="brand" href="../../../index.html">
+      <span class="brand-mark">λg</span>
+      <span><strong>微波技术基础</strong><small>微波里的波，会反射，也会被波导筛选</small></span>
+    </a>
+    <label class="search-box">
+      <span class="search-icon">⌕</span>
+      <input id="siteSearch" type="search" placeholder="搜索知识点、题号、公式符号" autocomplete="off">
+    </label>
+    <button class="icon-button" type="button" data-theme-toggle aria-label="切换明暗主题">◐</button>
+  </header>
+  <div id="searchResults" class="search-results" hidden></div>
+  <div class="shell">
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-head">
+        <strong>目录</strong>
+        <button class="icon-button" type="button" data-sidebar-close aria-label="关闭目录">×</button>
+      </div>
+      <a class="nav-root-link" href="../../../index.html">首页</a>
+<details class="nav-group">
+<summary>学习指南</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../guide/beginner-handbook.html" title="学习指南 / 《微波技术基础》初学者学习手册">初学者学习手册</a></li>
+</ol>
+</details>
+<details class="nav-group" open>
+<summary>知识点讲义</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../index.html" title="知识点讲义 / 《微波技术基础》知识点讲义目录">知识点总览</a></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../01-传播与传输线/index.html">01 · 传播与传输线</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../01-传播与传输线/01-长线短线与分布参数.html" title="知识点讲义 / 01-传播与传输线 / Lec01 · 长线、短线与分布参数">长线/短线</a></li>
+<li class="nav-item"><a href="../01-传播与传输线/02-行波相位常数与特性阻抗.html" title="知识点讲义 / 01-传播与传输线 / Lec02 · 行波、相位常数与特性阻抗">行波与特性阻抗</a></li>
+<li class="nav-item"><a href="../01-传播与传输线/03-反射驻波与输入阻抗.html" title="知识点讲义 / 01-传播与传输线 / Lec03 · 反射系数、驻波比与输入阻抗">反射与驻波</a></li>
+<li class="nav-item"><a href="../01-传播与传输线/04-行波纯驻波与行驻波.html" title="知识点讲义 / 01-传播与传输线 / Lec04 · 行波、纯驻波与行驻波">三种工作状态</a></li>
+<li class="nav-item"><a href="../01-传播与传输线/05-开短路线周期性与测量.html" title="知识点讲义 / 01-传播与传输线 / Lec05 · 开短路线、周期性与测量">开短路与周期性</a></li>
+<li class="nav-item"><a href="../01-传播与传输线/99-自检清单与常见误区.html" title="知识点讲义 / 01-传播与传输线 / Lec01-Lec05 · 自检清单与常见误区">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../02-反射与匹配/index.html">02 · 反射与匹配</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../02-反射与匹配/01-多段线并联与四分之一波长.html" title="知识点讲义 / 02-反射与匹配 / Lec06 · 多段线、并联与四分之一波长变换">多段线与 λ/4</a></li>
+<li class="nav-item"><a href="../02-反射与匹配/02-Smith圆图怎么读.html" title="知识点讲义 / 02-反射与匹配 / Lec07 · Smith 圆图怎么读">Smith 圆图</a></li>
+<li class="nav-item"><a href="../02-反射与匹配/03-并联支节匹配.html" title="知识点讲义 / 02-反射与匹配 / Lec08-Lec09 · 并联支节匹配">并联支节匹配</a></li>
+<li class="nav-item"><a href="../02-反射与匹配/99-自检清单与常见误区.html" title="知识点讲义 / 02-反射与匹配 / Lec06-Lec09 · 自检清单与常见误区">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../03-波导中的场与边界/index.html">03 · 波导中的场与边界</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../03-波导中的场与边界/00-从传输线到波导.html" title="知识点讲义 / 03-波导中的场与边界 / 00 · 术语与路线图（Lec10–Lec11）">从传输线到波导</a></li>
+<li class="nav-item"><a href="../03-波导中的场与边界/01-TEM-TE-TM波型.html" title="知识点讲义 / 03-波导中的场与边界 / 01 · 波型与传输线结构（TEM / TE / TM）">TEM / TE / TM</a></li>
+<li class="nav-item"><a href="../03-波导中的场与边界/02-纵向分量与分离变量.html" title="知识点讲义 / 03-波导中的场与边界 / 02 · 波动方程与分离变量（纵向分量）">纵向场与分离变量</a></li>
+<li class="nav-item"><a href="../03-波导中的场与边界/03-金属边界与截止.html" title="知识点讲义 / 03-波导中的场与边界 / 03 · 矩形波导边界与截止（$k_{\mathrm c}$，$f_{\mathrm c}$，$\lambda_{\mathrm c}$）">边界与截止</a></li>
+<li class="nav-item"><a href="../03-波导中的场与边界/04-从纵向场到全场.html" title="知识点讲义 / 03-波导中的场与边界 / 04 · 从 $E_z$ 到全场的推导套路（$\mathrm{TM}$ 例 · $\mathrm{TM}_{11}$）">纵向场到全场</a></li>
+<li class="nav-item"><a href="../03-波导中的场与边界/99-自检清单与常见误区.html" title="知识点讲义 / 03-波导中的场与边界 / 05 · 自检清单与常见误区（Lec10–Lec11）">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../04-截止色散与速度/index.html">04 · 截止、色散与速度</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../04-截止色散与速度/00-从截止到色散.html" title="知识点讲义 / 04-截止色散与速度 / 00 · 术语与路线图（Lec11～12）">从截止到色散</a></li>
+<li class="nav-item"><a href="../04-截止色散与速度/01-三种波长.html" title="知识点讲义 / 04-截止色散与速度 / 01 · 三种波长（$\lambda_0$，$\lambda_{\mathrm c}$，$\lambda_{\mathrm g}$）">三种波长</a></li>
+<li class="nav-item"><a href="../04-截止色散与速度/02-色散相速与群速.html" title="知识点讲义 / 04-截止色散与速度 / 02 · 色散、相速与群速">相速与群速</a></li>
+<li class="nav-item"><a href="../04-截止色散与速度/03-波导色散与材料色散.html" title="知识点讲义 / 04-截止色散与速度 / 03 · 波导色散与光学色散">结构色散 vs 材料色散</a></li>
+<li class="nav-item"><a href="../04-截止色散与速度/04-为什么空心波导没有TEM.html" title="知识点讲义 / 04-截止色散与速度 / 04 · 单导体波导为何无 TEM？">空心波导无 TEM</a></li>
+<li class="nav-item"><a href="../04-截止色散与速度/99-自检清单与常见误区.html" title="知识点讲义 / 04-截止色散与速度 / 05 · 自检清单与常见误区（Lec11～12）">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../05-矩形波导工程计算/index.html">05 · 矩形波导工程计算</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../05-矩形波导工程计算/00-工程计算路线图.html" title="知识点讲义 / 05-矩形波导工程计算 / 00 · 术语与路线图（Lec13–Lec16）">工程路线</a></li>
+<li class="nav-item"><a href="../05-矩形波导工程计算/01-模谱主模与简并.html" title="知识点讲义 / 05-矩形波导工程计算 / 01 · $k_{\mathrm c}$ 与模谱、主模 $\mathrm{TE}_{10}$ 与简并">模谱与主模</a></li>
+<li class="nav-item"><a href="../05-矩形波导工程计算/02-单模工作区与介质填充.html" title="知识点讲义 / 05-矩形波导工程计算 / 02 · 单模工作区与全介质填充">单模工作区</a></li>
+<li class="nav-item"><a href="../05-矩形波导工程计算/03-导波波长相速群速算例.html" title="知识点讲义 / 05-矩形波导工程计算 / 03 · $\lambda_{\mathrm g}$、相速、群速与工程算例">λg 与速度算例</a></li>
+<li class="nav-item"><a href="../05-矩形波导工程计算/04-可传输模判定与枚举.html" title="知识点讲义 / 05-矩形波导工程计算 / 04 · 可传输模的判定与枚举">可传输模枚举</a></li>
+<li class="nav-item"><a href="../05-矩形波导工程计算/05-波导段反射驻波与匹配.html" title="知识点讲义 / 05-矩形波导工程计算 / 05 · 波导段上的反射、驻波与匹配（衔接长线理论）">波导段匹配</a></li>
+<li class="nav-item"><a href="../05-矩形波导工程计算/99-自检清单与常见误区.html" title="知识点讲义 / 05-矩形波导工程计算 / 06 · 自检清单与常见误区（Lec13–Lec16）">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../06-圆波导同轴线微带线/index.html">06 · 圆/同轴/微带</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../06-圆波导同轴线微带线/01-圆波导模式与贝塞尔根.html" title="知识点讲义 / 06-圆波导同轴线微带线 / 01 · 圆波导模式与贝塞尔根">01 · 圆波导模式与贝塞尔根</a></li>
+<li class="nav-item"><a href="../06-圆波导同轴线微带线/02-同轴线TEM与高阶模.html" title="知识点讲义 / 06-圆波导同轴线微带线 / 02 · 同轴线 TEM 与高阶模">02 · 同轴线 TEM 与高阶模</a></li>
+<li class="nav-item"><a href="../06-圆波导同轴线微带线/03-微带线准TEM与有效介电常数.html" title="知识点讲义 / 06-圆波导同轴线微带线 / 03 · 微带线准 TEM 与有效介电常数">03 · 微带线准 TEM 与有效介电常数</a></li>
+<li class="nav-item"><a href="../06-圆波导同轴线微带线/04-从矩形到圆与微带的对照.html" title="知识点讲义 / 06-圆波导同轴线微带线 / 04 · 从矩形到圆与微带的对照">04 · 从矩形到圆与微带的对照</a></li>
+<li class="nav-item"><a href="../06-圆波导同轴线微带线/99-自检清单与常见误区.html" title="知识点讲义 / 06-圆波导同轴线微带线 / 99 · 自检清单与常见误区（Lec17–Lec20）">自检与误区</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="index.html">07 · 实验测量与元件</a></summary>
+<ol class="nav-list">
+<li class="nav-item active"><a href="01-S参数与矢量网络分析仪.html" title="知识点讲义 / 07-实验测量与微波元件 / 01 · S 参数与矢量网络分析仪">S 参数与 VNA</a></li>
+<li class="nav-item"><a href="02-微带线工作状态再认识.html" title="知识点讲义 / 07-实验测量与微波元件 / 02 · 微带线工作状态再认识">微带线工作状态</a></li>
+<li class="nav-item"><a href="03-谐振器Q值与功率传输法.html" title="知识点讲义 / 07-实验测量与微波元件 / 03 · 谐振器 Q 值与功率传输法">谐振器 Q 值</a></li>
+<li class="nav-item"><a href="04-定向耦合器与功率分配器.html" title="知识点讲义 / 07-实验测量与微波元件 / 04 · 定向耦合器与功率分配器">耦合器与功分器</a></li>
+<li class="nav-item"><a href="99-自检清单与常见误区.html" title="知识点讲义 / 07-实验测量与微波元件 / 99 · 第七阶段自检清单与常见误区">自检与误区</a></li>
+</ol>
+</details></li>
+</ol>
+</details>
+<details class="nav-group">
+<summary>作业解答</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../solutions/index.html" title="作业解答 / 《微波技术基础》作业解答目录">作业总览</a></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../solutions/01-传输线基础/index.html">01 · 传输线作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../solutions/01-传输线基础/00-符号与导读.html" title="作业解答 / 01-传输线基础 / 第一次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../../solutions/01-传输线基础/01-Lec01.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec01">Lec01 · 长短线</a></li>
+<li class="nav-item"><a href="../../solutions/01-传输线基础/02-Lec02.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec02">Lec02 · 行波</a></li>
+<li class="nav-item"><a href="../../solutions/01-传输线基础/03-Lec03.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec03">Lec03 · 反射驻波</a></li>
+<li class="nav-item"><a href="../../solutions/01-传输线基础/04-Lec04.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec04">Lec04 · 工作状态</a></li>
+<li class="nav-item"><a href="../../solutions/01-传输线基础/05-Lec05.html" title="作业解答 / 01-传输线基础 / 第一次作业 · Lec05">Lec05 · 开短路</a></li>
+<li class="nav-item"><a href="../../solutions/01-传输线基础/99-公式与图像.html" title="作业解答 / 01-传输线基础 / 第一次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../solutions/02-圆图与匹配/index.html">02 · 圆图匹配作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/00-符号与导读.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/01-Lec06.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · Lec06">Lec06 · 多段线</a></li>
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/02-Lec07.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · Lec07">Lec07 · Smith 图</a></li>
+<li><details class="nav-subgroup depth-1">
+<summary><a class="nav-summary-link" href="../../solutions/02-圆图与匹配/03-Lec08-09/index.html">Lec08-09</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/03-Lec08-09/第01题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 1 题">第1题</a></li>
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/03-Lec08-09/第02题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 2 题">第2题</a></li>
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/03-Lec08-09/第03题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 3 题">第3题</a></li>
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/03-Lec08-09/第04题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 4 题">第4题</a></li>
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/03-Lec08-09/第05题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 5 题">第5题</a></li>
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/03-Lec08-09/第06题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 6 题">第6题</a></li>
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/03-Lec08-09/第07题.html" title="作业解答 / 02-圆图与匹配 / 03-Lec08-09 / 第二次作业 · Lec08–09 · 第 7 题">第7题</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../../solutions/02-圆图与匹配/99-公式与图像.html" title="作业解答 / 02-圆图与匹配 / 第二次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../solutions/03-规则波导与矩形波导/index.html">03 · 波导作业</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/00-符号与导读.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · 符号约定与导读">符号导读</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/01-Lec10-11.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · Lec10–Lec11（波导波动方程与 $\mathrm{TM}_{11}$）">Lec10-11 · 波型方程</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/02-Lec11-12.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · Lec11～12（波导波长与色散、无 TEM）">Lec11-12 · 波长色散</a></li>
+<li><details class="nav-subgroup depth-1">
+<summary><a class="nav-summary-link" href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/index.html">Lec13-16</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第01题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–16）第 1 题：只传输 $\mathrm{TE}_{10}$ 的尺寸条件">第1题</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第02题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 2 题：$f=10\,\mathrm{GHz}$ 只传 $\mathrm{TE}_{10}$ 的尺寸与 $\lambda_{\mathrm g},v_{\mathrm p},v_{\mathrm g}$">第2题</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第03题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 3 题：$a\times b=10\times 6\,\mathrm{mm^2}$，求 $\mathrm{TE}_{10}$、$\mathrm{TE}_{20}$、$\mathrm{TE}_{21}$ 的截止频率">第3题</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第04题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 4 题：BJ-100，$\lambda_0=18\,\mathrm{mm}$，可能存在几种波型？">第4题</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第05题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 5 题：两种波导尺寸、四种工作波长">第5题</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第06题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 6 题：BJ-100，若干模的 $\lambda_{\mathrm c}$；只传 $\mathrm{TE}_{10}$ 的 $\lambda_0$ 范围">第6题</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第07题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 7 题：相邻两波节间距 $22.40\,\mathrm{mm}$，求 $\lambda_{\mathrm g}$">第7题</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第08题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 8 题：BJ-100，$\lambda_0=32\,\mathrm{mm}$，$\rho=3$，第一波节距负载 $9\,\mathrm{mm}$">第8题</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第09题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 9 题：长 $1\,\mathrm{m}$，$\lambda_0=3.2\,\mathrm{cm}$，$\bar Z_L=0.5$（$\mathrm{TE}_{10}$ 归一化）">第9题</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第10题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 10 题（选做）：$72.14\times 34.04\,\mathrm{mm^2}$，$f=6\,\mathrm{GHz}$">第10题（选做）</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第11题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 11 题（选做）：BJ-100 传 $\mathrm{TE}_{10}$，两种 $\lambda_0$ 区间">第11题（选做）</a></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/03-Lec13-16/第12题.html" title="作业解答 / 03-规则波导与矩形波导 / 03-Lec13-16 / 第三次作业（Lec13–Lec16）第 12 题（选做）：击穿场强限制下的最大功率（量级）">第12题（选做）</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../../solutions/03-规则波导与矩形波导/99-公式与图像.html" title="作业解答 / 03-规则波导与矩形波导 / 第三次作业 · 附录">公式图像</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../solutions/04-后续专题/index.html">04 · 后续专题</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../solutions/04-后续专题/00-符号与导读.html" title="作业解答 / 04-后续专题 / 00 · 符号与导读（第四次作业）">符号导读</a></li>
+<li><details class="nav-subgroup depth-1">
+<summary><a class="nav-summary-link" href="../../solutions/04-后续专题/01-Lec17-18-圆波导/index.html">01-Lec17-18-圆波导</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../solutions/04-后续专题/01-Lec17-18-圆波导/第01题.html" title="作业解答 / 04-后续专题 / 01-Lec17-18-圆波导 / 第 1 题：圆波导中的波型指数 \(m,n\) 的意义，与矩形波导有何异同">第1题</a></li>
+<li class="nav-item"><a href="../../solutions/04-后续专题/01-Lec17-18-圆波导/第02题.html" title="作业解答 / 04-后续专题 / 01-Lec17-18-圆波导 / 第 2 题：什么叫简并波型，这种波型有什么特点">第2题</a></li>
+<li class="nav-item"><a href="../../solutions/04-后续专题/01-Lec17-18-圆波导/第03题.html" title="作业解答 / 04-后续专题 / 01-Lec17-18-圆波导 / 第 3 题：圆波导单模传输的条件与对应波型">第3题</a></li>
+<li class="nav-item"><a href="../../solutions/04-后续专题/01-Lec17-18-圆波导/第04题.html" title="作业解答 / 04-后续专题 / 01-Lec17-18-圆波导 / 第 4 题：\(R=1.5\ \mathrm{cm}\)、\(f=10\ \mathrm{GHz}\) 时可能存在的波型">第4题</a></li>
+<li class="nav-item"><a href="../../solutions/04-后续专题/01-Lec17-18-圆波导/第05题.html" title="作业解答 / 04-后续专题 / 01-Lec17-18-圆波导 / 第 5 题：\(R=2\ \mathrm{cm}\) 的 \(\mathrm{TE}_{01}\) 截止频率及填充介质后的半径变化">第5题</a></li>
+<li class="nav-item"><a href="../../solutions/04-后续专题/01-Lec17-18-圆波导/第06题.html" title="作业解答 / 04-后续专题 / 01-Lec17-18-圆波导 / 第 6 题：\(\mathrm{TE}_{01}\)、\(\mathrm{TE}_{11}\)、\(\mathrm{TM}_{01}\) 导体损耗随频率的变化与工程利用">第6题</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-1">
+<summary><a class="nav-summary-link" href="../../solutions/04-后续专题/02-Lec19-20-同轴与微带/index.html">02-Lec19-20-同轴与微带</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../solutions/04-后续专题/02-Lec19-20-同轴与微带/第07题.html" title="作业解答 / 04-后续专题 / 02-Lec19-20-同轴与微带 / 第 7 题：同轴线只传输 TEM 模的条件与最短工作波长">第7题</a></li>
+<li class="nav-item"><a href="../../solutions/04-后续专题/02-Lec19-20-同轴与微带/第08题.html" title="作业解答 / 04-后续专题 / 02-Lec19-20-同轴与微带 / 第 8 题：微带线的准 TEM 模及其纵向场分量">第8题</a></li>
+<li class="nav-item"><a href="../../solutions/04-后续专题/02-Lec19-20-同轴与微带/第09题.html" title="作业解答 / 04-后续专题 / 02-Lec19-20-同轴与微带 / 第 9 题：等效相对介电常数、定义、含义及填充因子计算">第9题</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../../solutions/04-后续专题/99-公式与图像.html" title="作业解答 / 04-后续专题 / 99 · 公式与图像（第四次作业）">公式图像</a></li>
+</ol>
+</details></li>
+</ol>
+</details>
+<details class="nav-group">
+<summary>实验环节</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../experiments/00-符号与导读.html" title="实验环节 / 实验环节符号与导读">符号导读</a></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../experiments/01-矢网与传输线/index.html">实验一 · 矢网与传输线</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../experiments/01-矢网与传输线/01-AV36580面板速查.html" title="实验环节 / 01-矢网与传输线 / 01 · AV36580 面板速查">AV36580 面板</a></li>
+<li class="nav-item"><a href="../../experiments/01-矢网与传输线/02-RF带通滤波器S参数.html" title="实验环节 / 01-矢网与传输线 / 02 · RF 带通滤波器 S 参数测量">滤波器 S 参数</a></li>
+<li class="nav-item"><a href="../../experiments/01-矢网与传输线/03-微带线开短匹配测量.html" title="实验环节 / 01-矢网与传输线 / 03 · 微带线开 / 短 / 匹配测量">微带线开/短/匹配</a></li>
+<li class="nav-item"><a href="../../experiments/01-矢网与传输线/04-思考题与报告.html" title="实验环节 / 01-矢网与传输线 / 04 · 思考题与报告（实验一）">思考题与报告</a></li>
+</ol>
+</details></li>
+<li><details class="nav-subgroup depth-0" open>
+<summary><a class="nav-summary-link" href="../../experiments/02-元件参数测量/index.html">实验二 · 元件参数测量</a></summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../experiments/02-元件参数测量/01-谐振器Q值扫频测量.html" title="实验环节 / 02-元件参数测量 / 01 · 谐振器 Q 值扫频测量">Q 值扫频</a></li>
+<li class="nav-item"><a href="../../experiments/02-元件参数测量/02-定向耦合器特性.html" title="实验环节 / 02-元件参数测量 / 02 · 定向耦合器特性测量">耦合器特性</a></li>
+<li class="nav-item"><a href="../../experiments/02-元件参数测量/03-功率分配器测量.html" title="实验环节 / 02-元件参数测量 / 03 · 功率分配器测量">功分器测量</a></li>
+<li class="nav-item"><a href="../../experiments/02-元件参数测量/04-思考题与报告.html" title="实验环节 / 02-元件参数测量 / 04 · 思考题与报告（实验二）">思考题与报告</a></li>
+</ol>
+</details></li>
+<li class="nav-item"><a href="../../experiments/99-公式与图像.html" title="实验环节 / 实验环节 · 公式与图像索引">公式图像</a></li>
+<li class="nav-item"><a href="../../experiments/index.html" title="实验环节 / 《微波技术基础》实验环节">实验总览</a></li>
+</ol>
+</details>
+<details class="nav-group">
+<summary>附录</summary>
+<ol class="nav-list">
+<li class="nav-item"><a href="../../appendices/讲次-作业-教材章节-知识点矩阵.html" title="附录 / 讲次 · 作业 · 教材章节 · 核心知识点矩阵">讲次知识矩阵</a></li>
+</ol>
+</details>
+    </aside>
+    <main id="content" class="content">
+      <div class="breadcrumbs"><span class="crumb">知识点讲义</span>
+<span class="crumb">07-实验测量与微波元件</span>
+<span class="crumb">01 · S 参数与矢量网络分析仪</span></div>
+      <article class="article">
+        <h1 id="01-s">01 · S 参数与矢量网络分析仪<a class="headerlink" href="#01-s" title="Permanent link">§</a></h1>
+<blockquote>
+<p>把第二章的反射系数、第六章的双端口结构和实验仪器接起来。</p>
+</blockquote>
+<h2 id="_1">一、这一页要解决什么<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<p>前两章我们用 $\Gamma$ 和 $Z_{\mathrm{in}}$ 描述「一根线遇到一个负载」的情况。一旦微波元件有两个或更多端口（滤波器、耦合器、功率分配器都是），单一的 $\Gamma$ 就不够用了。<strong>散射参数 $S$</strong>（scattering parameters）是把每个端口都当成「同时有入射波和反射波」的统一描述方式，VNA 就是测它的标准仪器。</p>
+<hr>
+<h2 id="_2">二、入射 / 反射 / 传输波<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<p>把每个端口都看成传输线接口，约定：</p>
+<ul>
+<li>$a_i$：从外部射入端口 $i$ 的归一化功率波（入射波幅度）</li>
+<li>$b_i$：从端口 $i$ 射回外部的归一化功率波（出射波幅度）</li>
+</ul>
+<p>「归一化」是指对参考阻抗 $Z_0$（多数情况下 $50\,\Omega$）作功率归一，使 $|a_i|^2$、$|b_i|^2$ 直接对应入射和反射功率。</p>
+<p>二端口网络的 $S$ 参数定义为：</p>
+<p>$$
+\begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+= \begin{pmatrix} S_{11} & S_{12} \\ S_{21} & S_{22} \end{pmatrix}
+\begin{pmatrix} a_1 \\ a_2 \end{pmatrix}
+$$</p>
+<p>每个分量的物理含义（其它端口接匹配负载，让 $a_j = 0$）：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+<th>在仪器上看</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$S_{11}$</td>
+<td>端口 1 的输入反射系数</td>
+<td>1 端口反射</td>
+</tr>
+<tr>
+<td>$S_{21}$</td>
+<td>端口 1 → 端口 2 的正向传输系数</td>
+<td>正向传输（最常用）</td>
+</tr>
+<tr>
+<td>$S_{12}$</td>
+<td>端口 2 → 端口 1 的反向传输系数</td>
+<td>反向传输（互易元件 $S_{12}=S_{21}$）</td>
+</tr>
+<tr>
+<td>$S_{22}$</td>
+<td>端口 2 的输入反射系数</td>
+<td>2 端口反射</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="math22-math23">三、$S_{11}$ 与第二章的 $\Gamma$ 是什么关系？<a class="headerlink" href="#math22-math23" title="Permanent link">§</a></h2>
+<p>当 2 端口接匹配负载时（$a_2 = 0$），$S_{11} = b_1 / a_1$ 正好就是端口 1 的反射系数。也就是说：</p>
+<p>$$
+S_{11}\big|_{a_2=0} = \Gamma_{\mathrm{in,1}}
+$$</p>
+<p>VNA 「测 $S_{11}$」 = 把测试信号注入端口 1，测从端口 1 反射回来的复波；屏幕上选「史密斯圆图」就直接是 $\Gamma_1$ 的极坐标轨迹。</p>
+<hr>
+<h2 id="_3">四、矢量网络分析仪框图<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
+<p><img alt="AV36580 工作原理框图" src="../../../assets/images/exp/image3.png"></p>
+<p><em>图 1-3：合成信号源 → S 参数测试装置（定向耦合器 + 开关）→ 幅相接收机 → DSP → 显示。</em></p>
+<p>四块的角色：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>干什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>合成信号源</td>
+<td>产生 30 kHz–3 GHz 扫频射频信号；扫频与接收机锁相</td>
+</tr>
+<tr>
+<td>S 参数测试装置</td>
+<td>用定向耦合器把信号分成参考 $R$、入射 $A$、传输 $B$；用开关控制激励方向</td>
+</tr>
+<tr>
+<td>幅相接收机</td>
+<td>把 RF 信号下变频到 4 kHz 中频，A/D 后保留幅度和相位</td>
+</tr>
+<tr>
+<td>DSP + 显示</td>
+<td>比值运算得到 $S$ 参数，按用户选择的格式作图</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>为什么要锁相？</strong> 既要测幅度又要测相位 → 频率变换过程中相位信息不能丢 → 信号源和接收机必须共用同一时基。这是「矢量」二字的由来（相对幅度网络分析仪只测幅度）。</p>
+</blockquote>
+<hr>
+<h2 id="_4">五、显示格式怎么选<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
+<table>
+<thead>
+<tr>
+<th>选「格式」键里的项</th>
+<th>用来回答什么问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对数幅度 (log mag)</td>
+<td>这一频点反射/传输了多少 dB？</td>
+</tr>
+<tr>
+<td>线性幅度</td>
+<td>直接看比值（少用）</td>
+</tr>
+<tr>
+<td>相位</td>
+<td>反射/传输信号的相位差</td>
+</tr>
+<tr>
+<td>群延迟</td>
+<td>相位对频率的导数（带内平坦度）</td>
+</tr>
+<tr>
+<td>驻波比 (SWR)</td>
+<td>把 $|\Gamma|$ 换成 $\rho$</td>
+</tr>
+<tr>
+<td>史密斯圆图</td>
+<td>在复 $\Gamma$ 平面看轨迹和阻抗</td>
+</tr>
+<tr>
+<td>极坐标</td>
+<td>复 $\Gamma$ 的幅角形式</td>
+</tr>
+</tbody>
+</table>
+<p>考查反射时常用「史密斯圆图」；考查滤波/带宽时常用「对数幅度」。</p>
+<hr>
+<h2 id="db">六、dB 与功率比 / 电压比<a class="headerlink" href="#db" title="Permanent link">§</a></h2>
+<p>VNA 默认 dB 显示。背下两条换算：</p>
+<p>$$
+S_{ij}\,[\mathrm{dB}] = 20\log_{10}|S_{ij}|, \qquad |S_{ij}|^2 = 10^{S_{ij}[\mathrm{dB}]/10}
+$$</p>
+<p>即 dB 数对<strong>功率比</strong>是 $/10$，对<strong>电压（场）比</strong>是 $/20$。常见数对：</p>
+<table>
+<thead>
+<tr>
+<th>dB</th>
+<th>电压比 $|S|$</th>
+<th>功率比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>0.707</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>0.501</td>
+<td>0.251</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>0.316</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>-20</td>
+<td>0.1</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>-40</td>
+<td>0.01</td>
+<td>$10^{-4}$</td>
+</tr>
+</tbody>
+</table>
+<p>3 dB 是「半功率点」，后面 Q 值测量天天用。</p>
+<hr>
+<h2 id="_5">七、易错<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
+<ul>
+<li><strong>没校准就测</strong>：开机默认状态可能不带误差校准，需按「复位」调用已校准状态或重做 SOLT 校准。</li>
+<li><strong>混淆 dB 和 dBm</strong>：dB 是相对量（差值或比值），dBm 是绝对量（相对 1 mW）。源功率写 -10 dBm，$S_{21}$ 写 -3 dB。</li>
+<li><strong>互易性写错</strong>：无源无损网络满足 $S_{12}=S_{21}$。但若器件有源（放大器）或非互易（环行器），$S_{12}\ne S_{21}$。</li>
+<li><strong>端口 1/2 弄反</strong>：屏幕上「黄色灯」指当前源输出端口；改换激励方向时灯位置会变。</li>
+</ul>
+<hr>
+<h2 id="mini">八、Mini 自检<a class="headerlink" href="#mini" title="Permanent link">§</a></h2>
+<p><strong>Q1</strong>：屏幕上 $S_{21}$ 在 1 GHz 读到 -3 dB。这意味着这个频点上输入功率有多少传到了输出？</p>
+<blockquote>
+<p>答：-3 dB 是半功率点，即 50% 的入射功率传到了输出（电压比 $\approx 0.707$）。剩余的 50% 一部分被端口 1 反射、一部分被器件吸收。</p>
+</blockquote>
+<p><strong>Q2</strong>：测一个 RF 滤波器的 $S_{11}$ 在通带内读到 -22 dB，史密斯圆图上对应轨迹位置在哪里？</p>
+<blockquote>
+<p>答：$|S_{11}| = 10^{-22/20} \approx 0.079$。圆图中心是匹配点（$\Gamma=0$），$|\Gamma|=0.079$ 对应一个非常靠近圆心的小半径圆上。说明该频点输入端非常接近匹配。</p>
+</blockquote>
+<p><strong>Q3</strong>：为什么测一个互易无损二端口可以只测 $S_{11}$ 和 $S_{21}$，省下 $S_{12}$ 和 $S_{22}$？</p>
+<blockquote>
+<p>答：互易性给 $S_{12}=S_{21}$；无损性给酉性约束 $|S_{11}|^2+|S_{21}|^2=1$ 及 $|S_{22}|^2+|S_{12}|^2=1$，再加 $S_{11}^*S_{12}+S_{21}^*S_{22}=0$ 把 $S_{22}$ 也定下来。所以独立量只有两个复数。但<strong>实际器件总有损耗</strong>，省测要小心。</p>
+</blockquote>
+<hr>
+<h2 id="_6">九、跨链<a class="headerlink" href="#_6" title="Permanent link">§</a></h2>
+<ul>
+<li>第一章 <a href="../01-传播与传输线/03-反射驻波与输入阻抗.html">反射、驻波与输入阻抗</a>：$S_{11}$ 与 $\Gamma$ 关系</li>
+<li>第二章 <a href="../02-反射与匹配/02-Smith圆图怎么读.html">Smith 圆图怎么读</a>：屏幕史密斯格式直接对应</li>
+<li>实验一 <a href="../../experiments/01-矢网与传输线/01-AV36580面板速查.html">AV36580 面板速查</a></li>
+<li>实验一 <a href="../../experiments/01-矢网与传输线/02-RF带通滤波器S参数.html">RF 带通滤波器 S 参数</a></li>
+</ul>
+      </article>
+      <nav class="pager" aria-label="章节导航"><a class="pager-link prev" href="../06-圆波导同轴线微带线/index.html"><span>上一篇</span><strong>Lec17-Lec20 · 圆波导、同轴线与微带线</strong></a><a class="pager-link next" href="02-微带线工作状态再认识.html"><span>下一篇</span><strong>02 · 微带线工作状态再认识</strong></a></nav>
+    </main>
+    <aside class="toc-panel" aria-label="页内目录">
+      <strong>本页</strong>
+      <div class="toc">
+<ul>
+<li><a href="#_1">一、这一页要解决什么</a></li>
+<li><a href="#_2">二、入射 / 反射 / 传输波</a></li>
+<li><a href="#math22-math23">三、$S_{11}$ 与第二章的 $\Gamma$ 是什么关系？</a></li>
+<li><a href="#_3">四、矢量网络分析仪框图</a></li>
+<li><a href="#_4">五、显示格式怎么选</a></li>
+<li><a href="#db">六、dB 与功率比 / 电压比</a></li>
+<li><a href="#_5">七、易错</a></li>
+<li><a href="#mini">八、Mini 自检</a></li>
+<li><a href="#_6">九、跨链</a></li>
+</ul>
+</div>
+
+    </aside>
+  </div>
+</body>
+</html>

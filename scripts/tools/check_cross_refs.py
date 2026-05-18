@@ -58,38 +58,48 @@ def page_links_to(page: Path, target_dir: Path) -> list[str]:
 def main() -> None:
     knowledge_dir = CONTENT / "knowledge"
     solutions_dir = CONTENT / "solutions"
+    experiments_dir = CONTENT / "experiments"
 
     knowledge_pages = sorted(p for p in knowledge_dir.rglob("*.md") if is_target_page(p))
     solutions_pages = sorted(p for p in solutions_dir.rglob("*.md") if is_target_page(p))
+    experiments_pages = sorted(p for p in experiments_dir.rglob("*.md") if is_target_page(p))
 
-    knowledge_no_solution_link = []
+    # A knowledge page counts as "linked to applied content" if it points to
+    # either a solutions/ page or an experiments/ page.
+    knowledge_unlinked = []
     for kp in knowledge_pages:
-        links = page_links_to(kp, solutions_dir)
-        if not links:
-            knowledge_no_solution_link.append(kp.relative_to(ROOT))
+        sol_links = page_links_to(kp, solutions_dir)
+        exp_links = page_links_to(kp, experiments_dir)
+        if not (sol_links or exp_links):
+            knowledge_unlinked.append(kp.relative_to(ROOT))
 
     solutions_no_knowledge_link = []
     for sp in solutions_pages:
-        links = page_links_to(sp, knowledge_dir)
-        if not links:
+        if not page_links_to(sp, knowledge_dir):
             solutions_no_knowledge_link.append(sp.relative_to(ROOT))
+
+    experiments_no_knowledge_link = []
+    for ep in experiments_pages:
+        if not page_links_to(ep, knowledge_dir):
+            experiments_no_knowledge_link.append(ep.relative_to(ROOT))
 
     lines = ["# 交叉引用健康度报告", "", "由 `scripts/tools/check_cross_refs.py` 自动生成。"]
     lines.append("")
     lines.append(f"扫描结果：")
     lines.append(f"- knowledge 单讲页面（不含 README/00/99）：{len(knowledge_pages)}")
     lines.append(f"- solutions 题目页面（不含 README/00/99）：{len(solutions_pages)}")
+    lines.append(f"- experiments 实验页面（不含 README/index/00/99）：{len(experiments_pages)}")
     lines.append("")
 
-    lines.append("## knowledge 页未引用任何 solutions 页")
+    lines.append("## knowledge 页未引用任何 solutions / experiments 页")
     lines.append("")
-    if knowledge_no_solution_link:
-        lines.append(f"共 {len(knowledge_no_solution_link)} 页：")
+    if knowledge_unlinked:
+        lines.append(f"共 {len(knowledge_unlinked)} 页：")
         lines.append("")
-        for p in knowledge_no_solution_link:
+        for p in knowledge_unlinked:
             lines.append(f"- `{p}`")
     else:
-        lines.append("✅ 所有单讲页面都引到了至少一道作业。")
+        lines.append("✅ 所有单讲页面都引到了至少一道作业或一个实验流程。")
     lines.append("")
 
     lines.append("## solutions 题未引用任何 knowledge 页")
@@ -103,17 +113,30 @@ def main() -> None:
         lines.append("✅ 所有作业题都引到了至少一节知识点。")
     lines.append("")
 
+    lines.append("## experiments 页未引用任何 knowledge 页")
+    lines.append("")
+    if experiments_no_knowledge_link:
+        lines.append(f"共 {len(experiments_no_knowledge_link)} 页：")
+        lines.append("")
+        for p in experiments_no_knowledge_link:
+            lines.append(f"- `{p}`")
+    else:
+        lines.append("✅ 所有实验页都引到了至少一节知识点。")
+    lines.append("")
+
     lines.append("## 修复建议")
     lines.append("")
-    lines.append("- knowledge 单讲页缺反向链：通常在文末『作业怎么答』或『相关链接』段补 `../../solutions/.../第NN题.md`。")
+    lines.append("- knowledge 单讲页缺反向链：通常在文末『作业怎么答』或『相关链接』段补 `../../solutions/.../第NN题.md` 或 `../../experiments/.../X.md`。")
     lines.append("- solutions 题缺前置链：在题首『对应知识点』段补 `../../knowledge/.../NN-XXX.md`。")
+    lines.append("- experiments 页缺前置链：在题首『对应知识点』段补 `../../knowledge/.../NN-XXX.md`。")
     lines.append("- 修复后重跑本脚本验证。")
 
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text("\n".join(lines) + "\n")
     print(f"Report written to {REPORT.relative_to(ROOT)}")
-    print(f"Knowledge pages without solution link: {len(knowledge_no_solution_link)}")
+    print(f"Knowledge pages without solution/experiment link: {len(knowledge_unlinked)}")
     print(f"Solution pages without knowledge link: {len(solutions_no_knowledge_link)}")
+    print(f"Experiment pages without knowledge link: {len(experiments_no_knowledge_link)}")
 
 
 if __name__ == "__main__":

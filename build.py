@@ -28,6 +28,7 @@ PUBLIC_ROOTS = (
     Path("content/guide"),
     Path("content/knowledge"),
     Path("content/solutions"),
+    Path("content/experiments"),
     Path("content/appendices/讲次-作业-教材章节-知识点矩阵.md"),
 )
 STATIC_DIRS = ("assets/images", "assets/illustrations")
@@ -102,6 +103,8 @@ def group_for(source: Path) -> str:
         return "知识点讲义"
     if rel.parts[:2] == ("content", "solutions"):
         return "作业解答"
+    if rel.parts[:2] == ("content", "experiments"):
+        return "实验环节"
     if rel.parts[:2] == ("content", "guide"):
         return "学习指南"
     if rel.parts[:2] == ("content", "appendices"):
@@ -160,7 +163,8 @@ def page_sort_key(page: Page) -> tuple[int, tuple[int, int, tuple[tuple[int, int
         "学习指南": 1,
         "知识点讲义": 2,
         "作业解答": 3,
-        "附录": 4,
+        "实验环节": 4,
+        "附录": 5,
         "其他": 9,
     }
     return (order.get(page.group, 9), section_order(page.rel_source))
@@ -316,10 +320,14 @@ def directory_nav_label(name: str) -> str:
         "03-波导中的场与边界": "03 · 波导中的场与边界",
         "04-截止色散与速度": "04 · 截止、色散与速度",
         "05-矩形波导工程计算": "05 · 矩形波导工程计算",
+        "06-圆波导同轴线微带线": "06 · 圆/同轴/微带",
+        "07-实验测量与微波元件": "07 · 实验测量与元件",
         "01-传输线基础": "01 · 传输线作业",
         "02-圆图与匹配": "02 · 圆图匹配作业",
         "03-规则波导与矩形波导": "03 · 波导作业",
         "04-后续专题": "04 · 后续专题",
+        "01-矢网与传输线": "实验一 · 矢网与传输线",
+        "02-元件参数测量": "实验二 · 元件参数测量",
         "03-Lec08-09": "Lec08-09",
         "03-Lec13-16": "Lec13-16",
     }
@@ -333,6 +341,7 @@ def compact_nav_label(page: Page) -> str:
     exact = {
         Path("content/knowledge/README.md"): "知识点总览",
         Path("content/solutions/index.md"): "作业总览",
+        Path("content/experiments/index.md"): "实验总览",
         Path("content/appendices/讲次-作业-教材章节-知识点矩阵.md"): "讲次知识矩阵",
     }
     if rel in exact:
@@ -373,6 +382,17 @@ def compact_nav_label(page: Page) -> str:
         "02-Lec07.md": "Lec07 · Smith 图",
         "01-Lec10-11.md": "Lec10-11 · 波型方程",
         "02-Lec11-12.md": "Lec11-12 · 波长色散",
+        "01-S参数与矢量网络分析仪.md": "S 参数与 VNA",
+        "02-微带线工作状态再认识.md": "微带线工作状态",
+        "03-谐振器Q值与功率传输法.md": "谐振器 Q 值",
+        "04-定向耦合器与功率分配器.md": "耦合器与功分器",
+        "01-AV36580面板速查.md": "AV36580 面板",
+        "02-RF带通滤波器S参数.md": "滤波器 S 参数",
+        "03-微带线开短匹配测量.md": "微带线开/短/匹配",
+        "04-思考题与报告.md": "思考题与报告",
+        "01-谐振器Q值扫频测量.md": "Q 值扫频",
+        "02-定向耦合器特性.md": "耦合器特性",
+        "03-功率分配器测量.md": "功分器测量",
     }
     if name in filename_labels:
         return filename_labels[name]
@@ -423,6 +443,18 @@ def nav_segments(page: Page) -> list[str]:
             segments = [directory_nav_label(rel.parts[2])]
             if len(rel.parts) >= 5:
                 segments.append(directory_nav_label(rel.parts[3]))
+            if rel.name.lower() == "readme.md":
+                return segments
+            segments.append(compact_nav_label(page))
+            return segments
+    if rel.parts[:2] == ("content", "experiments"):
+        if rel == Path("content/experiments/index.md"):
+            return ["实验总览"]
+        if len(rel.parts) >= 3:
+            # Top-level experiment files (00-符号与导读.md, 99-公式与图像.md) live directly under experiments/
+            if len(rel.parts) == 3:
+                return [compact_nav_label(page)]
+            segments = [directory_nav_label(rel.parts[2])]
             if rel.name.lower() == "readme.md":
                 return segments
             segments.append(compact_nav_label(page))
@@ -514,6 +546,7 @@ def display_path(page: Page) -> str:
         "guide": "学习指南",
         "knowledge": "知识点讲义",
         "solutions": "作业解答",
+        "experiments": "实验环节",
         "appendices": "附录",
     }
     parts = list(rel.parts)
