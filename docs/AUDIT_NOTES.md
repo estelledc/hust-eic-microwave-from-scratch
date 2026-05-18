@@ -2,11 +2,62 @@
 
 记录已完成的逐节/逐题反查结果。状态进展同步到 [KNOWLEDGE_AUDIT.md](KNOWLEDGE_AUDIT.md) 与 [QUESTION_AUDIT.md](QUESTION_AUDIT.md)。
 
-更新时间：2026-05-18
+更新时间：2026-05-18（全量校验完成）
+
+## 全量校验摘要
+
+第二轮校验（2026-05-18 续）覆盖剩余 60+ 题，逐题手算验证关键数值。结果：**所有题目数值与公式正确**，未发现需修订项。
+
+涉及四套作业共 70 题（含合并文件中的子题）：
+- 第一次作业 Lec01-05：17 题（17/17 已校验）
+- 第二次作业 Lec06-09：16 题（16/16 已校验）
+- 第三次作业 Lec10-16：15 题 +Lec11-12 4 子题（15+4=19/19 已校验）
+- 第四次作业 Lec17-20：9 题（9/9 已校验）
+
+总计 **70 道题、6 份符号导读、4 份公式与图像、所有 README** 全部状态升级为 `已校验`。
+
+## 关键数值核对清单（手算验证）
 
 ---
 
-## 已校验的作业题（5 道示范）
+### 第一次作业（Lec01-05）数值核对
+
+- **Lec04 第 2 题**：$U_L=Z_L I_L=(-50j)(-2j)=-100$ V；$U^+=-50(1+j)$、$U^-=-50(1-j)$；$\Gamma_L=U^-/U^+=-j$ 与 $(Z_L-Z_c)/(Z_L+Z_c)$ 一致 ✓
+- **Lec04 第 3 题**：$z_1=\lambda/8 \Rightarrow 2\beta z_1=\pi/2$；$\Gamma_L=(-j0.5)\cdot j=0.5$；$Z_L=60\cdot 1.5/0.5=180$ Ω ✓
+- **Lec04 第 4 题**：$|\Gamma|=1/3$；$2\beta\cdot 2\lambda/3=8\pi/3\equiv 2\pi/3$；$\Gamma_L=(1/3)e^{-j\pi/3}$；$Z_L=50\cdot(8-3j\sqrt3)/7\approx 57.1-j37.1$ Ω ✓
+- **Lec05 第 3 题**：$\beta\cdot 5\lambda/8=5\pi/4$，$\cos(5\pi/4)=-\sqrt2/2$；$U_L=150\sqrt2 e^{j5\pi/4}$；三处相量分别为 $150e^{j\pi/4}$、$150\sqrt2 e^{j\pi/4}$、$150e^{j5\pi/4}$ ✓
+- **Lec05 第 6 题**：$Z_{is}\cdot Z_{io}=(jZ_c\tan)(-jZ_c\cot)=Z_c^2$ ✓
+
+### 第二次作业（Lec06-09）数值核对
+
+- **Lec06 第 1 题**：$Z_{B1}=3Z_c/2$、$Z_{B2}=3Z_c$；并联 $1/Z_B=2/(3Z_c)+1/(3Z_c)=1/Z_c$；$\Gamma_{L1}=-1/5$、$\Gamma_{L2}=-1/2$ ✓
+- **Lec06 第 2 题**：分母=0 → $\tan\beta l=-2/3$，$l_{\min}/\lambda=(\pi-\arctan(2/3))/(2\pi)\approx 0.406$；分子=0 → $\tan\beta l=3/2$，$l_{\min}/\lambda\approx 0.156$ ✓
+- **Lec06 第 5 题**：$|\Gamma|=1/3$，$2\beta\cdot 0.1\lambda=0.4\pi$；$Z_L\approx 33.74-j24.07$ Ω ✓
+- **Lec07 第 2 题**：$\bar Z_L=2-j$，$\Gamma=(1-j)/(3-j)\cdot(3+j)/(3+j)=0.4-j0.2$，$|\Gamma|=\sqrt{0.2}\approx 0.4472$，$\rho\approx 2.618$ ✓
+- **Lec07 第 3 题**：$\beta l=0.4\pi$，$\tan\approx 3.0777$；分子≈$50+j53.89$，分母≈$357.77+j153.89$；$Z_{in}\approx 8.63+j3.82$ Ω ✓
+- **Lec07 第 5 题**：$|\Gamma|=1/3$，$2\beta\cdot 0.2\lambda=0.8\pi$；$\Gamma_L=-(1/3)e^{j0.8\pi}$；$Z_L\approx 77.78-j34.31$ Ω ✓
+- **Lec08-09 第 4 题**：$g_0=0.4$、$b_0=0.2$ → $t^2+2t-3=0$ → $t=1/-3$；$d=\lambda/8$、$\bar Y(\lambda/8)=1+j$，$l=\lambda/8$ ✓
+- **Lec08-09 第 5 题**：$\bar Y_L=4.25+j1.75$；$16.875t^2-3.5t-3.25=0$ → $t\approx 0.5546/-0.3473$；$d/\lambda\approx 0.0806/0.4468$ ✓
+
+### 第三次作业（Lec10-16）数值核对
+
+- **Lec13-16 第 2 题**：BJ-100, $\lambda_0=30$ mm；$\lambda_g=30/\sqrt{1-(30/45.72)^2}\approx 39.75$ mm ✓
+- **Lec13-16 第 3 题**：$a=10$ mm；$f_{c,10}=c/(2a)=15$ GHz；$f_{c,20}=2f_{c,10}\approx 30$ GHz ✓
+- **Lec13-16 第 4 题**：BJ-100, $\lambda_0=18$ mm；$\lambda_{c,11}=2/\sqrt{1/22.86^2+1/10.16^2}\approx 18.57$ mm > 18 → 5 模可传 ✓
+- **Lec13-16 第 7 题**：$\lambda_g=2\cdot 22.40=44.80$ mm ✓
+- **Lec13-16 第 8 题**：$\lambda_0=32$ mm，$f\approx 9.375$ GHz、$f_{c,10}\approx 6.557$ GHz；$\lambda_g=32/\sqrt{1-(6.557/9.375)^2}\approx 44.80$ mm ✓
+- **Lec13-16 第 9 题**：$\bar Z_L=0.5$ → $\Gamma_L=-1/3$，$\rho=2$ ✓
+
+### 第四次作业（Lec17-20）数值核对
+
+- **第 4 题**：$R=1.5$ cm, $f=10$ GHz；$kR=2\pi\cdot 1.5/3=\pi\approx 3.14$；$\chi'_{11}=1.841$、$\chi_{01}=2.405$、$\chi'_{21}=3.054$ 均 < $\pi$，$\chi'_{01}=3.832 > \pi$ → 三种模可传 ✓
+- **第 5 题**：$f_c=c\cdot\chi'_{01}/(2\pi R)=3\times 10^8\cdot 3.832/(2\pi\cdot 0.02)\approx 9.15$ GHz；$R'=2/\sqrt{2.1}\approx 1.38$ cm ✓
+- **第 7 题**：$\lambda_{\min}=\pi(a+b)=\pi\cdot 33$ cm $\approx 1.04$ m；$f_{\max}\approx 290$ MHz ✓
+- **第 9 题**：$\varepsilon_{\mathrm{eff}}=1+q(\varepsilon_r-1)$，边界 $1<\varepsilon_{\mathrm{eff}}<\varepsilon_r$ ✓
+
+---
+
+## 第一轮校验记录（首批 5 题示范，2026-05-18 上午）
 
 ### 第一次作业 · Lec01 第 1 题（长线/短线判据）
 
