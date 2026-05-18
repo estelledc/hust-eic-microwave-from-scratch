@@ -276,7 +276,7 @@ def protect_math(text: str) -> tuple[str, dict[str, str]]:
 
 def restore_math(rendered: str, replacements: dict[str, str]) -> str:
     for token, formula in replacements.items():
-        rendered = rendered.replace(token, formula)
+        rendered = rendered.replace(token, html.escape(formula, quote=False))
     return rendered
 
 
