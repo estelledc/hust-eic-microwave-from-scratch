@@ -100,8 +100,10 @@
 - GitHub Actions 自动构建发布
 - README.md 加访问链接
 
-### P3-13 docs/ → meta/ 重命名
-避免与 GitHub Pages 默认 `docs/` 输出目录歧义。
+### P3-13 docs/ → meta/ 重命名（已评估：不必要）
+原计划是为了避免 GitHub Pages 默认 `docs/` 部署源的歧义。但 `.github/workflows/pages.yml` 使用 GitHub Actions 部署 `site/`，Pages 配置选 "GitHub Actions" 而非 "Deploy from a branch"，`docs/` 目录名完全无歧义。
+
+经核查 `content/`、`README.md`、`build.py` 均不引用 `docs/`；`docs/` 内部互引可保留。**结论：不重命名**，在 `.github/PUBLISHING.md` 强调正确的 Pages Source 选项即可。
 
 ---
 

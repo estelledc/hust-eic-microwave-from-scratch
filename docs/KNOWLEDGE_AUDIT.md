@@ -31,7 +31,7 @@
 |------|------|----------|
 | `content/knowledge/02-反射与匹配/README.md` | 首版完成 | 阶段总览，与第二次作业入口一致 |
 | `content/knowledge/02-反射与匹配/01-多段线并联与四分之一波长.md` | 待逐题反查 | 多段化简；并联结点导纳法；$\lambda/4$ 阻抗反演；与 Lec06 |
-| `content/knowledge/02-反射与匹配/02-Smith圆图怎么读.md` | 待逐题反查 | 圆图旋转方向；阻抗/导纳切换；$\bar z=(1+\Gamma)/(1-\Gamma)$；与 Lec07 |
+| `content/knowledge/02-反射与匹配/02-Smith圆图怎么读.md` | Mini 自检已扩展 | 圆图旋转方向；阻抗/导纳切换；$\bar z=(1+\Gamma)/(1-\Gamma)$；与 Lec07（[AUDIT_NOTES](AUDIT_NOTES.md)） |
 | `content/knowledge/02-反射与匹配/03-并联支节匹配.md` | 待逐题反查 | $g=1$ 圆；单支节多解与最短解；与 Lec08–09 |
 | `content/knowledge/02-反射与匹配/99-自检清单与常见误区.md` | 首版完成 | Mini 自检题应补完整答案 |
 
@@ -58,7 +58,7 @@
 | `content/knowledge/04-截止色散与速度/README.md` | 首版完成 | 阶段总览 |
 | `content/knowledge/04-截止色散与速度/00-从截止到色散.md` | 待逐题反查 | 从 $f_c$ 到 $\beta(\omega)$ 的逻辑过渡 |
 | `content/knowledge/04-截止色散与速度/01-三种波长.md` | 待逐题反查 | $\lambda_0$/$\lambda_c$/$\lambda_g$ 关系；与作业 1）波长含义题 |
-| `content/knowledge/04-截止色散与速度/02-色散相速与群速.md` | 待逐题反查 | $v_p v_g=c^2$ 前提；脉冲展宽；与作业 1）色散题 |
+| `content/knowledge/04-截止色散与速度/02-色散相速与群速.md` | Mini 自检已扩展 | $v_p v_g=c^2$ 前提；脉冲展宽；与作业 1）色散题（[AUDIT_NOTES](AUDIT_NOTES.md)） |
 | `content/knowledge/04-截止色散与速度/03-波导色散与材料色散.md` | 待逐题反查 | 结构色散 vs 材料色散；与作业 1）本质区别题 |
 | `content/knowledge/04-截止色散与速度/04-为什么空心波导没有TEM.md` | 待逐题反查 | 单导体不能存 TEM；与作业 2） |
 | `content/knowledge/04-截止色散与速度/99-自检清单与常见误区.md` | 首版完成 | Mini 自检题应补完整答案 |

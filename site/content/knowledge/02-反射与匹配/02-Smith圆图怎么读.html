@@ -361,12 +361,15 @@ $$</p>
 <p>对应题解见 <a href="../../solutions/02-圆图与匹配/02-Lec07.html">第二次作业 · Lec07</a>。</p>
 <hr>
 <h2 id="mini">Mini 自检<a class="headerlink" href="#mini" title="Permanent link">§</a></h2>
-<ol>
-<li>Smith 圆图的圆心代表什么？</li>
-<li>为什么沿无耗线移动时是在等 $|\Gamma|$ 圆上转？</li>
-<li>$\lambda/4$ 在圆图上对应转多少？</li>
-<li>并联支节匹配为什么常切到导纳图？</li>
-</ol>
+<p><strong>Q1</strong>：Smith 圆图的圆心代表什么？</p>
+<p><strong>答</strong>：$\Gamma=0$，对应归一化阻抗 $\bar z=1$，即匹配点。在圆心处反射系数模为零，没有反射波；沿线移动也无效果（在原地不动）。</p>
+<p><strong>Q2</strong>：为什么沿无耗线移动时是在等 $|\Gamma|$ 圆上转？</p>
+<p><strong>答</strong>：无耗线满足 $\Gamma(z)=\Gamma_L e^{-j2\beta z}$。模 $|\Gamma|$ 与 $z$ 无关，只有相位 $\angle\Gamma$ 随 $z$ 线性变化。所以参考面移动只改变相位、不改变模，圆图上自然落在 $|\Gamma|=\text{const}$ 的同心圆上。</p>
+<p><strong>Q3</strong>：$\lambda/4$ 在圆图上对应转多少？</p>
+<p><strong>答</strong>：相位变化 $2\beta\cdot(\lambda/4)=2\cdot(2\pi/\lambda)\cdot(\lambda/4)=\pi$，即半圈（180°）。这就是为什么 $\lambda/4$ 段能把开路 $\Gamma=+1$ 翻转到短路 $\Gamma=-1$。</p>
+<p><strong>Q4</strong>：并联支节匹配为什么常切到导纳图？</p>
+<p><strong>答</strong>：并联结点上电压相同、电流相加，所以导纳直接相加 $Y_{\mathrm{tot}}=Y_{\mathrm{line}}+Y_{\mathrm{stub}}$。如果用阻抗就要写并联倒数和，公式会复杂。导纳图上读 $g$、$b$ 直接对应支节设计的 $g=1$ 圆与待消去的电纳。</p>
+<hr>
 <p>上一讲：<a href="01-多段线并联与四分之一波长.html">Lec06</a> · 下一讲：<a href="03-并联支节匹配.html">Lec08-Lec09</a>。</p>
       </article>
       <nav class="pager" aria-label="章节导航"><a class="pager-link prev" href="01-多段线并联与四分之一波长.html"><span>上一篇</span><strong>Lec06 · 多段线、并联与四分之一波长变换</strong></a><a class="pager-link next" href="03-并联支节匹配.html"><span>下一篇</span><strong>Lec08-Lec09 · 并联支节匹配</strong></a></nav>

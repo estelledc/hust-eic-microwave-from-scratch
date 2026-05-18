@@ -17,11 +17,11 @@
 | 文件 | 题号 | 状态 | 校验重点 |
 |------|------|------|----------|
 | `solutions/01-传输线基础/00-符号与导读.md` | — | 待校验 | $z$ 方向；相量约定；驻波比定义；与 knowledge/01 一致 |
-| `solutions/01-传输线基础/01-Lec01.md` | 第 1 题 | 待校验 | 长线/短线判据；$l/\lambda$ 数值 |
+| `solutions/01-传输线基础/01-Lec01.md` | 第 1 题 | 已校验 | 长线/短线判据；$l/\lambda$ 数值（详见 [AUDIT_NOTES](AUDIT_NOTES.md)） |
 | `solutions/01-传输线基础/02-Lec02.md` | 第 1 题 | 待校验 | $\beta$/$v_p$ 计算 |
 | `solutions/01-传输线基础/02-Lec02.md` | 第 2 题 | 待校验 | 行波 $U$/$I$ 关系 |
 | `solutions/01-传输线基础/02-Lec02.md` | 第 3 题 | 待校验 | 电阻负载与阻抗 |
-| `solutions/01-传输线基础/03-Lec03.md` | 第 1 题 | 待校验 | $\Gamma$ 计算 |
+| `solutions/01-传输线基础/03-Lec03.md` | 第 1 题 | 已校验 | $\Gamma$ 计算（详见 [AUDIT_NOTES](AUDIT_NOTES.md)） |
 | `solutions/01-传输线基础/03-Lec03.md` | 第 2 题 | 待校验 | $\rho$ 与波腹波节 |
 | `solutions/01-传输线基础/03-Lec03.md` | 第 3 题 | 待校验 | $Z_{\mathrm{in}}$ 沿线变换 |
 | `solutions/01-传输线基础/03-Lec03.md` | 第 4 题 | 待校验 | $\lambda/2$ 周期 |
@@ -45,7 +45,7 @@
 |------|------|------|----------|
 | `solutions/02-圆图与匹配/00-符号与导读.md` | — | 待校验 | 归一化约定；圆图方向 |
 | `solutions/02-圆图与匹配/01-Lec06.md` | 第 1–5 题 | 待校验 | $\lambda/4$ 变换；多段网络 |
-| `solutions/02-圆图与匹配/02-Lec07.md` | 第 1–5 题 | 待校验 | 圆图读数与解析互验 |
+| `solutions/02-圆图与匹配/02-Lec07.md` | 第 1–5 题 | 第 1 题已校验，2-5 待 | 圆图读数与解析互验（详见 [AUDIT_NOTES](AUDIT_NOTES.md)） |
 | `solutions/02-圆图与匹配/03-Lec08-09/README.md` | — | 待校验 | 子目录总览 |
 | `solutions/02-圆图与匹配/03-Lec08-09/第01题.md` | — | 待校验 | 并联单支节解析 |
 | `solutions/02-圆图与匹配/03-Lec08-09/第02题.md` | — | 待校验 | 单支节解 |
@@ -63,14 +63,14 @@
 | 文件 | 题号 | 状态 | 校验重点 |
 |------|------|------|----------|
 | `solutions/03-规则波导与矩形波导/00-符号与导读.md` | — | 待校验 | 波导记号；与长线章衔接 |
-| `solutions/03-规则波导与矩形波导/01-Lec10-11.md` | 作业 1 波型 | 待校验 | TEM/TE/TM 定义 |
+| `solutions/03-规则波导与矩形波导/01-Lec10-11.md` | 作业 1 波型 | 已校验 | TEM/TE/TM 定义（详见 [AUDIT_NOTES](AUDIT_NOTES.md)） |
 | `solutions/03-规则波导与矩形波导/01-Lec10-11.md` | 作业 2 分离变量 | 待校验 | 分离变量纲要 |
 | `solutions/03-规则波导与矩形波导/01-Lec10-11.md` | 作业 3 $\mathrm{TM}_{11}$ | 待校验 | 全场推导 |
 | `solutions/03-规则波导与矩形波导/02-Lec11-12.md` | 作业 1 三种波长 | 待校验 | $\lambda_0$/$\lambda_c$/$\lambda_g$ 关系 |
 | `solutions/03-规则波导与矩形波导/02-Lec11-12.md` | 作业 1 色散含义 | 待校验 | 色散定义与影响 |
 | `solutions/03-规则波导与矩形波导/02-Lec11-12.md` | 作业 1 微波 vs 光学色散 | 待校验 | 本质区别 |
 | `solutions/03-规则波导与矩形波导/02-Lec11-12.md` | 作业 2 单导体无 TEM | 待校验 | 单导体波导推理 |
-| `solutions/03-规则波导与矩形波导/03-Lec13-16/第01题.md` | 第 1 题 | 待校验 | $\mathrm{TE}_{10}$ 单模尺寸 |
+| `solutions/03-规则波导与矩形波导/03-Lec13-16/第01题.md` | 第 1 题 | 已校验 | $\mathrm{TE}_{10}$ 单模尺寸（详见 [AUDIT_NOTES](AUDIT_NOTES.md)） |
 | `solutions/03-规则波导与矩形波导/03-Lec13-16/第02题.md` | 第 2 题 | 待校验 | 10 GHz $\lambda_g$/$v_p$/$v_g$ |
 | `solutions/03-规则波导与矩形波导/03-Lec13-16/第03题.md` | 第 3 题 | 待校验 | 三种模 $f_c$ |
 | `solutions/03-规则波导与矩形波导/03-Lec13-16/第04题.md` | 第 4 题 | 待校验 | BJ-100 $\lambda_0=18$mm 模枚举 |
