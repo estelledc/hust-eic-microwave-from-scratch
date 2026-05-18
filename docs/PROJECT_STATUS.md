@@ -1,14 +1,15 @@
 # 项目结构与状态说明
 
-更新时间：2026-05-17
+更新时间：2026-05-18
 
-本文件记录 `/Users/jason/Documents/vrShare/微波` 当前项目边界、目录职责、验证结果与待处理问题。当前目标是把本项目整理成独立 Git/GitHub 仓库，并逐步做成可发布的 `github.io` 学习网站。推荐 GitHub 仓库名为 `hust-eic-microwave-review`。
+本文件记录 `/Users/jason/intern-journal/explorations/content/hust-eic-microwave-from-scratch` 当前项目边界、目录职责、验证结果与待处理问题。当前目标是把本项目整理成独立 Git/GitHub 仓库，并逐步做成可发布的 `github.io` 学习网站。推荐 GitHub 仓库名为 `hust-eic-microwave-review`。
+
+下一阶段重构与完善计划见 [REFACTOR_PLAN.md](REFACTOR_PLAN.md)，逐节/逐题反查清单见 [KNOWLEDGE_AUDIT.md](KNOWLEDGE_AUDIT.md) 与 [QUESTION_AUDIT.md](QUESTION_AUDIT.md)。
 
 ## 项目边界
 
-- 项目工作目录：`/Users/jason/Documents/vrShare/微波`
-- 当前 Git 仓库根目录：`/Users/jason/Documents/vrShare/微波`
-- 当前分支：`main`
+- 项目工作目录：`/Users/jason/intern-journal/explorations/content/hust-eic-microwave-from-scratch`（嵌入实习日志的 explorations）
+- 当前项目内嵌一个独立 `.git/`，分支：`main`
 - GitHub remote：尚未绑定；后续建议绑定为 `hust-eic-microwave-review`。
 
 ## 当前目录结构
@@ -74,14 +75,17 @@ python3 -m py_compile scripts/plots/*.py scripts/tools/*.py
 
 ## 待处理问题
 
-| 优先级 | 问题 | 建议 |
-|--------|------|------|
-| P1 | 尚未创建 GitHub remote | 推荐仓库名 `hust-eic-microwave-review`；仍需确认 owner 和 public/private 后创建并 push |
-| P1 | 尚未配置 GitHub Pages 发布流程 | 需要确定发布策略：提交 `site/`、使用 GitHub Actions 构建，或切到 `docs/` 输出 |
-| P1 | 作业题内容尚未逐题复核 | 需要生成题目校验清单，并逐题核对题面、公式、数值和结论 |
-| P1 | 知识点尚未按零基础标准逐节补齐 | 需要生成知识点完整性清单，检查前置知识、符号、公式来源、例题和误区 |
-| P1 | 写作风格尚未统一 | 需要后续统一为通俗易懂、直觉先行、公式跟进、例题带动的风格 |
-| P2 | 审校清单仍需随新目录继续整理 | `docs/QUESTION_AUDIT.md`、`docs/KNOWLEDGE_AUDIT.md` 已保留，但后续应按当前 `content/` 路线继续精简和分批勾选 |
+详细行动项见 [REFACTOR_PLAN.md](REFACTOR_PLAN.md) 的 P0/P1/P2/P3 分阶段清单。
+
+| 优先级 | 问题 | 对应计划 |
+|--------|------|---------|
+| P0 | 旧重构残留三个空目录已清理（2026-05-18） | REFACTOR_PLAN P0-1 ✅ |
+| P0 | 审校清单已同步当前路径（2026-05-18） | REFACTOR_PLAN P0-2 / P0-3 ✅ |
+| P1 | `solutions/04-后续专题/` 仅单文件 639 行未拆题 | REFACTOR_PLAN P1-6 |
+| P1 | `knowledge/` 缺第六阶段（圆波导/同轴/微带），与第四次作业不对称 | REFACTOR_PLAN P1-5 |
+| P2 | 知识点逐节反查（对照作业题验证公式与符号） | REFACTOR_PLAN P2-8 + KNOWLEDGE_AUDIT |
+| P2 | 作业题逐题校验（题面/公式/数值/单位/双向链） | REFACTOR_PLAN P2-9 + QUESTION_AUDIT |
+| P3 | 尚未创建 GitHub remote 和 Pages 发布流程 | REFACTOR_PLAN P3-12 |
 
 ## 后续变更检查清单
 
