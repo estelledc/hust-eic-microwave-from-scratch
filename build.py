@@ -20,6 +20,15 @@ except ImportError as exc:  # pragma: no cover - exercised by users without deps
         "Missing dependency: markdown. Run `python3 -m pip install -r requirements.txt` first."
     ) from exc
 
+try:
+    from PIL import Image, ImageChops
+except ImportError as exc:  # pragma: no cover - exercised by users without deps
+    Image = None
+    ImageChops = None
+    PIL_IMPORT_ERROR = exc
+else:
+    PIL_IMPORT_ERROR = None
+
 
 ROOT = Path(__file__).resolve().parent
 SITE_DIR = ROOT / "site"
@@ -33,6 +42,11 @@ PUBLIC_ROOTS = (
 )
 STATIC_DIRS = ("assets/images", "assets/illustrations")
 SITE_TITLE = "微波技术基础"
+EXP_IMAGE_DIR = Path("assets/images/exp")
+TRIM_IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg"}
+TRIM_DIFF_THRESHOLD = 12
+TRIM_PADDING = 12
+TRIM_MIN_MARGIN = 8
 
 EXCLUDED_PARTS = {".git", ".venv", "sources", "site"}
 LINK_RE = re.compile(r"(!?)\[([^\]]+)\]\(([^)]+)\)")
@@ -702,6 +716,65 @@ def copy_static_assets() -> None:
     shutil.copy2(ROOT / "assets" / "style.css", SITE_DIR / "assets" / "style.css")
     shutil.copy2(ROOT / "assets" / "app.js", SITE_DIR / "assets" / "app.js")
     shutil.copy2(ROOT / "assets" / "favicon.svg", SITE_DIR / "assets" / "favicon.svg")
+    trim_experiment_images()
+
+
+def trim_uniform_margin(path: Path) -> bool:
+    if Image is None or ImageChops is None:
+        raise SystemExit(
+            "Missing dependency: Pillow. Run `python3 -m pip install -r requirements.txt` first."
+        ) from PIL_IMPORT_ERROR
+
+    with Image.open(path) as image:
+        rgb = image.convert("RGB")
+        width, height = rgb.size
+        background = Image.new("RGB", rgb.size, rgb.getpixel((0, 0)))
+        diff = ImageChops.difference(rgb, background)
+        mask = diff.point(lambda value: 255 if value > TRIM_DIFF_THRESHOLD else 0).convert("L")
+        bbox = mask.getbbox()
+
+        if bbox is None:
+            return False
+
+        left, top, right, bottom = bbox
+        max_margin = max(left, top, width - right, height - bottom)
+        if max_margin < TRIM_MIN_MARGIN:
+            return False
+
+        crop_box = (
+            max(0, left - TRIM_PADDING),
+            max(0, top - TRIM_PADDING),
+            min(width, right + TRIM_PADDING),
+            min(height, bottom + TRIM_PADDING),
+        )
+        if crop_box == (0, 0, width, height):
+            return False
+
+        cropped = image.crop(crop_box)
+        if path.suffix.lower() in {".jpg", ".jpeg"} and cropped.mode != "RGB":
+            cropped = cropped.convert("RGB")
+        cropped.save(path)
+        return True
+
+
+def trim_experiment_images() -> None:
+    image_dir = SITE_DIR / EXP_IMAGE_DIR
+    if not image_dir.exists():
+        return
+
+    trimmed = 0
+    for image_path in sorted(image_dir.iterdir(), key=lambda path: natural_key(path.name)):
+        if image_path.suffix.lower() not in TRIM_IMAGE_SUFFIXES:
+            continue
+        try:
+            if trim_uniform_margin(image_path):
+                trimmed += 1
+        except OSError as exc:
+            rel_path = image_path.relative_to(ROOT)
+            raise SystemExit(f"Could not trim image margins for {rel_path}: {exc}") from exc
+
+    if trimmed:
+        print(f"Trimmed margins on {trimmed} experiment images")
 
 
 def build_search_index(pages: list[Page]) -> None:
