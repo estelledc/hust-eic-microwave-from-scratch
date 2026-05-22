@@ -121,6 +121,6 @@ $$
 
 ---
 
-![主模矩形波导 TE10 色散示意（波导波长与相速、群速）](../../../../assets/images/lec_rect_wg_te10_dispersion.png)
+![主模矩形波导 TE10 色散示意（波导波长与相速、群速）](../../../../assets/images/lec_rect_wg_te10_dispersion.webp)
 
 *图：$\mathrm{TE}_{10}$ 色散曲线用于检查截止附近 $\lambda_{\mathrm g}$、$v_{\mathrm p}$、$v_{\mathrm g}$ 的极限趋势。*

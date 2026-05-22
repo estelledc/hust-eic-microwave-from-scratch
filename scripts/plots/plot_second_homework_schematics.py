@@ -48,7 +48,7 @@ def draw_z_direction():
         fontsize=10,
     )
     ax.set_title(r"Transmission line: $z$ measured from load toward source", fontsize=12)
-    save(fig, "lec_symbol_z_direction.png")
+    save(fig, "lec_symbol_z_direction.webp")
 
 
 def draw_lec06_q4_AB():
@@ -85,7 +85,7 @@ def draw_lec06_q4_AB():
         r"Lec06 Q4: $A$ and $B$ separated by $\lambda/4$ ($B$ closer to load than $A$)",
         fontsize=11,
     )
-    save(fig, "lec06_q4_quarter_wave_AB.png")
+    save(fig, "lec06_q4_quarter_wave_AB.webp")
 
 
 def draw_parallel_stub():
@@ -105,7 +105,7 @@ def draw_parallel_stub():
     ax.plot([4.7, 5.3], [3, 3], "C0", lw=5, alpha=0.35)
     ax.text(5, 3.55, r"junction", ha="center", fontsize=9, color="C0")
     ax.set_title(r"Lec08: parallel short-circuited stub (topology)", fontsize=12)
-    save(fig, "lec08_parallel_stub_topology.png")
+    save(fig, "lec08_parallel_stub_topology.webp")
 
 
 def draw_double_stub():
@@ -145,7 +145,7 @@ def draw_double_stub():
         r"Lec08 Q6: double parallel stubs (spacing $d_1$, $d_2$ along main line)",
         fontsize=11,
     )
-    save(fig, "lec08_double_stub_topology.png")
+    save(fig, "lec08_double_stub_topology.webp")
 
 
 def draw_lec08_q7():
@@ -185,7 +185,7 @@ def draw_lec08_q7():
         r"Lec08 Q7: parallel stub at $d_1$, series stub at $d_2$ (conceptual)",
         fontsize=11,
     )
-    save(fig, "lec08_q7_topology_sketch.png")
+    save(fig, "lec08_q7_topology_sketch.webp")
 
 
 def draw_lec07_gamma_rotation():
@@ -217,7 +217,7 @@ def draw_lec07_gamma_rotation():
     ax.set_title(r"Lec07: rotate on $|\Gamma|$ circle (example $2\beta l=0.8\pi$)", fontsize=11)
     ax.legend(loc="upper left", fontsize=8)
     ax.grid(True, alpha=0.25)
-    save(fig, "lec07_gamma_rotation_smith_principle.png")
+    save(fig, "lec07_gamma_rotation_smith_principle.webp")
 
 
 def draw_lec07_Zbar_q1():
@@ -239,7 +239,7 @@ def draw_lec07_Zbar_q1():
     ax.set_ylabel(r"$\mathrm{Im}\{\bar Z_L\}$", fontsize=11)
     ax.set_title(r"Lec07 Q1: normalized load in impedance plane", fontsize=11)
     ax.grid(True, alpha=0.3)
-    save(fig, "lec07_Zbar_plane_q1.png")
+    save(fig, "lec07_Zbar_plane_q1.webp")
 
 
 def draw_lec07_same_mod_gamma():
@@ -262,7 +262,7 @@ def draw_lec07_same_mod_gamma():
     ax.set_xlabel(r"$\mathrm{Re}\{\Gamma\}$", fontsize=11)
     ax.set_ylabel(r"$\mathrm{Im}\{\Gamma\}$", fontsize=11)
     ax.set_title(r"Lec07 Q2: $\rho$ depends only on $|\Gamma|$, not angle", fontsize=11)
-    save(fig, "lec07_constant_mod_gamma_rho.png")
+    save(fig, "lec07_constant_mod_gamma_rho.webp")
 
 
 def draw_lec07_tline_Zin_segment():
@@ -295,7 +295,7 @@ def draw_lec07_tline_Zin_segment():
         r"Lec07 Q3/Q4: $Z_{\mathrm{in}}$ at distance $l$ from load ($z$ toward source)",
         fontsize=11,
     )
-    save(fig, "lec07_tline_ZL_l_Zin.png")
+    save(fig, "lec07_tline_ZL_l_Zin.webp")
 
 
 def draw_lec07_vmin_q5():
@@ -317,7 +317,7 @@ def draw_lec07_vmin_q5():
     ax.set_ylim(-0.05, 1.1)
     ax.grid(True, alpha=0.3)
     ax.set_title(r"Lec07 Q5: first $V_{\min}$ at $0.2\lambda$ from load ($\rho=2$)", fontsize=11)
-    save(fig, "lec07_vmin_first_null_02lambda.png")
+    save(fig, "lec07_vmin_first_null_02lambda.webp")
 
 
 def draw_vmin_first_null():
@@ -343,7 +343,7 @@ def draw_vmin_first_null():
         r"Example: $\rho=2$, first $V_{\min}$ at $z_{\min}=0.1\lambda$ (Lec06-5 type)",
         fontsize=11,
     )
-    save(fig, "lec_vmin_first_null.png")
+    save(fig, "lec_vmin_first_null.webp")
 
 
 def main():

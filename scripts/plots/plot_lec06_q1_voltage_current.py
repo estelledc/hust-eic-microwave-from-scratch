@@ -82,7 +82,7 @@ def main():
     ax.set_xticklabels([r"$A$", "", r"$B$", "", r"load"])
 
     plt.tight_layout()
-    out_path = OUT / "lec06_q1_voltage_current.png"
+    out_path = OUT / "lec06_q1_voltage_current.webp"
     fig.savefig(out_path, dpi=160)
     plt.close(fig)
     print("saved", out_path)

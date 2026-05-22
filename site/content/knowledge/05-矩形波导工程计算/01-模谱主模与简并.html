@@ -276,11 +276,11 @@
 <h2 id="_2">直觉：一张「模谱表」定生死<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
 <p>给定截面 $a\times b$，每一组合法 $(m,n)$ 对应一个 <strong>$k_{\mathrm c}$</strong>（及 $\lambda_{\mathrm c}$）。工作点 $\lambda_0$ 比哪些 $\lambda_{\mathrm c}$ <strong>短</strong>，哪些模就能导行——后续 <a href="04-可传输模判定与枚举.html">04</a> 全是这套逻辑的批量应用。</p>
 <p>把 $\lambda_{\mathrm c}$ 想成“通行门槛”会更顺：对某个模来说，工作波长越短，频率越高，越容易过门槛。主模就是门槛最低、最先能传的那个模；矩形波导里通常就是 $\mathrm{TE}_{10}$。</p>
-<p><img alt="矩形波导模谱、主模 $\mathrm{TE}_{10}$ 与 $\mathrm{TE}_{11}/\mathrm{TM}_{11}$ 简并" src="../../../assets/images/gpt-wg-mode-spectrum-te10-degeneracy.png"></p>
+<p><img alt="矩形波导模谱、主模 $\mathrm{TE}_{10}$ 与 $\mathrm{TE}_{11}/\mathrm{TM}_{11}$ 简并" src="../../../assets/images/gpt-wg-mode-spectrum-te10-degeneracy.webp"></p>
 <p>看模谱时要同时记住两个排序：$k_{\mathrm c}$ 越小越早导行，$\lambda_{\mathrm c}$ 越大越早导行。$\mathrm{TE}_{11}$ 与 $\mathrm{TM}_{11}$ 共用同一个截止门槛，但它们仍是不同的场型。</p>
 <hr>
 <h2 id="_3">定义与符号表<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
-<p>记 <strong>$a$</strong> 为宽边、<strong>$b$</strong> 为窄边（<strong>$a>b$</strong>）。空气填充时常用 $k=2\pi/\lambda_0=\omega/c$。</p>
+<p>记 <strong>$a$</strong> 为宽边、<strong>$b$</strong> 为窄边（<strong>$a&gt;b$</strong>）。空气填充时常用 $k=2\pi/\lambda_0=\omega/c$。</p>
 <p>$$
 k_{\mathrm c}=\sqrt{\left(\frac{m\pi}{a}\right)^2+\left(\frac{n\pi}{b}\right)^2},\quad
 \lambda_{\mathrm c}=\frac{2\pi}{k_{\mathrm c}},\quad
@@ -293,17 +293,17 @@ $$</p>
 <p><strong>主模（矩形波导）</strong>：<strong>$\mathrm{TE}_{10}$</strong> —— 同一几何下 <strong>$k_{\mathrm c}$ 最小</strong>（因而 $\lambda_{\mathrm c}$ 最大）的导行模，工程上常工作在 <strong>单模区</strong> 仅用主模传输。</p>
 <p><strong>简并</strong>：不同模族若 <strong>$k_{\mathrm c}$ 相同</strong>，则截止特性相同；例如 <strong>$\mathrm{TE}_{11}$</strong> 与 <strong>$\mathrm{TM}_{11}$</strong> 在矩形波导中 <strong>$k_{\mathrm c}$ 相同</strong>（场分布仍不同）。</p>
 <hr>
-<h2 id="math44-math45">常用特例（$\mathrm{TE}_{10}$ 相邻模，$a>b$）<a class="headerlink" href="#math44-math45" title="Permanent link">§</a></h2>
+<h2 id="math44-math45">常用特例（$\mathrm{TE}_{10}$ 相邻模，$a&gt;b$）<a class="headerlink" href="#math44-math45" title="Permanent link">§</a></h2>
 <ul>
 <li>$\lambda_{\mathrm c}(\mathrm{TE}_{10})=2a$</li>
 <li>$\lambda_{\mathrm c}(\mathrm{TE}_{20})=a$</li>
 <li>$\lambda_{\mathrm c}(\mathrm{TE}_{01})=2b$</li>
 <li>$\lambda_{\mathrm c}(\mathrm{TE}_{11})=\lambda_{\mathrm c}(\mathrm{TM}_{11})=2/\sqrt{(1/a)^2+(1/b)^2}$</li>
 </ul>
-<p><strong>$a>2b$</strong>（如 BJ-100 / WR-90）时，紧挨主模的高次模通常先看 <strong>$\mathrm{TE}_{20}$</strong>；若几何比例不同，仍要把 $\mathrm{TE}_{01}$、$\mathrm{TE}_{11}/\mathrm{TM}_{11}$ 等一并核验，详见 <a href="02-单模工作区与介质填充.html">02</a>。</p>
+<p><strong>$a&gt;2b$</strong>（如 BJ-100 / WR-90）时，紧挨主模的高次模通常先看 <strong>$\mathrm{TE}_{20}$</strong>；若几何比例不同，仍要把 $\mathrm{TE}_{01}$、$\mathrm{TE}_{11}/\mathrm{TM}_{11}$ 等一并核验，详见 <a href="02-单模工作区与介质填充.html">02</a>。</p>
 <hr>
 <h2 id="_4">与截止、色散、模式指标的挂钩<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
-<p>空气中导行当且仅当 <strong>$\lambda_0<\lambda_{\mathrm c}$</strong>（或 $f>f_{\mathrm c}$，或 $k>k_{\mathrm c}$）。若波导被均匀介质全填充，优先比较介质中的 $\lambda=2\pi/k$ 与几何 $\lambda_{\mathrm c}$，与 <a href="../04-截止色散与速度/01-三种波长.html">Lec11-Lec12</a> 一致。</p>
+<p>空气中导行当且仅当 <strong>$\lambda_0&lt;\lambda_{\mathrm c}$</strong>（或 $f&gt;f_{\mathrm c}$，或 $k&gt;k_{\mathrm c}$）。若波导被均匀介质全填充，优先比较介质中的 $\lambda=2\pi/k$ 与几何 $\lambda_{\mathrm c}$，与 <a href="../04-截止色散与速度/01-三种波长.html">Lec11-Lec12</a> 一致。</p>
 <hr>
 <h2 id="_5">易错点<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
 <ol>
@@ -331,7 +331,7 @@ $$</p>
 <li><a href="#_1">本节你要能回答什么</a></li>
 <li><a href="#_2">直觉：一张「模谱表」定生死</a></li>
 <li><a href="#_3">定义与符号表</a></li>
-<li><a href="#math44-math45">常用特例（$\mathrm{TE}_{10}$ 相邻模，$a>b$）</a></li>
+<li><a href="#math44-math45">常用特例（$\mathrm{TE}_{10}$ 相邻模，$a&gt;b$）</a></li>
 <li><a href="#_4">与截止、色散、模式指标的挂钩</a></li>
 <li><a href="#_5">易错点</a></li>
 <li><a href="#mini">Mini 自检题</a></li>

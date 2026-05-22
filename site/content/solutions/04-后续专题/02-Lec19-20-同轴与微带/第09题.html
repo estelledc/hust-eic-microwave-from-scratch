@@ -271,12 +271,12 @@
 </blockquote>
 <p><strong>题目</strong>：什么是等效相对介电常数，是如何定义的？含义是什么？如何用介质的相对介电常数和填充因子计算等效相对介电常数？</p>
 <p><strong>对应知识点</strong>：微带线等效均匀化、传播常数定义、相速与导波波长定义、填充因子 \(q\)、\(\varepsilon_{\mathrm{eff}}\) 与 \(\varepsilon_r\) 的区别。</p>
-<p><img alt="微带线等效相对介电常数与填充因子" src="../../../../assets/images/gpt-hw4-lec19-q9-effective-permittivity.png"></p>
+<p><img alt="微带线等效相对介电常数与填充因子" src="../../../../assets/images/gpt-hw4-lec19-q9-effective-permittivity.webp"></p>
 <p><em>图：\(\varepsilon_{\mathrm{eff}}\) 描述“部分空气、部分介质”的等效传播结果，不是基片 \(\varepsilon_r\) 本身；\(q\) 越大，介质影响越强，相速越低，导波波长越短。</em></p>
 <h2 id="_1">一、前置知识<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <p>微带线的场一部分在介质基片中，一部分在空气中。为了用类似均匀传输线的形式描述其主模传播，常引入等效相对介电常数 \(\varepsilon_{\mathrm{eff}}\)。它通常满足</p>
 <p>\[
-1<\varepsilon_{\mathrm{eff}}<\varepsilon_r.
+1&lt;\varepsilon_{\mathrm{eff}}&lt;\varepsilon_r.
 \]</p>
 <h2 id="_2">二、分析思路<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
 <p>从传播常数、相速或导波波长给出 \(\varepsilon_{\mathrm{eff}}\) 的定义，再说明它的物理含义。最后引入填充因子 \(q\)，把空气与介质的贡献写成加权平均。</p>
@@ -296,7 +296,7 @@
 <p>等效相对介电常数的物理含义是：用一个均匀填充、相对介电常数为 \(\varepsilon_{\mathrm{eff}}\) 的等效介质，替代实际“部分空气、部分介质”的非均匀横截面，使其具有相同或近似相同的相速、传播常数和单位长度电容。</p>
 <p>若引入填充因子 \(q\)，表示电场能量或等效电容受介质影响的比例，则</p>
 <p>\[
-q=\frac{\varepsilon_{\mathrm{eff}}-1}{\varepsilon_r-1},\qquad 0<q<1.
+q=\frac{\varepsilon_{\mathrm{eff}}-1}{\varepsilon_r-1},\qquad 0&lt;q&lt;1.
 \]</p>
 <p>因此</p>
 <p>\[
@@ -310,12 +310,12 @@ q=\frac{\varepsilon_{\mathrm{eff}}-1}{\varepsilon_r-1},\qquad 0<q<1.
 <ul>
 <li>\(q=0\) 表示场几乎都在空气中，\(\varepsilon_{\mathrm{eff}}\approx1\)；</li>
 <li>\(q=1\) 表示场等效上完全在介质中，\(\varepsilon_{\mathrm{eff}}\approx\varepsilon_r\)；</li>
-<li>实际微带线 \(0<q<1\)，所以 \(\varepsilon_{\mathrm{eff}}\) 介于 \(1\) 与 \(\varepsilon_r\) 之间；</li>
+<li>实际微带线 \(0&lt;q&lt;1\)，所以 \(\varepsilon_{\mathrm{eff}}\) 介于 \(1\) 与 \(\varepsilon_r\) 之间；</li>
 <li>\(q\) 越大，电场越多集中在介质中，\(\varepsilon_{\mathrm{eff}}\) 越大，相速越低，导波波长越短。</li>
 </ul>
 <h2 id="_4">四、结论与易错点<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
 <p>\[
-\boxed{\varepsilon_{\mathrm{eff}}=1+q(\varepsilon_r-1),\qquad 1<\varepsilon_{\mathrm{eff}}<\varepsilon_r.}
+\boxed{\varepsilon_{\mathrm{eff}}=1+q(\varepsilon_r-1),\qquad 1&lt;\varepsilon_{\mathrm{eff}}&lt;\varepsilon_r.}
 \]</p>
 <p>易错点：\(\varepsilon_{\mathrm{eff}}\) 不是基片介电常数 \(\varepsilon_r\) 本身，而是空气区和介质区共同作用后的等效值。</p>
       </article>

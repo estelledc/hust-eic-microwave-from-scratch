@@ -277,10 +277,10 @@
 <p>理想导体近似下，金属表面切向电场为零（$\boldsymbol n\times \boldsymbol E=\boldsymbol 0$）。矩形域与坐标轴对齐时，边界把本征函数锁成<strong>离散 $\sin/\cos$</strong>，从而 $k_x,k_y$ 只能取分立值。</p>
 <p>所以截止不是“波被损耗吃掉了”，而是这个频率给出的波数 $k$ 不够大，连横截面要求的那套场分布都撑不起来。低于截止时，场沿 $z$ 方向主要表现为衰减，而不是正常传输。</p>
 <p><img alt="波导截止的三种状态" src="../../../assets/illustrations/waveguide-cutoff.svg"></p>
-<p><em>图：$k<k_{\mathrm c}$ 时 $\beta$ 为虚数，沿轴向衰减；$k>k_{\mathrm c}$ 时 $\beta$ 为实数，才进入正常导行区。</em></p>
+<p><em>图：$k&lt;k_{\mathrm c}$ 时 $\beta$ 为虚数，沿轴向衰减；$k&gt;k_{\mathrm c}$ 时 $\beta$ 为实数，才进入正常导行区。</em></p>
 <hr>
 <h2 id="_3">定义与符号表<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
-<p><strong>矩形波导</strong>：截面 $0\le x\le a,\ 0\le y\le b$，轴向 $z$；<strong>宽边</strong> $a$、<strong>窄边</strong> $b$，常见 $a>b$。</p>
+<p><strong>矩形波导</strong>：截面 $0\le x\le a,\ 0\le y\le b$，轴向 $z$；<strong>宽边</strong> $a$、<strong>窄边</strong> $b$，常见 $a&gt;b$。</p>
 <p><strong>理想导体边界（与 TM 的 $E_z$ 直接相关）</strong>：壁上切向 $E=0$，故在 $x=0,a$ 与 $y=0,b$ 上 <strong>$E_z=0$</strong>（TM 情形）。</p>
 <p>由分离变量得（TM）</p>
 <p>$$
@@ -294,7 +294,7 @@ $$</p>
 <p>$$
 k^2=k_{\mathrm c}^2+\beta^2
 \quad\Leftrightarrow\quad
-\beta=\sqrt{k^2-k_{\mathrm c}^2}\quad (k>k_{\mathrm c}).
+\beta=\sqrt{k^2-k_{\mathrm c}^2}\quad (k&gt;k_{\mathrm c}).
 $$</p>
 <p><strong>截止</strong>：$k=k_{\mathrm c}$ 时 $\beta=0$。定义</p>
 <p>$$
@@ -314,7 +314,7 @@ $$</p>
 </thead>
 <tbody>
 <tr>
-<td>$k<k_{\mathrm c}$</td>
+<td>$k&lt;k_{\mathrm c}$</td>
 <td>虚数</td>
 <td>截止，沿轴向衰减</td>
 </tr>
@@ -324,7 +324,7 @@ $$</p>
 <td>截止边界</td>
 </tr>
 <tr>
-<td>$k>k_{\mathrm c}$</td>
+<td>$k&gt;k_{\mathrm c}$</td>
 <td>实数</td>
 <td>可以导行</td>
 </tr>
@@ -336,13 +336,13 @@ $$</p>
 <li>写出横截面上 $(\nabla_t^2+k_{\mathrm c}^2)\psi=0$（$\psi$ 为 $E_z$ 或 $H_z$，依模类而定）。</li>
 <li>分离变量得 $k_x,k_y$ 与通解。</li>
 <li>代入四壁边界，确定本征值 $k_x=m\pi/a,\ k_y=n\pi/b$。</li>
-<li>由 $k_{\mathrm c}=\sqrt{k_x^2+k_y^2}$ 得截止；由 $k^2=k_{\mathrm c}^2+\beta^2$ 讨论导行条件 $k>k_{\mathrm c}$。</li>
+<li>由 $k_{\mathrm c}=\sqrt{k_x^2+k_y^2}$ 得截止；由 $k^2=k_{\mathrm c}^2+\beta^2$ 讨论导行条件 $k&gt;k_{\mathrm c}$。</li>
 </ol>
 <hr>
 <h2 id="_5">与截止、色散、模式指标的挂钩<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
 <ul>
 <li><strong>每一组</strong> $(m,n)$ 对应一个模与一个 $k_{\mathrm c}$；<strong>最低</strong> $k_{\mathrm c}$ 的模称<strong>主模</strong>（矩形波导通常为 $\mathrm{TE}_{10}$，本册作业重点在 <strong>$\mathrm{TM}_{11}$</strong>）。</li>
-<li><strong>$k$ 随频率升高而增大</strong>：固定模下，频率足够高才能 $k>k_{\mathrm c}$ 进入导行区。</li>
+<li><strong>$k$ 随频率升高而增大</strong>：固定模下，频率足够高才能 $k&gt;k_{\mathrm c}$ 进入导行区。</li>
 </ul>
 <hr>
 <h2 id="_6">易错点<a class="headerlink" href="#_6" title="Permanent link">§</a></h2>
@@ -355,7 +355,7 @@ $$</p>
 <h2 id="mini">Mini 自检题<a class="headerlink" href="#mini" title="Permanent link">§</a></h2>
 <p><strong>Q1</strong>：$\beta=0$ 时，$k$ 与 $k_{\mathrm c}$ 关系如何？</p>
 <p><strong>提示</strong>：$k=k_{\mathrm c}$，对应截止点。</p>
-<p><strong>Q2</strong>：空气填充、尺寸固定的矩形波导，把内部改为 $\varepsilon_r>1$ 的介质，同一模的 $k_{\mathrm c}$ 变不变？$f_{\mathrm c}$ 变不变？</p>
+<p><strong>Q2</strong>：空气填充、尺寸固定的矩形波导，把内部改为 $\varepsilon_r&gt;1$ 的介质，同一模的 $k_{\mathrm c}$ 变不变？$f_{\mathrm c}$ 变不变？</p>
 <p><strong>提示</strong>：理想导体边界下横截面本征值 $k_{\mathrm c}$ 往往<strong>不变</strong>（若介质均匀充满且各向同性）；但 $k=\omega\sqrt{\mu\varepsilon}$ 变化，<strong>导行条件</strong>与表观 $f_{\mathrm c}$ 会随填充改变——作业里若问「全填充介质只传某模」要重新用 $k$ 与 $k_{\mathrm c}$ 比较。</p>
 <hr>
 <h2 id="_7">相关链接<a class="headerlink" href="#_7" title="Permanent link">§</a></h2>

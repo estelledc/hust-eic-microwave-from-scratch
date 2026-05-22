@@ -277,8 +277,8 @@
 <h2 id="_1">一、前置知识<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <h3 id="1">1. 专有名词<a class="headerlink" href="#1" title="Permanent link">§</a></h3>
 <ul>
-<li><strong>能否传输</strong>（工程口语）：<strong>至少</strong>一个模满足 <strong>$\lambda_0 < \lambda_{\mathrm c,10}$</strong> 时常说“能传”（<strong>至少</strong>主模可导行）；<strong>严格单模</strong>见 <a href="第01题.html">第1题</a>、<a href="第06题.html">第6题</a>。  </li>
-<li><strong>可能存在的波型</strong>：在合理 <strong>$(m,n)$</strong> 内，<strong>所有</strong>满足 <strong>$\lambda_0 < \lambda_{\mathrm c,mn}$</strong> 的 <strong>$\mathrm{TE}$、$\mathrm{TM}$</strong>（$\mathrm{TM}$ 的 $m,n\ge 1$）均计入；$\mathrm{TE}_{11}$ 与 $\mathrm{TM}_{11}$ <strong>分计</strong>。  </li>
+<li><strong>能否传输</strong>（工程口语）：<strong>至少</strong>一个模满足 <strong>$\lambda_0 &lt; \lambda_{\mathrm c,10}$</strong> 时常说“能传”（<strong>至少</strong>主模可导行）；<strong>严格单模</strong>见 <a href="第01题.html">第1题</a>、<a href="第06题.html">第6题</a>。  </li>
+<li><strong>可能存在的波型</strong>：在合理 <strong>$(m,n)$</strong> 内，<strong>所有</strong>满足 <strong>$\lambda_0 &lt; \lambda_{\mathrm c,mn}$</strong> 的 <strong>$\mathrm{TE}$、$\mathrm{TM}$</strong>（$\mathrm{TM}$ 的 $m,n\ge 1$）均计入；$\mathrm{TE}_{11}$ 与 $\mathrm{TM}_{11}$ <strong>分计</strong>。  </li>
 <li><strong>大截面波导</strong>：$\lambda_\mathrm c$ 整体偏大，在<strong>同 $\lambda_0$</strong> 下<strong>可导行</strong>的 <strong>$(m,n)$</strong> 增多，<strong>计数</strong>常需<strong>枚举表或完整模表</strong>。</li>
 </ul>
 <h3 id="2">2. 核心公式<a class="headerlink" href="#2" title="Permanent link">§</a></h3>
@@ -290,8 +290,8 @@
 <h2 id="_2">二、分析思路<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
 <ol>
 <li>对<strong>（1）</strong> BJ-100：尺寸小，先判 <strong>$\lambda_0$</strong> 与 <strong>$\lambda_{\mathrm c,10}=2a$</strong>；若 $\lambda_0\ge 2a$，则<strong>连主模</strong>也不导行 → <strong>不传输</strong>。  </li>
-<li>当 $\lambda_0 < 2a$，再<strong>递增</strong>看 <strong>$\mathrm{TE}_{20}$（$\lambda_\mathrm c=a$</strong>）、<strong>$\mathrm{TE}_{01}$（$\lambda_\mathrm c=2b$</strong>）<strong>等是否满足 </strong>$\lambda_0 < \lambda_\mathrm c$**。  </li>
-<li>对<strong>（2）</strong> 大波导：对给定 <strong>$\lambda_0$</strong>，在 <strong>$(m,n)$</strong> 上界内（使 $\lambda_\mathrm c$ 仍与 $\lambda_0$ 可比）<strong>枚举</strong>所有满足 <strong>$\lambda_\mathrm c > \lambda_0$</strong> 的<strong>模式</strong>，<strong>计数</strong>；表中 <strong>14 / 38</strong> 为完整枚举<strong>结果</strong>（答卷可附模式清单或比较表）。  </li>
+<li>当 $\lambda_0 &lt; 2a$，再<strong>递增</strong>看 <strong>$\mathrm{TE}_{20}$（$\lambda_\mathrm c=a$</strong>）、<strong>$\mathrm{TE}_{01}$（$\lambda_\mathrm c=2b$</strong>）<strong>等是否满足 </strong>$\lambda_0 &lt; \lambda_\mathrm c$**。  </li>
+<li>对<strong>（2）</strong> 大波导：对给定 <strong>$\lambda_0$</strong>，在 <strong>$(m,n)$</strong> 上界内（使 $\lambda_\mathrm c$ 仍与 $\lambda_0$ 可比）<strong>枚举</strong>所有满足 <strong>$\lambda_\mathrm c &gt; \lambda_0$</strong> 的<strong>模式</strong>，<strong>计数</strong>；表中 <strong>14 / 38</strong> 为完整枚举<strong>结果</strong>（答卷可附模式清单或比较表）。  </li>
 <li><strong>$3.2\,\mathrm{cm}$、$2\,\mathrm{cm}$</strong> 在（1）中落在<strong>单模</strong>与<strong>多模</strong>的不同区间，与 <strong>$a,2b$</strong> 的相对位置有关。</li>
 </ol>
 <hr>
@@ -302,14 +302,14 @@
 <tr>
 <th>$\lambda_0$</th>
 <th>能否传输</th>
-<th>可能存在的波型（$\lambda_0<\lambda_{\mathrm c}$ 者）</th>
+<th>可能存在的波型（$\lambda_0&lt;\lambda_{\mathrm c}$ 者）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>$10\,\mathrm{cm}$</td>
 <td>否</td>
-<td>—（$\lambda_0>2a$，$\mathrm{TE}_{10}$ 也不导行）</td>
+<td>—（$\lambda_0&gt;2a$，$\mathrm{TE}_{10}$ 也不导行）</td>
 </tr>
 <tr>
 <td>$8\,\mathrm{cm}$</td>
@@ -360,9 +360,9 @@
 </tr>
 </tbody>
 </table>
-<p><em>选做：将 $m,n$ 在合理截断内遍历；满足 $\lambda_\mathrm c>\lambda_0$ 的 $\mathrm{TE}$ 与 $\mathrm{TM}$ 均计入，其中 $\mathrm{TM}$ 要求 $m,n\ge 1$。</em></p>
+<p><em>选做：将 $m,n$ 在合理截断内遍历；满足 $\lambda_\mathrm c&gt;\lambda_0$ 的 $\mathrm{TE}$ 与 $\mathrm{TM}$ 均计入，其中 $\mathrm{TM}$ 要求 $m,n\ge 1$。</em></p>
 <h2 id="_4">图示<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
-<p><img alt="小截面与大截面波导在四个工作波长下的模式判定思路" src="../../../../assets/images/lec13_16_q05_two_wgs.png"></p>
+<p><img alt="小截面与大截面波导在四个工作波长下的模式判定思路" src="../../../../assets/images/lec13_16_q05_two_wgs.webp"></p>
 <p><em>图：同一工作波长换到不同截面，导行结论可能完全不同。大截面问中的 14、38 等数量必须按 $(m,n)$ 枚举核验，图只展示判定流程。</em></p>
 <hr>
 <h2 id="_5">四、与主册/他题衔接<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>

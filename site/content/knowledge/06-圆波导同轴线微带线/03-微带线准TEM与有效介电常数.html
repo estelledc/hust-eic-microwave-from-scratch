@@ -268,6 +268,8 @@
 <hr>
 <h2 id="_1">本节先抓住一句话<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <p>微带线由"导体带 + 介质基片 + 接地板"组成。它的"主模"看起来像 TEM——电场基本横向、磁场基本横向——但因为<strong>电磁场跨在两种介质里</strong>（空气和基片介质），严格的 TEM 数学条件不成立。我们叫它<strong>准 TEM</strong>，并用一个等效相对介电常数 $\varepsilon_{\mathrm{eff}}$ 把它当 TEM 来近似处理。</p>
+<p><img alt="微带线准 TEM 与严格 TEM 矛盾证明" src="../../../assets/images/gpt-hw4-lec19-q8-microstrip-quasi-tem.webp"></p>
+<p><em>图：微带场线一部分在空气中，一部分在介质中。若强行要求纯 TEM，同一传播常数 $\beta$ 无法同时满足两种介质的相速要求，所以实际只能是准 TEM。</em></p>
 <hr>
 <h2 id="tem">为什么不能是纯 TEM<a class="headerlink" href="#tem" title="Permanent link">§</a></h2>
 <p>纯 TEM 模要求：所有沿 $z$ 方向传播的波，相速都等于该填充介质的 $1/\sqrt{\mu\varepsilon}$。</p>
@@ -284,7 +286,7 @@
 <li>把整个微带等效成一根均匀填充某种"等效介质"的传输线，这个等效介质的相对介电常数就是 $\varepsilon_{\mathrm{eff}}$。</li>
 </ul>
 <hr>
-<h2 id="math26">等效相对介电常数 $\varepsilon_{\mathrm{eff}}$<a class="headerlink" href="#math26" title="Permanent link">§</a></h2>
+<h2 id="math27">等效相对介电常数 $\varepsilon_{\mathrm{eff}}$<a class="headerlink" href="#math27" title="Permanent link">§</a></h2>
 <p>定义：把准 TEM 模的实际相速映射到一个<strong>均匀填充</strong>的等效 TEM 线时所需的相对介电常数：</p>
 <p>$$
 v_{\mathrm p}=\frac{c}{\sqrt{\varepsilon_{\mathrm{eff}}}},
@@ -293,7 +295,7 @@ v_{\mathrm p}=\frac{c}{\sqrt{\varepsilon_{\mathrm{eff}}}},
 $$</p>
 <p>物理边界：</p>
 <p>$$
-1<\varepsilon_{\mathrm{eff}}<\varepsilon_r.
+1&lt;\varepsilon_{\mathrm{eff}}&lt;\varepsilon_r.
 $$</p>
 <ul>
 <li>极限 1：场全在空气中（基片很薄、$\varepsilon_r$ 接近 1）。</li>
@@ -307,15 +309,17 @@ $$</p>
 \varepsilon_{\mathrm{eff}}\approx\frac{\varepsilon_r+1}{2}+\frac{\varepsilon_r-1}{2}\,\frac{1}{\sqrt{1+12h/W}}.
 $$</p>
 <p>记不住推导没关系，记住"加权平均"的画面：$\varepsilon_{\mathrm{eff}}$ 是空气和基片对场的"占比加权平均"。</p>
+<p><img alt="微带线等效相对介电常数与填充因子" src="../../../assets/images/gpt-hw4-lec19-q9-effective-permittivity.webp"></p>
+<p><em>图：$\varepsilon_{\mathrm{eff}}$ 位于 $1$ 与 $\varepsilon_r$ 之间；填充因子 $q$ 越大，说明更多场能量有效地处在介质区，传播越慢。</em></p>
 <hr>
-<h2 id="math37">填充因子 $q$<a class="headerlink" href="#math37" title="Permanent link">§</a></h2>
+<h2 id="math42">填充因子 $q$<a class="headerlink" href="#math42" title="Permanent link">§</a></h2>
 <p>把 $\varepsilon_{\mathrm{eff}}$ 写成线性插值：</p>
 <p>$$
 \varepsilon_{\mathrm{eff}}=1+q(\varepsilon_r-1),
 \qquad
 q=\frac{\varepsilon_{\mathrm{eff}}-1}{\varepsilon_r-1}.
 $$</p>
-<p>$q$ 称为<strong>填充因子</strong>，取值 $0<q<1$，代表"场在基片介质中所占的有效比例"：</p>
+<p>$q$ 称为<strong>填充因子</strong>，取值 $0&lt;q&lt;1$，代表"场在基片介质中所占的有效比例"：</p>
 <ul>
 <li>$q\to 0$：场几乎全在空气，$\varepsilon_{\mathrm{eff}}\to 1$。</li>
 <li>$q\to 1$：场几乎全在基片，$\varepsilon_{\mathrm{eff}}\to\varepsilon_r$。</li>
@@ -336,19 +340,19 @@ $$</p>
 <h2 id="_3">频率上限：色散与高阶模<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <p>微带准 TEM 的两个上限：</p>
 <ol>
-<li><strong>色散开始变得不可忽略</strong>：频率升高后，纵向场分量比例增加，$\varepsilon_{\mathrm{eff}}$ 不再是常数（弱色散）。常用判据是 $f<f_{\mathrm{T}}$，$f_{\mathrm{T}}$ 大致由基片厚度 $h$ 决定。</li>
+<li><strong>色散开始变得不可忽略</strong>：频率升高后，纵向场分量比例增加，$\varepsilon_{\mathrm{eff}}$ 不再是常数（弱色散）。常用判据是 $f&lt;f_{\mathrm{T}}$，$f_{\mathrm{T}}$ 大致由基片厚度 $h$ 决定。</li>
 <li><strong>激发高阶表面波模</strong>：基片厚度足够时会出现 $\mathrm{TM}_0$、$\mathrm{TE}_1$ 等表面波模，截止频率近似</li>
 </ol>
 <p>$$
 f_{\mathrm c,\mathrm{TM}_0}\approx \frac{c\arctan(\varepsilon_r)}{\sqrt{2\pi h\sqrt{\varepsilon_r-1}}}\quad(\text{粗略量级估计})
 $$</p>
-<p>工程上微带电路通常在 $f<f_{\mathrm c,\mathrm{TM}_0}/2$ 工作以保留充足裕度。</p>
+<p>工程上微带电路通常在 $f&lt;f_{\mathrm c,\mathrm{TM}_0}/2$ 工作以保留充足裕度。</p>
 <hr>
 <h2 id="_4">易错点<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
 <ol>
 <li>把准 TEM 当纯 TEM 用，套 $v_p=c/\sqrt{\varepsilon_r}$——错。应该套 $v_p=c/\sqrt{\varepsilon_{\mathrm{eff}}}$。</li>
 <li>把 $\varepsilon_{\mathrm{eff}}$ 当成与 $W$、$h$ 无关的纯材料量——它<strong>与几何相关</strong>，是有效场分布的加权。</li>
-<li>忘记 $1<\varepsilon_{\mathrm{eff}}<\varepsilon_r$ 的边界，算出 $\varepsilon_{\mathrm{eff}}>\varepsilon_r$ 或 $<1$ 一定是公式代错。</li>
+<li>忘记 $1&lt;\varepsilon_{\mathrm{eff}}&lt;\varepsilon_r$ 的边界，算出 $\varepsilon_{\mathrm{eff}}&gt;\varepsilon_r$ 或 $&lt;1$ 一定是公式代错。</li>
 <li>把"准 TEM 没色散"当成结论——准 TEM <strong>低频</strong>近似无色散，但频率升高就有弱色散，且会激发表面波。</li>
 </ol>
 <hr>
@@ -377,8 +381,8 @@ $$</p>
 <li><a href="#_1">本节先抓住一句话</a></li>
 <li><a href="#tem">为什么不能是纯 TEM</a></li>
 <li><a href="#tem_1">准 TEM 的工程定义</a></li>
-<li><a href="#math26">等效相对介电常数 $\varepsilon_{\mathrm{eff}}$</a></li>
-<li><a href="#math37">填充因子 $q$</a></li>
+<li><a href="#math27">等效相对介电常数 $\varepsilon_{\mathrm{eff}}$</a></li>
+<li><a href="#math42">填充因子 $q$</a></li>
 <li><a href="#_2">特性阻抗近似式</a></li>
 <li><a href="#_3">频率上限：色散与高阶模</a></li>
 <li><a href="#_4">易错点</a></li>

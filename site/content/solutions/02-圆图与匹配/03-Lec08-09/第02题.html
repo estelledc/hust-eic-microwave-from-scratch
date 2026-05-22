@@ -314,11 +314,11 @@ $$</p>
 Z_{\mathrm{in}}\approx(133.48-\mathrm{j}1354.90)\,\Omega,
 $$</p>
 <p>与书写为 <strong>$(133.5-\mathrm{j}1354.9)\,\Omega$</strong> 一致（对线长极敏感，末位随有效数字取舍略有出入属正常）。</p>
-<p><strong>$\lambda/4$ 变换器接在哪？</strong> 须在 <strong>$Z(d)$ 为纯电阻</strong> 的截面插入（$\mathrm{Im}\,Z(d)=0$，且通常取 <strong>$R>0$</strong> 的 <strong>正实轴</strong> 点）。沿线用</p>
+<p><strong>$\lambda/4$ 变换器接在哪？</strong> 须在 <strong>$Z(d)$ 为纯电阻</strong> 的截面插入（$\mathrm{Im}\,Z(d)=0$，且通常取 <strong>$R&gt;0$</strong> 的 <strong>正实轴</strong> 点）。沿线用</p>
 <p>$$
 Z(d)=Z_c\,\frac{Z_L+\mathrm{j}Z_c\tan\beta d}{Z_c+\mathrm{j}Z_L\tan\beta d},
 $$</p>
-<p>令 <strong>$\mathrm{Im}\,Z(d)=0$</strong>。写 $Z(d)=Z_c\dfrac{N}{D}$，$N=Z_L+\mathrm{j}Z_c t$，$D=Z_c+\mathrm{j}Z_L t$。因 $Z_c>0$，$\mathrm{Im}\,Z(d)=0$ 等价于 <strong>$\mathrm{Im}\bigl(N D^\ast\bigr)=0$</strong>（分母 $|D|^2>0$ 不引入额外根）。代入 $Z_L=22-\mathrm{j}66$、$Z_c=600$ 展开得</p>
+<p>令 <strong>$\mathrm{Im}\,Z(d)=0$</strong>。写 $Z(d)=Z_c\dfrac{N}{D}$，$N=Z_L+\mathrm{j}Z_c t$，$D=Z_c+\mathrm{j}Z_L t$。因 $Z_c&gt;0$，$\mathrm{Im}\,Z(d)=0$ 等价于 <strong>$\mathrm{Im}\bigl(N D^\ast\bigr)=0$</strong>（分母 $|D|^2&gt;0$ 不引入额外根）。代入 $Z_L=22-\mathrm{j}66$、$Z_c=600$ 展开得</p>
 <p>$$
 \mathrm{Im}(N D^\ast)=39600\,t^2+355160\,t-39600=0.
 $$</p>
@@ -328,8 +328,8 @@ t_1=\frac{-8879+\sqrt{8879^2+4\cdot 990^2}}{2\cdot 990}\approx 0.11015,\qquad
 t_2\approx -9.0788.
 $$</p>
 <ul>
-<li><strong>$t_1>0$</strong>：$\beta d=\arctan t_1$，<strong>$d=t_1/\beta=t_1\lambda/(2\pi)\approx 0.02619\,\mathrm{m}$</strong>；代回得 <strong>$Z(d)\approx 21.74-\mathrm{j}0\,\Omega$</strong>（<strong>电压波节附近</strong>小电阻，$R_{\min}\approx Z_c/\rho$ 量级）。</li>
-<li><strong>$t_2<0$</strong>：取 $\beta d=\arctan t_2+\pi$ 得另一纯阻点 <strong>$d\approx 0.401\,\mathrm{m}$</strong>，<strong>$R\approx 1.66\times 10^4\,\Omega$</strong>（波腹大电阻）。</li>
+<li><strong>$t_1&gt;0$</strong>：$\beta d=\arctan t_1$，<strong>$d=t_1/\beta=t_1\lambda/(2\pi)\approx 0.02619\,\mathrm{m}$</strong>；代回得 <strong>$Z(d)\approx 21.74-\mathrm{j}0\,\Omega$</strong>（<strong>电压波节附近</strong>小电阻，$R_{\min}\approx Z_c/\rho$ 量级）。</li>
+<li><strong>$t_2&lt;0$</strong>：取 $\beta d=\arctan t_2+\pi$ 得另一纯阻点 <strong>$d\approx 0.401\,\mathrm{m}$</strong>，<strong>$R\approx 1.66\times 10^4\,\Omega$</strong>（波腹大电阻）。</li>
 </ul>
 <p>作业/教材常取 <strong>距负载最近</strong> 的 <strong>$t_1$</strong> 解：<strong>$d\approx 0.0262\,\mathrm{m}$</strong>，<strong>$R\approx 21.74\,\Omega$</strong>（亦可在 Smith <strong>阻抗图</strong> 上沿等 $|\Gamma|$ 圆向源第一次转到正实轴读出 $d/\lambda$ 互校）。</p>
 <p>$$
@@ -347,21 +347,21 @@ $$</p>
 </li>
 </ul>
 <h4 id="smith">解法二：圆图（Smith）<a class="headerlink" href="#smith" title="Permanent link">§</a></h4>
-<p><img alt="Lec08-2：等 $|\Gamma|$ 圆上转至近正实轴，定 $\lambda/4$ 变换器接入的 $d/\lambda$" src="../../../../assets/images/smith_lec08_q2_quarter_wave.png"></p>
+<p><img alt="Lec08-2：等 $|\Gamma|$ 圆上转至近正实轴，定 $\lambda/4$ 变换器接入的 $d/\lambda$" src="../../../../assets/images/smith_lec08_q2_quarter_wave.webp"></p>
 <p><em>图：本题 $\bar Z_L$ 靠近圆图左侧；顺时针转至 $\bar Z(d)\approx R$ 即 $\mathrm{Im}\,Z\approx 0$ 截面。</em></p>
 <p><strong>读图说明（零基础）</strong></p>
 <ul>
 <li><strong>用阻抗图</strong>：本题沿线求 <strong>$Z(d)$</strong> 与 <strong>$\lambda/4$ 翻转</strong>，全程在 <strong>阻抗 Smith 图</strong>（$\bar Z$）上读最顺。</li>
 <li><strong>红色负载点</strong>：$\bar Z_L=Z_L/Z_c$；<strong>蓝虚线等 $\|\Gamma\|$ 圆</strong>：$|\Gamma|$ 沿线不变，故 <strong>$Z(d)$</strong> 在同圆上移动。</li>
 <li><strong>向源 = 顺时针</strong>：沿该圆顺时针走的弧长（波长刻度）= 距负载增加的电长度。</li>
-<li><strong>正实轴</strong>：$\bar Z$ 落在 <strong>实轴正半段</strong> 时 $\mathrm{Im}\,Z=0$ 且 $R>0$，即 <strong>$\lambda/4$ 变换器</strong> 应接位置；<strong>第一次</strong>碰到正实轴常对应 <strong>最小 $d$</strong>。</li>
+<li><strong>正实轴</strong>：$\bar Z$ 落在 <strong>实轴正半段</strong> 时 $\mathrm{Im}\,Z=0$ 且 $R&gt;0$，即 <strong>$\lambda/4$ 变换器</strong> 应接位置；<strong>第一次</strong>碰到正实轴常对应 <strong>最小 $d$</strong>。</li>
 <li><strong>$Z_{0T}$</strong>：在纯阻点 $\bar R$ 经 <strong>$\lambda/4$</strong> 归一化关系 <strong>$\bar Z\to 1/\bar Z$</strong>（见附录 $\lambda/4$ 一行）与 <strong>$Z_{0T}=\sqrt{Z_c R}$</strong> 对照。</li>
 <li><strong>自检</strong>：读出 $|\Gamma_L|$ 应与 <strong>解法一</strong> $\approx 0.930$ 一致；$d$、$R$、$Z_{0T}$ 与公式数值互校。</li>
 </ul>
 <p><strong>圆图操作步骤</strong></p>
 <ol>
 <li><strong>归一化</strong> $\bar Z_L=Z_L/Z_c=(22-\mathrm{j}66)/600$；在 <strong>阻抗圆图</strong> 上标负载点，其所在 <strong>等 $|\Gamma|$ 圆</strong> 与 <strong>$|\Gamma_L|\approx 0.930$</strong> 一致。</li>
-<li>从负载点沿该圆 <strong>向源（顺时针）</strong> 移动，寻找 <strong>落在正实轴</strong>（$\bar Z$ 为<strong>正实数</strong>，即 $\mathrm{Im}\,Z=0$、$Z>0$）的截面；<strong>第一次</strong>出现处读 <strong>$d/\lambda\approx 0.0262/1.5\approx 0.0175$</strong>（即用 <strong>$d/\lambda$</strong> 刻度），再乘 <strong>$\lambda=1.5\,\mathrm{m}$</strong> 得 <strong>$d\approx 0.0262\,\mathrm{m}$</strong>，与解析一致。</li>
+<li>从负载点沿该圆 <strong>向源（顺时针）</strong> 移动，寻找 <strong>落在正实轴</strong>（$\bar Z$ 为<strong>正实数</strong>，即 $\mathrm{Im}\,Z=0$、$Z&gt;0$）的截面；<strong>第一次</strong>出现处读 <strong>$d/\lambda\approx 0.0262/1.5\approx 0.0175$</strong>（即用 <strong>$d/\lambda$</strong> 刻度），再乘 <strong>$\lambda=1.5\,\mathrm{m}$</strong> 得 <strong>$d\approx 0.0262\,\mathrm{m}$</strong>，与解析一致。</li>
 <li>在该点读 <strong>$\bar R=R/Z_c$</strong>，得 <strong>$R\approx 21.7\,\Omega$</strong>；<strong>$\lambda/4$ 变换器</strong> $Z_{0T}=\sqrt{Z_c R}$ 在圆图上对应：经 $\lambda/4$ 段把 <strong>$\bar R$</strong> 变到 <strong>$1/\bar R$</strong> 再按 $Z_c$ 反归一化（与公式 <strong>$\sqrt{Z_c R}$</strong> 核对）。</li>
 <li><strong>始端 $Z_{\mathrm{in}}$</strong> 亦可理解为：从负载再沿等 $|\Gamma|$ 圆转 <strong>$L/\lambda=32/1.5$</strong>（取等效弧长模 $\lambda/2$）到始端参考面读 $\bar Z$，与 <strong>$(133.5-\mathrm{j}1354.9)\,\Omega$</strong> 对照。</li>
 </ol>

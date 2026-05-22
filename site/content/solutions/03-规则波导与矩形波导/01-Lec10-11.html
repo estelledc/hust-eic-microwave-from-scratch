@@ -274,7 +274,7 @@
 <hr>
 <h2 id="1">作业 1）什么是波型？简述几种主要波型的特点<a class="headerlink" href="#1" title="Permanent link">§</a></h2>
 <p><strong>波型（mode）</strong>：在规则波导等<strong>受限</strong>结构中，满足 Maxwell 方程与边界条件、能够<strong>独立存在</strong>且沿轴向具有简单谐变传播因子 $\mathrm e^{-\mathrm j\beta z}$（或 $\mathrm e^{+\mathrm j\beta z}$）的一类场分布；同一几何下可有无穷多离散模，每一模有其截止特性与场结构。</p>
-<p><img alt="TEM、TE、TM 三类波型的纵向场分量对比" src="../../../assets/images/gpt-hw3-wave-types-tem-te-tm.png"></p>
+<p><img alt="TEM、TE、TM 三类波型的纵向场分量对比" src="../../../assets/images/gpt-hw3-wave-types-tem-te-tm.webp"></p>
 <p>这道题先看纵向分量：有没有 $E_z$、有没有 $H_z$，基本就能把 TEM、TE、TM 分开。再补一句“结构是否允许”，就能解释为什么空心矩形波导没有 TEM。</p>
 <p><strong>TEM 模</strong>：$E_z=H_z=0$，场完全在横截面内；要求<strong>双导体</strong>或多导体结构以支持静电势解；<strong>空心单导体波导中不存在 TEM</strong>（见 Lec11～12 分册）。</p>
 <p><strong>TE 模（$H$ 波）</strong>：$E_z=0,\ H_z\neq 0$；电场在侧壁满足切向 $E_t=0$ 的边界条件，由纵向磁场通过 Maxwell 方程推出横向电场。</p>
@@ -286,7 +286,7 @@
 <p>$$
 \nabla^2\psi+k^2\psi=0,\qquad k^2=\omega^2\mu\varepsilon.
 $$</p>
-<p><img alt="分离变量法：先解纵向种子分量，再得到横截面本征值" src="../../../assets/images/gpt-wg-longitudinal-separation.png"></p>
+<p><img alt="分离变量法：先解纵向种子分量，再得到横截面本征值" src="../../../assets/images/gpt-wg-longitudinal-separation.webp"></p>
 <p>这张图对应本题的答题骨架：先把三维场拆成横截面问题和 $z$ 向传播，再由边界条件把连续的 $k_x,k_y$ 变成离散的模指标。</p>
 <p>设 $\psi(x,y,z)=X(x)Y(y)Z(z)$，代入并除以 $\psi$ 得</p>
 <p>$$
@@ -305,11 +305,11 @@ $$</p>
 <p>其中 $\beta$ 与 $k_x,k_y$ 满足色散关系 $k_x^2+k_y^2+\beta^2=k^2$（记法与教材一致即可）。<strong>矩形波导</strong>中在理想导体壁强加 <strong>$E_t=0$</strong> 得 $k_x=m\pi/a$、$k_y=n\pi/b$，从而得到离散模谱与 $k_{\mathrm c}=\sqrt{k_x^2+k_y^2}$。</p>
 <hr>
 <h2 id="3-math64">作业 3）推导矩形波导中 $\mathrm{TM}_{11}$ 模的场量表达式<a class="headerlink" href="#3-math64" title="Permanent link">§</a></h2>
-<p><img alt="从 $\mathrm{TM}_{11}$ 的 $E_z$ 推到全场分量" src="../../../assets/images/gpt-wg-tm11-ez-to-full-field.png"></p>
+<p><img alt="从 $\mathrm{TM}_{11}$ 的 $E_z$ 推到全场分量" src="../../../assets/images/gpt-wg-tm11-ez-to-full-field.webp"></p>
 <p>本题最稳的路线是“先纵向、后横向”：先用四壁 $E_z=0$ 解出 $\sin(\pi x/a)\sin(\pi y/b)$，再求偏导并代入 Maxwell 旋度关系。不要一开始就分别猜五个非零场分量。</p>
 <h3 id="_1">前置知识：什么是矩形波导？<a class="headerlink" href="#_1" title="Permanent link">§</a></h3>
 <p><strong>矩形波导（rectangular waveguide）</strong>指横截面为矩形的<strong>空心金属管</strong>，电磁波主要在管内<strong>空气</strong>（或介质）中沿管的<strong>轴向</strong>（教材常记为 $z$ 轴）传播。金属壁一般为良导体近似为<strong>理想导体</strong>，用来<strong>约束</strong>电磁场并形成<strong>分立的模式（模）</strong>，在微波频段常用于馈线、馈网或与器件连接。</p>
-<p><strong>几何与记号（与本题一致）</strong>：设截面在 $xy$ 平面，管长沿 $z$。内侧宽边长记为 <strong>$a$</strong>，窄边为 <strong>$b$</strong>，常见取 <strong>$a>b$</strong>（例如标准波导 BJ-100 / WR-90 的尺寸即为一例）。本题在区域 <strong>$0\le x\le a,\ 0\le y\le b$</strong> 内写场，边界即四面金属壁。</p>
+<p><strong>几何与记号（与本题一致）</strong>：设截面在 $xy$ 平面，管长沿 $z$。内侧宽边长记为 <strong>$a$</strong>，窄边为 <strong>$b$</strong>，常见取 <strong>$a&gt;b$</strong>（例如标准波导 BJ-100 / WR-90 的尺寸即为一例）。本题在区域 <strong>$0\le x\le a,\ 0\le y\le b$</strong> 内写场，边界即四面金属壁。</p>
 <p><strong>和同轴线 / 双线相比（直观区别）</strong>：同轴线、平行双导线等<strong>双导体</strong>结构可以支撑 <strong>TEM 模</strong>（场完全在横截面内）；而<strong>空心单导体</strong>矩形管<strong>不能</strong>传 TEM，只能传 <strong>$\mathrm{TE}$</strong>、<strong>$\mathrm{TM}$</strong> 等波导模——这是「为什么课上要先讲波导模分类」的原因之一。</p>
 <p><strong>为什么要单独讲它</strong>：形状简单，边界与直角坐标对齐，<strong>数学上可用分离变量</strong>得到 $\sin(m\pi x/a)$、$\sin(n\pi y/b)$ 等本征函数；工程上尺寸与截止频率一一对应，便于设计「单模工作」频段。</p>
 <hr>
@@ -322,8 +322,8 @@ k^2=k_{\mathrm c}^2+\beta^2
 \qquad\text{等价于}\qquad
 \beta=\sqrt{k^2-k_{\mathrm c}^2}\,.
 $$
-（当 $k>k_{\mathrm c}$ 时 $\beta$ 为实数，对应可导行。）</p>
-<p>这里 $k=\omega\sqrt{\mu\varepsilon}$ 由<strong>工作频率</strong>决定；$k_{\mathrm c}$ 对<strong>该模</strong>固定。$k>k_{\mathrm c}$ 时 $\beta$ 为实数，场沿 $z$ 行波传播；$k<k_{\mathrm c}$ 时 $\beta$ 为虚数，场沿 $z$ <strong>衰减</strong>（截止区，不能远距离导行）。</p>
+（当 $k&gt;k_{\mathrm c}$ 时 $\beta$ 为实数，对应可导行。）</p>
+<p>这里 $k=\omega\sqrt{\mu\varepsilon}$ 由<strong>工作频率</strong>决定；$k_{\mathrm c}$ 对<strong>该模</strong>固定。$k&gt;k_{\mathrm c}$ 时 $\beta$ 为实数，场沿 $z$ 行波传播；$k&lt;k_{\mathrm c}$ 时 $\beta$ 为虚数，场沿 $z$ <strong>衰减</strong>（截止区，不能远距离导行）。</p>
 <p><strong>② 为什么叫「截止」</strong><br>
 当 <strong>$k=k_{\mathrm c}$</strong>（即 <strong>$\beta=0$</strong>）时，对应<strong>截止角频率</strong> $\omega_{\mathrm c}$、<strong>截止频率</strong> $f_{\mathrm c}$、<strong>截止波长</strong> $\lambda_{\mathrm c}$（空气填充时常用 $\lambda_{\mathrm c}=2\pi/k_{\mathrm c}$、$f_{\mathrm c}=c\,k_{\mathrm c}/(2\pi)$）。<strong>高于</strong> $f_{\mathrm c}$（或<strong>短于</strong> $\lambda_{\mathrm c}$）时该模才能导行；<strong>低于</strong> $f_{\mathrm c}$ 则该模被截止。</p>
 <p><strong>③ 它从哪里来（和本题 Helmholtz 方程的联系）</strong><br>
@@ -532,7 +532,7 @@ $$</p>
 </tbody>
 </table>
 <p><strong>（E）本题一条链（把符号串起来）</strong></p>
-<p>矩形 $\mathrm{TM}_{mn}$：先由边界得 <strong>$k_x,k_y$</strong> $\Rightarrow$ <strong>$k_{\mathrm c}=\sqrt{k_x^2+k_y^2}$</strong>；再由工作频率定 <strong>$k=\omega\sqrt{\mu\varepsilon}$</strong> $\Rightarrow$ <strong>$\beta=\sqrt{k^2-k_{\mathrm c}^2}$</strong>（$k>k_{\mathrm c}$）；若需要沿 $z$ 波长，用 <strong>$\lambda_{\mathrm g}=2\pi/\beta$</strong>。</p>
+<p>矩形 $\mathrm{TM}_{mn}$：先由边界得 <strong>$k_x,k_y$</strong> $\Rightarrow$ <strong>$k_{\mathrm c}=\sqrt{k_x^2+k_y^2}$</strong>；再由工作频率定 <strong>$k=\omega\sqrt{\mu\varepsilon}$</strong> $\Rightarrow$ <strong>$\beta=\sqrt{k^2-k_{\mathrm c}^2}$</strong>（$k&gt;k_{\mathrm c}$）；若需要沿 $z$ 波长，用 <strong>$\lambda_{\mathrm g}=2\pi/\beta$</strong>。</p>
 <p>更全的符号约定见 <a href="00-符号与导读.html">第三次作业解答-00-符号与导读.md</a>。</p>
 <hr>
 <h3 id="1tm">（1）TM 模与纵向分量的方程（结论式）<a class="headerlink" href="#1tm" title="Permanent link">§</a></h3>
@@ -580,7 +580,7 @@ k_{\mathrm c}^2=k_x^2+k_y^2
 \qquad
 \beta=\sqrt{k^2-k_{\mathrm c}^2}
 $$</p>
-<p>（导行时要求 $k>k_{\mathrm c}$，即 $\beta$ 为实数。）</p>
+<p>（导行时要求 $k&gt;k_{\mathrm c}$，即 $\beta$ 为实数。）</p>
 <hr>
 <h3 id="3-math265">（3）由 $E_z$ 求各偏导<a class="headerlink" href="#3-math265" title="Permanent link">§</a></h3>
 <p>记 $\displaystyle \phi(x,y)=\sin\frac{\pi x}{a}\sin\frac{\pi y}{b}$，则 $E_z=E_0\,\phi\,\mathrm e^{-\mathrm j\beta z}$。对 $x,y$ 求偏导：</p>

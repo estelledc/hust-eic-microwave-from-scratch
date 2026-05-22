@@ -12,7 +12,7 @@
 - VNA 端口 1 → 滤波器输入端口
 - 滤波器输出端口 → VNA 端口 2
 
-![实验一装置图](../../../assets/images/exp/image30.png)
+![实验一装置图](../../../assets/images/exp/image30.webp)
 
 *图 1-20：滤波器测量装置图。两条 SMA 同轴电缆把滤波器串接在 VNA 两端口之间。*
 
@@ -88,19 +88,19 @@
 
 四种显示方式分别对应：
 
-![四窗口设置 A](../../../assets/images/exp/image32.jpeg)
+![四窗口设置 A](../../../assets/images/exp/image32.webp)
 
 *图 1-23：A 显示方式（典型 4 个 S 参数同屏）。*
 
-![四窗口设置 B](../../../assets/images/exp/image33.jpeg)
+![四窗口设置 B](../../../assets/images/exp/image33.webp)
 
 *图 1-24：B 显示方式。*
 
-![四窗口设置 C](../../../assets/images/exp/image34.jpeg)
+![四窗口设置 C](../../../assets/images/exp/image34.webp)
 
 *图 1-25：C 显示方式。*
 
-![四窗口设置 D](../../../assets/images/exp/image35.jpeg)
+![四窗口设置 D](../../../assets/images/exp/image35.webp)
 
 *图 1-26：D 显示方式。*
 

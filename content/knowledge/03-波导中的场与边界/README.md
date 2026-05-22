@@ -4,7 +4,7 @@
 
 本目录对应第三次作业中的 Lec10-Lec11：波型分类、Helmholtz 方程、分离变量、矩形波导截止，以及 $\mathrm{TM}_{11}$ 场量推导。公式与记号尽量与 [第三次作业解答 · Lec10-Lec11](../../solutions/03-规则波导与矩形波导/01-Lec10-11.md) 一致。
 
-![TEM、TE、TM 波型在结构中的差异](../../../assets/images/gpt-hw3-wave-types-tem-te-tm.png)
+![TEM、TE、TM 波型在结构中的差异](../../../assets/images/gpt-hw3-wave-types-tem-te-tm.webp)
 
 先用这张图区分三类波型：TEM 需要双导体给横向电场闭合；空心金属波导通常只能支持 TE/TM 模，场分布由边界条件筛出来。
 

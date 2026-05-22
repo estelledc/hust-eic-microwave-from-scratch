@@ -279,7 +279,7 @@
 <p>某时刻观测无耗线，<strong>沿线各点电压瞬时值皆为零</strong>；另一时刻，<strong>沿线各点电流瞬时值皆为零</strong>。问：反射系数模 $|\Gamma|$？驻波比 $\rho$？</p>
 <h4 id="_2">详细思路<a class="headerlink" href="#_2" title="Permanent link">§</a></h4>
 <p>纯驻波时，$u(z,t)$ 与 $i(z,t)$ 对时间 <strong>相差 $90^\circ$</strong>（空间上同为驻立分布）：某一时刻全场 $u\equiv 0$，四分之一周期后全场 $i\equiv 0$。行驻波时一般<strong>不能</strong>同时出现「全线 $u$ 恒零」与「全线 $i$ 恒零」这两种极端（除非退化为纯驻波）。</p>
-<p><img alt="纯驻波中电压和电流全线过零的时间相位关系" src="../../../assets/images/gpt-hw1-lec05-q1-pure-standing-wave.png"></p>
+<p><img alt="纯驻波中电压和电流全线过零的时间相位关系" src="../../../assets/images/gpt-hw1-lec05-q1-pure-standing-wave.webp"></p>
 <p><em>图：题设的两个“全线过零”时刻对应纯驻波的电压、电流相位相差 $90^\circ$，因此 $|\Gamma|=1$、驻波比趋于无穷。</em></p>
 <h4 id="_3">一步步解答<a class="headerlink" href="#_3" title="Permanent link">§</a></h4>
 <p>电压、电流瞬时值可写为</p>
@@ -307,7 +307,7 @@ $$</p>
 <p>终端负载 $Z_L=Z_c$（匹配）。线上某处电压相量 $U(z_0)=100\angle 30^\circ$（幅值单位与教材一致，下同）。写出该处、以及沿 <strong>指向信号源</strong> 方向移 $\lambda/8$ 处、沿 <strong>指向负载</strong> 方向移 $\lambda/4$ 处的<strong>电压瞬时值</strong> $u(z,t)$。</p>
 <h4 id="_7">详细思路<a class="headerlink" href="#_7" title="Permanent link">§</a></h4>
 <p>匹配线上只有<strong>入射行波</strong>，$U(z)$ 沿线仅积累相移：向负载（$+z$）相位按 $\mathrm{e}^{-\mathrm{j}\beta\Delta z}$，向源则相反为 $\mathrm{e}^{+\mathrm{j}\beta|\Delta z|}$。瞬时式 $u=\mathrm{Re}\{U\mathrm{e}^{\mathrm{j}\omega t}\}$；若 $U$ 为<strong>峰值相量</strong>，则 $u=|U|\cos(\omega t+\arg U)$。</p>
-<p><img alt="匹配行波沿线移动时幅值不变、相位随方向改变" src="../../../assets/images/gpt-hw1-lec05-q2-matched-phase-shift.png"></p>
+<p><img alt="匹配行波沿线移动时幅值不变、相位随方向改变" src="../../../assets/images/gpt-hw1-lec05-q2-matched-phase-shift.webp"></p>
 <p><em>图：匹配时 $\Gamma=0$，幅值保持 $100$ 不变；向源走 $\lambda/8$ 相位加 $45^\circ$，向负载走 $\lambda/4$ 相位减 $90^\circ$。</em></p>
 <h4 id="_8">一步步解答<a class="headerlink" href="#_8" title="Permanent link">§</a></h4>
 <p>设 $+z$ <strong>由信号源指向负载</strong>，行波 $U(z)=U(z_0)\mathrm{e}^{-\mathrm{j}\beta(z-z_0)}$。</p>
@@ -361,7 +361,7 @@ $$</p>
 <li>电压相量常用形式 $U(z)=U_L\cos\beta z$（$U_L$ 为负载端相量；与 <a href="99-公式与图像.html">附录</a> 通解一致）。</li>
 <li>由 $U(5\lambda/8)=U_{\mathrm{始}}$ 反解 $U_L$，再求 $U(\lambda/2)$、$U(\lambda/8)$（注意：<strong>从始端向负载</strong>即 $z$ <strong>减小</strong>）。</li>
 </ol>
-<p><img alt="开路线位置换算与三处电压相量" src="../../../assets/images/gpt-hw1-lec05-q3-open-line-position-table.png"></p>
+<p><img alt="开路线位置换算与三处电压相量" src="../../../assets/images/gpt-hw1-lec05-q3-open-line-position-table.webp"></p>
 <p><em>图：本题最容易错在位置换算。$z$ 从负载开路端指向始端；从始端向负载移动时，$z$ 变小。</em></p>
 <h4 id="_13">一步步解答<a class="headerlink" href="#_13" title="Permanent link">§</a></h4>
 <p><strong>开路</strong>：$I_L=0$，取</p>
@@ -422,7 +422,7 @@ $$</p>
 <li>在电压最小点，无耗线输入阻抗为<strong>纯阻</strong> $R_{\min}=Z_c K$（与 $\rho$ 关系一致：$R_{\min}=Z_c/\rho$）。</li>
 <li>将该处阻抗当作「已知」，向负载回推距离 $z_{\min}$，即把 $Z(z_{\min})=Z_c K$ 代入反解 $Z_l$。</li>
 </ol>
-<p><img alt="由第一个电压最小点反推负载阻抗" src="../../../assets/images/gpt-hw1-lec05-q4-zmin-to-load.png"></p>
+<p><img alt="由第一个电压最小点反推负载阻抗" src="../../../assets/images/gpt-hw1-lec05-q4-zmin-to-load.webp"></p>
 <p><em>图：先由 $K$ 确定波节处的纯阻值 $Z_cK$，再把该截面沿无耗线向负载端回推 $z_{\min}$。</em></p>
 <h4 id="_18">一步步解答<a class="headerlink" href="#_18" title="Permanent link">§</a></h4>
 <p>在 $z=z_{\min}$ 处：</p>
@@ -467,7 +467,7 @@ $$</p>
 <p>$$
 \Gamma=\frac{Z_{\mathrm{in}}-Z_c}{Z_{\mathrm{in}}+Z_c},\qquad |\Gamma|=\Bigl|\frac{Z_{\mathrm{in}}-Z_c}{Z_{\mathrm{in}}+Z_c}\Bigr|.
 $$</p>
-<p><img alt="多段传输线从最远负载逐段折算到 AA′" src="../../../assets/images/gpt-hw1-lec05-q5-cascade-aa-input.png"></p>
+<p><img alt="多段传输线从最远负载逐段折算到 AA′" src="../../../assets/images/gpt-hw1-lec05-q5-cascade-aa-input.webp"></p>
 <p><em>图：这类网络题先重画连接关系，再从最远负载开始逐段向 $AA'$ 折算；最后用 $AA'$ 所在线段的 $Z_c$ 求 $|\Gamma|$。</em></p>
 <h4 id="1-1">一步步解答（对照教材图 1-1 的「填空表」）<a class="headerlink" href="#1-1" title="Permanent link">§</a></h4>
 <p>请先在书上标出各段 <strong>电长度</strong>（如 $\lambda/8$、$\lambda/4$）、各段 <strong>$Z_c$</strong>、<strong>终端负载</strong>（短路/开路/电阻/纯电抗）。然后<strong>从终端负载一侧起，沿指向 $AA'$ 的方向逐段向左（或按你书上图示的链路顺序）</strong>填下表（把 $Z_{L0}$ 换成图上最末端的负载）。</p>
@@ -535,7 +535,7 @@ $$</p>
 <p>$Z_{\mathrm{is}}$ 为<strong>终端短路</strong>时某参考面的输入阻抗，$Z_{\mathrm{io}}$ 为<strong>终端开路</strong>时同一参考面的输入阻抗，$Z_c$ 为特性阻抗。试证 $Z_c=\sqrt{Z_{\mathrm{is}}Z_{\mathrm{io}}}$。</p>
 <h4 id="_26">详细思路<a class="headerlink" href="#_26" title="Permanent link">§</a></h4>
 <p>同一位置、同一线长 $l$，仅改终端边界：短路 $Z_L=0$、开路 $Z_L\to\infty$ 代入无耗 $Z_{\mathrm{in}}$ 公式，得 $\tan$ 与 $\cot$ 互为倒数，相乘消去。</p>
-<p><img alt="同一段线开路与短路测得输入阻抗，相乘得到特性阻抗平方" src="../../../assets/images/gpt-hw1-lec05-q6-open-short-zc.png"></p>
+<p><img alt="同一段线开路与短路测得输入阻抗，相乘得到特性阻抗平方" src="../../../assets/images/gpt-hw1-lec05-q6-open-short-zc.webp"></p>
 <p><em>图：两次测量必须是同一段线、同一参考面、同一长度 $l$；只改变终端开路/短路条件。</em></p>
 <h4 id="_27">一步步解答<a class="headerlink" href="#_27" title="Permanent link">§</a></h4>
 <p>$$
@@ -552,7 +552,7 @@ $$</p>
 <p>$$
 \boxed{Z_c=\sqrt{Z_{\mathrm{is}}Z_{\mathrm{io}}}.}
 $$</p>
-<p>取 <strong>正实根</strong> 作为特性阻抗（无耗线 $Z_c>0$）。</p>
+<p>取 <strong>正实根</strong> 作为特性阻抗（无耗线 $Z_c&gt;0$）。</p>
 <h4 id="_28">标准解答<a class="headerlink" href="#_28" title="Permanent link">§</a></h4>
 <ul>
 <li>由 $Z_{\mathrm{is}}=\mathrm{j}Z_c\tan\beta l$、$Z_{\mathrm{io}}=-\mathrm{j}Z_c\cot\beta l$ 得 $Z_{\mathrm{is}}Z_{\mathrm{io}}=Z_c^2$，故 $Z_c=\sqrt{Z_{\mathrm{is}}Z_{\mathrm{io}}}$。</li>

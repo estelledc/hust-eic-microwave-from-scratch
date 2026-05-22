@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
-FIG = ROOT / "assets" / "images" / "lec_rect_wg_te10_dispersion.png"
+FIG = ROOT / "assets" / "images" / "lec_rect_wg_te10_dispersion.webp"
 
 
 def main():

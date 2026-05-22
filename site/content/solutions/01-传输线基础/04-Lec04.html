@@ -277,7 +277,7 @@
 <p><em>（对应大纲 </em><em>Lec04 作业</em><em> 第 1 题；教材 </em><em>§1.3–1.4</em><em>（北理工）或 </em><em>§1.4</em><em>（华科）附近。本题</em><em>无唯一标准答案</em><em>，宜作长期复习笔记。）</em></p>
 <h4 id="_1">题目复述<a class="headerlink" href="#_1" title="Permanent link">§</a></h4>
 <p>整理并阐述均匀无耗传输线三种典型工作状态的特点、变化规律及重要结论（含常用公式）。</p>
-<p><img alt="均匀无耗传输线三种工作状态" src="../../../assets/images/gpt-hw1-lec04-q1-working-states.png"></p>
+<p><img alt="均匀无耗传输线三种工作状态" src="../../../assets/images/gpt-hw1-lec04-q1-working-states.webp"></p>
 <blockquote>
 <p>三种状态最稳的判断入口是 $|\Gamma|$：$|\Gamma|=0$ 时没有反射，是行波；$|\Gamma|=1$ 时全反射，是纯驻波；中间值就是既传能量又有起伏的行驻波。</p>
 </blockquote>
@@ -306,7 +306,7 @@
 </ul>
 <p><strong>3. 行驻波状态</strong></p>
 <ul>
-<li><strong>条件</strong>：$0<|\Gamma_L|<1$，一般为 <strong>复阻抗</strong> 负载。</li>
+<li><strong>条件</strong>：$0&lt;|\Gamma_L|&lt;1$，一般为 <strong>复阻抗</strong> 负载。</li>
 <li><strong>沿线</strong>：$|U|$、$|I|$ 在最大值与最小值之间起伏；<strong>波腹—波节</strong>相距 $\lambda/4$，<strong>腹—腹或节—节</strong>相距 $\lambda/2$。</li>
 <li><strong>反射</strong>：$\displaystyle |\Gamma|=\frac{\rho-1}{\rho+1}$，$\displaystyle \rho=\frac{1+|\Gamma|}{1-|\Gamma|}$。</li>
 <li><strong>$Z_{\mathrm{in}}$</strong>：$\displaystyle Z_{\mathrm{in}}(z)=Z_c\frac{Z_L+\mathrm{j}Z_c\tan\beta z}{Z_c+\mathrm{j}Z_L\tan\beta z}$；在 <strong>电压波腹</strong> 处 $Z_{\mathrm{in}}$ 为 <strong>最大实部</strong>（约 $Z_c\rho$），在 <strong>电压波节</strong> 处为 <strong>最小实部</strong>（约 $Z_c/\rho$）（无耗线）。</li>
@@ -316,7 +316,7 @@
 <ul>
 <li><strong>行波</strong>：$\Gamma_L=0$，$|U|$、$|I|$ 沿线不变（理想无耗匹配），$\rho=1$。</li>
 <li><strong>纯驻波</strong>：$|\Gamma_L|=1$，腹节交替、间距 $\lambda/4$；短/开路线 $Z_{\mathrm{in}}$ 为 $\mathrm{j}Z_c\tan\beta z$ 或 $-\mathrm{j}Z_c\cot\beta z$。</li>
-<li><strong>行驻波</strong>：$0<|\Gamma|<1$，$\rho>1$，$Z_{\mathrm{in}}(z)$ 为一般双曲正切型公式；腹/节处阻抗为纯阻且取极值。</li>
+<li><strong>行驻波</strong>：$0&lt;|\Gamma|&lt;1$，$\rho&gt;1$，$Z_{\mathrm{in}}(z)$ 为一般双曲正切型公式；腹/节处阻抗为纯阻且取极值。</li>
 </ul>
 <h4 id="_5">常见疑惑点<a class="headerlink" href="#_5" title="Permanent link">§</a></h4>
 <ul>
@@ -327,7 +327,7 @@
 <p><em>（对应大纲 </em><em>Lec04 作业</em><em> 第 2 题。）</em></p>
 <h4 id="_6">题目复述<a class="headerlink" href="#_6" title="Permanent link">§</a></h4>
 <p>均匀无耗线特性阻抗 $Z_0=50\,\Omega$，负载电流 $I_L=-2\mathrm{j}\,\mathrm{A}$，负载阻抗 $Z_L=-50\mathrm{j}\,\Omega$。（1）把 $U(z)$、$I(z)$ 写成<strong>入射波与反射波之和</strong>；（2）用欧拉公式写成<strong>正余弦</strong>形式。</p>
-<p><img alt="由负载边界求行波分解与正余弦形式" src="../../../assets/images/gpt-hw1-lec04-q2-wave-decomposition.png"></p>
+<p><img alt="由负载边界求行波分解与正余弦形式" src="../../../assets/images/gpt-hw1-lec04-q2-wave-decomposition.webp"></p>
 <blockquote>
 <p>本题不要一开始就展开指数。先在负载面写出 $U^+$、$U^-$ 的两个边界方程，解出入射波与反射波，再把复指数形式改写成正余弦形式。</p>
 </blockquote>
@@ -351,26 +351,26 @@ U^++U^-=-100,\\[4pt]
 \end{cases}
 \Rightarrow\ 
 \begin{aligned}
-U^+-U^-&=-100\mathrm{j},\\
-2U^+&=-100-100\mathrm{j}\ \Rightarrow\ U^+=-50(1+\mathrm{j}),\\
-2U^-&=-100+100\mathrm{j}\ \Rightarrow\ U^-=-50(1-\mathrm{j}).
+U^+-U^-&amp;=-100\mathrm{j},\\
+2U^+&amp;=-100-100\mathrm{j}\ \Rightarrow\ U^+=-50(1+\mathrm{j}),\\
+2U^-&amp;=-100+100\mathrm{j}\ \Rightarrow\ U^-=-50(1-\mathrm{j}).
 \end{aligned}
 $$</p>
 <p><strong>（1）行波分解</strong></p>
 <p>$$
 \boxed{
 \begin{aligned}
-U(z)&=-50(1+\mathrm{j})\mathrm{e}^{\mathrm{j}\beta z}-50(1-\mathrm{j})\mathrm{e}^{-\mathrm{j}\beta z},\\
-I(z)&=\frac{-50(1+\mathrm{j})\mathrm{e}^{\mathrm{j}\beta z}+50(1-\mathrm{j})\mathrm{e}^{-\mathrm{j}\beta z}}{Z_0}.
+U(z)&amp;=-50(1+\mathrm{j})\mathrm{e}^{\mathrm{j}\beta z}-50(1-\mathrm{j})\mathrm{e}^{-\mathrm{j}\beta z},\\
+I(z)&amp;=\frac{-50(1+\mathrm{j})\mathrm{e}^{\mathrm{j}\beta z}+50(1-\mathrm{j})\mathrm{e}^{-\mathrm{j}\beta z}}{Z_0}.
 \end{aligned}}
 $$</p>
 <p>可验证 $\Gamma_L=U^-/U^+=-\mathrm{j}$，与 $\dfrac{Z_L-Z_0}{Z_L+Z_0}$ 一致。</p>
 <p><strong>（2）正余弦形式</strong></p>
 <p>$$
 \begin{aligned}
-U(z)&=U_L\cos\beta z+\mathrm{j}I_L Z_0\sin\beta z
+U(z)&amp;=U_L\cos\beta z+\mathrm{j}I_L Z_0\sin\beta z
 =-100\cos\beta z+100\sin\beta z,\\
-I(z)&=I_L\cos\beta z+\mathrm{j}\frac{U_L}{Z_0}\sin\beta z
+I(z)&amp;=I_L\cos\beta z+\mathrm{j}\frac{U_L}{Z_0}\sin\beta z
 =-2\mathrm{j}\cos\beta z-2\mathrm{j}\sin\beta z
 =-2\mathrm{j}(\cos\beta z+\sin\beta z).
 \end{aligned}
@@ -390,7 +390,7 @@ $$</p>
 <p><em>（对应大纲 </em><em>Lec04 作业</em><em> 第 3 题。）</em></p>
 <h4 id="_11">题目复述<a class="headerlink" href="#_11" title="Permanent link">§</a></h4>
 <p>无耗线特性阻抗 $Z_c=60\,\Omega$。在距负载 $z_1=\lambda/8$ 处，反射系数 $\Gamma(z_1)=-\mathrm{j}0.5$。（1）求 $\Gamma_L$、$Z_L$；（2）若导波波长 $\lambda_p=10\,\mathrm{cm}$，写出任意 $z$ 处的 $\Gamma(z)$、$Z_{\mathrm{in}}(z)$，并说明 $Z_{\mathrm{in}}(z)$ 与 $Z_L$ 的关系。</p>
-<p><img alt="由参考面反射系数回推负载" src="../../../assets/images/gpt-hw1-lec04-q3-gamma-transform.png"></p>
+<p><img alt="由参考面反射系数回推负载" src="../../../assets/images/gpt-hw1-lec04-q3-gamma-transform.webp"></p>
 <blockquote>
 <p>沿无耗线移动时，$\Gamma$ 的模不变，只是在复平面上转角。已知 $z_1=\lambda/8$ 处的 $\Gamma$，先把相位回推到负载面，再用 $\Gamma_L$ 换算 $Z_L$。</p>
 </blockquote>
@@ -433,7 +433,7 @@ $$</p>
 <p><em>（对应大纲 </em><em>Lec04 作业</em><em> 第 4 题。）</em></p>
 <h4 id="_16">题目复述<a class="headerlink" href="#_16" title="Permanent link">§</a></h4>
 <p>同轴线 $Z_0=50\,\Omega$，测得驻波比 $\rho=2$，<strong>一个电压波节</strong>距终端负载为 $0.666\lambda$（按大纲为<strong>相波长</strong> $\lambda$）。求终端负载 $Z_L$。</p>
-<p><img alt="由驻波比和波节位置反推负载阻抗" src="../../../assets/images/gpt-hw1-lec04-q4-vswr-load.png"></p>
+<p><img alt="由驻波比和波节位置反推负载阻抗" src="../../../assets/images/gpt-hw1-lec04-q4-vswr-load.webp"></p>
 <blockquote>
 <p>这类题分三步：由驻波比求 $|\Gamma|$，由波节位置确定 $\Gamma_L$ 的相位，最后用 $Z_L=Z_0(1+\Gamma_L)/(1-\Gamma_L)$ 换算成负载阻抗。</p>
 </blockquote>
@@ -454,8 +454,8 @@ $$</p>
 $$</p>
 <p>$$
 \begin{aligned}
-\Gamma_L&=\Gamma(z_{\mathrm{节}})\,\exp\bigl(\mathrm{j}2\beta z_{\mathrm{节}}\bigr)\\
-&=-\frac{1}{3}\,\exp\Bigl(\mathrm{j}\,\frac{4\pi}{\lambda}\cdot\frac{2\lambda}{3}\Bigr)
+\Gamma_L&amp;=\Gamma(z_{\mathrm{节}})\,\exp\bigl(\mathrm{j}2\beta z_{\mathrm{节}}\bigr)\\
+&amp;=-\frac{1}{3}\,\exp\Bigl(\mathrm{j}\,\frac{4\pi}{\lambda}\cdot\frac{2\lambda}{3}\Bigr)
 =-\frac{1}{3}\,\exp\Bigl(\mathrm{j}\frac{8\pi}{3}\Bigr)
 =-\frac{1}{3}\,\exp\Bigl(\mathrm{j}\frac{2\pi}{3}\Bigr).
 \end{aligned}

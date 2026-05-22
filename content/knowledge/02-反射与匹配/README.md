@@ -6,7 +6,7 @@
 
 > 匹配不是让负载本身变成 $Z_c$，而是在某个参考面上看进去像 $Z_c$。
 
-![Smith 圆图把反射与阻抗变换画在同一张图上](../../../assets/images/smith_lec07_q0_anatomy.png)
+![Smith 圆图把反射与阻抗变换画在同一张图上](../../../assets/images/smith_lec07_q0_anatomy.webp)
 
 本阶段可以把 Smith 圆图当成“反射地图”：点离中心越远，反射越强；沿线移动就是在等 $|\Gamma|$ 圆上旋转。
 

@@ -330,22 +330,22 @@
 </ol>
 <h3 id="_1">图解辅读（自学用示意图组）<a class="headerlink" href="#_1" title="Permanent link">§</a></h3>
 <p>以下插图为 <strong>概念示意</strong>，与上节「为什么要先 $d$ 后 $l$」、第 4 题圆图步骤、<strong>两组 $(d,l)$</strong> 以及第 7 题 <strong>并 / 串</strong> 拓扑对照阅读；<strong>具体数值</strong> 仍以各题 <strong>解法一</strong> 为准。</p>
-<p><img alt="并联短路单支节 — 拓扑（主线、距负载 $d$、枝节 $l$、短路端）" src="../../../../assets/images/lec08_study_01_parallel_stub_topology.png"></p>
+<p><img alt="并联短路单支节 — 拓扑（主线、距负载 $d$、枝节 $l$、短路端）" src="../../../../assets/images/lec08_study_01_parallel_stub_topology.webp"></p>
 <p><em>图 1：</em><em>电路长什么样</em><em>——在距负载 $d$ 处 </em><em>并接</em><em> 短路枝节 $l$；调节 $d,l$ 使向源看入接近 $Z_c$。</em></p>
-<p><img alt="为什么先定 $d$ 再定 $l$（枝节只改电纳，先把电导旋到 $Y_c$）" src="../../../../assets/images/lec08_study_02_why_d_then_l.png"></p>
+<p><img alt="为什么先定 $d$ 再定 $l$（枝节只改电纳，先把电导旋到 $Y_c$）" src="../../../../assets/images/lec08_study_02_why_d_then_l.webp"></p>
 <p><em>图 2：</em><em>物理顺序</em><em>——并联短路线只提供 </em><em>纯电纳</em><em>，结点处 </em><em>只能加减电纳</em><em>；须先用主线长度 $d$ 使 </em><em>$\mathrm{Re}\,Y=Y_c$</em><em>（归一化即 </em><em>$g=1$</em><em>），再用 $l$ 把 </em><em>总电纳</em><em> 调到零。</em></p>
-<p><img alt="Smith 圆图四步：$\bar Y_L$ → 向源等 $|\Gamma|$ → 交 $g=1$ 得 $d$ → 外圆短路点走 $l$" src="../../../../assets/images/lec08_study_03_smith_four_steps.png"></p>
+<p><img alt="Smith 圆图四步：$\bar Y_L$ → 向源等 $|\Gamma|$ → 交 $g=1$ 得 $d$ → 外圆短路点走 $l$" src="../../../../assets/images/lec08_study_03_smith_four_steps.webp"></p>
 <p><em>图 3：</em><em>圆图上手指怎么走</em><em>——与 <a href="第04题.html">第 4 题</a>、<a href="第05题.html">第 5 题</a>「解法二」同一套路。</em></p>
-<p><img alt="$g=1$ 与等 $|\Gamma|$ 圆常有两个交点 — 对应两组 $(d,l)$" src="../../../../assets/images/lec08_study_04_two_solutions_g1.png"></p>
+<p><img alt="$g=1$ 与等 $|\Gamma|$ 圆常有两个交点 — 对应两组 $(d,l)$" src="../../../../assets/images/lec08_study_04_two_solutions_g1.webp"></p>
 <p><em>图 4：</em><em>为何多解</em><em>——同一负载圆与 </em><em>$g=1$</em><em> 轨迹可相交 </em><em>两次</em><em>，工程上常取 </em><em>距负载较近</em><em> 的 $d$；加 </em><em>$\lambda/2$</em><em> 周期仍有等价写法。</em></p>
-<p><img alt="第 7 题类：$d_1$ 处并联枝节 + $d_2$ 处与主线串联枝节（勿与「双并联」混淆）" src="../../../../assets/images/lec08_study_05_q7_hybrid_topology.png"></p>
+<p><img alt="第 7 题类：$d_1$ 处并联枝节 + $d_2$ 处与主线串联枝节（勿与「双并联」混淆）" src="../../../../assets/images/lec08_study_05_q7_hybrid_topology.webp"></p>
 <p><em>图 5：</em><em>并 vs 串</em><em>——并联结点用 </em><em>导纳相加</em><em>；串联截面用 </em><em>阻抗相加</em><em>，列式与 <a href="第06题.html">第 6 题</a> 不同。</em></p>
 <h4 id="math55">导纳匹配与 $g=1$ 圆（零基础）<a class="headerlink" href="#math55" title="Permanent link">§</a></h4>
 <p><strong>（接在导读后）</strong> 上面只建立了「要匹配、支节在干什么」；从本节起引入 <strong>导纳</strong> $\bar Y=g+\mathrm{j}b$ 与 <strong>$g=1$</strong>，专门用来描述 <strong>并联结点</strong> 上的加减，并和 Smith 图上的 <strong>橙色轨迹</strong> 一一对应。</p>
 <p>定义 <strong>归一化导纳</strong> $\bar Y=Y/Y_c=g+\mathrm{j}b$（$g$、$b$ 无量纲）。<strong>匹配到馈线 $Z_c$</strong> 时，希望结点 <strong>$\bar Y_{\mathrm{tot}}=1+\mathrm{j}0$</strong>，即 <strong>$g=1$ 且 $b=0$</strong>。</p>
 <p><strong>为什么单支节要先选 $d$ 再选 $l$？</strong> 长度 $d$ 的主线段使 <strong>$Y(d)$ 的实部、虚部都随 $d$ 变</strong>。<strong>并联短路枝节</strong> 只提供 <strong>纯电纳</strong> $Y_{\mathrm{stub}}$（实部为 0），在结点上 <strong>只能改总电纳、不能改总电导</strong>。因此必须先用 <strong>某个 $d$</strong> 使 <strong>$\mathrm{Re}\,Y(d)=Y_c$</strong>（写成归一化即 <strong>$\mathrm{Re}\,\bar Y=1$</strong>，即落在 <strong>$g=1$</strong> 上），再用 <strong>枝节长度 $l$</strong> 把 <strong>总虚部</strong> 调到零。这就是 <a href="第01题.html">第 1 题</a> 里 <strong>先 $G=Y_c$ 再消 $B$</strong> 的物理版叙述。</p>
 <p><strong>圆图上怎么看</strong>：在 <strong>$\Gamma$ 平面</strong> 上，<strong>$\mathrm{Re}\,\bar Y=1$</strong> 是一条固定轨迹（本讲义配图用 <strong>橙色曲线</strong> 画出，即 <strong>$g=1$ 圆/线</strong>）。从 <strong>$\bar Y_L$</strong>（或由 $\bar Z_L$ 取倒数）对应点出发，沿 <strong>等 $|\Gamma|$ 圆</strong> <strong>向源顺时针</strong> 转，与 <strong>$g=1$</strong> 的交点定 <strong>$d/\lambda$</strong>；在该交点读 <strong>$b$</strong>，从 <strong>最外圆上的短路点</strong> 沿外圆走枝节，提供 <strong>$-b$</strong>，得 <strong>$l/\lambda$</strong>。<strong>阻抗 Smith 图</strong> 与 <strong>导纳 Smith 图</strong> 在 $\Gamma$ 平面上可通过对 $\bar Z\leftrightarrow\bar Y$ 互换理解；<strong>并联结点</strong>列式时 <strong>导纳相加</strong> 最直接。</p>
-<p><img alt="Lec08 零基础：$\mathrm{Re}\,\bar Y=1$（$g=1$）在 $\Gamma$ 平面上的轨迹" src="../../../../assets/images/smith_lec08_q0_g1_explained.png"></p>
+<p><img alt="Lec08 零基础：$\mathrm{Re}\,\bar Y=1$（$g=1$）在 $\Gamma$ 平面上的轨迹" src="../../../../assets/images/smith_lec08_q0_g1_explained.webp"></p>
 <p><em>图：</em><em>橙色</em><em>为 </em><em>$g=1$</em><em> 轨迹；</em><em>匹配</em><em> $\bar Y=1$ 须同时 </em><em>$g=1$</em><em> 且 </em><em>$b=0$</em><em>。单支节读图按编号走：先定负载导纳，沿同一 $|\Gamma|$ 圆向源转到 $g=1$，在交点读 $b$，再用短路支节补 $-b$。若你只看本图仍不知从何转起，请接着看 <a href="第01题.html"><strong>第 1 题</strong></a> 的编号说明。</em></p>
 <hr>
 <h3 id="_2">各题索引（单题分册）<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>

@@ -277,21 +277,21 @@
 <h2 id="_1">一、前置知识<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <h3 id="1">1. 专有名词<a class="headerlink" href="#1" title="Permanent link">§</a></h3>
 <ul>
-<li><strong>工作频率/波长</strong>：空气 <strong>$\lambda_0=c/f$</strong>；与<strong>导行</strong>判据<strong>仍用</strong> <strong>$\lambda_0 < \lambda_{\mathrm c,mn}$</strong>。  </li>
-<li><strong>大截面</strong>（<strong>$a,b$</strong> 大）：在<strong>同</strong>一 <strong>$\lambda_0$</strong> 下，<strong>更多</strong> <strong>$(m,n)$</strong> 满足 <strong>$\lambda_{\mathrm c,mn} > \lambda_0$</strong>。  </li>
+<li><strong>工作频率/波长</strong>：空气 <strong>$\lambda_0=c/f$</strong>；与<strong>导行</strong>判据<strong>仍用</strong> <strong>$\lambda_0 &lt; \lambda_{\mathrm c,mn}$</strong>。  </li>
+<li><strong>大截面</strong>（<strong>$a,b$</strong> 大）：在<strong>同</strong>一 <strong>$\lambda_0$</strong> 下，<strong>更多</strong> <strong>$(m,n)$</strong> 满足 <strong>$\lambda_{\mathrm c,mn} &gt; \lambda_0$</strong>。  </li>
 <li><strong>可导行模清单</strong>：在 <strong>$(m,n)$</strong> 上<strong>截断</strong>到足够高，<strong>枚举</strong>；$\mathrm{TE}_{11}$ 与 <strong>$\mathrm{TM}_{11}$</strong> 各计 <strong>1</strong>。</li>
 </ul>
 <h3 id="2">2. 核心公式<a class="headerlink" href="#2" title="Permanent link">§</a></h3>
 <ul>
 <li><strong>$\lambda_{\mathrm c,mn} = 2\pi/k_\mathrm c$</strong>，<strong>$k_\mathrm c$</strong> 同 <a href="index.html">主册</a> 文首。  </li>
-<li><strong>$\lambda_\mathrm c > \lambda_0$</strong> $\Rightarrow$ 该<strong>波型</strong>可导行。</li>
+<li><strong>$\lambda_\mathrm c &gt; \lambda_0$</strong> $\Rightarrow$ 该<strong>波型</strong>可导行。</li>
 </ul>
 <hr>
 <h2 id="_2">二、分析思路<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
 <ol>
 <li>由 <strong>$f$</strong> 得 <strong>$\lambda_0 \approx 49.97\,\mathrm{mm}$</strong>。  </li>
 <li>据 <strong>$a=72.14\,\mathrm{mm},\,b=34.04\,\mathrm{mm}$</strong> 计算各模 <strong>$\lambda_\mathrm c$</strong>。  </li>
-<li>统计满足 <strong>$\lambda_\mathrm c > 49.97\,\mathrm{mm}$</strong> 的<strong>模式</strong>；与主册/作业<strong>标准答案</strong>对照为 <strong>5</strong> 个：$\mathrm{TE}_{10},\mathrm{TE}_{20},\mathrm{TE}_{01},\mathrm{TE}_{11},\mathrm{TM}_{11}$。  </li>
+<li>统计满足 <strong>$\lambda_\mathrm c &gt; 49.97\,\mathrm{mm}$</strong> 的<strong>模式</strong>；与主册/作业<strong>标准答案</strong>对照为 <strong>5</strong> 个：$\mathrm{TE}_{10},\mathrm{TE}_{20},\mathrm{TE}_{01},\mathrm{TE}_{11},\mathrm{TM}_{11}$。  </li>
 <li>选做<strong>重算</strong>时，建议<strong>写清</strong> $(m,n)$ 截断规则，并附上可检查的<strong>枚举清单</strong>。</li>
 </ol>
 <hr>
@@ -299,14 +299,14 @@
 <p>$$
 \lambda_0 = \frac{c}{f} \approx 49.97\,\mathrm{mm}\quad (f=6\,\mathrm{GHz}).
 $$</p>
-<p>$\lambda_\mathrm c > 49.97\,\mathrm{mm}$ 的模，枚举为 <strong>5</strong> 个（与 <a href="第05题.html">第5(2)问</a> 同尺寸体系下常见结论一致于本题给定频率）：</p>
+<p>$\lambda_\mathrm c &gt; 49.97\,\mathrm{mm}$ 的模，枚举为 <strong>5</strong> 个（与 <a href="第05题.html">第5(2)问</a> 同尺寸体系下常见结论一致于本题给定频率）：</p>
 <p>$$
 \boxed{\mathrm{TE}_{10},\ \mathrm{TE}_{20},\ \mathrm{TE}_{01},\ \mathrm{TE}_{11},\ \mathrm{TM}_{11}}.
 $$</p>
 <p><strong>答卷建议</strong>：列出 5 个模各自的 <strong>$\lambda_\mathrm c$</strong> 与 <strong>$\lambda_0$</strong> 的<strong>比较</strong>，或给一张清楚的枚举表。</p>
 <h2 id="_4">图示<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
-<p><img alt="大截面波导 6GHz 下各模 $\lambda_\mathrm c$ 与 $\lambda_0$ 的横向条带对照（示意）" src="../../../../assets/images/lec13_16_q10_modes_enum.png"></p>
-<p><em>图：由 $f$ 得 $\lambda_0=c/f$，再对每组 $(m,n)$ 求 $\lambda_\mathrm c$；凡 $\lambda_\mathrm c>\lambda_0$ 的模在题设频率下可导行。$\mathrm{TE}_{11}$ 与 $\mathrm{TM}_{11}$ 简并、$\lambda_\mathrm c$ 相同，图中为一条、答卷中作两种波型。</em></p>
+<p><img alt="大截面波导 6GHz 下各模 $\lambda_\mathrm c$ 与 $\lambda_0$ 的横向条带对照（示意）" src="../../../../assets/images/lec13_16_q10_modes_enum.webp"></p>
+<p><em>图：由 $f$ 得 $\lambda_0=c/f$，再对每组 $(m,n)$ 求 $\lambda_\mathrm c$；凡 $\lambda_\mathrm c&gt;\lambda_0$ 的模在题设频率下可导行。$\mathrm{TE}_{11}$ 与 $\mathrm{TM}_{11}$ 简并、$\lambda_\mathrm c$ 相同，图中为一条、答卷中作两种波型。</em></p>
 <hr>
 <h2 id="_5">四、与主册/他题衔接<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
 <ul>

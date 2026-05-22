@@ -4,7 +4,7 @@
 
 > 前六章在纸面上算 $\Gamma$、$\rho$、$Z_{\mathrm{in}}$；从这一章开始，要把它们变成屏幕上看得见、读得到的曲线。
 
-![从 S 参数到 VNA 测量的语言迁移](../../../assets/images/exp/image2.png)
+![从 S 参数到 VNA 测量的语言迁移](../../../assets/images/exp/image2.webp)
 
 *图 1-2：AV36580 整机原理框图——合成信号源 + S 参数测试装置 + 幅相接收机 + 显示。*
 

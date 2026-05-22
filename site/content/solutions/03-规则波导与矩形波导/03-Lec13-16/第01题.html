@@ -269,18 +269,18 @@
 <blockquote>
 <p>对应知识点：<a href="../../../knowledge/05-矩形波导工程计算/02-单模工作区与介质填充.html">02-单模工作区与介质填充</a></p>
 </blockquote>
-<p><strong>题意</strong>（与主册一致）：在矩形波导中（宽边 $a$、窄边 $b$，$a>b$），导出<strong>只传输</strong> $\mathrm{TE}_{10}$ 时，工作波长 $\lambda_0$（或工作频率 $f$）与 $a$、$b$ 应满足的关系；分<strong>空气</strong>与<strong>全填充电介质</strong>（$\mu_{\mathrm{r}}=1$、$\varepsilon_{\mathrm{r}}>1$）说明。</p>
+<p><strong>题意</strong>（与主册一致）：在矩形波导中（宽边 $a$、窄边 $b$，$a&gt;b$），导出<strong>只传输</strong> $\mathrm{TE}_{10}$ 时，工作波长 $\lambda_0$（或工作频率 $f$）与 $a$、$b$ 应满足的关系；分<strong>空气</strong>与<strong>全填充电介质</strong>（$\mu_{\mathrm{r}}=1$、$\varepsilon_{\mathrm{r}}&gt;1$）说明。</p>
 <p><strong>导航：</strong> <a href="../index.html">总目录</a> · <a href="../00-符号与导读.html">符号与导读</a> · <a href="../01-Lec10-11.html">Lec10–11</a> · <a href="../02-Lec11-12.html">Lec11～12</a> · <a href="index.html">Lec13–Lec16 主册</a> · <strong>分题</strong> <a href="第01题.html"><strong>1</strong></a> · <a href="第02题.html"><strong>2</strong></a> · <a href="第03题.html"><strong>3</strong></a> · <a href="第04题.html"><strong>4</strong></a> · <a href="第05题.html"><strong>5</strong></a> · <a href="第06题.html"><strong>6</strong></a> · <a href="第07题.html"><strong>7</strong></a> · <a href="第08题.html"><strong>8</strong></a> · <a href="第09题.html"><strong>9</strong></a> · <a href="第10题.html"><strong>10</strong></a> · <a href="第11题.html"><strong>11</strong></a> · <a href="第12题.html"><strong>12</strong></a> · <strong>下一题</strong> <a href="第02题.html">第2题</a> · <a href="../99-公式与图像.html">附录</a></p>
 <hr>
 <h2 id="_1">一、前置知识<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <h3 id="1">1. 专有名词<a class="headerlink" href="#1" title="Permanent link">§</a></h3>
 <ul>
-<li><strong>矩形波导</strong>：横截面为矩形的<strong>理想金属</strong>波导，导行方向取为 $z$。记<strong>宽边</strong>为 $a$、<strong>窄边</strong>为 $b$，常设 <strong>$a>b$</strong>。  </li>
+<li><strong>矩形波导</strong>：横截面为矩形的<strong>理想金属</strong>波导，导行方向取为 $z$。记<strong>宽边</strong>为 $a$、<strong>窄边</strong>为 $b$，常设 <strong>$a&gt;b$</strong>。  </li>
 <li><strong>$\mathrm{TE}_{mn}$ / $\mathrm{TM}_{mn}$</strong>：横截面上场随 $x,y$ 取驻波，整数 <strong>$m,n$</strong> 为沿 $a,b$ 的“半正弦”<strong>半周数</strong>。$\mathrm{TM}_{mn}$ 要求 <strong>$m,n\ge 1$</strong>；$\mathrm{TE}_{mn}$ 允许 <strong>$m$ 或 $n$</strong> 为 0，但<strong>不同时为 0</strong>。  </li>
-<li><strong>截止与导行</strong>：<strong>截止波数</strong> $k_\mathrm{c}$、<strong>截止波长</strong> $\lambda_\mathrm{c}$、<strong>截止频率</strong> $f_\mathrm{c}$ 只由<strong>截面几何</strong>与 $(m,n)$ 决定。无耗时某模<strong>能导行</strong>当且仅当 <strong>$\beta$</strong> 为<strong>实数</strong>；空气填充时常写 <strong>$\lambda_0<\lambda_{\mathrm c}$</strong> 或 <strong>$f>f_\mathrm{c}$</strong>。  </li>
+<li><strong>截止与导行</strong>：<strong>截止波数</strong> $k_\mathrm{c}$、<strong>截止波长</strong> $\lambda_\mathrm{c}$、<strong>截止频率</strong> $f_\mathrm{c}$ 只由<strong>截面几何</strong>与 $(m,n)$ 决定。无耗时某模<strong>能导行</strong>当且仅当 <strong>$\beta$</strong> 为<strong>实数</strong>；空气填充时常写 <strong>$\lambda_0&lt;\lambda_{\mathrm c}$</strong> 或 <strong>$f&gt;f_\mathrm{c}$</strong>。  </li>
 <li><strong>主模 / 高次模 / 竞争模</strong>：$\mathrm{TE}_{10}$ 的 $\lambda_{\mathrm{c},10}=2a$ 在常见排序中<strong>最大</strong>，为<strong>主模</strong>；$\mathrm{TE}_{20}$ 等称<strong>高次模</strong>；列<strong>只传</strong> $\mathrm{TE}_{10}$ 时须与主模<strong>竞争导行</strong>的低次、高次模称<strong>竞争模</strong>（本题记 $\mathrm{TE}_{20}$、$\mathrm{TE}_{01}$、$\mathrm{TE}_{11}/\mathrm{TM}_{11}$ 等）。  </li>
 <li><strong>简并</strong>：$\mathrm{TE}_{11}$ 与 $\mathrm{TM}_{11}$ <strong>有相同</strong> $k_\mathrm{c}$（$\lambda_\mathrm{c}$ 同值），是两种<strong>场分布不同</strong>的波型。  </li>
-<li><strong>全填充电介质</strong>：$\mu_{\mathrm{r}}=1$、$\varepsilon_{\mathrm{r}}>1$ 时，体区内<strong>波数</strong> <strong>$k=k_0\sqrt{\varepsilon_{\mathrm{r}}}$</strong>；<strong>横截面本征问题</strong>与空气相同，故 <strong>$k_{\mathrm{c},mn}$ 与几何有关而与 $\varepsilon_\mathrm{r}$ 无直接关系</strong>（仍由 $a,b,m,n$ 决定）。</li>
+<li><strong>全填充电介质</strong>：$\mu_{\mathrm{r}}=1$、$\varepsilon_{\mathrm{r}}&gt;1$ 时，体区内<strong>波数</strong> <strong>$k=k_0\sqrt{\varepsilon_{\mathrm{r}}}$</strong>；<strong>横截面本征问题</strong>与空气相同，故 <strong>$k_{\mathrm{c},mn}$ 与几何有关而与 $\varepsilon_\mathrm{r}$ 无直接关系</strong>（仍由 $a,b,m,n$ 决定）。</li>
 </ul>
 <h3 id="2">2. 核心公式（含义与在题中角色）<a class="headerlink" href="#2" title="Permanent link">§</a></h3>
 <ul>
@@ -290,7 +290,7 @@
 </li>
 <li>
 <p><strong>导行/不导行（空气）</strong><br>
-<strong>导行</strong> $\Leftrightarrow \lambda_0 < \lambda_{\mathrm{c},mn} \Leftrightarrow f>f_{\mathrm{c},mn}$（等价的 $f$ 判据在第三节）。<strong>不导行</strong>时作业常写 <strong>$\lambda_0 \ge \lambda_{\mathrm{c},mn}$</strong>（<strong>恰为截止</strong>是否取等以教材为准；开区间<strong>内部</strong>结论不受影响）。</p>
+<strong>导行</strong> $\Leftrightarrow \lambda_0 &lt; \lambda_{\mathrm{c},mn} \Leftrightarrow f&gt;f_{\mathrm{c},mn}$（等价的 $f$ 判据在第三节）。<strong>不导行</strong>时作业常写 <strong>$\lambda_0 \ge \lambda_{\mathrm{c},mn}$</strong>（<strong>恰为截止</strong>是否取等以教材为准；开区间<strong>内部</strong>结论不受影响）。</p>
 </li>
 <li>
 <p><strong>典型竞争模的 $\lambda_\mathrm{c}$</strong>（见第三节推导）<strong><br>
@@ -315,9 +315,9 @@
 <p>$$
 \beta_{mn} = \sqrt{k^2 - k_{\mathrm{c},mn}^2}\ \text{为实数}
 \;\Leftrightarrow\;
-\lambda_0 < \lambda_{\mathrm{c},mn}
+\lambda_0 &lt; \lambda_{\mathrm{c},mn}
 \;\Leftrightarrow\;
-f > f_{\mathrm{c},mn}.
+f &gt; f_{\mathrm{c},mn}.
 $$</p>
 <p><strong>不导行</strong>则取反向（作业里常写 $\lambda_0 \ge \lambda_{\mathrm{c},mn}$ 表示该模不传播；端点“恰为截止”是否允许以教材为准，<strong>区间内部</strong>的写法不受影响）。</p>
 <p><strong>3. 先写 $k_{\mathrm{c}}$ 再点名列竞争模</strong></p>
@@ -327,7 +327,7 @@ k_{\mathrm{c},mn} = \sqrt{\left(\frac{m\pi}{a}\right)^2 + \left(\frac{n\pi}{b}\r
 \qquad
 \lambda_{\mathrm{c},mn} = \frac{2\pi}{k_{\mathrm{c},mn}}.
 $$</p>
-<p>在 $a>b$ 下，<strong>最先需要核对</strong>的往往是（除 $\mathrm{TE}_{10}$ 外）：</p>
+<p>在 $a&gt;b$ 下，<strong>最先需要核对</strong>的往往是（除 $\mathrm{TE}_{10}$ 外）：</p>
 <ul>
 <li>$\mathrm{TE}_{20}$：$\lambda_{\mathrm{c},20}=a$；</li>
 <li>$\mathrm{TE}_{01}$：$\lambda_{\mathrm{c},01}=2b$；</li>
@@ -336,7 +336,7 @@ $$</p>
 <p>$$
 \lambda_{\mathrm{c},11} = \frac{2}{\sqrt{\dfrac{1}{a^2}+\dfrac{1}{b^2}}}.
 $$</p>
-<p><strong>$a$ 与 $2b$、与 $\lambda_{\mathrm{c},11}$ 谁大谁小</strong>决定哪一条不等式<strong>最紧</strong>（最先把单模区「掐窄」），因此一般不能只背一个 $a<\lambda_0<2a$，而要<strong>会列完整不等式</strong>再<strong>合并</strong>；若 $2b\ll a$ 且已验证 $\lambda_{\mathrm{c},11}$ 不紧，才常用 $a<\lambda_0<2a$ 的简化写法。</p>
+<p><strong>$a$ 与 $2b$、与 $\lambda_{\mathrm{c},11}$ 谁大谁小</strong>决定哪一条不等式<strong>最紧</strong>（最先把单模区「掐窄」），因此一般不能只背一个 $a&lt;\lambda_0&lt;2a$，而要<strong>会列完整不等式</strong>再<strong>合并</strong>；若 $2b\ll a$ 且已验证 $\lambda_{\mathrm{c},11}$ 不紧，才常用 $a&lt;\lambda_0&lt;2a$ 的简化写法。</p>
 <p><strong>4. 全填充 $\varepsilon_{\mathrm{r}}$ 时多一步</strong></p>
 <ul>
 <li><strong>几何不变</strong> $\Rightarrow$ $k_{\mathrm{c},mn}$ <strong>不变</strong>（与 $\varepsilon_{\mathrm{r}}$ 无关）。  </li>
@@ -347,12 +347,12 @@ f_{\mathrm{c},mn,\varepsilon} = \frac{f_{\mathrm{c},mn,\mathrm{air}}}{\sqrt{\var
 \qquad
 \lambda_{\mathrm{c},mn,\varepsilon} = \frac{\lambda_{\mathrm{c},mn,\mathrm{air}}}{\sqrt{\varepsilon_{\mathrm{r}}}}.
 $$</p>
-<p><strong>同几何、同 $f$ 或同 $\lambda_0$ 下</strong>更容易满足「$\lambda_0 < \lambda_{\mathrm{c}}$」，高次模更易被<strong>激发</strong>，<strong>单模工作区相对空气变窄</strong>；列式时应对<strong>所有</strong>相关模的 $f_{\mathrm{c}}$ 或 $\lambda_{\mathrm{c}}$ <strong>同步</strong>缩放，不能只缩放主模。</p>
+<p><strong>同几何、同 $f$ 或同 $\lambda_0$ 下</strong>更容易满足「$\lambda_0 &lt; \lambda_{\mathrm{c}}$」，高次模更易被<strong>激发</strong>，<strong>单模工作区相对空气变窄</strong>；列式时应对<strong>所有</strong>相关模的 $f_{\mathrm{c}}$ 或 $\lambda_{\mathrm{c}}$ <strong>同步</strong>缩放，不能只缩放主模。</p>
 <hr>
 <h2 id="_3">三、标准解答<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <p><strong>解：</strong></p>
 <p><strong>（1）记号线与主模、高次模的截止关系</strong></p>
-<p>设宽边为 $a$、窄边为 $b$，$a>b$，<strong>空气</strong>填充时 $k=2\pi/\lambda_0=\omega/c$。矩形波导 $\mathrm{TE}_{mn}$、$\mathrm{TM}_{mn}$ 的截止波数</p>
+<p>设宽边为 $a$、窄边为 $b$，$a&gt;b$，<strong>空气</strong>填充时 $k=2\pi/\lambda_0=\omega/c$。矩形波导 $\mathrm{TE}_{mn}$、$\mathrm{TM}_{mn}$ 的截止波数</p>
 <p>$$
 k_{\mathrm{c},mn} = \sqrt{\left(\frac{m\pi}{a}\right)^2 + \left(\frac{n\pi}{b}\right)^2},
 \qquad
@@ -363,7 +363,7 @@ $$</p>
 <li>$\mathrm{TE}_{10}$ 导行：</li>
 </ul>
 <p>$$
-\lambda_0 < \lambda_{\mathrm{c},10} = 2a;
+\lambda_0 &lt; \lambda_{\mathrm{c},10} = 2a;
 $$</p>
 <ul>
 <li>对其余至少需考虑的模（如 $\mathrm{TE}_{20}$、$\mathrm{TE}_{01}$、$\mathrm{TE}_{11}$、$\mathrm{TM}_{11}$ 等）均不导行：</li>
@@ -383,9 +383,9 @@ $$</p>
 <p><strong>（2）空气填充：合并不等式</strong></p>
 <p>由 $\mathrm{TE}_{10}$ 与「$\mathrm{TE}_{20}$ 不导行」得</p>
 <p>$$
-a \le \lambda_0 < 2a
+a \le \lambda_0 &lt; 2a
 \quad
-\text{（若要求严格在通带内，常写 } a<\lambda_0<2a\text{）}.
+\text{（若要求严格在通带内，常写 } a&lt;\lambda_0&lt;2a\text{）}.
 $$</p>
 <p>要同时<strong>不让</strong> $\mathrm{TE}_{01}$、$\mathrm{TE}_{11}/\mathrm{TM}_{11}$ 导行，需</p>
 <p>$$
@@ -398,22 +398,22 @@ $$</p>
 \max\left\{
 a, 2b, \frac{2}{\sqrt{\dfrac{1}{a^2}+\dfrac{1}{b^2}}}, \ldots
 \right\}
-\;\le\; \lambda_0\; <\; 2a
+\;\le\; \lambda_0\; &lt;\; 2a
 }
 $$</p>
 <p>（若还需排除更高次模，在 $\max\{\cdot\}$ 中继续补项；直到所有可能低于 $\lambda_{\mathrm{c},10}$ 的模都列入。）</p>
-<p>在<strong>标准矩形波导</strong>常见比例 <strong>$2b < a$</strong>（如 <strong>BJ-100 / WR-90</strong>：$a=22.86\,\mathrm{mm},\,b=10.16\,\mathrm{mm}$，$2b=20.32\,\mathrm{mm}<a$）时，有</p>
+<p>在<strong>标准矩形波导</strong>常见比例 <strong>$2b &lt; a$</strong>（如 <strong>BJ-100 / WR-90</strong>：$a=22.86\,\mathrm{mm},\,b=10.16\,\mathrm{mm}$，$2b=20.32\,\mathrm{mm}&lt;a$）时，有</p>
 <ul>
-<li>$2b < a$，故当 $\lambda_0 \ge a$ 时已自动满足 $\lambda_0 \ge 2b$；  </li>
-<li>对该类尺寸再比较 $a$ 与 $\lambda_{\mathrm{c},11}$，常有 $\lambda_{\mathrm{c},11} < a$，故 $\max\{a,2b,\lambda_{\mathrm{c},11}\}=a$（<strong>须代入验证</strong>；不同 $a/b$ 时 $\max$ 可改为 $2b$ 或其它项，<strong>不能</strong>默认下界是 $a$）。</li>
+<li>$2b &lt; a$，故当 $\lambda_0 \ge a$ 时已自动满足 $\lambda_0 \ge 2b$；  </li>
+<li>对该类尺寸再比较 $a$ 与 $\lambda_{\mathrm{c},11}$，常有 $\lambda_{\mathrm{c},11} &lt; a$，故 $\max\{a,2b,\lambda_{\mathrm{c},11}\}=a$（<strong>须代入验证</strong>；不同 $a/b$ 时 $\max$ 可改为 $2b$ 或其它项，<strong>不能</strong>默认下界是 $a$）。</li>
 </ul>
-<p>若 <strong>$2b \ge a$</strong>（窄边相对较宽），则「$\lambda_0 \ge 2b$」可能比「$\lambda_0 \ge a$」<strong>更严</strong>，工作波长带<strong>不能</strong>用 $a<\lambda_0<2a$ 代替，<strong>必须以</strong>前面 $\max\{\cdot\} \le \lambda_0 < 2a$ 为准。</p>
+<p>若 <strong>$2b \ge a$</strong>（窄边相对较宽），则「$\lambda_0 \ge 2b$」可能比「$\lambda_0 \ge a$」<strong>更严</strong>，工作波长带<strong>不能</strong>用 $a&lt;\lambda_0&lt;2a$ 代替，<strong>必须以</strong>前面 $\max\{\cdot\} \le \lambda_0 &lt; 2a$ 为准。</p>
 <p>于是<strong>仅由主模与紧邻高次模常写</strong>为</p>
 <p>$$
-\boxed{a < \lambda_0 < 2a}
+\boxed{a &lt; \lambda_0 &lt; 2a}
 $$</p>
 <p>（<strong>答卷建议</strong>：写出上式<strong>之前</strong>点明已核对 $2b$、$\lambda_{\mathrm{c},11}$ 等，避免被扣分。）</p>
-<p><strong>（3）全填充：$\varepsilon_{\mathrm{r}}>1$，$\mu_{\mathrm{r}}=1$</strong></p>
+<p><strong>（3）全填充：$\varepsilon_{\mathrm{r}}&gt;1$，$\mu_{\mathrm{r}}=1$</strong></p>
 <p>$k_{\mathrm{c},mn}$ 仍由 $a$、$b$、$m$、$n$ 决定，<strong>与空气相同</strong>。填充后</p>
 <p>$$
 f_{\mathrm{c},mn,\varepsilon} = \frac{f_{\mathrm{c},mn,\mathrm{air}}}{\sqrt{\varepsilon_{\mathrm{r}}}},
@@ -422,7 +422,7 @@ f_{\mathrm{c},mn,\varepsilon} = \frac{f_{\mathrm{c},mn,\mathrm{air}}}{\sqrt{\var
 $$</p>
 <p>「只传 $\mathrm{TE}_{10}$」在<strong>以频率表述</strong>时：$\mathrm{TE}_{10}$ 导行而其余模不导行，即</p>
 <p>$$
-f_{\mathrm{c},10,\varepsilon} < f,\qquad
+f_{\mathrm{c},10,\varepsilon} &lt; f,\qquad
 f \le f_{\mathrm{c},mn,\varepsilon}
 \quad
 \text{对其它相关 }(m,n)
@@ -434,12 +434,12 @@ $$</p>
 </blockquote>
 <p><strong>（4）本题的结论性表述（可写在卷末）</strong></p>
 <ul>
-<li><strong>空气</strong>：主模能传 + 所列举高次模均不能传，得到 $\lambda_0$（或 $a,b$ 与 $f$）的不等式组；典型 $2b<a$ 时主波长带常简写为 $a<\lambda_0<2a$，<strong>须补一句</strong>已核对 $\mathrm{TE}_{11}$ 等。  </li>
+<li><strong>空气</strong>：主模能传 + 所列举高次模均不能传，得到 $\lambda_0$（或 $a,b$ 与 $f$）的不等式组；典型 $2b&lt;a$ 时主波长带常简写为 $a&lt;\lambda_0&lt;2a$，<strong>须补一句</strong>已核对 $\mathrm{TE}_{11}$ 等。  </li>
 <li><strong>全介质</strong>：$k_{\mathrm{c}}$ 不变，$f_{\mathrm{c}}$、$\lambda_{\mathrm{c}}$ 同除以 $\sqrt{\varepsilon_{\mathrm{r}}}$ 后，重复上述<strong>同一套</strong>单模判据。</li>
 </ul>
 <h2 id="_4">图示<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
-<p><img alt="仅主模 TE$_{10}$ 时工作波长 $\lambda_0$ 与竞争模截止 所夹的区间（以 BJ-100 为示意）" src="../../../../assets/images/lec13_16_q01_single_mode_window.png"></p>
-<p><em>图：阴影区为「主模能传且所列竞争模不导行」的 $\lambda_0$ 开区间在数轴上的位置；下界为 $\max\{a,2b,\lambda_{\mathrm{c},11}^{(\mathrm{TE})}\}$ 等中的最大者、上界为 $\lambda_{\mathrm{c},10}=2a$ 联立后所得（对一般 $a,b$ 须代入，勿只背 $a<\lambda_0<2a$）。</em></p>
+<p><img alt="仅主模 TE$_{10}$ 时工作波长 $\lambda_0$ 与竞争模截止 所夹的区间（以 BJ-100 为示意）" src="../../../../assets/images/lec13_16_q01_single_mode_window.webp"></p>
+<p><em>图：阴影区为「主模能传且所列竞争模不导行」的 $\lambda_0$ 开区间在数轴上的位置；下界为 $\max\{a,2b,\lambda_{\mathrm{c},11}^{(\mathrm{TE})}\}$ 等中的最大者、上界为 $\lambda_{\mathrm{c},10}=2a$ 联立后所得（对一般 $a,b$ 须代入，勿只背 $a&lt;\lambda_0&lt;2a$）。</em></p>
 <hr>
 <h2 id="_5">四、与主册的衔接<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
 <ul>
