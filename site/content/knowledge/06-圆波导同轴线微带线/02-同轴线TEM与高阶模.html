@@ -268,6 +268,8 @@
 <hr>
 <h2 id="_1">本节先抓住一句话<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <p>同轴线是<strong>双导体</strong>结构，所以可以传 TEM 模——而且 TEM 模<strong>没有截止频率</strong>。但当频率高到一定程度，第一个 TE 模（$\mathrm{TE}_{11}$）会开始传，这就是同轴线的工作上限。</p>
+<p><img alt="同轴线只传 TEM 的条件与最短工作波长" src="../../../assets/images/gpt-hw4-lec19-q7-coax-tem-window.webp"></p>
+<p><em>图：TEM 模从低频一直存在；“只传 TEM”的限制不是 TEM 自己截止，而是要让第一个高阶模 $\mathrm{TE}_{11}$ 仍低于截止。</em></p>
 <hr>
 <h2 id="tem">为什么双导体能传 TEM<a class="headerlink" href="#tem" title="Permanent link">§</a></h2>
 <p>TEM 模的定义是 $E_z=0$ 且 $H_z=0$，电磁场只在横截面里。这种场要求横截面里能找到一个<strong>静电式势函数</strong> $\varphi(x,y)$ 使得 $\mathbf E_\perp=-\nabla_\perp\varphi$，并且这个势在两个导体上分别取常数（不同值）。</p>
@@ -278,7 +280,7 @@
 </ul>
 <hr>
 <h2 id="tem_1">同轴线的 TEM 参数<a class="headerlink" href="#tem_1" title="Permanent link">§</a></h2>
-<p>同轴线内导体外半径 $a$，外导体内半径 $b$（$a<b$），介质为 $\varepsilon_r$、$\mu_r=1$。</p>
+<p>同轴线内导体外半径 $a$，外导体内半径 $b$（$a&lt;b$），介质为 $\varepsilon_r$、$\mu_r=1$。</p>
 <p>特性阻抗（标准结论）：</p>
 <p>$$
 Z_c=\frac{\eta_0}{2\pi\sqrt{\varepsilon_r}}\ln\frac{b}{a}\approx\frac{60}{\sqrt{\varepsilon_r}}\ln\frac{b}{a}\ \Omega.
@@ -301,7 +303,7 @@ f_{\mathrm c,\mathrm{TE}_{11}}\approx\frac{c}{\pi(a+b)\sqrt{\varepsilon_r}}.
 $$</p>
 <p>要保证只传 TEM、抑制所有高阶模，工作波长必须</p>
 <p>$$
-\lambda_0>\lambda_{\mathrm c,\mathrm{TE}_{11}}\approx \pi(a+b),
+\lambda_0&gt;\lambda_{\mathrm c,\mathrm{TE}_{11}}\approx \pi(a+b),
 $$</p>
 <p>即</p>
 <p>$$
@@ -309,7 +311,7 @@ $$</p>
 $$</p>
 <p>这个 $\lambda_{\min}$ 就是同轴线的"最短工作波长"或"TEM 单模上限"。</p>
 <hr>
-<h2 id="math22">直觉解释 $\pi(a+b)$<a class="headerlink" href="#math22" title="Permanent link">§</a></h2>
+<h2 id="math23">直觉解释 $\pi(a+b)$<a class="headerlink" href="#math23" title="Permanent link">§</a></h2>
 <p>同轴线的 $\mathrm{TE}_{11}$ 横向场分布近似在内外导体之间形成一个"半周向驻波"。半个周向波长大致就是平均周长 $\pi(a+b)$ 的一半？不对——更直观的算法是：</p>
 <ul>
 <li>内外导体平均圆周 $C_{\mathrm{avg}}=2\pi(a+b)/2=\pi(a+b)$。</li>
@@ -318,7 +320,7 @@ $$</p>
 </ul>
 <p>记不住推导也没关系，背 $\pi(a+b)$ 即可——绝大多数题目就是直接代这个公式。</p>
 <hr>
-<h2 id="math28">加大 $b/a$ 的代价<a class="headerlink" href="#math28" title="Permanent link">§</a></h2>
+<h2 id="math29">加大 $b/a$ 的代价<a class="headerlink" href="#math29" title="Permanent link">§</a></h2>
 <p>要扩展单模带宽（提高 $\lambda_{\min}$ 阈值），需要减小 $a+b$；同时为了维持 $Z_c=50\,\Omega$，$b/a$ 要保持不变，所以 $a$ 和 $b$ 都按比例缩小。</p>
 <p>带来的副作用：
 - 内导体直径变小 $\Rightarrow$ 电流密度上升 $\Rightarrow$ 导体损耗增加。
@@ -368,8 +370,8 @@ $$</p>
 <li><a href="#tem">为什么双导体能传 TEM</a></li>
 <li><a href="#tem_1">同轴线的 TEM 参数</a></li>
 <li><a href="#tetm">TE/TM 高阶模与上限频率</a></li>
-<li><a href="#math22">直觉解释 $\pi(a+b)$</a></li>
-<li><a href="#math28">加大 $b/a$ 的代价</a></li>
+<li><a href="#math23">直觉解释 $\pi(a+b)$</a></li>
+<li><a href="#math29">加大 $b/a$ 的代价</a></li>
 <li><a href="#_2">例题套路</a></li>
 <li><a href="#_3">易错点</a></li>
 <li><a href="#mini">Mini 自检</a></li>

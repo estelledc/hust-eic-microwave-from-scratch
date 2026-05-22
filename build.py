@@ -43,7 +43,8 @@ PUBLIC_ROOTS = (
 STATIC_DIRS = ("assets/images", "assets/illustrations")
 SITE_TITLE = "微波技术基础"
 EXP_IMAGE_DIR = Path("assets/images/exp")
-TRIM_IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg"}
+TRIM_IMAGE_SUFFIXES = {".webp"}
+WEBP_QUALITY = 85
 TRIM_DIFF_THRESHOLD = 12
 TRIM_PADDING = 12
 TRIM_MIN_MARGIN = 8
@@ -751,9 +752,7 @@ def trim_uniform_margin(path: Path) -> bool:
             return False
 
         cropped = image.crop(crop_box)
-        if path.suffix.lower() in {".jpg", ".jpeg"} and cropped.mode != "RGB":
-            cropped = cropped.convert("RGB")
-        cropped.save(path)
+        cropped.save(path, quality=WEBP_QUALITY, method=6)
         return True
 
 

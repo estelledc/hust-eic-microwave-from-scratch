@@ -271,12 +271,12 @@
 </blockquote>
 <p><strong>题目</strong>：设有一空气填充的圆波导，其内半径 \(R=1.5\ \mathrm{cm}\)，若电磁波的频率 \(f=10\ \mathrm{GHz}\)，问：若该电磁波在该波导中传输，可能存在哪些波型？</p>
 <p><strong>对应知识点</strong>：圆波导可导行判据、归一化工作点 \(kR\)、低阶截止根比较、可传输模式枚举。</p>
-<p><img alt="R=1.5cm、f=10GHz 圆波导可传输模判定" src="../../../../assets/images/gpt-hw4-lec17-q4-circular-mode-enumeration.png"></p>
+<p><img alt="R=1.5cm、f=10GHz 圆波导可传输模判定" src="../../../../assets/images/gpt-hw4-lec17-q4-circular-mode-enumeration.webp"></p>
 <p><em>图：本题的工作点是 \(kR=\pi\)。把低阶截止根逐个放到同一条数轴上比较，根小于 \(kR\) 的模式可导行，根大于 \(kR\) 的模式截止。</em></p>
 <h2 id="_1">一、前置知识<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
-<p>圆波导模式可导行的条件是 \(f>f_{\mathrm c}\)，等价地</p>
+<p>圆波导模式可导行的条件是 \(f&gt;f_{\mathrm c}\)，等价地</p>
 <p>\[
-kR>\text{该模式对应的截止根}.
+kR&gt;\text{该模式对应的截止根}.
 \]</p>
 <p>常用低阶根如下：</p>
 <ul>
@@ -301,10 +301,10 @@ kR=\frac{2\pi R}{\lambda_0}
 \]</p>
 <p>逐个比较低阶根：</p>
 <ul>
-<li>\(\mathrm{TE}_{11}\)：\(\chi'_{11}=1.841<\pi\)，\(f_{\mathrm c}\approx 5.86\ \mathrm{GHz}\)，可传输；</li>
-<li>\(\mathrm{TM}_{01}\)：\(\chi_{01}=2.405<\pi\)，\(f_{\mathrm c}\approx 7.65\ \mathrm{GHz}\)，可传输；</li>
-<li>\(\mathrm{TE}_{21}\)：\(\chi'_{21}=3.054<\pi\)，\(f_{\mathrm c}\approx 9.72\ \mathrm{GHz}\)，可传输；</li>
-<li>\(\mathrm{TE}_{01}\) 与 \(\mathrm{TM}_{11}\)：对应根约为 \(3.832>\pi\)，截止频率约为 \(12.2\ \mathrm{GHz}\)，不能传输。</li>
+<li>\(\mathrm{TE}_{11}\)：\(\chi'_{11}=1.841&lt;\pi\)，\(f_{\mathrm c}\approx 5.86\ \mathrm{GHz}\)，可传输；</li>
+<li>\(\mathrm{TM}_{01}\)：\(\chi_{01}=2.405&lt;\pi\)，\(f_{\mathrm c}\approx 7.65\ \mathrm{GHz}\)，可传输；</li>
+<li>\(\mathrm{TE}_{21}\)：\(\chi'_{21}=3.054&lt;\pi\)，\(f_{\mathrm c}\approx 9.72\ \mathrm{GHz}\)，可传输；</li>
+<li>\(\mathrm{TE}_{01}\) 与 \(\mathrm{TM}_{11}\)：对应根约为 \(3.832&gt;\pi\)，截止频率约为 \(12.2\ \mathrm{GHz}\)，不能传输。</li>
 </ul>
 <p>因此在 \(R=1.5\ \mathrm{cm}\)、\(f=10\ \mathrm{GHz}\) 的空气圆波导中，可能存在的低阶传输波型为</p>
 <p>\[

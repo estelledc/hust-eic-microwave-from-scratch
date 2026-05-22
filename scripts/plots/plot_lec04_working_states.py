@@ -32,7 +32,7 @@ def main():
     ax.grid(True, alpha=0.3)
     ax.legend()
     plt.tight_layout()
-    out_path = OUT / "lec04_working_states_envelope.png"
+    out_path = OUT / "lec04_working_states_envelope.webp"
     fig.savefig(out_path, dpi=160)
     plt.close(fig)
     print("saved", out_path)

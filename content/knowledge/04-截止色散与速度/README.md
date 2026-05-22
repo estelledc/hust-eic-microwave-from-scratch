@@ -6,7 +6,7 @@
 
 **先修建议**：先完成 [Lec10-Lec11 · 波导基础](../03-波导中的场与边界/README.md)（波型、Helmholtz、矩形波导 $k_{\mathrm c}$、$\mathrm{TM}_{11}$ 等），再读本目录。
 
-![工作波长、截止波长、导波波长与速度关系](../../../assets/images/gpt-wg-te10-lambdag-velocity.png)
+![工作波长、截止波长、导波波长与速度关系](../../../assets/images/gpt-wg-te10-lambdag-velocity.webp)
 
 这张图把本阶段最容易混的量放在同一条线上：$\lambda_0$ 来自频率，$\lambda_{\mathrm c}$ 来自几何门槛，$\lambda_{\mathrm g}$ 来自导行后的轴向相位。
 

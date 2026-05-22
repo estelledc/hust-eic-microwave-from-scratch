@@ -56,23 +56,23 @@
 
 以下插图为 **概念示意**，与上节「为什么要先 $d$ 后 $l$」、第 4 题圆图步骤、**两组 $(d,l)$** 以及第 7 题 **并 / 串** 拓扑对照阅读；**具体数值** 仍以各题 **解法一** 为准。
 
-![并联短路单支节 — 拓扑（主线、距负载 $d$、枝节 $l$、短路端）](../../../../assets/images/lec08_study_01_parallel_stub_topology.png)
+![并联短路单支节 — 拓扑（主线、距负载 $d$、枝节 $l$、短路端）](../../../../assets/images/lec08_study_01_parallel_stub_topology.webp)
 
 *图 1：**电路长什么样**——在距负载 $d$ 处 **并接** 短路枝节 $l$；调节 $d,l$ 使向源看入接近 $Z_c$。*
 
-![为什么先定 $d$ 再定 $l$（枝节只改电纳，先把电导旋到 $Y_c$）](../../../../assets/images/lec08_study_02_why_d_then_l.png)
+![为什么先定 $d$ 再定 $l$（枝节只改电纳，先把电导旋到 $Y_c$）](../../../../assets/images/lec08_study_02_why_d_then_l.webp)
 
 *图 2：**物理顺序**——并联短路线只提供 **纯电纳**，结点处 **只能加减电纳**；须先用主线长度 $d$ 使 **$\mathrm{Re}\,Y=Y_c$**（归一化即 **$g=1$**），再用 $l$ 把 **总电纳** 调到零。*
 
-![Smith 圆图四步：$\bar Y_L$ → 向源等 $|\Gamma|$ → 交 $g=1$ 得 $d$ → 外圆短路点走 $l$](../../../../assets/images/lec08_study_03_smith_four_steps.png)
+![Smith 圆图四步：$\bar Y_L$ → 向源等 $|\Gamma|$ → 交 $g=1$ 得 $d$ → 外圆短路点走 $l$](../../../../assets/images/lec08_study_03_smith_four_steps.webp)
 
 *图 3：**圆图上手指怎么走**——与 [第 4 题](第04题.md)、[第 5 题](第05题.md)「解法二」同一套路。*
 
-![$g=1$ 与等 $|\Gamma|$ 圆常有两个交点 — 对应两组 $(d,l)$](../../../../assets/images/lec08_study_04_two_solutions_g1.png)
+![$g=1$ 与等 $|\Gamma|$ 圆常有两个交点 — 对应两组 $(d,l)$](../../../../assets/images/lec08_study_04_two_solutions_g1.webp)
 
 *图 4：**为何多解**——同一负载圆与 **$g=1$** 轨迹可相交 **两次**，工程上常取 **距负载较近** 的 $d$；加 **$\lambda/2$** 周期仍有等价写法。*
 
-![第 7 题类：$d_1$ 处并联枝节 + $d_2$ 处与主线串联枝节（勿与「双并联」混淆）](../../../../assets/images/lec08_study_05_q7_hybrid_topology.png)
+![第 7 题类：$d_1$ 处并联枝节 + $d_2$ 处与主线串联枝节（勿与「双并联」混淆）](../../../../assets/images/lec08_study_05_q7_hybrid_topology.webp)
 
 *图 5：**并 vs 串**——并联结点用 **导纳相加**；串联截面用 **阻抗相加**，列式与 [第 6 题](第06题.md) 不同。*
 
@@ -86,7 +86,7 @@
 
 **圆图上怎么看**：在 **$\Gamma$ 平面** 上，**$\mathrm{Re}\,\bar Y=1$** 是一条固定轨迹（本讲义配图用 **橙色曲线** 画出，即 **$g=1$ 圆/线**）。从 **$\bar Y_L$**（或由 $\bar Z_L$ 取倒数）对应点出发，沿 **等 $|\Gamma|$ 圆** **向源顺时针** 转，与 **$g=1$** 的交点定 **$d/\lambda$**；在该交点读 **$b$**，从 **最外圆上的短路点** 沿外圆走枝节，提供 **$-b$**，得 **$l/\lambda$**。**阻抗 Smith 图** 与 **导纳 Smith 图** 在 $\Gamma$ 平面上可通过对 $\bar Z\leftrightarrow\bar Y$ 互换理解；**并联结点**列式时 **导纳相加** 最直接。
 
-![Lec08 零基础：$\mathrm{Re}\,\bar Y=1$（$g=1$）在 $\Gamma$ 平面上的轨迹](../../../../assets/images/smith_lec08_q0_g1_explained.png)
+![Lec08 零基础：$\mathrm{Re}\,\bar Y=1$（$g=1$）在 $\Gamma$ 平面上的轨迹](../../../../assets/images/smith_lec08_q0_g1_explained.webp)
 
 *图：**橙色**为 **$g=1$** 轨迹；**匹配** $\bar Y=1$ 须同时 **$g=1$** 且 **$b=0$**。单支节读图按编号走：先定负载导纳，沿同一 $|\Gamma|$ 圆向源转到 $g=1$，在交点读 $b$，再用短路支节补 $-b$。若你只看本图仍不知从何转起，请接着看 [**第 1 题**](第01题.md) 的编号说明。*
 

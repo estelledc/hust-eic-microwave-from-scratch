@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Generate assets/images/lec13_16_q01..q12_*.png for 第三次作业 Lec13-16 分题."""
+"""Generate assets/images/lec13_16_q01..q12_*.webp for 第三次作业 Lec13-16 分题."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -65,7 +65,7 @@ def fig_q01() -> Path:
     ax.set_yticks([])
     ax.set_title("题1: 主模能传 且 竞争模全截止 -> lambda0 落在阴影区(例: BJ-100)", fontsize=10)
     ax.legend(loc="upper right", fontsize=7)
-    path = FIG / "lec13_16_q01_single_mode_window.png"
+    path = FIG / "lec13_16_q01_single_mode_window.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -96,7 +96,7 @@ def fig_q02() -> Path:
     lines2, l2 = ax2.get_legend_handles_labels()
     ax1.legend(lines1 + lines2, l1 + l2, loc="upper right", fontsize=8)
     fig.suptitle("题2: TE10 色散(空气无耗) 与 10 GHz 工作点", fontsize=10)
-    path = FIG / "lec13_16_q02_te10_dispersion.png"
+    path = FIG / "lec13_16_q02_te10_dispersion.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -114,7 +114,7 @@ def fig_q03() -> Path:
     ax.set_title("题3: 10x6 mm^2 截止频率(空气)", fontsize=10)
     for i, v in enumerate(fcs_ghz):
         ax.text(i, v + 0.8, f"{v:.2f}", ha="center", fontsize=8)
-    path = FIG / "lec13_16_q03_fc_bar.png"
+    path = FIG / "lec13_16_q03_fc_bar.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -133,7 +133,7 @@ def fig_q04() -> Path:
     ax.set_xlabel("lambda_c (mm)")
     ax.set_title("题4: 各模 lambda_c 与 18mm 比较(均>18 则可导行)", fontsize=10)
     ax.legend()
-    path = FIG / "lec13_16_q04_modes_on_axis.png"
+    path = FIG / "lec13_16_q04_modes_on_axis.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -158,7 +158,7 @@ def fig_q05() -> Path:
         ax.set_xlabel("wavelength (cm) ~ compare with lambda0")
         ax.set_title(title, fontsize=9)
     fig.suptitle("题5: 工作波长 与 主模 截止尺度 对照(示意)", fontsize=10)
-    path = FIG / "lec13_16_q05_two_wgs.png"
+    path = FIG / "lec13_16_q05_two_wgs.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -178,7 +178,7 @@ def fig_q06() -> Path:
     ax.set_xlabel("lambda0 (mm)")
     ax.set_yticks([])
     ax.set_title("题6: BJ-100 只传 TE10 的 波长 窗(22.86..45.72 mm, 开区间 按课程)", fontsize=10)
-    path = FIG / "lec13_16_q06_single_mode_bj100.png"
+    path = FIG / "lec13_16_q06_single_mode_bj100.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -200,7 +200,7 @@ def fig_q07() -> Path:
     ax.set_xlabel("z (mm)")
     ax.set_ylabel("幅值(归一)")
     ax.set_title("题7: 相邻 波节 距 = lambda_g/2  ->  lambda_g = 2*22.4 mm", fontsize=10)
-    path = FIG / "lec13_16_q07_standing_wave.png"
+    path = FIG / "lec13_16_q07_standing_wave.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -229,7 +229,7 @@ def fig_q08() -> Path:
     )
     ax.text(8.2, 0.9, "向源", fontsize=9)
     ax.text(0.2, 0.15, "题8: 驻波+第一波节+并联 螺钉 调匹配(示意, z 以课程/导读为准)", fontsize=8, wrap=True)
-    path = FIG / "lec13_16_q08_stub_match.png"
+    path = FIG / "lec13_16_q08_stub_match.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -244,7 +244,7 @@ def fig_q09() -> Path:
     ax.set_ylim(0, 2.3)
     for i, v in enumerate([2, 1 / 3]):
         ax.text(i, v + 0.05, f"{v:.3f}" if i else f"{v:.1f}", ha="center", fontsize=9)
-    path = FIG / "lec13_16_q09_gamma_rho.png"
+    path = FIG / "lec13_16_q09_gamma_rho.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -267,7 +267,7 @@ def fig_q10() -> Path:
     ax.set_xlabel("lambda_c (mm)")
     ax.set_title("题10: 大波导+6 GHz  可导行( lambda_c>lambda0 )的模(示意5个)", fontsize=9)
     ax.legend()
-    path = FIG / "lec13_16_q10_modes_enum.png"
+    path = FIG / "lec13_16_q10_modes_enum.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -285,7 +285,7 @@ def fig_q11() -> Path:
     ax.set_yticks([])
     ax.legend(loc="upper right", fontsize=7)
     ax.set_title("题11: 宽 口语 区间 不能 代替 严格 开区间(示意 BJ-100)", fontsize=9)
-    path = FIG / "lec13_16_q11_interval_compare.png"
+    path = FIG / "lec13_16_q11_interval_compare.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)
@@ -303,7 +303,7 @@ def fig_q12() -> Path:
     ax.set_xlabel("a (mm)")
     ax.set_ylabel("b (mm)")
     ax.set_title("题12: TE10 管壁 附近 E 大 -> P_max 受 E_br 与 a,b(示意,见教材 公式)", fontsize=8)
-    path = FIG / "lec13_16_q12_breakdown_hint.png"
+    path = FIG / "lec13_16_q12_breakdown_hint.webp"
     fig.tight_layout()
     fig.savefig(path, dpi=160)
     plt.close(fig)

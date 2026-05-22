@@ -320,7 +320,7 @@ $$</p>
 </tbody>
 </table>
 <p>很多题错在把这两个长度混在一起。$d$ 是沿主线走，$l$ 是沿支节走；它们一般不是同一个方向，也不是同一个物理段。</p>
-<p><img alt="并联短路支节拓扑" src="../../../assets/images/lec08_parallel_stub_topology.png"></p>
+<p><img alt="并联短路支节拓扑" src="../../../assets/images/lec08_parallel_stub_topology.webp"></p>
 <hr>
 <h2 id="_3">解析法怎么写<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <p>设接入点向负载看进去的归一化导纳为</p>
@@ -367,7 +367,7 @@ $$</p>
 <li>读该点电纳 $b$。</li>
 <li>从开路或短路点沿外圆走支节长度 $l$，让支节提供 $-b$。</li>
 </ol>
-<p><img alt="Lec08 单支节匹配概念图" src="../../../assets/images/smith_lec08_q1_stub_concept.png"></p>
+<p><img alt="Lec08 单支节匹配概念图" src="../../../assets/images/smith_lec08_q1_stub_concept.webp"></p>
 <p>可以把这张图记成一句话：<strong>主线负责把实部调对，支节负责把虚部清零。</strong></p>
 <hr>
 <h2 id="_5">为什么常有多解<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
@@ -376,7 +376,7 @@ $$</p>
 <li>等 $|\Gamma|$ 圆和 $g=1$ 圆通常有两个交点，所以 $d$ 可能有两组。</li>
 <li>支节的 $\tan$ 或 $\cot$ 有周期，$l$ 加 $\lambda/2$ 仍然等效。</li>
 </ol>
-<p>所以题目如果问“距负载最近”“支节最短”“取 $0<l<\lambda/2$”，这些限制不是废话，它们是在帮你从多解里选一个工程上合适的解。</p>
+<p>所以题目如果问“距负载最近”“支节最短”“取 $0&lt;l&lt;\lambda/2$”，这些限制不是废话，它们是在帮你从多解里选一个工程上合适的解。</p>
 <hr>
 <h2 id="_6">双支节匹配的直觉<a class="headerlink" href="#_6" title="Permanent link">§</a></h2>
 <p>双支节比单支节多一个支节，但少了一个自由接入位置：两支节之间的间距通常固定。</p>

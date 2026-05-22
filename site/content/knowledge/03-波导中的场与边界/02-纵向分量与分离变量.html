@@ -276,7 +276,7 @@
 <h2 id="_2">直觉：先标量、后矢量<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
 <p>均匀无源区域里，<strong>每个直角分量</strong>都满足同一标量 Helmholtz 方程。波导问题里再假设沿 $z$ 行波，把 $\partial_z^2\to -\beta^2$，就把三维问题拆成「<strong>横截面本征问题</strong> + <strong>轴向传播</strong>」。</p>
 <p>这一步的用处是降维：直接求六个场分量很乱，先抓住 $E_z$ 或 $H_z$ 这个“种子分量”，把横截面形状解出来，再用 Maxwell 旋度方程把其他横向分量带出来。</p>
-<p><img alt="先解纵向分量，再由横截面本征问题得到离散模谱" src="../../../assets/images/gpt-wg-longitudinal-separation.png"></p>
+<p><img alt="先解纵向分量，再由横截面本征问题得到离散模谱" src="../../../assets/images/gpt-wg-longitudinal-separation.webp"></p>
 <p>可以把 $\psi$ 想成一个“种子场”。横截面边界先决定它能长成哪些形状；沿 $z$ 的 $\mathrm e^{-\mathrm j\beta z}$ 只负责把这个形状向前推进。</p>
 <hr>
 <h2 id="_3">定义与符号表<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
@@ -329,7 +329,7 @@ $$</p>
 </ol>
 <hr>
 <h2 id="mini">Mini 自检题<a class="headerlink" href="#mini" title="Permanent link">§</a></h2>
-<p><strong>Q1</strong>：写出 $k_x^2+k_y^2+\beta^2=k^2$ 时，若 $k<k_{\mathrm c}=\sqrt{k_x^2+k_y^2}$，$\beta$ 实部还是虚部？</p>
+<p><strong>Q1</strong>：写出 $k_x^2+k_y^2+\beta^2=k^2$ 时，若 $k&lt;k_{\mathrm c}=\sqrt{k_x^2+k_y^2}$，$\beta$ 实部还是虚部？</p>
 <p><strong>提示</strong>：$\beta=\sqrt{k^2-k_{\mathrm c}^2}$ 为虚数，场沿 $z$ 衰减，模被截止。</p>
 <p><strong>Q2</strong>：Helmholtz 方程对 $\boldsymbol E$ 是矢量式，为何可单独对 $E_z$ 写标量式？</p>
 <p><strong>提示</strong>：均匀各向同性介质、直角坐标下，$\nabla^2$ 对每个直角分量作用形式相同且无耦合。</p>

@@ -276,25 +276,25 @@
 <h2 id="math7-math8">直觉：逐个比 $\lambda_0$ 与 $\lambda_{\mathrm c}$<a class="headerlink" href="#math7-math8" title="Permanent link">§</a></h2>
 <p><strong>导行</strong>当且仅当</p>
 <p>$$
-\lambda_0<\lambda_{\mathrm c,mn}
+\lambda_0&lt;\lambda_{\mathrm c,mn}
 \quad\text{（空气、无耗、$\beta$ 实数）}.
 $$</p>
 <p>更稳的做法是先在草稿纸上画三列：模名、$\lambda_{\mathrm c}$、是否大于工作 $\lambda_0$。凡是 $\lambda_{\mathrm c}$ 比 $\lambda_0$ 大的，就被工作频率“打开”；反过来就截止。</p>
 <p>同一题目中 <strong>$\mathrm{TE}_{11}$</strong> 与 <strong>$\mathrm{TM}_{11}$</strong> 若 $k_{\mathrm c}$ 相同，算作 <strong>两种波型</strong>（族别不同），与 <a href="01-模谱主模与简并.html">01</a> 简并概念区分答题口径 —— <strong>以教师/作业要求为准</strong>；本课程解答中第 4 题将二者计为 <strong>两种</strong>。</p>
-<p><img alt="可传输模枚举：列候选、算截止、与工作波长比较" src="../../../assets/images/gpt-wg-mode-enumeration-gate.png"></p>
+<p><img alt="可传输模枚举：列候选、算截止、与工作波长比较" src="../../../assets/images/gpt-wg-mode-enumeration-gate.webp"></p>
 <p>枚举题最怕“凭感觉漏模”。按图中的四步把 TE 与 TM 分开列，再统一比较 $\lambda_{\mathrm c}$ 和 $\lambda_0$，就能把“几种波型”这种题变成一张可检查的表。</p>
 <hr>
 <h2 id="_2">判定流程（建议）<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
 <ol>
 <li>列出候选 $(m,n)$：<strong>$\mathrm{TE}$</strong> 从低阶到高阶系统列出；<strong>$\mathrm{TM}$</strong> 从 $m,n\ge 1$ 起。</li>
 <li>计算或查表各 $\lambda_{\mathrm c}=2\pi/k_{\mathrm c}$（单位统一）。</li>
-<li>所有满足 <strong>$\lambda_{\mathrm c}>\lambda_0$</strong> 的模即为「可能存在」的导行模。</li>
+<li>所有满足 <strong>$\lambda_{\mathrm c}&gt;\lambda_0$</strong> 的模即为「可能存在」的导行模。</li>
 <li>若尺寸很大、模很多：在计算机或表格中 <strong>按 $k_{\mathrm c}$ 递增枚举</strong> 至 <strong>$\lambda_{\mathrm c}\le\lambda_0$</strong> 为止（与解答选做「截断枚举」一致）。</li>
 </ol>
-<p>如果给的是频率而不是 $\lambda_0$，先换成 $k=\omega\sqrt{\mu\varepsilon}$ 再比较 $k>k_{\mathrm c}$，可以少掉很多波长口径混淆。</p>
+<p>如果给的是频率而不是 $\lambda_0$，先换成 $k=\omega\sqrt{\mu\varepsilon}$ 再比较 $k&gt;k_{\mathrm c}$，可以少掉很多波长口径混淆。</p>
 <hr>
 <h2 id="bj-100math29">特例速记（BJ-100，$\lambda_0=18\,\mathrm{mm}$）<a class="headerlink" href="#bj-100math29" title="Permanent link">§</a></h2>
-<p>$\lambda_{\mathrm c}$（mm）约：$\mathrm{TE}_{10}\ 45.72$，$\mathrm{TE}_{20}\ 22.86$，$\mathrm{TE}_{01}\ 20.32$，$\mathrm{TE}_{11}/\mathrm{TM}_{11}\ 18.57$。均 <strong>$>18$</strong>，故 <strong>5 种</strong>（解答口径）。更高次模 $\lambda_{\mathrm c}<18$ 不导行。</p>
+<p>$\lambda_{\mathrm c}$（mm）约：$\mathrm{TE}_{10}\ 45.72$，$\mathrm{TE}_{20}\ 22.86$，$\mathrm{TE}_{01}\ 20.32$，$\mathrm{TE}_{11}/\mathrm{TM}_{11}\ 18.57$。均 <strong>$&gt;18$</strong>，故 <strong>5 种</strong>（解答口径）。更高次模 $\lambda_{\mathrm c}&lt;18$ 不导行。</p>
 <hr>
 <h2 id="_3">与截止、色散、模式指标的挂钩<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <p>$\lambda_0$ 越短（$f$ 越高），越容易同时满足多个模的导行条件 —— <strong>多模</strong>。</p>
@@ -308,7 +308,7 @@ $$</p>
 <hr>
 <h2 id="mini">Mini 自检题<a class="headerlink" href="#mini" title="Permanent link">§</a></h2>
 <p><strong>Q</strong>：$\lambda_0$ 从短变长，可传输模个数一般增加还是减少？</p>
-<p><strong>提示</strong>：<strong>减少</strong>（更难满足 $\lambda_0<\lambda_{\mathrm c}$）。</p>
+<p><strong>提示</strong>：<strong>减少</strong>（更难满足 $\lambda_0&lt;\lambda_{\mathrm c}$）。</p>
 <hr>
 <h2 id="_5">相关链接<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
 <ul>

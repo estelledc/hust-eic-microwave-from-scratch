@@ -6,7 +6,7 @@
 
 **先修建议**：[Lec10-Lec11 · 波导基础](../03-波导中的场与边界/README.md)（$k_{\mathrm c}$、$\mathrm{TE}$/$\mathrm{TM}$、场推导纲要）→ [Lec11-Lec12 · 波导波长与色散](../04-截止色散与速度/README.md)（$\lambda_0,\lambda_{\mathrm c},\lambda_{\mathrm g}$、色散）→ **本目录**（工程计算与波导段上的反射/匹配）。
 
-![矩形波导模式枚举与可传输判定](../../../assets/images/gpt-wg-mode-enumeration-gate.png)
+![矩形波导模式枚举与可传输判定](../../../assets/images/gpt-wg-mode-enumeration-gate.webp)
 
 工程题的第一步不是套公式，而是先过“模式闸门”：列候选模，算各自截止条件，再用工作频率或工作波长筛掉不能传播的模。
 

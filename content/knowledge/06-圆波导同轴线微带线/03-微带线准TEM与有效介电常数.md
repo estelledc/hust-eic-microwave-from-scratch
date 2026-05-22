@@ -6,6 +6,10 @@
 
 微带线由"导体带 + 介质基片 + 接地板"组成。它的"主模"看起来像 TEM——电场基本横向、磁场基本横向——但因为**电磁场跨在两种介质里**（空气和基片介质），严格的 TEM 数学条件不成立。我们叫它**准 TEM**，并用一个等效相对介电常数 $\varepsilon_{\mathrm{eff}}$ 把它当 TEM 来近似处理。
 
+![微带线准 TEM 与严格 TEM 矛盾证明](../../../assets/images/gpt-hw4-lec19-q8-microstrip-quasi-tem.webp)
+
+*图：微带场线一部分在空气中，一部分在介质中。若强行要求纯 TEM，同一传播常数 $\beta$ 无法同时满足两种介质的相速要求，所以实际只能是准 TEM。*
+
 ---
 
 ## 为什么不能是纯 TEM
@@ -60,6 +64,10 @@ $$
 $$
 
 记不住推导没关系，记住"加权平均"的画面：$\varepsilon_{\mathrm{eff}}$ 是空气和基片对场的"占比加权平均"。
+
+![微带线等效相对介电常数与填充因子](../../../assets/images/gpt-hw4-lec19-q9-effective-permittivity.webp)
+
+*图：$\varepsilon_{\mathrm{eff}}$ 位于 $1$ 与 $\varepsilon_r$ 之间；填充因子 $q$ 越大，说明更多场能量有效地处在介质区，传播越慢。*
 
 ---
 

@@ -78,7 +78,7 @@ def lec07_q0_anatomy():
     ax2.text(-0.98, -0.92, r"faint gray $=$ other $r,x$ (ignore until needed)", fontsize=7.5, color="0.35")
 
     fig.suptitle(r"Lec07 primer: what the pale gray lines are", fontsize=11, y=1.02)
-    save(fig, "smith_lec07_q0_anatomy.png")
+    save(fig, "smith_lec07_q0_anatomy.webp")
 
 
 def lec07_q1():
@@ -95,7 +95,7 @@ def lec07_q1():
         arrowprops=dict(arrowstyle="-", color="C0", lw=0.8),
     )
     ax.text(-0.95, 0.82, r"$\Gamma\approx$" + f"{g.real:.3f}{g.imag:+.3f}j", fontsize=9)
-    save(fig, "smith_lec07_q1.png")
+    save(fig, "smith_lec07_q1.webp")
 
 
 def lec07_q2():
@@ -111,7 +111,7 @@ def lec07_q2():
     rho = (1 + mag) / (1 - mag)
     ax.text(-0.95, 0.82, rf"$|\Gamma|\approx{mag:.3f}$", fontsize=9)
     ax.text(-0.95, 0.68, rf"$\rho\approx{rho:.2f}$", fontsize=9)
-    save(fig, "smith_lec07_q2.png")
+    save(fig, "smith_lec07_q2.webp")
 
 
 def lec07_q3():
@@ -126,7 +126,7 @@ def lec07_q3():
     ax.plot(gin.real, gin.imag, "s", color="C3", ms=8, zorder=5, label=r"$\bar Z_{\mathrm{in}}$")
     ax.legend(loc="lower left", fontsize=9)
     ax.text(-0.98, -0.95, r"$\Gamma(z)=\Gamma_L\mathrm{e}^{-\mathrm{j}4\pi z/\lambda}$", fontsize=8)
-    save(fig, "smith_lec07_q3.png")
+    save(fig, "smith_lec07_q3.webp")
 
 
 def lec07_q4():
@@ -144,7 +144,7 @@ def lec07_q4():
     ax.plot(ua, va, "-", color="C2", lw=2.0)
     ax.legend(loc="upper right", fontsize=9)
     ax.text(-0.98, -0.95, r"$\Delta(l/\lambda)\approx 0.191$", fontsize=8)
-    save(fig, "smith_lec07_q4.png")
+    save(fig, "smith_lec07_q4.webp")
 
 
 def lec07_q5():
@@ -166,7 +166,7 @@ def lec07_q5():
         color="C2",
     )
     ax.legend(loc="upper left", fontsize=8)
-    save(fig, "smith_lec07_q5.png")
+    save(fig, "smith_lec07_q5.webp")
 
 
 def lec08_q0_g1():
@@ -179,7 +179,7 @@ def lec08_q0_g1():
     ax.text(-0.98, 0.82, r"$\bar Y=1$ : on $g{=}1$ and $b{=}0$", fontsize=8)
     ax.legend(loc="lower left", fontsize=8)
     ax.text(-0.98, -0.92, r"rotate $\bar Y_L$ CW to meet orange", fontsize=7.5, color="0.35")
-    save(fig, "smith_lec08_q0_g1_explained.png")
+    save(fig, "smith_lec08_q0_g1_explained.webp")
 
 
 def lec08_q1_stub_concept():
@@ -196,7 +196,7 @@ def lec08_q1_stub_concept():
     ax.plot(g1.real, g1.imag, "s", color="C3", ms=8, label=r"intersect $g=1$ (find $d$)")
     ax.legend(loc="lower left", fontsize=7.5)
     ax.text(-0.98, -0.92, r"short stub: cancel $b$ on outer chart", fontsize=8)
-    save(fig, "smith_lec08_q1_stub_concept.png")
+    save(fig, "smith_lec08_q1_stub_concept.webp")
 
 
 def lec08_q2_quarter_wave():
@@ -215,7 +215,7 @@ def lec08_q2_quarter_wave():
     ax.plot([g1.real, 0], [0, 0], ":", color="0.4", lw=0.8)
     ax.legend(loc="upper left", fontsize=8)
     ax.text(-0.98, -0.92, rf"$d/\lambda\approx{dlam:.4f}$", fontsize=8)
-    save(fig, "smith_lec08_q2_quarter_wave.png")
+    save(fig, "smith_lec08_q2_quarter_wave.webp")
 
 
 def lec08_q3_parallel_mid():
@@ -229,7 +229,7 @@ def lec08_q3_parallel_mid():
     g1 = g0 * np.exp(-1j * 4 * np.pi * (1.0 / 8.0))
     ax.plot(g1.real, g1.imag, "s", color="C3", ms=8, label=r"$\bar Z_{\mathrm{in}}$")
     ax.legend(loc="lower left", fontsize=9)
-    save(fig, "smith_lec08_q3_parallel_mid.png")
+    save(fig, "smith_lec08_q3_parallel_mid.webp")
 
 
 def lec08_q4_single_stub():
@@ -245,7 +245,7 @@ def lec08_q4_single_stub():
     g1 = g0 * np.exp(-1j * 4 * np.pi * 0.125)
     ax.plot(g1.real, g1.imag, "s", color="C3", ms=8, label=r"on $g=1$ (find $d,l$)")
     ax.legend(loc="lower left", fontsize=8)
-    save(fig, "smith_lec08_q4_single_stub.png")
+    save(fig, "smith_lec08_q4_single_stub.webp")
 
 
 def lec08_q5_single_stub():
@@ -263,7 +263,7 @@ def lec08_q5_single_stub():
     ax.plot(g1.real, g1.imag, "s", color="C3", ms=8, label=r"nearest $g=1$")
     ax.legend(loc="lower left", fontsize=7.5)
     ax.text(-0.98, -0.92, rf"$d/\lambda\approx{dlam}$", fontsize=8)
-    save(fig, "smith_lec08_q5_single_stub.png")
+    save(fig, "smith_lec08_q5_single_stub.webp")
 
 
 def lec08_q6_double_stub():
@@ -282,7 +282,7 @@ def lec08_q6_double_stub():
     ug, vg = circle_g1_in_gamma_plane()
     ax.plot(ug, vg, ":", color="C1", lw=1.2, alpha=0.7)
     ax.text(-0.98, -0.92, r"then textbook steps for $l_1,l_2$", fontsize=8)
-    save(fig, "smith_lec08_q6_double_stub.png")
+    save(fig, "smith_lec08_q6_double_stub.webp")
 
 
 def lec08_q7_hybrid():
@@ -295,7 +295,7 @@ def lec08_q7_hybrid():
     ax.text(-0.98, 0.75, r"$d_1$: shunt stub (admittance)", fontsize=8)
     ax.text(-0.98, 0.58, r"$d_2$: series $\bar Z_s$ (impedance)", fontsize=8)
     ax.text(-0.98, -0.92, r"(topology per slides)", fontsize=8, style="italic")
-    save(fig, "smith_lec08_q7_hybrid.png")
+    save(fig, "smith_lec08_q7_hybrid.webp")
 
 
 def main():

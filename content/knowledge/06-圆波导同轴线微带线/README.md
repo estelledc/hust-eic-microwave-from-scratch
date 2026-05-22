@@ -4,7 +4,7 @@
 
 > 同样是导行系统，同样是「金属边界把场筛成离散模」，但三种结构的主模、单模条件和工程取舍很不一样。
 
-![矩形 / 圆波导 / 同轴 / 微带的拓扑对比](../../../assets/images/gpt-hw3-wave-types-tem-te-tm.png)
+![矩形 / 圆波导 / 同轴 / 微带的拓扑对比](../../../assets/images/gpt-hw3-wave-types-tem-te-tm.webp)
 
 *图：单导体（矩形/圆波导）只有 TE/TM 模；双导体（同轴）可以有 TEM；微带因为半填充介质只是准 TEM。*
 
