@@ -692,6 +692,7 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
       <span class="search-icon">⌕</span>
       <input id="siteSearch" type="search" placeholder="搜索知识点、题号、公式符号" autocomplete="off">
     </label>
+    <a class="return-to-hub" href="https://estelledc.github.io/" rel="home">← estelledc.github.io</a>
     <button class="icon-button" type="button" data-theme-toggle aria-label="切换明暗主题">◐</button>
   </header>
   <div id="searchResults" class="search-results" hidden></div>

@@ -675,3 +675,25 @@ body.sidebar-open {
     scroll-behavior: auto !important;
   }
 }
+
+/* —— Editorial Monocle 默认值 + return-to-hub —— */
+:root {
+  --return-hub-color: var(--muted, #6b6862);
+  --return-hub-hover: var(--accent-strong, #c4452d);
+}
+.return-to-hub {
+  font-family: var(--mono, "JetBrains Mono", Menlo, monospace);
+  font-size: 0.875rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s, color 0.15s;
+  margin-right: 1rem;
+  white-space: nowrap;
+}
+.return-to-hub:hover {
+  color: var(--accent-strong);
+  border-bottom-color: var(--accent-strong);
+}
