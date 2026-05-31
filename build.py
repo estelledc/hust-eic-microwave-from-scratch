@@ -749,6 +749,9 @@ def copy_static_assets() -> None:
     shutil.copy2(ROOT / "assets" / "style.css", SITE_DIR / "assets" / "style.css")
     shutil.copy2(ROOT / "assets" / "app.js", SITE_DIR / "assets" / "app.js")
     shutil.copy2(ROOT / "assets" / "favicon.svg", SITE_DIR / "assets" / "favicon.svg")
+    jx_src = ROOT / "assets" / "jx"
+    if jx_src.exists():
+        shutil.copytree(jx_src, SITE_DIR / "assets" / "jx", dirs_exist_ok=True)
     trim_experiment_images()
 
 
