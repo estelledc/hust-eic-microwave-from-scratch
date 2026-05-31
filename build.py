@@ -658,6 +658,9 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title} · {site_title}</title>
   <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="{prefix}assets/jx/tokens.css">
+  <link rel="stylesheet" href="{prefix}assets/jx/base.css">
+  <link rel="stylesheet" href="{prefix}assets/jx/components.css">
   <link rel="stylesheet" href="{prefix}assets/style.css">
   <script>
     window.MathJax = {{
@@ -692,7 +695,7 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
       <span class="search-icon">⌕</span>
       <input id="siteSearch" type="search" placeholder="搜索知识点、题号、公式符号" autocomplete="off">
     </label>
-    <a class="return-to-hub" href="https://estelledc.github.io/" rel="home">← estelledc.github.io</a>
+    <a class="jx-return-to-hub" href="https://estelledc.github.io/" rel="home">回 Jason 主站</a>
     <button class="icon-button" type="button" data-theme-toggle aria-label="切换明暗主题">◐</button>
   </header>
   <div id="searchResults" class="search-results" hidden></div>
@@ -716,6 +719,20 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
       {toc_html}
     </aside>
   </div>
+  <footer class="jx-footer">
+    <div class="jx-footer__colophon">
+      <strong>微波技术教材</strong>
+      <span lang="en">HUST EIC · MMXXVI</span>
+    </div>
+    <nav class="jx-footer__index">
+      <a href="{prefix}content/guide/">指南</a>
+      <a href="{prefix}content/knowledge/">知识点</a>
+      <a href="{prefix}content/solutions/">作业解答</a>
+      <a href="https://estelledc.github.io/">回 hub</a>
+      <a href="https://github.com/estelledc/hust-eic-microwave-from-scratch">github</a>
+    </nav>
+    <time class="jx-footer__stamp" datetime="2026-05-31" lang="en">2026·05·31</time>
+  </footer>
 </body>
 </html>
 """

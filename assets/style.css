@@ -1,3 +1,17 @@
+/* hust-eic-microwave · Jason DS layer 2 override：教材米色 + teal */
+:root {
+  --jx-paper: #f7f3ea;
+  --jx-surface: #fffdf7;
+  --jx-surface-sunk: #ede5d2;
+  --jx-ink: #1a1a1a;
+  --jx-ink-2: #2d2d2d;
+  --jx-ink-muted: #6b6862;
+  --jx-rule: rgba(15,118,110,0.16);
+  --jx-rule-strong: rgba(15,118,110,0.32);
+  --jx-accent: #0f766e;
+  --jx-accent-hub: #2240d6;
+}
+
 :root {
   color-scheme: light;
   --bg: #f7f3ea;
