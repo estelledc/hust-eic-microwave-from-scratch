@@ -728,7 +728,6 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
       <a href="{prefix}content/guide/">指南</a>
       <a href="{prefix}content/knowledge/">知识点</a>
       <a href="{prefix}content/solutions/">作业解答</a>
-      <a href="https://estelledc.github.io/">回 hub</a>
       <a href="https://github.com/estelledc/hust-eic-microwave-from-scratch">github</a>
     </nav>
     <time class="jx-footer__stamp" datetime="2026-05-31" lang="en">2026·05·31</time>
