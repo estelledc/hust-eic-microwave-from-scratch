@@ -123,10 +123,13 @@
       code.parentElement.replaceWith(block);
     });
     if (window.mermaid) {
+      const explicitTheme = document.documentElement.getAttribute("data-theme");
+      const isDark = explicitTheme === "dark"
+        || (!explicitTheme && window.matchMedia("(prefers-color-scheme: dark)").matches);
       window.mermaid.initialize({
         startOnLoad: true,
         securityLevel: "loose",
-        theme: document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "base",
+        theme: isDark ? "dark" : "base",
       });
     }
   }
