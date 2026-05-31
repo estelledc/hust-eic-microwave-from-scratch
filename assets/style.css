@@ -519,7 +519,7 @@ a:hover {
   margin: 1.2rem auto;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
+  background: var(--paper);
 }
 
 .article hr {
