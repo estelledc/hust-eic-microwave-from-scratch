@@ -12,6 +12,21 @@
 
 ---
 
+## 课件补强后的读法
+
+![矩形波导工程计算课件精选页](../../../assets/images/course/course-rectangular-waveguide-source-preview.webp)
+
+`矩形波导1.pdf` 的工程题部分已融入本阶段。遇到尺寸和频率题，按下面四步写草稿：
+
+1. 列出候选 $\mathrm{TE}_{mn}$ / $\mathrm{TM}_{mn}$，先排除非法下标。
+2. 对每个模算 $\lambda_{\mathrm c}$ 或 $f_{\mathrm c}$，按门槛排序。
+3. 用工作频率判断“截止、单模、多模”，必要时给出单模窗口。
+4. 已确认单模后，才把长线里的 $\Gamma$、$\rho$、匹配语言接到波导段上。
+
+这也是 [第三次作业 Lec13-Lec16](../../solutions/03-规则波导与矩形波导/03-Lec13-16/README.md) 的标准拆题顺序。
+
+---
+
 ## 推荐阅读顺序
 
 | 顺序 | 文件 | 约需时间 | 说明 |

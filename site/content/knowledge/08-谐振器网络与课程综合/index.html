@@ -32,6 +32,7 @@
 </head>
 <body>
   <a class="skip-link" href="#content">跳到正文</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
   <header class="topbar">
     <button class="icon-button menu-button" type="button" data-sidebar-toggle aria-label="打开目录">☰</button>
     <a class="brand" href="../../../index.html">
@@ -57,6 +58,7 @@
 <summary>学习指南</summary>
 <ol class="nav-list">
 <li class="nav-item"><a href="../../guide/beginner-handbook.html" title="学习指南 / 《微波技术基础》初学者学习手册">初学者学习手册</a></li>
+<li class="nav-item"><a href="../../guide/index.html" title="学习指南 / 学习指南">学习指南</a></li>
 </ol>
 </details>
 <details class="nav-group" open>
@@ -305,6 +307,7 @@
 <li class="nav-item"><a href="../../experiments/02-元件参数测量/02-定向耦合器特性.html" title="实验环节 / 02-元件参数测量 / 02 · 定向耦合器特性测量">耦合器特性</a></li>
 <li class="nav-item"><a href="../../experiments/02-元件参数测量/03-功率分配器测量.html" title="实验环节 / 02-元件参数测量 / 03 · 功率分配器测量">功分器测量</a></li>
 <li class="nav-item"><a href="../../experiments/02-元件参数测量/04-思考题与报告.html" title="实验环节 / 02-元件参数测量 / 04 · 思考题与报告（实验二）">思考题与报告</a></li>
+<li class="nav-item"><a href="../../experiments/02-元件参数测量/05-实验报告范例.html" title="实验环节 / 02-元件参数测量 / 05 · 实验二报告范例：从读数到结论">05 · 实验二报告范例：从读数到结论</a></li>
 </ol>
 </details></li>
 <li class="nav-item"><a href="../../experiments/99-公式与图像.html" title="实验环节 / 实验环节 · 公式与图像索引">公式图像</a></li>
@@ -322,13 +325,60 @@
       <div class="breadcrumbs"><span class="crumb">知识点讲义</span>
 <span class="crumb">08-谐振器网络与课程综合</span>
 <span class="crumb">Lec22-Lec28 · 谐振器、网络、元件与测量综合</span></div>
+      <div class="page-meta" aria-label="页面信息">
+<span>知识点讲义</span>
+<span>约 3 分钟</span>
+<span>第 56 / 150 页</span>
+<span>知识点讲义 / 08-谐振器网络与课程综合 / Lec22-Lec28 · 谐振器、网络、元件与测量综合</span>
+</div>
       <article class="article">
         <h1 id="lec22-lec28">Lec22-Lec28 · 谐振器、网络、元件与测量综合<a class="headerlink" href="#lec22-lec28" title="Permanent link">§</a></h1>
 <p>这一阶段把前面学过的“线”和“场”收束成工程语言：<strong>谐振器负责选频，网络参数负责描述端口，常用元件负责组合系统，VNA 测量负责把这些量读出来</strong>。</p>
-<p><img alt="VNA 与 S 参数测量主线" src="../../../assets/images/exp/image2.webp"></p>
+<p><img loading="lazy" decoding="async" alt="VNA 与 S 参数测量主线" src="../../../assets/images/exp/image2.webp"></p>
 <p><em>图：从端口入射/反射波到 VNA 显示，最后都落在 $S_{ij}$、dB、Smith 圆图和带宽读数上。</em></p>
 <hr>
-<h2 id="_1">推荐阅读顺序<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<h2 id="_1">零基础总路线<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<p>这一阶段是全课收束，不要把新名词拆散背。所有题都可以按同一条线问：</p>
+<ol>
+<li><strong>结构内部发生什么</strong>：是储能形成谐振，还是波在端口间传输？</li>
+<li><strong>端口上能观察什么</strong>：反射、传输、相位、带宽、隔离度还是驻波比？</li>
+<li><strong>用哪个参数描述</strong>：谐振器用 $f_0,Q$；二端口和多端口用 $S$ 参数；测量题用 VNA 读数。</li>
+<li><strong>理想值和实测值差在哪里</strong>：损耗、端口失配、耦合强弱、校准面和负载都会造成偏差。</li>
+</ol>
+<p>做综合题时先画两个图：一个是结构图，标出尺寸和模式；另一个是端口图，标出输入端、输出端、匹配负载和测量量。图画清楚后，公式通常就只是在表达这两张图。</p>
+<hr>
+<h2 id="_2">课件与实验二补强<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<p><code>微波谐振腔.pdf</code> 和 <code>微波网络基础2.pdf</code> 已融入本阶段：谐振器不再只停留在“腔内场分布”，而是继续接到 Q 值、端口网络和 VNA 读数。实验二报告数据则作为最终测量综合的真实例子。</p>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>融入页面</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>微波谐振腔</td>
+<td><a href="01-微波谐振器与谐振腔.html">01 微波谐振器与谐振腔</a></td>
+<td>从传输线/波导驻波过渡到腔体谐振频率和 Q</td>
+</tr>
+<tr>
+<td>微波网络基础</td>
+<td><a href="02-微波网络基础与S参数.html">02 微波网络基础与 S 参数</a></td>
+<td>用 $S$ 矩阵描述二端口/多端口</td>
+</tr>
+<tr>
+<td>实验二报告</td>
+<td><a href="04-微波测量与课程综合.html">04 微波测量与课程综合</a></td>
+<td>把 Q、耦合度、驻波比、功分器指标落到实测数据</td>
+</tr>
+</tbody>
+</table>
+<p><img loading="lazy" decoding="async" alt="微波谐振腔课件精选页" src="../../../assets/images/course/course-microwave-resonator-source-preview.webp"></p>
+<p><img loading="lazy" decoding="async" alt="微波网络基础课件精选页" src="../../../assets/images/course/course-microwave-network-source-preview.webp"></p>
+<hr>
+<h2 id="_3">推荐阅读顺序<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <table>
 <thead>
 <tr>
@@ -366,7 +416,7 @@
 </tbody>
 </table>
 <hr>
-<h2 id="_2">本阶段主线<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<h2 id="_4">本阶段主线<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
 <pre><code class="language-mermaid">flowchart LR
   A[&quot;传输线/波导场&quot;] --&gt; B[&quot;两端边界&quot;]
   B --&gt; C[&quot;谐振器&quot;]
@@ -378,7 +428,7 @@
 </code></pre>
 <p>这条线的核心是：不要把谐振器、网络、元件、仪器当成四件孤立的事。它们都在描述同一组量：端口上的入射波、反射波、传输波，以及结构内部怎样储能和损耗。</p>
 <hr>
-<h2 id="_3">与第五次作业的关系<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
+<h2 id="_5">与第五次作业的关系<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
 <table>
 <thead>
 <tr>
@@ -411,7 +461,7 @@
 </tbody>
 </table>
 <hr>
-<h2 id="_4">学完这一阶段后<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
+<h2 id="_6">学完这一阶段后<a class="headerlink" href="#_6" title="Permanent link">§</a></h2>
 <p>你应该能做到：</p>
 <ol>
 <li>看到“谐振腔”题，先写出横向截止项和轴向驻波项，再用 $k^2=k_c^2+k_z^2$ 求谐振频率。</li>
@@ -427,10 +477,12 @@
       <strong>本页</strong>
       <div class="toc">
 <ul>
-<li><a href="#_1">推荐阅读顺序</a></li>
-<li><a href="#_2">本阶段主线</a></li>
-<li><a href="#_3">与第五次作业的关系</a></li>
-<li><a href="#_4">学完这一阶段后</a></li>
+<li><a href="#_1">零基础总路线</a></li>
+<li><a href="#_2">课件与实验二补强</a></li>
+<li><a href="#_3">推荐阅读顺序</a></li>
+<li><a href="#_4">本阶段主线</a></li>
+<li><a href="#_5">与第五次作业的关系</a></li>
+<li><a href="#_6">学完这一阶段后</a></li>
 </ul>
 </div>
 

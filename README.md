@@ -28,3 +28,16 @@
 ```
 
 构建结果会输出到 `site/`，其中的 `index.html` 可作为网页书入口。
+
+常用检查：
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
+import build
+print(len(build.collect_pages()))
+PY
+
+python3 scripts/tools/check_cross_refs.py
+```
+
+站点调研和十轮优化记录见 [docs/SITE_RESEARCH_AND_OPTIMIZATION.md](docs/SITE_RESEARCH_AND_OPTIMIZATION.md)。
