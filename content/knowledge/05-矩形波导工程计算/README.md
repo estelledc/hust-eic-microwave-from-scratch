@@ -12,6 +12,12 @@
 
 ---
 
+## 本轮反查状态
+
+本阶段 6 个单讲页已对齐第三次作业 Lec13-Lec16。重点闭环了 TE/TM 下标合法性、$\mathrm{TE}_{10}$ 主模、单模窗口、介质填充修正、BJ-100 模枚举、$\lambda_{\mathrm g}$ 数值和波导段复用长线理论的条件。
+
+---
+
 ## 课件补强后的读法
 
 ![矩形波导工程计算课件精选页](../../../assets/images/course/course-rectangular-waveguide-source-preview.webp)

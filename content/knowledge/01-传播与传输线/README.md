@@ -12,6 +12,10 @@
 
 ---
 
+## 本轮反查状态
+
+本阶段 5 个单讲页已逐题对齐第一次作业 Lec01-Lec05。阅读时重点看各页“逐题反查闭环”：它们统一了 $z$ 方向、$\Gamma$、$\rho$、$Z_{\mathrm{in}}$、开短路线和 $\lambda/4$ 变换的作业口径。
+
 ## 课件补强后的读法
 
 ![传输线理论课件精选页](../../../assets/images/course/course-transmission-line-theory-source-preview.webp)
