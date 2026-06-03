@@ -12,6 +12,12 @@
 
 ---
 
+## 本轮反查状态
+
+本阶段 3 个单讲页已对齐第二次作业 Lec06-Lec09。重点闭环了 Smith 圆图向源旋转、阻抗/导纳切换、并联结点导纳相加、$g=1$ 圆和支节多解的答题口径。
+
+---
+
 ## 课件补强后的读法
 
 ![Smith 圆图课件精选页](../../../assets/images/course/course-smith-chart-source-preview.webp)

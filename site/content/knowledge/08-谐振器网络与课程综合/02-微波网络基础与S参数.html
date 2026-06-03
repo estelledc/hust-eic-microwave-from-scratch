@@ -656,6 +656,9 @@ $$</p>
 <li>最终报告仍建议回到 $S_{11}$、$S_{21}$、插损、回损这些可测指标。</li>
 </ul>
 <hr>
+<h2 id="_10">一致性复核<a class="headerlink" href="#_10" title="Permanent link">§</a></h2>
+<p>本页已按 <a href="../../solutions/05-谐振器网络元件与测量综合/02-Lec24-微波网络基础/index.html">第五次作业 · Lec24 微波网络基础</a> 复核：$Z$ 参数适合电压电流边界清楚的低频式网络描述；$S$ 参数适合微波端口测量，因为它直接使用入射波和出射波。两套参数不是互相替代的记号表，而是不同实验边界下的描述。</p>
+<p>无耗、互易、对称的判据要落在同一个 $S$ 矩阵上检查；接负载后的输入反射公式必须注明负载反射系数和参考面。多端口题默认未激励端口匹配，否则散射方程的简化形式不成立。</p>
 <h2 id="mini">Mini 自检<a class="headerlink" href="#mini" title="Permanent link">§</a></h2>
 <p><strong>Q1：$S_{21}$ 和 $S_{12}$ 分别表示什么？</strong></p>
 <p><strong>答</strong>：$S_{21}$ 是从端口 1 入射、从端口 2 出射的正向传输；$S_{12}$ 是从端口 2 入射、从端口 1 出射的反向传输。读下标时按“后入前出”记忆。</p>
@@ -666,7 +669,7 @@ $$</p>
 <p><strong>Q4：一段匹配无耗传输线为什么 $S_{11}=0$ 但 $S_{21}$ 不是 1？</strong></p>
 <p><strong>答</strong>：两端参考阻抗等于传输线特性阻抗时，没有反射，所以 $S_{11}=S_{22}=0$。但波通过长度 $l$ 会积累相位，因此 $S_{21}=e^{-j\beta l}$，幅度为 1、相位不为 0。若只看 dB 幅度，它是 0 dB；若看相位，它体现电长度。</p>
 <hr>
-<h2 id="_10">相关链接<a class="headerlink" href="#_10" title="Permanent link">§</a></h2>
+<h2 id="_11">相关链接<a class="headerlink" href="#_11" title="Permanent link">§</a></h2>
 <ul>
 <li><a href="../../solutions/05-谐振器网络元件与测量综合/02-Lec24-微波网络基础/index.html">第五次作业 · Lec24 微波网络基础</a></li>
 <li><a href="../07-实验测量与微波元件/01-S参数与矢量网络分析仪.html">07 · S 参数与矢量网络分析仪</a></li>
@@ -690,8 +693,9 @@ $$</p>
 <li><a href="#s_1">六、一段理想传输线的 S 矩阵</a></li>
 <li><a href="#s_2">七、S 参数测量口径</a></li>
 <li><a href="#_9">八、传输矩阵什么时候更合适</a></li>
+<li><a href="#_10">一致性复核</a></li>
 <li><a href="#mini">Mini 自检</a></li>
-<li><a href="#_10">相关链接</a></li>
+<li><a href="#_11">相关链接</a></li>
 </ul>
 </div>
 

@@ -10,6 +10,10 @@
 
 ---
 
+## 本轮反查状态
+
+本阶段 5 个单讲页已对齐第三次作业 Lec10-Lec11。重点闭环了 TEM/TE/TM 纵向分量定义、分离变量步骤、金属边界条件、$k^2=k_{\mathrm c}^2+\beta^2$ 和 $\mathrm{TM}_{11}$ 从纵向场到全场的推导口径。
+
 ## 课件补强后的读法
 
 ![矩形波导课件精选页](../../../assets/images/course/course-rectangular-waveguide-source-preview.webp)

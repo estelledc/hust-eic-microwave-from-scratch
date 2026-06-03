@@ -511,6 +511,9 @@ $$</p>
 </table>
 <p>写报告时不要只给一个 $S_{21}$。微波元件的系统价值通常来自“传得对、反得少、该隔离的隔离”三件事同时成立。</p>
 <hr>
+<h2 id="_8">一致性复核<a class="headerlink" href="#_8" title="Permanent link">§</a></h2>
+<p>本页已按 <a href="../../solutions/05-谐振器网络元件与测量综合/03-Lec25-26-常用微波元件/index.html">第五次作业 · Lec25-26 常用微波元件</a> 复核：常用元件要先按端口角色理解，再翻译成 $S$ 参数指标。定向耦合器看耦合、隔离、方向性；功分器看分配、匹配、隔离；非互易元件看正反向传输不对称。</p>
+<p>判断“好坏”必须和用途绑定。低插损不等于好耦合器，隔离度高也不等于匹配好；作业答题时应指出对应的 $S_{ij}$，而不是只写“损耗小、隔离好”。</p>
 <h2 id="mini">Mini 自检<a class="headerlink" href="#mini" title="Permanent link">§</a></h2>
 <p><strong>Q1：一个滤波器通带 $S_{21}=-1.5\,\mathrm{dB}$，但 $S_{11}=-4\,\mathrm{dB}$，能说它工作很好吗？</strong></p>
 <p><strong>答</strong>：不能直接说很好。$S_{21}=-1.5\,\mathrm{dB}$ 表示通带传输尚可，但 $S_{11}=-4\,\mathrm{dB}$ 对应 $|\Gamma|\approx0.63$，反射功率约 40%，输入匹配很差。系统中会产生强反射和级联误差。</p>
@@ -521,7 +524,7 @@ $$</p>
 <p><strong>Q4：隔离器为什么可以无源但不互易？</strong></p>
 <p><strong>答</strong>：无源只表示不产生能量；互易表示正反方向传输相同。铁氧体隔离器利用偏置磁场破坏互易性，可以让正向低损耗、反向高隔离，同时仍然不需要外部放大供能。</p>
 <hr>
-<h2 id="_8">相关链接<a class="headerlink" href="#_8" title="Permanent link">§</a></h2>
+<h2 id="_9">相关链接<a class="headerlink" href="#_9" title="Permanent link">§</a></h2>
 <ul>
 <li><a href="../../solutions/05-谐振器网络元件与测量综合/03-Lec25-26-常用微波元件/index.html">第五次作业 · Lec25-26 常用微波元件</a></li>
 <li><a href="../07-实验测量与微波元件/04-定向耦合器与功率分配器.html">07 · 定向耦合器与功率分配器</a></li>
@@ -541,8 +544,9 @@ $$</p>
 <li><a href="#_5">五、隔离器、环行器与非互易</a></li>
 <li><a href="#_6">六、易错</a></li>
 <li><a href="#_7">元件指标怎么判断好坏</a></li>
+<li><a href="#_8">一致性复核</a></li>
 <li><a href="#mini">Mini 自检</a></li>
-<li><a href="#_8">相关链接</a></li>
+<li><a href="#_9">相关链接</a></li>
 </ul>
 </div>
 

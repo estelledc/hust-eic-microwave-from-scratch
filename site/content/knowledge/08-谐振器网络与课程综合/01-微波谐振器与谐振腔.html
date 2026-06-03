@@ -327,7 +327,7 @@
 <span class="crumb">01 · 微波谐振器与谐振腔</span></div>
       <div class="page-meta" aria-label="页面信息">
 <span>知识点讲义</span>
-<span>约 9 分钟</span>
+<span>约 10 分钟</span>
 <span>第 51 / 150 页</span>
 <span>知识点讲义 / 08-谐振器网络与课程综合 / 01 · 微波谐振器与谐振腔</span>
 </div>
@@ -573,6 +573,9 @@ $$</p>
 <li>短路活塞向内移动会缩短腔长，因此升高谐振频率。</li>
 </ul>
 <hr>
+<h2 id="_11">一致性复核<a class="headerlink" href="#_11" title="Permanent link">§</a></h2>
+<p>本页已按 <a href="../../solutions/05-谐振器网络元件与测量综合/01-Lec22-23-微波谐振器/index.html">第五次作业 · Lec22-23 微波谐振器</a> 复核：谐振腔题本质是把波导的横截面模式再加上纵向端面边界，形成三维驻波条件。矩形腔、圆柱腔、同轴腔的模式指标不能混用。</p>
+<p>$Q_0$、$Q_L$、$Q_e$ 必须按损耗和耦合口径区分。若题目只给谐振频率和模式，不应顺手引入实验半功率带宽；若题目给 VNA 曲线，则优先按有载 Q 的测量语言说明。</p>
 <h2 id="mini">Mini 自检<a class="headerlink" href="#mini" title="Permanent link">§</a></h2>
 <p><strong>Q1：为什么谐振腔公式比波导截止公式多一个 $p\pi/l$？</strong></p>
 <p><strong>答</strong>：波导只要求横截面满足边界，轴向可以连续传播；谐振腔两端也被金属端面封住，轴向也必须形成驻波，所以多出 $k_z=p\pi/l$。这就是从“能不能传”变成“哪几个频率能稳定振”的关键。</p>
@@ -587,7 +590,7 @@ $$</p>
 <p><strong>Q4：实验用 3 dB 带宽法测到的是 $Q_0$ 吗？</strong></p>
 <p><strong>答</strong>：通常不是。VNA 接上输入输出端口后，谐振器除了自身导体/介质损耗，还会通过外部耦合把能量送出，所以直接测到的是有载 $Q_L$。若要得到无载 $Q_0$，还需要知道耦合系数或外部 $Q_e$。</p>
 <hr>
-<h2 id="_11">相关链接<a class="headerlink" href="#_11" title="Permanent link">§</a></h2>
+<h2 id="_12">相关链接<a class="headerlink" href="#_12" title="Permanent link">§</a></h2>
 <ul>
 <li><a href="../../solutions/05-谐振器网络元件与测量综合/01-Lec22-23-微波谐振器/index.html">第五次作业 · Lec22-23 微波谐振器</a></li>
 <li><a href="../07-实验测量与微波元件/03-谐振器Q值与功率传输法.html">07 · 谐振器 Q 值与功率传输法</a></li>
@@ -610,8 +613,9 @@ $$</p>
 <li><a href="#_9">三类腔体怎么选</a></li>
 <li><a href="#math99">六、品质因数 $Q$</a></li>
 <li><a href="#_10">七、易错</a></li>
+<li><a href="#_11">一致性复核</a></li>
 <li><a href="#mini">Mini 自检</a></li>
-<li><a href="#_11">相关链接</a></li>
+<li><a href="#_12">相关链接</a></li>
 </ul>
 </div>
 

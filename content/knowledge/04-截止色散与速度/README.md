@@ -12,6 +12,12 @@
 
 ---
 
+## 本轮反查状态
+
+本阶段 5 个单讲页已对齐第三次作业 Lec11-Lec12。重点闭环了 $f>f_{\mathrm c}$ 前提、三种波长的使用边界、$v_p/v_g$ 口径、结构色散与材料色散的区分，以及空心单导体无 TEM 的论证。
+
+---
+
 ## 课件补强后的读法
 
 ![矩形波导截止课件精选页](../../../assets/images/course/course-rectangular-waveguide-source-preview.webp)
