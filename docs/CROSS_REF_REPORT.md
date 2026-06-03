@@ -3,9 +3,9 @@
 由 `scripts/tools/check_cross_refs.py` 自动生成。
 
 扫描结果：
-- knowledge 单讲页面（不含 README/00/99）：29
-- solutions 题目页面（不含 README/00/99）：37
-- experiments 实验页面（不含 README/index/00/99）：8
+- knowledge 单讲页面（不含 README/00/99）：33
+- solutions 题目页面（不含 README/00/99）：56
+- experiments 实验页面（不含 README/index/00/99）：9
 
 ## knowledge 页未引用任何 solutions / experiments 页
 

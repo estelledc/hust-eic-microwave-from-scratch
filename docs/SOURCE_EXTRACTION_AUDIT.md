@@ -1,0 +1,56 @@
+# 来源抽取与融入审计
+
+更新时间：2026-06-03
+
+本文件记录 `sources/` 本地资料如何被消化进站点。原始 PDF/DOCX 不发布、不纳入版本控制；站点只使用重构后的 Markdown、审计摘要和精选 WebP 图片。
+
+页级复核详见 `docs/COURSE_INTEGRATION_REVIEW.md`；完整逐页 JSON 索引见 `docs/source_extraction_index.json`。JSON 每页只保存标题候选、关键词标签和短摘要，不保存完整课件正文。
+
+## 课件 PDF 映射
+
+| 源文件 | 页数 | 主题 | 融入阶段 | 目标页面 | 精选页 | 发布预览 | 采用内容 | 舍弃内容 | 复核状态 |
+|---|---:|---|---|---|---:|---|---|---|---|
+| 传输线理论1.pdf | 92 | 传输线理论、长线模型、反射与驻波 | knowledge/01 | content/knowledge/01-传播与传输线/README.md<br>content/knowledge/01-传播与传输线/99-自检清单与常见误区.md | 55 | `assets/images/course/course-transmission-line-theory-source-preview.webp` | 概念主线、核心公式、例题套路、可解释图像 | 封面目录、重复板书、整页原文截图 | 已抽取页码与候选图，人工重构入现有页 |
+| 传输线理论 - 圆图.pdf | 39 | Smith 圆图、归一化阻抗、沿线旋转 | knowledge/02 | content/knowledge/02-反射与匹配/02-Smith圆图怎么读.md<br>content/knowledge/02-反射与匹配/99-自检清单与常见误区.md | 28 | `assets/images/course/course-smith-chart-source-preview.webp` | 概念主线、核心公式、例题套路、可解释图像 | 封面目录、重复板书、整页原文截图 | 已抽取页码与候选图，人工重构入现有页 |
+| 阻抗匹配实例.pdf | 31 | 阻抗匹配实例、支节匹配与工程流程 | knowledge/02 | content/knowledge/02-反射与匹配/03-并联支节匹配.md<br>content/knowledge/02-反射与匹配/99-自检清单与常见误区.md | 8 | `assets/images/course/course-impedance-matching-examples-source-preview.webp` | 概念主线、核心公式、例题套路、可解释图像 | 封面目录、重复板书、整页原文截图 | 已抽取页码与候选图，人工重构入现有页 |
+| 矩形波导1.pdf | 38 | 矩形波导、截止、模式、单模窗口 | knowledge/03-05 | content/knowledge/03-波导中的场与边界/README.md<br>content/knowledge/04-截止色散与速度/README.md<br>content/knowledge/05-矩形波导工程计算/README.md | 6 | `assets/images/course/course-rectangular-waveguide-source-preview.webp` | 概念主线、核心公式、例题套路、可解释图像 | 封面目录、重复板书、整页原文截图 | 已抽取页码与候选图，人工重构入现有页 |
+| 圆波导.pdf | 31 | 圆波导、贝塞尔根、主模与单模边界 | knowledge/06 | content/knowledge/06-圆波导同轴线微带线/01-圆波导模式与贝塞尔根.md<br>content/knowledge/06-圆波导同轴线微带线/99-自检清单与常见误区.md | 16 | `assets/images/course/course-circular-waveguide-source-preview.webp` | 概念主线、核心公式、例题套路、可解释图像 | 封面目录、重复板书、整页原文截图 | 已抽取页码与候选图，人工重构入现有页 |
+| 同轴线.pdf | 20 | 同轴线 TEM、高阶模上限、结构选择 | knowledge/06 | content/knowledge/06-圆波导同轴线微带线/02-同轴线TEM与高阶模.md<br>content/knowledge/06-圆波导同轴线微带线/04-从矩形到圆与微带的对照.md | 3 | `assets/images/course/course-coaxial-line-source-preview.webp` | 概念主线、核心公式、例题套路、可解释图像 | 封面目录、重复板书、整页原文截图 | 已抽取页码与候选图，人工重构入现有页 |
+| 微波传输线1-2.pdf | 24 | 微波传输线类型与导波结构对照 | knowledge/06 | content/knowledge/06-圆波导同轴线微带线/04-从矩形到圆与微带的对照.md<br>content/knowledge/README.md | 4 | `assets/images/course/course-microwave-transmission-lines-source-preview.webp` | 概念主线、核心公式、例题套路、可解释图像 | 封面目录、重复板书、整页原文截图 | 已抽取页码与候选图，人工重构入现有页 |
+| 微波集成传输线.pdf | 41 | 微带线、集成传输线、准 TEM 与有效介电常数 | knowledge/06 | content/knowledge/06-圆波导同轴线微带线/03-微带线准TEM与有效介电常数.md<br>content/knowledge/06-圆波导同轴线微带线/04-从矩形到圆与微带的对照.md | 40 | `assets/images/course/course-integrated-microwave-lines-source-preview.webp` | 概念主线、核心公式、例题套路、可解释图像 | 封面目录、重复板书、整页原文截图 | 已抽取页码与候选图，人工重构入现有页 |
+| 微波谐振腔.pdf | 70 | 微波谐振器、谐振腔、品质因数 | knowledge/07-08 | content/knowledge/07-实验测量与微波元件/03-谐振器Q值与功率传输法.md<br>content/knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md | 8 | `assets/images/course/course-microwave-resonator-source-preview.webp` | 概念主线、核心公式、例题套路、可解释图像 | 封面目录、重复板书、整页原文截图 | 已抽取页码与候选图，人工重构入现有页 |
+| 微波网络基础2.pdf | 39 | 微波网络参数、S 参数、测量读数 | knowledge/07-08 | content/knowledge/07-实验测量与微波元件/01-S参数与矢量网络分析仪.md<br>content/knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.md | 23 | `assets/images/course/course-microwave-network-source-preview.webp` | 概念主线、核心公式、例题套路、可解释图像 | 封面目录、重复板书、整页原文截图 | 已抽取页码与候选图，人工重构入现有页 |
+
+## 实验二资料映射
+
+实验二以 `sources/微波实验2/微波技术基础实验报告二（重构）.md` 为主输入，DOCX 只用于确认段落和表格结构。站点页面保留数据链，不发布原始报告文件。
+
+| 发布图片 | 来源 | 用途 |
+|---|---|---|
+| `assets/images/exp2/exp2-q-halfpower-method.webp` | `sources/微波实验2/media/fig_q_halfpower.png` | exp2-q-halfpower-method |
+| `assets/images/exp2/exp2-coupler-port-map.webp` | `sources/微波实验2/media/fig_coupler_ports.png` | exp2-coupler-port-map |
+| `assets/images/exp2/exp2-wilkinson-topology.webp` | `sources/微波实验2/media/fig_wilkinson.png` | exp2-wilkinson-topology |
+| `assets/images/exp2/exp2-setup-resonator.webp` | `sources/微波实验2/media/fig_setup_resonator.png` | exp2-setup-resonator |
+| `assets/images/exp2/exp2-setup-coupler.webp` | `sources/微波实验2/media/fig_setup_coupler.png` | exp2-setup-coupler |
+| `assets/images/exp2/exp2-setup-divider.webp` | `sources/微波实验2/media/fig_setup_divider.png` | exp2-setup-divider |
+| `assets/images/exp2/exp2-resonator-s21-curve.webp` | `sources/微波实验2/media/image4.jpeg` | exp2-resonator-s21-curve |
+| `assets/images/exp2/exp2-resonator-bandwidth-search.webp` | `sources/微波实验2/media/image5.jpeg` | exp2-resonator-bandwidth-search |
+| `assets/images/exp2/exp2-coupler-coupling-s21.webp` | `sources/微波实验2/media/image6.jpeg` | exp2-coupler-coupling-s21 |
+| `assets/images/exp2/exp2-coupler-through-s21.webp` | `sources/微波实验2/media/image11.jpeg` | exp2-coupler-through-s21 |
+| `assets/images/exp2/exp2-divider-port2-loss.webp` | `sources/微波实验2/media/image15.jpeg` | exp2-divider-port2-loss |
+| `assets/images/exp2/exp2-divider-port3-loss.webp` | `sources/微波实验2/media/image17.jpeg` | exp2-divider-port3-loss |
+| `assets/images/exp2/exp2-divider-isolation.webp` | `sources/微波实验2/media/image19.jpeg` | exp2-divider-isolation |
+
+## 实验二报告结构
+
+- Markdown 行数：499
+- DOCX 段落数：121
+- DOCX 表格数：10
+- 主要标题：微波技术基础 实验报告；实验二　微波元件特性参数测量；一、实验目的；二、实验原理；2.1 微波谐振器品质因数 Q 的测量；2.2 微波定向耦合器；2.3 微波功率分配器；三、实验设备及装置图；3.1 实验设备；3.2 实验装置图；四、实验内容及步骤；4.1 微带谐振器品质因数的扫频测量；4.2 微波定向耦合器测量；4.3 微波功率分配器测量；五、实验结果；5.1 微带谐振器品质因数测量结果
+
+## 融入原则
+
+1. 只把课件中的概念、图像和例题结构转写成站点语言，不整页搬运 PPT 原文。
+2. 同一概念优先融入现有知识点页，不新增独立课件库。
+3. 实验数据必须写成“读数 → 换算 → 结论 → 误差来源”。
+4. 课件和实验二补强后必须更新交叉链接，保证能从知识点、实验页和作业页互相到达。
