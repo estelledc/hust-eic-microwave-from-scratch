@@ -3,7 +3,9 @@
   const body = document.body;
   const searchInput = document.getElementById("siteSearch");
   const searchResults = document.getElementById("searchResults");
+  const progressBar = document.querySelector(".reading-progress span");
   let searchIndex = null;
+  let activeSearchIndex = -1;
 
   function applyTheme(theme) {
     if (theme === "dark") {
@@ -54,6 +56,28 @@
     return value.toLowerCase().replace(/\s+/g, " ").trim();
   }
 
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function updateReadingProgress() {
+    if (!progressBar) {
+      return;
+    }
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+    progressBar.style.transform = `scaleX(${percent})`;
+  }
+
+  updateReadingProgress();
+  window.addEventListener("scroll", updateReadingProgress, { passive: true });
+  window.addEventListener("resize", updateReadingProgress);
+
   async function ensureSearchIndex() {
     if (searchIndex) {
       return searchIndex;
@@ -67,6 +91,7 @@
     if (!searchResults) {
       return;
     }
+    activeSearchIndex = -1;
     if (!query) {
       searchResults.hidden = true;
       searchResults.innerHTML = "";
@@ -74,17 +99,36 @@
     }
     if (!items.length) {
       searchResults.hidden = false;
-      searchResults.innerHTML = '<div class="search-result"><strong>没有匹配结果</strong><span>换一个关键词或题号试试。</span></div>';
+      searchResults.innerHTML = '<div class="search-status">没有匹配结果，换一个关键词或题号试试。</div>';
       return;
     }
+    const visibleItems = items.slice(0, 12);
     searchResults.hidden = false;
-    searchResults.innerHTML = items
-      .slice(0, 12)
-      .map((item) => {
+    searchResults.innerHTML =
+      `<div class="search-status">找到 ${items.length} 个结果，显示前 ${visibleItems.length} 个。按 ↑/↓ 选择，Enter 打开。</div>` +
+      visibleItems
+      .map((item, index) => {
         const url = root + item.url;
-        return `<a class="search-result" href="${url}"><strong>${item.title}</strong><small>${item.group} · ${item.path}</small><span>${item.text || ""}</span></a>`;
+        return `<a class="search-result" href="${url}" data-search-index="${index}"><strong>${escapeHtml(item.title)}</strong><small><b>${escapeHtml(item.group)}</b>${escapeHtml(item.path)}</small><span>${escapeHtml(item.text)}</span></a>`;
       })
       .join("");
+  }
+
+  function moveSearchSelection(delta) {
+    if (!searchResults || searchResults.hidden) {
+      return;
+    }
+    const results = Array.from(searchResults.querySelectorAll(".search-result[href]"));
+    if (!results.length) {
+      return;
+    }
+    activeSearchIndex = (activeSearchIndex + delta + results.length) % results.length;
+    results.forEach((result, index) => {
+      result.classList.toggle("active", index === activeSearchIndex);
+      if (index === activeSearchIndex) {
+        result.scrollIntoView({ block: "nearest" });
+      }
+    });
   }
 
   if (searchInput && searchResults) {
@@ -98,8 +142,19 @@
       const tokens = query.split(" ");
       const matches = index
         .map((item) => {
-          const haystack = normalize([item.title, item.group, item.path, item.text, item.search].join(" "));
-          const score = tokens.reduce((sum, token) => sum + (haystack.includes(token) ? 1 : 0), 0);
+          const title = normalize(item.title);
+          const group = normalize(item.group);
+          const path = normalize(item.path);
+          const text = normalize(item.text);
+          const search = normalize(item.search);
+          const score = tokens.reduce((sum, token) => {
+            return sum
+              + (title.includes(token) ? 6 : 0)
+              + (path.includes(token) ? 4 : 0)
+              + (group.includes(token) ? 3 : 0)
+              + (text.includes(token) ? 2 : 0)
+              + (search.includes(token) ? 1 : 0);
+          }, 0);
           return { item, score };
         })
         .filter((entry) => entry.score > 0)
@@ -113,7 +168,27 @@
         searchResults.hidden = true;
       }
     });
+
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        moveSearchSelection(1);
+      } else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        moveSearchSelection(-1);
+      } else if (event.key === "Enter" && activeSearchIndex >= 0) {
+        const active = searchResults.querySelector(".search-result.active");
+        if (active) {
+          event.preventDefault();
+          active.click();
+        }
+      }
+    });
   }
+
+  document.querySelectorAll(".sidebar a").forEach((link) => {
+    link.addEventListener("click", () => body.classList.remove("sidebar-open"));
+  });
 
   function setupMermaid() {
     document.querySelectorAll("pre > code.language-mermaid").forEach((code) => {

@@ -32,6 +32,7 @@
 </head>
 <body>
   <a class="skip-link" href="#content">跳到正文</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
   <header class="topbar">
     <button class="icon-button menu-button" type="button" data-sidebar-toggle aria-label="打开目录">☰</button>
     <a class="brand" href="../../../../index.html">
@@ -57,6 +58,7 @@
 <summary>学习指南</summary>
 <ol class="nav-list">
 <li class="nav-item"><a href="../../../guide/beginner-handbook.html" title="学习指南 / 《微波技术基础》初学者学习手册">初学者学习手册</a></li>
+<li class="nav-item"><a href="../../../guide/index.html" title="学习指南 / 学习指南">学习指南</a></li>
 </ol>
 </details>
 <details class="nav-group">
@@ -305,6 +307,7 @@
 <li class="nav-item"><a href="../../../experiments/02-元件参数测量/02-定向耦合器特性.html" title="实验环节 / 02-元件参数测量 / 02 · 定向耦合器特性测量">耦合器特性</a></li>
 <li class="nav-item"><a href="../../../experiments/02-元件参数测量/03-功率分配器测量.html" title="实验环节 / 02-元件参数测量 / 03 · 功率分配器测量">功分器测量</a></li>
 <li class="nav-item"><a href="../../../experiments/02-元件参数测量/04-思考题与报告.html" title="实验环节 / 02-元件参数测量 / 04 · 思考题与报告（实验二）">思考题与报告</a></li>
+<li class="nav-item"><a href="../../../experiments/02-元件参数测量/05-实验报告范例.html" title="实验环节 / 02-元件参数测量 / 05 · 实验二报告范例：从读数到结论">05 · 实验二报告范例：从读数到结论</a></li>
 </ol>
 </details></li>
 <li class="nav-item"><a href="../../../experiments/99-公式与图像.html" title="实验环节 / 实验环节 · 公式与图像索引">公式图像</a></li>
@@ -323,13 +326,19 @@
 <span class="crumb">05-谐振器网络元件与测量综合</span>
 <span class="crumb">02-Lec24-微波网络基础</span>
 <span class="crumb">第 5 题：由两次加载测量反求二端口 \(S\) 矩阵</span></div>
+      <div class="page-meta" aria-label="页面信息">
+<span>作业解答</span>
+<span>约 2 分钟</span>
+<span>第 122 / 150 页</span>
+<span>作业解答 / 05-谐振器网络元件与测量综合 / 02-Lec24-微波网络基础 / 第 5 题：由两次加载测量反求二端口 \(S\) 矩阵</span>
+</div>
       <article class="article">
         <h1 id="5-math12">第 5 题：由两次加载测量反求二端口 \(S\) 矩阵<a class="headerlink" href="#5-math12" title="Permanent link">§</a></h1>
 <blockquote>
 <p>对应知识点：<a href="../../../knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.html">02-微波网络基础与 S 参数</a></p>
 </blockquote>
 <p><strong>题目</strong>：有一个二端口网络，当其端口 1 接信号源、端口 2 接反射系数为 \(\Gamma_{La}\) 的负载时，测得端口 1 的反射系数为 \(\Gamma_a\)、端口 1 到端口 2 的传输系数为 \(T_a\)；当端口 2 接信号源、端口 1 接反射系数为 \(\Gamma_{La}\) 的负载时，测得端口 2 的反射系数为 \(\Gamma_b\)、端口 2 到端口 1 的传输系数为 \(T_b\)。求该二端口网络的散射矩阵 \([S]\)。</p>
-<p><img alt="两次加载测量反求 S 矩阵" src="../../../../assets/images/fifth_lec24_q05_loaded_two_port_retrieval.webp"></p>
+<p><img loading="lazy" decoding="async" alt="两次加载测量反求 S 矩阵" src="../../../../assets/images/fifth_lec24_q05_loaded_two_port_retrieval.webp"></p>
 <p><em>图：正向测量给出 \(\Gamma_a,T_a\)，反向测量给出 \(\Gamma_b,T_b\)；加载传输系数需先去除负载反射影响，不能直接当作 \(S_{21},S_{12}\)。</em></p>
 <h2 id="_1">一、记号简化<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <p>令</p>

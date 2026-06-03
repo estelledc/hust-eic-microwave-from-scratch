@@ -43,6 +43,7 @@ PUBLIC_ROOTS = (
 STATIC_DIRS = ("assets/images", "assets/illustrations")
 SITE_TITLE = "微波技术基础"
 EXP_IMAGE_DIR = Path("assets/images/exp")
+READING_CHARS_PER_MINUTE = 520
 TRIM_IMAGE_SUFFIXES = {".webp"}
 WEBP_QUALITY = 85
 TRIM_DIFF_THRESHOLD = 12
@@ -319,6 +320,14 @@ def render_markdown(text: str) -> tuple[str, str]:
     return restore_math(html_body, math_tokens), restore_math(md.toc, math_tokens)
 
 
+def enhance_html_body(body: str) -> str:
+    return re.sub(
+        r"<img(?![^>]*\bloading=)([^>]*)>",
+        r'<img loading="lazy" decoding="async"\1>',
+        body,
+    )
+
+
 def plain_text(source: Path, limit: int | None = None) -> str:
     text = source.read_text(encoding="utf-8")
     text = re.sub(r"```.*?```", " ", text, flags=re.DOTALL)
@@ -327,6 +336,30 @@ def plain_text(source: Path, limit: int | None = None) -> str:
     text = re.sub(r"[#>*_`|\\-]+", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text[:limit] if limit else text
+
+
+def reading_minutes(source: Path) -> int:
+    text = plain_text(source)
+    if not text:
+        return 1
+    return max(1, round(len(text) / READING_CHARS_PER_MINUTE))
+
+
+def page_number_text(page: Page, pages: list[Page]) -> str:
+    return f"{pages.index(page) + 1} / {len(pages)}"
+
+
+def page_meta(page: Page, pages: list[Page]) -> str:
+    return "\n".join(
+        [
+            '<div class="page-meta" aria-label="页面信息">',
+            f'<span>{html.escape(page.group)}</span>',
+            f'<span>约 {reading_minutes(page.source)} 分钟</span>',
+            f'<span>第 {page_number_text(page, pages)} 页</span>',
+            f'<span>{html.escape(display_path(page))}</span>',
+            "</div>",
+        ]
+    )
 
 
 NavNode = dict[str, object]
@@ -643,10 +676,12 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
     raw = page.source.read_text(encoding="utf-8")
     rewritten = rewrite_markdown_links(raw, page.source, page, pages_by_source)
     body, toc = render_markdown(rewritten)
+    body = enhance_html_body(body)
     prefix = root_prefix(page)
     nav = render_nav(page, pages)
     crumbs = breadcrumbs(page)
     footer = page_footer(page, pages)
+    meta = page_meta(page, pages)
     title = html.escape(page.title)
     site_title = html.escape(SITE_TITLE)
     tagline = html.escape(brand_tagline(page))
@@ -685,6 +720,7 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
 </head>
 <body>
   <a class="skip-link" href="#content">跳到正文</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
   <header class="topbar">
     <button class="icon-button menu-button" type="button" data-sidebar-toggle aria-label="打开目录">☰</button>
     <a class="brand" href="{prefix}index.html">
@@ -709,6 +745,7 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
     </aside>
     <main id="content" class="content">
       <div class="breadcrumbs">{crumbs}</div>
+      {meta}
       <article class="article">
         {body}
       </article>

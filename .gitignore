@@ -4,3 +4,8 @@ __pycache__/
 *.py[cod]
 sources/
 .playwright-mcp/
+
+# build.py regenerates the full static tree locally. Keep remote-tracked site
+# artifacts explicit so deleted legacy HTML is not accidentally re-added.
+site/content/
+site/index.html

@@ -12,6 +12,20 @@
 
 ---
 
+## 课件补强后的读法
+
+![矩形波导截止课件精选页](../../../assets/images/course/course-rectangular-waveguide-source-preview.webp)
+
+`矩形波导1.pdf` 中关于截止与速度的内容已融入本阶段。阅读时只抓一个判断：
+
+| 问题 | 先看什么 | 合格结论 |
+|---|---|---|
+| 能不能传 | 比较 $k$ 与 $k_{\mathrm c}$，或比较 $\lambda_0$ 与 $\lambda_{\mathrm c}$ | $f>f_c$ 才导行 |
+| 轴向相位多快 | 算 $\beta=\sqrt{k^2-k_{\mathrm c}^2}$ | $\lambda_{\mathrm g}=2\pi/\beta$ |
+| 能量多快 | 用 $v_{\mathrm p}v_{\mathrm g}=v^2$ | 相速可大于光速，群速才对应能量传递 |
+
+---
+
 ## 推荐阅读顺序
 
 | 顺序 | 文件 | 约需时间 | 说明 |

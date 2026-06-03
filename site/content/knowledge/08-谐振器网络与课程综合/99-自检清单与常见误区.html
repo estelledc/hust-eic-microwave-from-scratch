@@ -32,6 +32,7 @@
 </head>
 <body>
   <a class="skip-link" href="#content">跳到正文</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
   <header class="topbar">
     <button class="icon-button menu-button" type="button" data-sidebar-toggle aria-label="打开目录">☰</button>
     <a class="brand" href="../../../index.html">
@@ -57,6 +58,7 @@
 <summary>学习指南</summary>
 <ol class="nav-list">
 <li class="nav-item"><a href="../../guide/beginner-handbook.html" title="学习指南 / 《微波技术基础》初学者学习手册">初学者学习手册</a></li>
+<li class="nav-item"><a href="../../guide/index.html" title="学习指南 / 学习指南">学习指南</a></li>
 </ol>
 </details>
 <details class="nav-group" open>
@@ -305,6 +307,7 @@
 <li class="nav-item"><a href="../../experiments/02-元件参数测量/02-定向耦合器特性.html" title="实验环节 / 02-元件参数测量 / 02 · 定向耦合器特性测量">耦合器特性</a></li>
 <li class="nav-item"><a href="../../experiments/02-元件参数测量/03-功率分配器测量.html" title="实验环节 / 02-元件参数测量 / 03 · 功率分配器测量">功分器测量</a></li>
 <li class="nav-item"><a href="../../experiments/02-元件参数测量/04-思考题与报告.html" title="实验环节 / 02-元件参数测量 / 04 · 思考题与报告（实验二）">思考题与报告</a></li>
+<li class="nav-item"><a href="../../experiments/02-元件参数测量/05-实验报告范例.html" title="实验环节 / 02-元件参数测量 / 05 · 实验二报告范例：从读数到结论">05 · 实验二报告范例：从读数到结论</a></li>
 </ol>
 </details></li>
 <li class="nav-item"><a href="../../experiments/99-公式与图像.html" title="实验环节 / 实验环节 · 公式与图像索引">公式图像</a></li>
@@ -322,6 +325,12 @@
       <div class="breadcrumbs"><span class="crumb">知识点讲义</span>
 <span class="crumb">08-谐振器网络与课程综合</span>
 <span class="crumb">99 · 自检清单与常见误区（Lec22-Lec28）</span></div>
+      <div class="page-meta" aria-label="页面信息">
+<span>知识点讲义</span>
+<span>约 7 分钟</span>
+<span>第 55 / 150 页</span>
+<span>知识点讲义 / 08-谐振器网络与课程综合 / 99 · 自检清单与常见误区（Lec22-Lec28）</span>
+</div>
       <article class="article">
         <h1 id="99-lec22-lec28">99 · 自检清单与常见误区（Lec22-Lec28）<a class="headerlink" href="#99-lec22-lec28" title="Permanent link">§</a></h1>
 <hr>
@@ -385,7 +394,189 @@
 </tbody>
 </table>
 <hr>
-<h2 id="_3">相关链接<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
+<h2 id="_3">考前口述题参考答案<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
+<ol>
+<li>
+<p><strong>谐振腔和波导的根本差别是什么？</strong>
+   波导主要讨论沿轴向传播，轴向相位常数可以连续变化；谐振腔把两端封住，轴向也必须满足驻波边界，所以 $k_z=p\pi/l$ 被离散化。谐振频率来自 $k^2=k_c^2+k_z^2$。</p>
+</li>
+<li>
+<p><strong>为什么 $\mathrm{TE}_{101}$ 矩形腔频率不显含 $b$？</strong>
+   因为模式下标中的 $n=0$，沿 $b$ 对应方向没有半波变化，频率公式里没有 $(n/b)^2$ 项。但 $b$ 仍影响壁面损耗、功率容量和 $Q$。</p>
+</li>
+<li>
+<p><strong>$Z$ 参数和 $S$ 参数各适合什么场景？</strong>
+   $Z$ 参数用电压电流关系，适合低频或理论开路条件；$S$ 参数用入射波和反射波，适合微波测量和端口级工程指标。VNA 直接测的是 $S$ 参数。</p>
+</li>
+<li>
+<p><strong>无耗、互易、对称三者怎么区分？</strong>
+   无耗是功率守恒，对应 $S^\dagger S=I$；互易是正反传输相同，对应 $S_{12}=S_{21}$；对称是端口互换后网络不变，常见结论是 $S_{11}=S_{22}$。一个条件不能代替另一个。</p>
+</li>
+<li>
+<p><strong>定向耦合器的 $C$、$I$、$D$ 怎么说清楚？</strong>
+   耦合度 $C$ 是输入到耦合端的功率比，隔离度 $I$ 是输入到隔离端的功率比，方向性 $D$ 是耦合端和隔离端的差别。统一端口定义后，dB 口径满足 $I=C+D$。</p>
+</li>
+<li>
+<p><strong>综合测量题怎么答才完整？</strong>
+   先说明测的是哪个 $S_{ij}$ 和哪个端口；再把 dB 换成幅度比、功率比、SWR、Q 或耦合度；最后用匹配、插损、带宽、隔离度等工程语言判断，并说明可能误差来源。</p>
+</li>
+</ol>
+<hr>
+<h2 id="_4">零基础卡点急救<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
+<table>
+<thead>
+<tr>
+<th>卡点</th>
+<th>先回看</th>
+<th>先问自己</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>谐振腔公式不知道从哪来</td>
+<td><a href="01-微波谐振器与谐振腔.html">01-微波谐振器与谐振腔</a></td>
+<td>横向项 $k_c$ 和轴向项 $p\pi/l$ 是否都写出来了？</td>
+</tr>
+<tr>
+<td>模式下标看不懂</td>
+<td><a href="01-微波谐振器与谐振腔.html">01-微波谐振器与谐振腔</a></td>
+<td>哪个方向有半波变化？哪个下标为 0？</td>
+</tr>
+<tr>
+<td>$Z$ 矩阵和 $S$ 矩阵混</td>
+<td><a href="02-微波网络基础与S参数.html">02-微波网络基础与S参数</a></td>
+<td>题目是在用电压电流，还是入射/反射波？</td>
+</tr>
+<tr>
+<td>接负载后的 $\Gamma_1$ 公式背不住</td>
+<td><a href="02-微波网络基础与S参数.html">02-微波网络基础与S参数</a></td>
+<td>我是否先写了二端口散射方程和 $a_2=\Gamma_2b_2$？</td>
+</tr>
+<tr>
+<td>元件指标不知道看哪个 $S$</td>
+<td><a href="03-常用微波元件网络化描述.html">03-常用微波元件网络化描述</a></td>
+<td>这个元件要传输、衰减、耦合、隔离还是分功率？</td>
+</tr>
+<tr>
+<td>dB 与功率比混乱</td>
+<td><a href="04-微波测量与课程综合.html">04-微波测量与课程综合</a></td>
+<td>这是波幅比用 $20\log$，还是功率比用 $10\log$？</td>
+</tr>
+<tr>
+<td>多端口测量接法混乱</td>
+<td><a href="04-微波测量与课程综合.html">04-微波测量与课程综合</a></td>
+<td>未测端口是否都接了 $50\,\Omega$ 匹配负载？</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_5">最终综合答题模板<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
+<ol>
+<li><strong>画结构/端口</strong>：标尺寸、模式下标、端口号、负载状态。</li>
+<li><strong>写核心关系</strong>：谐振题写 $k^2=k_c^2+k_z^2$；网络题写 $b=Sa$；测量题写 dB 换算。</li>
+<li><strong>代入数据</strong>：保持单位统一，dB 正负号按读数和指标口径区分。</li>
+<li><strong>解释物理意义</strong>：说明频率升降、匹配好坏、传输强弱、隔离是否足够。</li>
+<li><strong>检查边界条件</strong>：端面、参考面、匹配负载、互易/无耗/对称前提是否已说明。</li>
+</ol>
+<p>这个模板是课程最后的收口：任何综合题都先回到“结构边界 + 端口波 + 测量读数”三件事。</p>
+<hr>
+<h2 id="_6">三分钟闭卷口述训练<a class="headerlink" href="#_6" title="Permanent link">§</a></h2>
+<p>闭卷前不要只背公式，按“30 秒结构、60 秒方程、60 秒读数、30 秒检查”的节奏练三类题：</p>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>30 秒结构</th>
+<th>60 秒方程</th>
+<th>60 秒读数/判断</th>
+<th>30 秒检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>谐振腔</td>
+<td>说明是矩形腔、圆柱腔还是同轴腔；指出封闭方向</td>
+<td>写 $k^2=k_c^2+k_z^2$，再把横向根和轴向 $p\pi/l$ 代入</td>
+<td>解释频率随尺寸变大而降低，模式下标越高通常频率越高</td>
+<td>TE/TM 根是否混用，$p=0$ 是否允许</td>
+</tr>
+<tr>
+<td>二端口网络</td>
+<td>画端口 1/2，标入射波 $a_i$ 和出射波 $b_i$</td>
+<td>写 $b=Sa$；接负载时补 $a_2=\Gamma_2b_2$</td>
+<td>用 $S_{11}$ 判断匹配，用 $S_{21}$ 判断传输或插损</td>
+<td>是否默认了互易、对称或无耗条件</td>
+</tr>
+<tr>
+<td>多端口元件</td>
+<td>标输入、直通、耦合、隔离或两个输出端</td>
+<td>写对应的耦合度、隔离度、方向性或功分关系</td>
+<td>把 dB 读数转成“多少功率到了哪个端口”</td>
+<td>未测端口是否接匹配负载</td>
+</tr>
+<tr>
+<td>测量综合</td>
+<td>先说 VNA 测的是哪个 $S_{ij}$</td>
+<td>写 dB 到幅度/功率、SWR 或 $Q_L$ 的换算</td>
+<td>给出工程结论：匹配、带宽、Q、隔离、附加损耗</td>
+<td>单位、参考峰值、扫频范围和校准状态</td>
+</tr>
+</tbody>
+</table>
+<p>口述时每一句都要能落到一个对象：<strong>结构边界</strong>决定可用模式，<strong>端口波</strong>决定网络参数，<strong>屏幕读数</strong>决定工程指标。说不出对象的句子，通常就是空话或背诵痕迹。</p>
+<hr>
+<h2 id="_7">综合题失分预警表<a class="headerlink" href="#_7" title="Permanent link">§</a></h2>
+<table>
+<thead>
+<tr>
+<th>失分信号</th>
+<th>往往说明什么</th>
+<th>立刻补救</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一上来直接代公式</td>
+<td>没有确认结构、模式、端口或负载条件</td>
+<td>先画结构和端口，写清“本题求什么”</td>
+</tr>
+<tr>
+<td>把 $Q_L$ 当 $Q_0$</td>
+<td>没分清测量值和本征值</td>
+<td>写出 $1/Q_L=1/Q_0+1/Q_e$，说明 VNA 读到的是有载 Q</td>
+</tr>
+<tr>
+<td>把 $S_{21}=-3\,\mathrm{dB}$ 都叫损耗</td>
+<td>没区分分功率、耦合和真损耗</td>
+<td>先判断器件功能；功分器要扣除理论 3 dB</td>
+</tr>
+<tr>
+<td>看到无耗就写 $S_{12}=S_{21}$</td>
+<td>把无耗和互易混淆</td>
+<td>无耗看 $S^\dagger S=I$，互易才看矩阵对称</td>
+</tr>
+<tr>
+<td>谐振腔只写截止频率</td>
+<td>忘了轴向封闭造成的驻波项</td>
+<td>补 $k_z=p\pi/l$，再写谐振频率</td>
+</tr>
+<tr>
+<td>报告只有截图没有判断</td>
+<td>没把读数转成物理结论</td>
+<td>每张图后补“读数-换算-结论-误差”四句</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_8">课程来源复核入口<a class="headerlink" href="#_8" title="Permanent link">§</a></h2>
+<p>本阶段吸收了 <code>微波谐振腔.pdf</code>、<code>微波网络基础2.pdf</code> 和实验二报告数据。复习时可以按下面顺序查证：</p>
+<ol>
+<li>先读 <a href="04-微波测量与课程综合.html">04 微波测量与课程综合</a>，确认 dB、$Q_L$、多端口测量的统一口径。</li>
+<li>再看 <a href="../../experiments/02-元件参数测量/05-实验报告范例.html">实验二报告范例</a>，用真实数据验证“读数-换算-结论-误差”。</li>
+<li>最后查仓库文档 <code>docs/SOURCE_EXTRACTION_AUDIT.md</code>，确认每份课件 PDF 对应到哪一阶段。</li>
+</ol>
+<hr>
+<h2 id="_9">相关链接<a class="headerlink" href="#_9" title="Permanent link">§</a></h2>
 <ul>
 <li><a href="index.html">本阶段总览</a></li>
 <li><a href="../../solutions/05-谐振器网络元件与测量综合/index.html">第五次作业总览</a></li>
@@ -400,7 +591,13 @@
 <ul>
 <li><a href="#_1">考前速查清单</a></li>
 <li><a href="#_2">常见误区</a></li>
-<li><a href="#_3">相关链接</a></li>
+<li><a href="#_3">考前口述题参考答案</a></li>
+<li><a href="#_4">零基础卡点急救</a></li>
+<li><a href="#_5">最终综合答题模板</a></li>
+<li><a href="#_6">三分钟闭卷口述训练</a></li>
+<li><a href="#_7">综合题失分预警表</a></li>
+<li><a href="#_8">课程来源复核入口</a></li>
+<li><a href="#_9">相关链接</a></li>
 </ul>
 </div>
 

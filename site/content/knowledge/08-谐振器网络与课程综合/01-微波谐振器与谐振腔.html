@@ -32,6 +32,7 @@
 </head>
 <body>
   <a class="skip-link" href="#content">跳到正文</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
   <header class="topbar">
     <button class="icon-button menu-button" type="button" data-sidebar-toggle aria-label="打开目录">☰</button>
     <a class="brand" href="../../../index.html">
@@ -57,6 +58,7 @@
 <summary>学习指南</summary>
 <ol class="nav-list">
 <li class="nav-item"><a href="../../guide/beginner-handbook.html" title="学习指南 / 《微波技术基础》初学者学习手册">初学者学习手册</a></li>
+<li class="nav-item"><a href="../../guide/index.html" title="学习指南 / 学习指南">学习指南</a></li>
 </ol>
 </details>
 <details class="nav-group" open>
@@ -305,6 +307,7 @@
 <li class="nav-item"><a href="../../experiments/02-元件参数测量/02-定向耦合器特性.html" title="实验环节 / 02-元件参数测量 / 02 · 定向耦合器特性测量">耦合器特性</a></li>
 <li class="nav-item"><a href="../../experiments/02-元件参数测量/03-功率分配器测量.html" title="实验环节 / 02-元件参数测量 / 03 · 功率分配器测量">功分器测量</a></li>
 <li class="nav-item"><a href="../../experiments/02-元件参数测量/04-思考题与报告.html" title="实验环节 / 02-元件参数测量 / 04 · 思考题与报告（实验二）">思考题与报告</a></li>
+<li class="nav-item"><a href="../../experiments/02-元件参数测量/05-实验报告范例.html" title="实验环节 / 02-元件参数测量 / 05 · 实验二报告范例：从读数到结论">05 · 实验二报告范例：从读数到结论</a></li>
 </ol>
 </details></li>
 <li class="nav-item"><a href="../../experiments/99-公式与图像.html" title="实验环节 / 实验环节 · 公式与图像索引">公式图像</a></li>
@@ -322,6 +325,12 @@
       <div class="breadcrumbs"><span class="crumb">知识点讲义</span>
 <span class="crumb">08-谐振器网络与课程综合</span>
 <span class="crumb">01 · 微波谐振器与谐振腔</span></div>
+      <div class="page-meta" aria-label="页面信息">
+<span>知识点讲义</span>
+<span>约 9 分钟</span>
+<span>第 51 / 150 页</span>
+<span>知识点讲义 / 08-谐振器网络与课程综合 / 01 · 微波谐振器与谐振腔</span>
+</div>
       <article class="article">
         <h1 id="01">01 · 微波谐振器与谐振腔<a class="headerlink" href="#01" title="Permanent link">§</a></h1>
 <blockquote>
@@ -336,7 +345,60 @@
 <li>短路活塞调谐为什么能改变谐振频率。</li>
 </ol>
 <hr>
-<h2 id="_2">二、从传输线到谐振器<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<h2 id="_2">零基础读前翻译<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<p>谐振腔可以先理解成“把一段能传波的通道关上门”。波在里面来回反射，只有某些频率能让相位首尾对齐，形成稳定驻波；这些频率就是谐振频率。</p>
+<p>本节所有公式都在重复同一个结构：</p>
+<p>$$
+k^2 = k_{\mathrm c}^2 + k_z^2.
+$$</p>
+<ul>
+<li>$k_{\mathrm c}$：横截面边界决定，来自矩形边、圆形贝塞尔根或同轴结构。</li>
+<li>$k_z$：两端面决定，来自腔长 $l$，通常是 $p\pi/l$。</li>
+<li>$k$：材料和频率决定，最后反推出 $f$ 或 $\lambda$。</li>
+</ul>
+<p>所以谐振器题不要一上来找公式，先问“横向门槛是什么，轴向能放几个半波”。</p>
+<hr>
+<h2 id="_3">课件给出的四种求谐振频率方法<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
+<p><code>微波谐振腔.pdf</code> 的前半部分实际是在告诉你：谐振器不是只有一种解法。不同结构选不同视角，能少走很多弯路。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>先看什么</th>
+<th>适合对象</th>
+<th>本站怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>相位法</td>
+<td>往返反射后相位是否凑成 $2\pi p$</td>
+<td>传输线型谐振器、开短路线</td>
+<td>用来理解 $\lambda/2$、$\lambda/4$ 同轴腔</td>
+</tr>
+<tr>
+<td>电纳法</td>
+<td>参考面总电纳是否为 0</td>
+<td>一端开路/短路、加载电容的同轴腔</td>
+<td>用来处理电容加载或活塞调谐</td>
+</tr>
+<tr>
+<td>集中参数法</td>
+<td>等效 $L$、$C$ 在哪里</td>
+<td>小尺寸、重入腔、局部电场/磁场集中的结构</td>
+<td>只保留物理图像，不作为主计算路线</td>
+</tr>
+<tr>
+<td>场叠加法</td>
+<td>传播波在封闭边界内叠成驻波</td>
+<td>矩形腔、圆柱腔等规则腔体</td>
+<td>本页主线公式都来自这一路</td>
+</tr>
+</tbody>
+</table>
+<p>做题时不要把四种方法混用。规则腔体优先场叠加；同轴线型腔优先相位法或电纳法；看到“加载电容”“参考面总电纳”再切到电纳法。</p>
+<hr>
+<h2 id="_4">二、从传输线到谐振器<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
 <p>传输线或波导本来允许波沿轴向传播。若在两端加上理想导体端面，端面上的切向电场必须为零，轴向相位常数就不能任意取值，而必须满足</p>
 <p>$$
 k_z=\frac{p\pi}{l},\qquad p=0,1,2,\ldots
@@ -347,7 +409,20 @@ k^2=k_c^2+k_z^2.
 $$</p>
 <p>这里 $k=\omega\sqrt{\mu\varepsilon}$，$k_c$ 来自横截面边界，$k_z$ 来自两端面边界。谐振频率就是让这三个量同时满足的频率。</p>
 <hr>
-<h2 id="_3">三、矩形谐振腔<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
+<h2 id="_5">三步求谐振频率<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
+<ol>
+<li><strong>先定横向项</strong>：矩形腔用 $m/a$、$n/b$；圆柱腔用 $\chi/R$ 或 $\chi'/R$；同轴 TEM 腔横向无截止项。</li>
+<li><strong>再定轴向项</strong>：看腔长方向的驻波阶数 $p$，写 $k_z=p\pi/l$。若 $p=0$，说明该方向没有半波变化。</li>
+<li><strong>最后合成频率</strong>：把横向项和轴向项放进根号，用 $f=(c/2)\sqrt{\cdots}$ 或 $\lambda=2\pi/k$。</li>
+</ol>
+<p>用这个流程能解释几个易混点：</p>
+<ul>
+<li>矩形腔 $\mathrm{TE}_{101}$ 的 $n=0$，所以频率不显含 $b$。</li>
+<li>圆柱腔 $\mathrm{TM}_{010}$ 的 $p=0$，所以谐振波长只由半径 $R$ 和 $\chi_{01}$ 决定。</li>
+<li>活塞调谐改变的是轴向尺寸 $l$，所以改变 $k_z$，进而改变谐振频率。</li>
+</ul>
+<hr>
+<h2 id="_6">三、矩形谐振腔<a class="headerlink" href="#_6" title="Permanent link">§</a></h2>
 <p>矩形腔尺寸为 $a\times b\times l$。若沿 $z$ 方向封闭，常用形式为</p>
 <p>$$
 f_{mnp}=\frac{c}{2\sqrt{\varepsilon_r\mu_r}}
@@ -361,7 +436,7 @@ $$</p>
 <p>空气 BJ-100 波导中，$a=22.86\,\mathrm{mm}$，$b=10.16\,\mathrm{mm}$；$\mathrm{TE}_{101}$ 的谐振频率不显含 $b$，但 $b$ 会影响导体损耗和品质因数。</p>
 <p>矩形腔主模通常为 $\mathrm{TE}_{101}$。</p>
 <hr>
-<h2 id="_4">四、圆柱谐振腔<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
+<h2 id="_7">四、圆柱谐振腔<a class="headerlink" href="#_7" title="Permanent link">§</a></h2>
 <p>圆柱腔半径 $R$、长度 $l$。横向截止项由贝塞尔根给出：</p>
 <p>$$
 k_{c,\mathrm{TM}_{mn}}=\frac{\chi_{mn}}{R},\qquad
@@ -409,18 +484,62 @@ l&lt;2.1R \Rightarrow \mathrm{TM}_{010}\ \text{为主模},\qquad
 l&gt;2.1R \Rightarrow \mathrm{TE}_{111}\ \text{为主模}.
 $$</p>
 <hr>
-<h2 id="_5">五、同轴谐振腔与短路活塞<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
+<h2 id="_8">五、同轴谐振腔与短路活塞<a class="headerlink" href="#_8" title="Permanent link">§</a></h2>
 <p>同轴腔的主模是 TEM 模，直觉上就是同轴传输线在端面处形成驻波。若两端短路，电压在端面为零，最简单的谐振条件类似</p>
 <p>$$
 l=\frac{p\lambda_g}{2}.
 $$</p>
+<p>若一端短路、一端开路，最简单的谐振条件变成奇数个四分之一波长：</p>
+<p>$$
+l=\frac{(2p-1)\lambda_g}{4}.
+$$</p>
+<p>课件还强调了同轴腔的单模边界：主模 TEM 没有低频截止，但高阶模会在高频出现，因此同轴腔尺寸不能无限放大，常用约束仍然来自同轴线的高阶模上限。内导体带来额外导体损耗，所以同轴腔的 $Q_0$ 通常低于高品质圆柱腔。</p>
 <p>短路活塞调谐的本质是改变有效腔长 $l$。对 $\mathrm{TE}_{101}$ 矩形腔，</p>
 <p>$$
 f=\frac{c}{2}\sqrt{\frac{1}{a^2}+\frac{1}{l^2}},
 $$</p>
 <p>所以活塞向内移动、$l$ 变短，谐振频率升高。</p>
 <hr>
-<h2 id="math45">六、品质因数 $Q$<a class="headerlink" href="#math45" title="Permanent link">§</a></h2>
+<h2 id="_9">三类腔体怎么选<a class="headerlink" href="#_9" title="Permanent link">§</a></h2>
+<table>
+<thead>
+<tr>
+<th>腔体</th>
+<th>常用模式</th>
+<th>优点</th>
+<th>代价 / 风险</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>矩形腔</td>
+<td>$\mathrm{TE}_{101}$</td>
+<td>与矩形波导衔接自然，公式直观，适合教学和波导系统</td>
+<td>$Q_0$ 不一定最高，尺寸变化会带来模式靠近</td>
+</tr>
+<tr>
+<td>圆柱腔</td>
+<td>$\mathrm{TE}_{011}$、$\mathrm{TE}_{111}$、$\mathrm{TM}_{010}$</td>
+<td>结构坚固、易加工；$\mathrm{TE}_{011}$ 可做到很高 $Q_0$</td>
+<td>干扰模和极化简并需要用尺寸、激励和耦合机构抑制</td>
+</tr>
+<tr>
+<td>同轴腔</td>
+<td>TEM $\lambda/2$、$\lambda/4$</td>
+<td>频率范围宽、易调谐、容易小型化</td>
+<td>内导体损耗较大，$Q_0$ 较低，高阶模限制上限</td>
+</tr>
+</tbody>
+</table>
+<p>圆柱腔三种常见模式的工程判断：</p>
+<ul>
+<li>$\mathrm{TE}_{011}$：$Q_0$ 高，适合高精度波长计、稳频腔；不是最低次模，体积较大，干扰模要处理。</li>
+<li>$\mathrm{TE}_{111}$：当 $l&gt;2.1R$ 时可成为主模，体积较小，干扰模相对容易避开；$Q_0$ 不如 $\mathrm{TE}_{011}$。</li>
+<li>$\mathrm{TM}_{010}$：当 $l&lt;2.1R$ 时常为主模，场结构简单、体积小；适合振荡回路、微波管和加速结构，但 $Q_0$ 也不如 $\mathrm{TE}_{011}$。</li>
+</ul>
+<p>这就是为什么“主模”不等于“最高 Q”。选模式时要同时看体积、干扰模、调谐方式和损耗。</p>
+<hr>
+<h2 id="math99">六、品质因数 $Q$<a class="headerlink" href="#math99" title="Permanent link">§</a></h2>
 <p>品质因数的能量定义是</p>
 <p>$$
 \boxed{\,Q=\omega_0\frac{W}{P_{\mathrm{loss}}}\,}
@@ -446,7 +565,7 @@ blk_x^2+\frac{al}{2}k^2+abk_z^2
 $$</p>
 <p>这类推导的重点不是背式子，而是记住路径：先写场分布，再算储能 $W$，最后用 $\frac{R_s}{2}\int |H_t|^2\,dS$ 算导体损耗。</p>
 <hr>
-<h2 id="_6">七、易错<a class="headerlink" href="#_6" title="Permanent link">§</a></h2>
+<h2 id="_10">七、易错<a class="headerlink" href="#_10" title="Permanent link">§</a></h2>
 <ul>
 <li>把谐振腔当成仍在“传播”的波导，忘了两端面会量子化 $k_z$。</li>
 <li>矩形腔 $\mathrm{TE}_{101}$ 中 $b$ 不进入谐振频率，但会进入壁面损耗和 $Q$。</li>
@@ -454,7 +573,21 @@ $$</p>
 <li>短路活塞向内移动会缩短腔长，因此升高谐振频率。</li>
 </ul>
 <hr>
-<h2 id="_7">相关链接<a class="headerlink" href="#_7" title="Permanent link">§</a></h2>
+<h2 id="mini">Mini 自检<a class="headerlink" href="#mini" title="Permanent link">§</a></h2>
+<p><strong>Q1：为什么谐振腔公式比波导截止公式多一个 $p\pi/l$？</strong></p>
+<p><strong>答</strong>：波导只要求横截面满足边界，轴向可以连续传播；谐振腔两端也被金属端面封住，轴向也必须形成驻波，所以多出 $k_z=p\pi/l$。这就是从“能不能传”变成“哪几个频率能稳定振”的关键。</p>
+<p><strong>Q2：BJ-100 矩形腔的 $\mathrm{TE}_{101}$ 谐振频率为什么不显含 $b$？</strong></p>
+<p><strong>答</strong>：$\mathrm{TE}_{101}$ 中 $m=1,n=0,p=1$。$n=0$ 表示沿 $b$ 对应方向没有半波变化，所以频率项里没有 $(n/b)^2$。但 $b$ 会影响壁面面积、场分布和导体损耗，因此仍会影响 $Q$ 和功率容量。</p>
+<p><strong>Q3：短路活塞向内移动时，$\mathrm{TE}_{101}$ 频率升高还是降低？</strong></p>
+<p><strong>答</strong>：升高。活塞向内移动使腔长 $l$ 变短，轴向项 $1/l$ 变大，因此</p>
+<p>$$
+f=\frac{c}{2}\sqrt{\frac{1}{a^2}+\frac{1}{l^2}}
+$$</p>
+<p>变大。</p>
+<p><strong>Q4：实验用 3 dB 带宽法测到的是 $Q_0$ 吗？</strong></p>
+<p><strong>答</strong>：通常不是。VNA 接上输入输出端口后，谐振器除了自身导体/介质损耗，还会通过外部耦合把能量送出，所以直接测到的是有载 $Q_L$。若要得到无载 $Q_0$，还需要知道耦合系数或外部 $Q_e$。</p>
+<hr>
+<h2 id="_11">相关链接<a class="headerlink" href="#_11" title="Permanent link">§</a></h2>
 <ul>
 <li><a href="../../solutions/05-谐振器网络元件与测量综合/01-Lec22-23-微波谐振器/index.html">第五次作业 · Lec22-23 微波谐振器</a></li>
 <li><a href="../07-实验测量与微波元件/03-谐振器Q值与功率传输法.html">07 · 谐振器 Q 值与功率传输法</a></li>
@@ -467,13 +600,18 @@ $$</p>
       <div class="toc">
 <ul>
 <li><a href="#_1">一、这一页要解决什么</a></li>
-<li><a href="#_2">二、从传输线到谐振器</a></li>
-<li><a href="#_3">三、矩形谐振腔</a></li>
-<li><a href="#_4">四、圆柱谐振腔</a></li>
-<li><a href="#_5">五、同轴谐振腔与短路活塞</a></li>
-<li><a href="#math45">六、品质因数 $Q$</a></li>
-<li><a href="#_6">七、易错</a></li>
-<li><a href="#_7">相关链接</a></li>
+<li><a href="#_2">零基础读前翻译</a></li>
+<li><a href="#_3">课件给出的四种求谐振频率方法</a></li>
+<li><a href="#_4">二、从传输线到谐振器</a></li>
+<li><a href="#_5">三步求谐振频率</a></li>
+<li><a href="#_6">三、矩形谐振腔</a></li>
+<li><a href="#_7">四、圆柱谐振腔</a></li>
+<li><a href="#_8">五、同轴谐振腔与短路活塞</a></li>
+<li><a href="#_9">三类腔体怎么选</a></li>
+<li><a href="#math99">六、品质因数 $Q$</a></li>
+<li><a href="#_10">七、易错</a></li>
+<li><a href="#mini">Mini 自检</a></li>
+<li><a href="#_11">相关链接</a></li>
 </ul>
 </div>
 
