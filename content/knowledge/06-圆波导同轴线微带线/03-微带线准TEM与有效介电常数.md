@@ -136,6 +136,19 @@ $W/h\ge 1$ 时换另一支公式。具体推导和分支不强求，做题时直
 
 ---
 
+## 草稿纸上怎么算微带准 TEM 量
+
+微带题草稿纸先写 **半填充**，再按四步走：
+
+1. **合法性**：不是严格 TEM；低频弱色散下才用准 TEM 近似。
+2. **$\varepsilon_{\mathrm{eff}}$**：$\varepsilon_{\mathrm{eff}}=1+q(\varepsilon_r-1)$，检查 $1<\varepsilon_{\mathrm{eff}}<\varepsilon_r$。算出超界先查 $W/h$ 和 $q$。
+3. **相速与波长**：$v_p\approx c/\sqrt{\varepsilon_{\mathrm{eff}}}$，$\lambda\approx\lambda_0/\sqrt{\varepsilon_{\mathrm{eff}}}$。不要直接用材料 $\varepsilon_r$。
+4. **$Z_c$**：用 $W,h,\varepsilon_{\mathrm{eff}}$ 的近似式或查图；频率升高后常数 $\varepsilon_{\mathrm{eff}}$ 可能不再适用。
+
+高频风险在草稿边缘列三项：准 TEM 色散变明显、导带-地板间高阶模、表面波（尤其 $\mathrm{TM}_0$ 无低频截止）。题目若进入这些区，结论应写“超出准静态近似”，不要硬套一个 $\varepsilon_{\mathrm{eff}}$ 走到底。
+
+---
+
 ## 易错点
 
 1. 把准 TEM 当纯 TEM 用，套 $v_p=c/\sqrt{\varepsilon_r}$——错。应该套 $v_p=c/\sqrt{\varepsilon_{\mathrm{eff}}}$。
