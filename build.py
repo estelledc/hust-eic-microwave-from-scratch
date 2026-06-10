@@ -403,6 +403,226 @@ def enhance_html_body(body: str) -> str:
     )
 
 
+FORMULA_APPENDIX_NAME = "99-公式与图像.md"
+SELF_CHECK_NAME = "99-自检清单与常见误区.md"
+FORMULA_HINT_MAX_LEN = 140
+DISPLAY_MATH_RE = re.compile(r"\$\$(.+?)\$\$|\\\[(.+?)\\\]", re.DOTALL)
+FORMULA_IMAGE_SECTION_RE = re.compile(
+    r"^#{2,3}\s+.*(?:图像|配图|原书图|跨链|学习建议)",
+    re.MULTILINE,
+)
+BOLD_LINE_RE = re.compile(r"^\*\*[^*\n]+?\*\*[^\n]*\s*$", re.MULTILINE)
+HEADING_LINE_RE = re.compile(r"^#{2,3}\s+", re.MULTILINE)
+H2_LINE_RE = re.compile(r"^##\s+", re.MULTILINE)
+
+
+@dataclass(frozen=True)
+class FormulaCard:
+    title: str
+    hint: str
+    math_markdown: str
+
+
+def extract_display_math_blocks(text: str) -> list[str]:
+    blocks: list[str] = []
+    for pattern in MATH_PATTERNS[:2]:
+        blocks.extend(match.group(0) for match in pattern.finditer(text))
+    return blocks
+
+
+def formula_card_hint(text_before_math: str) -> str:
+    lines = [
+        line.strip()
+        for line in text_before_math.strip().splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    ]
+    if not lines:
+        return ""
+    hint = strip_inline_markdown("\n".join(lines[-3:]))
+    if len(hint) > FORMULA_HINT_MAX_LEN:
+        return hint[: FORMULA_HINT_MAX_LEN - 1].rstrip() + "…"
+    return hint
+
+
+def title_from_chunk_prefix(chunk: str, fallback: str) -> str:
+    bold_matches = list(BOLD_LINE_RE.finditer(chunk))
+    if bold_matches:
+        return strip_inline_markdown(bold_matches[-1].group(0))
+    for line in chunk.strip().splitlines():
+        cleaned = strip_inline_markdown(line.strip())
+        if cleaned and not cleaned.startswith("|"):
+            return cleaned[:60]
+    return fallback
+
+
+def chunk_to_formula_card(title: str, chunk: str) -> FormulaCard | None:
+    math_blocks = extract_display_math_blocks(chunk)
+    if not math_blocks:
+        return None
+    first_math = DISPLAY_MATH_RE.search(chunk)
+    hint = formula_card_hint(chunk[: first_math.start()]) if first_math else ""
+    cleaned_title = strip_inline_markdown(title.strip()) or "公式"
+    return FormulaCard(
+        title=cleaned_title,
+        hint=hint,
+        math_markdown="\n\n".join(math_blocks),
+    )
+
+
+def split_region_into_formula_cards(region_title: str, body: str) -> list[FormulaCard]:
+    cards: list[FormulaCard] = []
+    sub_matches = list(re.finditer(r"^###\s+(.+?)\s*$", body, re.MULTILINE))
+    if sub_matches:
+        for index, match in enumerate(sub_matches):
+            title = match.group(1).strip()
+            start = match.end()
+            end = sub_matches[index + 1].start() if index + 1 < len(sub_matches) else len(body)
+            card = chunk_to_formula_card(title, body[start:end])
+            if card:
+                cards.append(card)
+        if cards:
+            return cards
+
+    bold_matches = list(BOLD_LINE_RE.finditer(body))
+    if bold_matches:
+        for index, match in enumerate(bold_matches):
+            title = strip_inline_markdown(match.group(0))
+            start = match.end()
+            end = bold_matches[index + 1].start() if index + 1 < len(bold_matches) else len(body)
+            card = chunk_to_formula_card(title, body[start:end])
+            if card:
+                cards.append(card)
+        if len(cards) >= 2:
+            return cards
+        cards = []
+
+    math_matches = list(DISPLAY_MATH_RE.finditer(body))
+    if not math_matches:
+        card = chunk_to_formula_card(region_title, body)
+        return [card] if card else []
+
+    prev_end = 0
+    for index, match in enumerate(math_matches):
+        prefix = body[prev_end : match.start()]
+        title = title_from_chunk_prefix(
+            prefix,
+            region_title if index == 0 else f"{region_title} {index + 1}",
+        )
+        card = chunk_to_formula_card(title, prefix + match.group(0))
+        if card:
+            cards.append(card)
+        prev_end = match.end()
+    return cards
+
+
+def extract_formula_regions_appendix(text: str) -> list[tuple[str, str]]:
+    regions: list[tuple[str, str]] = []
+
+    speed_section = re.search(r"^###\s+([^\n]*公式速查[^\n]*)\s*$", text, re.MULTILINE)
+    if speed_section:
+        start = speed_section.end()
+        end_match = FORMULA_IMAGE_SECTION_RE.search(text, start)
+        end = end_match.start() if end_match else len(text)
+        regions.append((speed_section.group(1).strip(), text[start:end]))
+        return regions
+
+    if re.search(r"^##\s+[^\n]*公式卡", text, re.MULTILINE):
+        for match in re.finditer(r"^##\s+([^\n]*公式卡[^\n]*)\s*$", text, re.MULTILINE):
+            start = match.end()
+            next_heading = H2_LINE_RE.search(text, start)
+            end = start + next_heading.start() if next_heading else len(text)
+            body = text[start:end]
+            if extract_display_math_blocks(body):
+                regions.append((match.group(1).strip(), body))
+        return regions
+
+    for match in re.finditer(r"^###\s+([^\n]+)\s*$", text, re.MULTILINE):
+        title = match.group(1).strip()
+        if any(keyword in title for keyword in ("图像", "学习建议", "导航")):
+            continue
+        if not any(keyword in title for keyword in ("公式", "关系")):
+            continue
+        start = match.end()
+        next_heading = HEADING_LINE_RE.search(text, start)
+        end = next_heading.start() if next_heading else len(text)
+        body = text[start:end]
+        if extract_display_math_blocks(body):
+            regions.append((title, body))
+
+    return regions
+
+
+def extract_formula_cards_appendix(text: str) -> list[FormulaCard]:
+    cards: list[FormulaCard] = []
+    for region_title, body in extract_formula_regions_appendix(text):
+        cards.extend(split_region_into_formula_cards(region_title, body))
+    return cards
+
+
+def extract_formula_cards_self_check(text: str) -> list[FormulaCard]:
+    cards: list[FormulaCard] = []
+
+    required_section = re.search(r"^##\s+2\.\s*必背公式\s*$", text, re.MULTILINE)
+    if required_section:
+        start = required_section.end()
+        next_heading = H2_LINE_RE.search(text, start)
+        section_body = text[start : start + next_heading.start()] if next_heading else text[start:]
+        cards.extend(split_region_into_formula_cards("必背公式", section_body))
+
+    for match in re.finditer(r"^###\s+必背公式\s*$", text, re.MULTILINE):
+        start = match.end()
+        next_heading = HEADING_LINE_RE.search(text, start)
+        chunk = text[start : start + next_heading.start()] if next_heading else text[start:]
+        parent = ""
+        parent_match = None
+        for parent_match in re.finditer(r"^##\s+(.+?)\s*$", text[: match.start()], re.MULTILINE):
+            pass
+        if parent_match:
+            parent = strip_inline_markdown(parent_match.group(1))
+        title = f"{parent} · 必背公式" if parent else "必背公式"
+        card = chunk_to_formula_card(title, chunk)
+        if card:
+            cards.append(card)
+
+    return cards
+
+
+def extract_formula_cards(source: Path, raw: str) -> list[FormulaCard]:
+    name = source.name
+    if name == FORMULA_APPENDIX_NAME:
+        return extract_formula_cards_appendix(raw)
+    if name == SELF_CHECK_NAME:
+        return extract_formula_cards_self_check(raw)
+    return []
+
+
+def render_formula_cards_html(cards: list[FormulaCard]) -> str:
+    parts: list[str] = []
+    for index, card in enumerate(cards, start=1):
+        md_parts = [f"### {card.title}"]
+        if card.hint:
+            md_parts.append(card.hint)
+        md_parts.append(card.math_markdown)
+        card_html, _ = render_markdown("\n\n".join(md_parts))
+        parts.append(f'<section class="formula-card" id="formula-card-{index}">{card_html}</section>')
+    return "\n".join(parts)
+
+
+def render_formula_quick_view(body: str, cards: list[FormulaCard]) -> str:
+    if len(cards) < 2:
+        return body
+    grid_html = render_formula_cards_html(cards)
+    return (
+        '<div class="formula-quick-toolbar">'
+        '<button type="button" class="formula-quick-toggle" data-formula-quick-toggle '
+        'aria-pressed="false" aria-controls="formula-quick-grid">公式速查</button>'
+        "</div>"
+        f'<div class="formula-quick-grid" id="formula-quick-grid" hidden aria-hidden="true" '
+        f'data-math-pending role="region" aria-label="公式速查">{grid_html}</div>'
+        f'<div class="article-body">{body}</div>'
+    )
+
+
 def plain_text(source: Path, limit: int | None = None) -> str:
     text = source.read_text(encoding="utf-8")
     text = re.sub(r"```.*?```", " ", text, flags=re.DOTALL)
@@ -880,6 +1100,12 @@ def render_page(
     body = enhance_html_body(body)
     if body_override is not None:
         body = body_override
+    formula_cards = extract_formula_cards(page.source, raw)
+    article_content = body
+    article_attrs = ""
+    if len(formula_cards) >= 2 and body_override is None:
+        article_content = render_formula_quick_view(body, formula_cards)
+        article_attrs = f' data-formula-cards="{len(formula_cards)}"'
     prefix = root_prefix(page)
     sidebar = render_sidebar(page, pages)
     crumbs = breadcrumbs_override if breadcrumbs_override is not None else breadcrumbs(page)
@@ -959,8 +1185,8 @@ def render_page(
     <main id="content" class="content">
       <div class="breadcrumbs">{crumbs}</div>
       {meta}
-      <article class="article">
-        {body}
+      <article class="article"{article_attrs}>
+        {article_content}
       </article>
       {footer}
     </main>
@@ -1093,6 +1319,9 @@ def build_search_index(pages: list[Page]) -> None:
                 search_text += f" {label} {fallback}"
             for title, intro, _ in HOMEWORK_CARDS:
                 search_text += f" {title} {intro}"
+        card_titles = " ".join(card.title for card in extract_formula_cards(page.source, page.source.read_text(encoding="utf-8")))
+        if card_titles:
+            search_text = f"{search_text} {card_titles}"
         records.append(
             {
                 "title": "课程地图" if page_kind(page) == PageKind.HOME else page.title,
