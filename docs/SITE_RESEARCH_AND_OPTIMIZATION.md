@@ -19,8 +19,8 @@
 | 轮次 | 优化点 | 当前状态 | 验证方式 |
 |------|--------|----------|----------|
 | R1 | 调研记录沉淀为项目文档 | 已落地 | 本文件存在且列出来源与启发 |
-| R2 | 首页增加按任务进入的快速入口 | 已落地 | `content/index.md` 有“按当前任务进入” |
-| R3 | 首页增加十分钟定位法 | 已落地 | `content/index.md` 有“十分钟定位法” |
+| R2 | 首页增加按任务进入的快速入口 | Markdown ✅ / 壳层 ✅（2026-06-10） | `reading-map.md` 保留任务表；`render_home_page()` 卡片化 |
+| R3 | 首页增加十分钟定位法 | Markdown ✅ / 壳层 ✅ | 策略区 + `reading-map.md`；首页搜索可命中 |
 | R4 | 每页显示分组、阅读时间、页序和路径 | 已落地 | 构建后页面出现 `.page-meta` |
 | R5 | 页面顶部增加阅读进度条 | 已落地 | 滚动页面时 `.reading-progress span` 变化 |
 | R6 | 搜索结果显示命中数量和分组标签 | 已落地 | 输入关键词后显示 `.search-status` 与分组徽标 |
@@ -33,14 +33,20 @@
 
 - 给公式密集页增加“公式卡片”抽取视图，适合考前速查。
 - 给 Smith 圆图与波导计算题增加小型可交互计算器，但要先确认数值公式和验算路径。
-- 对 `docs/PROJECT_STATUS.md` 与 `docs/REFACTOR_PLAN.md` 做一次历史状态清理，避免旧页数和旧待办误导后续维护。
-- 用浏览器抽查桌面和移动端，重点看搜索浮层、顶部元信息、阅读进度条和打印样式是否影响阅读。
+- 用浏览器抽查桌面和移动端，重点看首页课程地图卡片、搜索浮层、Hub 页与精读页壳层是否一致。
+
+## 壳层重构（2026-06-10）
+
+- `build.py` 增加 `PageKind` 与 `render_home_page()`：首页 Hero + 知识点/作业/实验/指南卡片。
+- 原首页长文迁至 `content/guide/reading-map.md`。
+- Hub 页（各 `README.md` / `index.md`）使用 `layout-hub`，去掉 pager 与右侧 TOC。
+- `site/` 构建产物不再 Git 跟踪；CI 为唯一发布真源。
 
 ## 本轮验证
 
 已完成：
 
-- `.venv/bin/python build.py`：构建 148 页到 `site/`。
+- `.venv/bin/python build.py`：构建 151 页到 `site/`。
 - 本地链接检查：扫描 148 个 HTML、24175 个本地 `href/src`，缺失 0 个。
 - Python 语法检查：`build.py` 与 `scripts/` 下 14 个 Python 文件语法错误 0 个。
 - `python3 scripts/tools/check_cross_refs.py`：knowledge / solutions / experiments 交叉引用缺失均为 0。
