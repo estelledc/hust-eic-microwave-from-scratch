@@ -1185,6 +1185,8 @@ def write_pages(pages: list[Page]) -> None:
 def clean_site() -> None:
     if SITE_DIR.exists():
         shutil.rmtree(SITE_DIR)
+    SITE_DIR.mkdir(parents=True, exist_ok=True)
+    (SITE_DIR / ".gitkeep").touch()
     (SITE_DIR / "assets").mkdir(parents=True, exist_ok=True)
 
 
