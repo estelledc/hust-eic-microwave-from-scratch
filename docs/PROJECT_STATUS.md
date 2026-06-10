@@ -73,7 +73,7 @@ python3 -m py_compile build.py scripts/plots/*.py scripts/tools/*.py
 
 | 优先级 | 问题 | 说明 |
 |--------|------|------|
-| P3 | `compact_nav_label` 硬编码导航标签 | 后续可改为 YAML / frontmatter，非阻塞 |
+| P3 | `compact_nav_label` 硬编码导航标签 | ✅ 已外置到 `nav.json`（2026-06-10） |
 | 维护 | `content/appendices/Word大纲回填指南.md` 部分路径仍写旧目录名 | 维护者文档，不影响站点构建 |
 | 可选 | 公式卡片视图、Smith 圆图小计算器 | 见 [SITE_RESEARCH_AND_OPTIMIZATION.md](SITE_RESEARCH_AND_OPTIMIZATION.md) |
 
