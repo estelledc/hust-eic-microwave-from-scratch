@@ -1091,6 +1091,10 @@ body.sidebar-open {
     padding: 0;
   }
 
+  body.formula-quick-active .article-body {
+    display: block !important;
+  }
+
   .article a {
     color: inherit;
     text-decoration: none;

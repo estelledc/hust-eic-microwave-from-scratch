@@ -220,9 +220,14 @@
       if (!grid.hasAttribute("data-math-pending")) {
         return;
       }
-      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-        await window.MathJax.typesetPromise([grid]);
+      const deadline = Date.now() + 10000;
+      while (!(window.MathJax && typeof window.MathJax.typesetPromise === "function")) {
+        if (Date.now() >= deadline) {
+          return;
+        }
+        await new Promise((resolve) => window.setTimeout(resolve, 50));
       }
+      await window.MathJax.typesetPromise([grid]);
       grid.removeAttribute("data-math-pending");
     }
 
