@@ -209,9 +209,48 @@
     }
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupMermaid);
-  } else {
+  function setupFormulaQuickView() {
+    const toggle = document.querySelector("[data-formula-quick-toggle]");
+    const grid = document.getElementById("formula-quick-grid");
+    if (!toggle || !grid) {
+      return;
+    }
+
+    async function typesetGridIfNeeded() {
+      if (!grid.hasAttribute("data-math-pending")) {
+        return;
+      }
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        await window.MathJax.typesetPromise([grid]);
+      }
+      grid.removeAttribute("data-math-pending");
+    }
+
+    function setQuickView(active) {
+      body.classList.toggle("formula-quick-active", active);
+      toggle.setAttribute("aria-pressed", active ? "true" : "false");
+      toggle.textContent = active ? "返回全文" : "公式速查";
+      grid.hidden = !active;
+      grid.setAttribute("aria-hidden", active ? "false" : "true");
+      if (active) {
+        typesetGridIfNeeded();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    toggle.addEventListener("click", () => {
+      setQuickView(!body.classList.contains("formula-quick-active"));
+    });
+  }
+
+  function setupPageEnhancements() {
     setupMermaid();
+    setupFormulaQuickView();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupPageEnhancements);
+  } else {
+    setupPageEnhancements();
   }
 })();

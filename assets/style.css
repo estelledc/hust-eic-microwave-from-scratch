@@ -701,6 +701,80 @@ a:hover {
   font-size: 0.88rem;
 }
 
+.formula-quick-toolbar {
+  margin: 0 0 18px;
+}
+
+.formula-quick-toggle {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 750;
+  padding: 8px 14px;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.formula-quick-toggle:hover {
+  border-color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent-soft) 70%, var(--paper-strong));
+}
+
+.formula-quick-toggle[aria-pressed="true"] {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: var(--paper);
+}
+
+.formula-quick-grid {
+  display: none;
+  gap: 14px;
+  grid-template-columns: 1fr;
+  margin-bottom: 18px;
+}
+
+.formula-quick-grid:not([hidden]) {
+  display: grid;
+}
+
+body.formula-quick-active .article-body {
+  display: none;
+}
+
+.formula-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  box-shadow: 0 8px 20px rgba(67, 52, 28, 0.05);
+  padding: 14px 16px;
+}
+
+.formula-card h3 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+.formula-card p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+
+.formula-card mjx-container {
+  overflow-x: auto;
+}
+
+@media (min-width: 840px) {
+  .formula-quick-grid:not([hidden]) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 body.sidebar-open {
   overflow: hidden;
 }
@@ -994,6 +1068,8 @@ body.sidebar-open {
   .topbar,
   .sidebar,
   .toc-panel,
+  .formula-quick-toolbar,
+  .formula-quick-grid,
   .breadcrumbs,
   .page-meta,
   .pager,
