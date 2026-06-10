@@ -72,13 +72,13 @@
 
 ## P4 · 后续可选（非阻塞）
 
-### P4-1 导航元数据外置
+### P4-1 导航元数据外置 ✅（2026-06-10）
 
-将 `build.py` 中 `compact_nav_label` / `filename_labels`（约 99 行）改为 YAML `nav.yaml` 或 Markdown frontmatter，新增页面时不必改 Python。
+侧栏目录短标签已外置到根目录 [`nav.json`](../nav.json)（`directories` / `pages` / `filenames`）。`build.py` 启动时加载；新增页面时优先改 JSON，不必改 Python。
 
-### P4-2 维护文档路径清理
+### P4-2 维护文档路径清理 ✅（2026-06-10）
 
-`content/appendices/Word大纲回填指南.md` 等维护者文档中的旧路径名（`Lec01-05-传输线基础/` 等）批量更正。
+[`content/appendices/Word大纲回填指南.md`](../content/appendices/Word大纲回填指南.md) 已对齐 01–08 知识点阶段与 01–05 作业目录。
 
 ### P4-3 呈现层增强（来自 SITE_RESEARCH 候选）
 
