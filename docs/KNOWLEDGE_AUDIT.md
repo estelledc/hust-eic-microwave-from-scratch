@@ -16,7 +16,7 @@
 
 | 轮次 | 内容目标 | 证据文件 |
 |------|----------|----------|
-| 1 | 建立全课主线，避免只按章节碎片化阅读 | `content/index.md` |
+| 1 | 建立全课主线，避免只按章节碎片化阅读 | `content/guide/reading-map.md` |
 | 2 | 把零基础读法扩展到 Lec01-Lec28 | `content/guide/beginner-handbook.md` |
 | 3 | 为核心公式补使用前提和常见误用 | `content/knowledge/README.md` |
 | 4 | 为传输线、Smith 圆图、匹配题补诊断树 | `content/knowledge/01-传播与传输线/99-自检清单与常见误区.md`、`content/knowledge/02-反射与匹配/99-自检清单与常见误区.md` |

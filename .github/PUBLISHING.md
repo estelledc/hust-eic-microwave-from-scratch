@@ -1,30 +1,33 @@
 # 发布到 GitHub Pages
 
-本目录的 `workflows/pages.yml` 提供完整的构建 + 部署流水线。绑定 GitHub remote 后按以下步骤启用。
+本目录的 `workflows/pages.yml` 提供完整的构建 + 部署流水线。当前仓库 remote 为 `estelledc/hust-eic-microwave-from-scratch`。
 
 ## 一次性配置
 
-1. **创建仓库**：在 GitHub 创建 `hust-eic-microwave-review`（或自选名）。
-2. **绑 remote**：
+1. **仓库**：已创建并绑定 remote（见上）。
+2. **打开 Pages**：仓库 Settings → Pages → Source 选择 **GitHub Actions**（不要选 "Deploy from a branch"）。
+3. **触发部署**：push 到 `main` 或手动 `workflow_dispatch`，Actions 会跑 `pages.yml`。
 
-   ```bash
-   git remote add origin git@github.com:<USER>/hust-eic-microwave-review.git
-   git push -u origin main
-   ```
+若在新 fork 上复现：
 
-3. **打开 Pages**：仓库 Settings → Pages → Source 选择 **GitHub Actions**（不要选 "Deploy from a branch"）。
-4. **触发首次部署**：再次 push 任意提交，Actions 会自动跑 `pages.yml`。
+```bash
+git remote add origin git@github.com:<USER>/hust-eic-microwave-from-scratch.git
+git push -u origin main
+```
 
 ## 工作流做了什么
 
-- `build` job：装 Python 3.11 + `markdown` 包 → 跑 `python build.py` → 跑链接校验脚本（与本地一致，0 缺失才放行）→ 上传 `site/` 为 Pages artifact。
-- `deploy` job：把 artifact 部署到 Pages 环境，URL 写到 deployment summary。
+- `build` job：Python 3.11 + `requirements.txt` → `python build.py` → 内链校验（0 缺失才放行）→ 上传 `site/` 为 Pages artifact。
+- `deploy` job：部署到 Pages 环境。
+
+**注意**：仓库内 `site/` 被 `.gitignore` 忽略（仅保留 `site/.gitkeep`）。本地必须先 `python build.py` 再预览；线上完全由 CI 构建。
 
 ## 本地预览
 
 工作流和本地构建逻辑完全一致：
 
 ```bash
+python3 -m pip install -r requirements.txt   # 首次
 python build.py
 python -m http.server -d site 8000
 # 浏览器打开 http://localhost:8000
@@ -32,13 +35,13 @@ python -m http.server -d site 8000
 
 ## 链接校验失败时
 
-CI 会打印前 20 个缺失链接。本地用同样的脚本反查：
+CI 会打印前 20 个缺失链接。本地：
 
 ```bash
 python3 scripts/tools/check_cross_refs.py
+python build.py
+# 再跑 pages.yml 中的内联链接脚本，或 push 触发 CI
 ```
-
-或者直接在本地跑工作流里的内联脚本（复制粘贴运行）。
 
 ## 缓存优化（可选）
 

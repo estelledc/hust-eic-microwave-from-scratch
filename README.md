@@ -6,7 +6,8 @@
 
 ## 内容入口
 
-- [学习首页](content/index.md)：从零开始的阅读顺序。
+- [课程地图](content/index.md)：首页任务入口与快速导航。
+- [阅读地图](content/guide/reading-map.md)：十轮读法与详细学习路线。
 - [初学者手册](content/guide/beginner-handbook.md)：先补传输线、反射系数、Smith 圆图和波导的核心直觉。
 - [知识点讲义](content/knowledge/README.md)：按传播、反射匹配、波导场、截止色散、矩形/圆波导、谐振器、网络参数和测量重排。
 - [作业解答](content/solutions/index.md)：逐题给出思路图、公式推导、标准答案和易错点。

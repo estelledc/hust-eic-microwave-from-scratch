@@ -9,6 +9,7 @@ import os
 import re
 import shutil
 from dataclasses import dataclass
+from enum import Enum
 from pathlib import Path
 from typing import Callable
 from urllib.parse import unquote
@@ -86,6 +87,52 @@ MATH_PATTERNS = [
     re.compile(r"\\\((.+?)\\\)", re.DOTALL),
     re.compile(r"(?<!\\)\$(?!\$)([^\n$]+?)(?<!\\)\$"),
 ]
+
+HOME_MAINLINE = "波沿结构传播 → 不连续反射 → 边界筛模 → 端口网络与测量"
+HOME_SEARCH_EXTRA = (
+    "十轮读法 十分钟定位法 四格纸面 第一次打开 只做这三步 "
+    "按当前任务进入 考前扫盲区 传播 反射 边界 端口 测量"
+)
+KNOWLEDGE_STAGES: tuple[tuple[str, str, str], ...] = (
+    ("01-传播与传输线", "01 · 传播与传输线", "长线、行波、反射与开短路线"),
+    ("02-反射与匹配", "02 · 反射与匹配", "Smith 圆图与阻抗匹配"),
+    ("03-波导中的场与边界", "03 · 波导中的场与边界", "TEM/TE/TM 与金属边界"),
+    ("04-截止色散与速度", "04 · 截止、色散与速度", "三种波长与相群速"),
+    ("05-矩形波导工程计算", "05 · 矩形波导工程计算", "模谱、单模区与工程算例"),
+    ("06-圆波导同轴线微带线", "06 · 圆/同轴/微带", "圆波导、同轴线与微带"),
+    ("07-实验测量与微波元件", "07 · 实验测量与元件", "S 参数、VNA 与常用元件"),
+    ("08-谐振器网络与课程综合", "08 · 谐振器/网络/综合", "谐振腔、网络与测量综合"),
+)
+HOMEWORK_CARDS: tuple[tuple[str, str, str], ...] = (
+    ("第一次作业", "Lec01–Lec05 · 传输线基础", "content/solutions/01-传输线基础/README.md"),
+    ("第二次作业", "Lec06–Lec09 · 圆图与匹配", "content/solutions/02-圆图与匹配/README.md"),
+    ("第三次作业", "Lec10–Lec16 · 规则波导", "content/solutions/03-规则波导与矩形波导/README.md"),
+    ("第四次作业", "Lec17–Lec20 · 圆波导/同轴/微带", "content/solutions/04-后续专题/README.md"),
+    ("第五次作业", "Lec22–Lec28 · 谐振器/网络/测量", "content/solutions/05-谐振器网络元件与测量综合/README.md"),
+)
+EXPERIMENT_CARDS: tuple[tuple[str, str, str], ...] = (
+    ("实验一", "矢网与传输线测量", "content/experiments/01-矢网与传输线/README.md"),
+    ("实验二", "谐振器、耦合器与功分器", "content/experiments/02-元件参数测量/README.md"),
+)
+GUIDE_CARDS: tuple[tuple[str, str, str], ...] = (
+    ("零基础手册", "第一次打开该看哪一章", "content/guide/beginner-handbook.md"),
+    ("详细导读", "十轮读法与任务入口表", "content/guide/reading-map.md"),
+    ("讲次矩阵", "考前按讲次查漏", "content/appendices/讲次-作业-教材章节-知识点矩阵.md"),
+)
+HOME_STRATEGY_BULLETS: tuple[str, ...] = (
+    "顶部搜索框输入 TE10、Smith、S11、λ/4 等符号或题号，30 秒内定位到页。",
+    "做题先在纸上画四格：题型、前提、公式、检查，再代数值。",
+    "零基础第一轮：扫主线 → 补三张图像 → 做一道题的完整闭环。",
+    "精读页先看「零基础读前翻译」，题解页先看「对应知识点」。",
+    "临考前用讲次矩阵反查还没掌握的题型，不要只背公式表。",
+)
+
+
+class PageKind(str, Enum):
+    HOME = "home"
+    HUB = "hub"
+    ARTICLE = "article"
+    SOLUTION = "solution"
 
 
 @dataclass(frozen=True)
@@ -699,20 +746,217 @@ def brand_tagline(page: Page) -> str:
     return "微波里的波，会反射，也会被波导筛选"
 
 
-def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]) -> str:
+def page_kind(page: Page) -> PageKind:
+    rel = page.rel_source
+    if rel == Path("content/index.md"):
+        return PageKind.HOME
+    if rel.name.lower() in {"readme.md", "index.md"}:
+        return PageKind.HUB
+    if rel.parts[:2] == ("content", "solutions"):
+        return PageKind.SOLUTION
+    return PageKind.ARTICLE
+
+
+def extract_card_intro(source: Path, fallback: str = "", min_chars: int = 40) -> str:
+    if not source.exists():
+        return fallback
+    text = source.read_text(encoding="utf-8")
+    paragraphs: list[str] = []
+    current: list[str] = []
+    in_frontmatter = False
+    frontmatter_ready = False
+
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped == "---" and not frontmatter_ready:
+            in_frontmatter = not in_frontmatter
+            if not in_frontmatter:
+                frontmatter_ready = True
+            continue
+        if in_frontmatter:
+            continue
+        if stripped.startswith("#"):
+            continue
+        if stripped.startswith("!["):
+            continue
+        if stripped.startswith("|"):
+            continue
+        if stripped.startswith("---"):
+            continue
+        if not stripped:
+            if current:
+                paragraphs.append(" ".join(current))
+                current = []
+            continue
+        if stripped.startswith(("-", "*")) and not current:
+            continue
+        if stripped.startswith(">"):
+            current.append(strip_inline_markdown(stripped.lstrip(">").strip()))
+            continue
+        current.append(strip_inline_markdown(stripped))
+
+    if current:
+        paragraphs.append(" ".join(current))
+
+    for paragraph in paragraphs:
+        cleaned = re.sub(r"\s+", " ", paragraph).strip()
+        if len(cleaned) >= min_chars:
+            if len(cleaned) > 200:
+                return cleaned[:199] + "…"
+            return cleaned
+    return fallback
+
+
+def page_href(from_page: Page, source_rel: str, pages_by_source: dict[Path, Page]) -> str:
+    source = (ROOT / source_rel).resolve()
+    target = pages_by_source.get(source)
+    if target:
+        return relative_url(from_page.output, target.output)
+    return source_rel
+
+
+def render_card_grid(
+    cards: list[tuple[str, str, str]],
+    from_page: Page,
+    pages_by_source: dict[Path, Page],
+) -> str:
+    chunks = ['<div class="home-cards">']
+    for title, intro, source_rel in cards:
+        href = page_href(from_page, source_rel, pages_by_source)
+        chunks.append(
+            f'<a class="card-link" href="{html.escape(href, quote=True)}">'
+            f"<strong>{html.escape(title)}</strong>"
+            f"<span>{html.escape(intro)}</span>"
+            "</a>"
+        )
+    chunks.append("</div>")
+    return "\n".join(chunks)
+
+
+def render_home_body(page: Page, pages_by_source: dict[Path, Page]) -> str:
+    stage_cards: list[tuple[str, str, str]] = []
+    for directory, label, fallback in KNOWLEDGE_STAGES:
+        readme = ROOT / "content" / "knowledge" / directory / "README.md"
+        intro = extract_card_intro(readme, fallback=fallback)
+        stage_cards.append((label, intro, f"content/knowledge/{directory}/README.md"))
+
+    hero_ctas = [
+        ("传播与传输线", page_href(page, "content/knowledge/01-传播与传输线/README.md", pages_by_source)),
+        ("作业解答", page_href(page, "content/solutions/index.md", pages_by_source)),
+        ("实验环节", page_href(page, "content/experiments/index.md", pages_by_source)),
+    ]
+    cta_html = "".join(
+        f'<a class="home-cta{" home-cta-primary" if index == 0 else ""}" href="{html.escape(href, quote=True)}">'
+        f"{html.escape(label)}</a>"
+        for index, (label, href) in enumerate(hero_ctas)
+    )
+    strategy_items = "".join(
+        f"<li>{html.escape(item)}</li>" for item in HOME_STRATEGY_BULLETS
+    )
+    reading_map_href = page_href(page, "content/guide/reading-map.md", pages_by_source)
+    matrix_href = page_href(
+        page, "content/appendices/讲次-作业-教材章节-知识点矩阵.md", pages_by_source
+    )
+
+    return f"""
+<div class="home-dashboard">
+  <section class="home-hero">
+    <p class="home-kicker">华中科技大学 · 电信本科</p>
+    <h1>{html.escape(SITE_TITLE)}</h1>
+    <p class="home-lead">{html.escape(HOME_MAINLINE)}</p>
+    <div class="home-cta-row">{cta_html}</div>
+  </section>
+
+  <section class="learning-section">
+    <div class="learning-section-head">
+      <h2>知识点讲义</h2>
+      <a href="{html.escape(page_href(page, "content/knowledge/README.md", pages_by_source), quote=True)}">总览 →</a>
+    </div>
+    {render_card_grid(stage_cards, page, pages_by_source)}
+  </section>
+
+  <section class="learning-section">
+    <div class="learning-section-head">
+      <h2>作业解答</h2>
+      <a href="{html.escape(page_href(page, "content/solutions/index.md", pages_by_source), quote=True)}">目录 →</a>
+    </div>
+    {render_card_grid(list(HOMEWORK_CARDS), page, pages_by_source)}
+  </section>
+
+  <section class="learning-section learning-section-split">
+    <div>
+      <div class="learning-section-head">
+        <h2>实验环节</h2>
+        <a href="{html.escape(page_href(page, "content/experiments/index.md", pages_by_source), quote=True)}">总览 →</a>
+      </div>
+      {render_card_grid(list(EXPERIMENT_CARDS), page, pages_by_source)}
+    </div>
+    <div>
+      <div class="learning-section-head">
+        <h2>学习指南</h2>
+        <a href="{html.escape(page_href(page, "content/guide/index.md", pages_by_source), quote=True)}">指南 →</a>
+      </div>
+      {render_card_grid(list(GUIDE_CARDS), page, pages_by_source)}
+    </div>
+  </section>
+
+  <section class="learning-section home-strategy">
+    <div class="learning-section-head">
+      <h2>学习策略</h2>
+      <a href="{html.escape(reading_map_href, quote=True)}">详细导读 →</a>
+    </div>
+    <ul class="home-strategy-list">{strategy_items}</ul>
+    <p class="home-strategy-foot">
+      考前还可打开 <a href="{html.escape(matrix_href, quote=True)}">讲次-作业-知识点矩阵</a> 做最后查漏。
+    </p>
+  </section>
+</div>
+"""
+
+
+def render_sidebar(page: Page, pages: list[Page]) -> str:
+    nav = render_nav(page, pages)
+    return f"""{nav}
+      <p class="sidebar-source-note">本站源代码以 Markdown 编写，由 <a href="{GITHUB_REPO_URL}" target="_blank" rel="noopener">build.py</a> 重新生成。</p>"""
+
+
+def render_page(
+    page: Page,
+    pages: list[Page],
+    pages_by_source: dict[Path, Page],
+    *,
+    show_meta: bool = True,
+    show_pager: bool = True,
+    show_toc: bool = True,
+    shell_class: str = "",
+    body_override: str | None = None,
+    breadcrumbs_override: str | None = None,
+    title_override: str | None = None,
+) -> str:
     raw = page.source.read_text(encoding="utf-8")
     rewritten = rewrite_markdown_links(raw, page.source, page, pages_by_source)
     body, toc = render_markdown(rewritten)
     body = enhance_html_body(body)
+    if body_override is not None:
+        body = body_override
     prefix = root_prefix(page)
-    nav = render_nav(page, pages)
-    crumbs = breadcrumbs(page)
-    footer = page_footer(page, pages)
-    meta = page_meta(page, pages)
-    title = html.escape(page.title)
+    sidebar = render_sidebar(page, pages)
+    crumbs = breadcrumbs_override if breadcrumbs_override is not None else breadcrumbs(page)
+    footer = page_footer(page, pages) if show_pager else ""
+    meta = page_meta(page, pages) if show_meta else ""
+    title = html.escape(title_override or page.title)
     site_title = html.escape(SITE_TITLE)
     tagline = html.escape(brand_tagline(page))
     toc_html = toc if toc.strip() else '<p class="toc-empty">本页没有二级目录。</p>'
+    toc_panel = ""
+    if show_toc:
+        toc_panel = f"""    <aside class="toc-panel" aria-label="页内目录">
+      <strong>本页</strong>
+      {toc_html}
+    </aside>"""
+    shell_classes = "shell"
+    if shell_class:
+        shell_classes += f" {shell_class}"
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -763,13 +1007,13 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
     <button class="icon-button" type="button" data-theme-toggle aria-label="切换明暗主题">◐</button>
   </header>
   <div id="searchResults" class="search-results" hidden></div>
-  <div class="shell">
+  <div class="{shell_classes}">
     <aside class="sidebar" data-sidebar>
       <div class="sidebar-head">
         <strong>目录</strong>
         <button class="icon-button" type="button" data-sidebar-close aria-label="关闭目录">×</button>
       </div>
-      {nav}
+      {sidebar}
     </aside>
     <main id="content" class="content">
       <div class="breadcrumbs">{crumbs}</div>
@@ -779,10 +1023,7 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
       </article>
       {footer}
     </main>
-    <aside class="toc-panel" aria-label="页内目录">
-      <strong>本页</strong>
-      {toc_html}
-    </aside>
+{toc_panel}
   </div>
   <footer class="jx-footer">
     <div class="jx-footer__colophon">
@@ -800,6 +1041,32 @@ def render_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]
 </body>
 </html>
 """
+
+
+def render_home_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]) -> str:
+    return render_page(
+        page,
+        pages,
+        pages_by_source,
+        show_meta=False,
+        show_pager=False,
+        show_toc=False,
+        shell_class="layout-home",
+        body_override=render_home_body(page, pages_by_source),
+        breadcrumbs_override='<span class="crumb-current">课程地图</span>',
+        title_override="课程地图",
+    )
+
+
+def render_hub_page(page: Page, pages: list[Page], pages_by_source: dict[Path, Page]) -> str:
+    return render_page(
+        page,
+        pages,
+        pages_by_source,
+        show_pager=False,
+        show_toc=False,
+        shell_class="layout-hub",
+    )
 
 
 def copy_static_assets() -> None:
@@ -876,17 +1143,25 @@ def trim_experiment_images() -> None:
 
 
 def build_search_index(pages: list[Page]) -> None:
-    records = [
-        {
-            "title": page.title,
-            "group": page.group,
-            "path": display_path(page),
-            "url": page.rel_output.as_posix(),
-            "text": plain_text(page.source, 180),
-            "search": plain_text(page.source, 8000),
-        }
-        for page in pages
-    ]
+    records = []
+    for page in pages:
+        search_text = plain_text(page.source, 8000)
+        if page_kind(page) == PageKind.HOME:
+            search_text = f"{search_text} {HOME_SEARCH_EXTRA} {HOME_MAINLINE}"
+            for _, label, fallback in KNOWLEDGE_STAGES:
+                search_text += f" {label} {fallback}"
+            for title, intro, _ in HOMEWORK_CARDS:
+                search_text += f" {title} {intro}"
+        records.append(
+            {
+                "title": "课程地图" if page_kind(page) == PageKind.HOME else page.title,
+                "group": page.group,
+                "path": display_path(page),
+                "url": page.rel_output.as_posix(),
+                "text": plain_text(page.source, 180),
+                "search": search_text,
+            }
+        )
     (SITE_DIR / "search-index.json").write_text(
         json.dumps(records, ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -897,7 +1172,14 @@ def write_pages(pages: list[Page]) -> None:
     pages_by_source = path_to_page(pages)
     for page in pages:
         page.output.parent.mkdir(parents=True, exist_ok=True)
-        page.output.write_text(render_page(page, pages, pages_by_source), encoding="utf-8")
+        kind = page_kind(page)
+        if kind == PageKind.HOME:
+            html = render_home_page(page, pages, pages_by_source)
+        elif kind == PageKind.HUB:
+            html = render_hub_page(page, pages, pages_by_source)
+        else:
+            html = render_page(page, pages, pages_by_source)
+        page.output.write_text(html, encoding="utf-8")
 
 
 def clean_site() -> None:
