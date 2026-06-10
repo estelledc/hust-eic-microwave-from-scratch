@@ -1,0 +1,11 @@
+# Normalize text files to LF in the repo and on checkout (macOS/Linux editors).
+* text=auto eol=lf
+
+# Binary assets — do not line-end normalize
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
