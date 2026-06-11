@@ -53,7 +53,7 @@ GITHUB_CORNER_HTML = f"""<a href="{GITHUB_REPO_URL}" class="github-corner" targe
   </svg>
 </a>
 <style>
-  .github-corner {{ position: fixed; top: 0; right: 0; z-index: 99; border: 0; }}
+  .github-corner {{ position: fixed; top: 0; right: 0; z-index: 90; border: 0; }}
   .github-corner svg {{ display: block; }}
   .github-corner:hover .octo-arm {{
     animation: octocat-wave 560ms ease-in-out;
