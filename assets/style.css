@@ -135,13 +135,15 @@ a:hover {
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 40;
+  z-index: 100;
   display: grid;
   grid-template-columns: auto minmax(220px, 1fr) minmax(260px, 520px) auto;
   gap: 14px;
   align-items: center;
   min-height: 72px;
   padding: 10px clamp(14px, 3vw, 34px);
+  /* 为右上角固定 GitHub 角标（80×80）留出空间，避免遮挡主题切换按钮 */
+  padding-right: calc(clamp(14px, 3vw, 34px) + 3.5rem);
   border-bottom: 1px solid var(--line);
   background: color-mix(in srgb, var(--paper) 88%, transparent);
   backdrop-filter: blur(18px);
@@ -967,6 +969,7 @@ body.sidebar-open {
 @media (max-width: 840px) {
   .topbar {
     grid-template-columns: auto minmax(0, 1fr) auto;
+    padding-right: calc(clamp(14px, 3vw, 34px) + 2.75rem);
   }
 
   .menu-button {
