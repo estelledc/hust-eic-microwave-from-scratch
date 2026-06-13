@@ -1,0 +1,1587 @@
+{
+  "source": "微波技术基础考前串讲_blq.pdf",
+  "pages": 75,
+  "sparse_threshold": 50,
+  "page_index": [
+    {
+      "page": 1,
+      "chapter": "封面",
+      "text_len": 28,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [],
+      "short_excerpt": "封面：微波技术基础；电信2301班 白洛琦；2026年6月9日。",
+      "range_summary": "封面与串讲信息。",
+      "treatment": "审计",
+      "targets": [],
+      "exercise_refs": [],
+      "vision_len": 32,
+      "vision_notes": "审计页，无习题",
+      "vision_reviewed": true
+    },
+    {
+      "page": 2,
+      "chapter": "第1章 绪论",
+      "text_len": 149,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "传输线",
+        "圆图",
+        "匹配",
+        "波导",
+        "矩形",
+        "圆波导",
+        "同轴",
+        "微带",
+        "谐振",
+        "谐振腔"
+      ],
+      "short_excerpt": "第1章 绪论 （微波概述） 第2章 传输线理论 （长线参量计算、工作状态、圆图、匹配） 第3章 微波传输线 （波动方程、矩形波导、圆波导、同轴线） 第4章 微带传输线 （微带线） 第5章 微波谐振腔 （圆柱腔、矩形腔、同轴腔） 第6章 微波网络基础 （二端口网络、散射矩阵） 考试范围:",
+      "range_summary": "考试范围六章；路/场/路场结合框架。",
+      "treatment": "融入",
+      "targets": [
+        "content/guide/exam-review.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 3,
+      "chapter": "第1章 绪论",
+      "text_len": 132,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "传输线",
+        "微带",
+        "谐振",
+        "谐振腔"
+      ],
+      "short_excerpt": " “路”分析 第二章传输线理论，根据传输线上电压波、电流波传播规律计算参数  “场”分析 第三、四、五章微波传输线、微带传输线、微波谐振腔 讨论电磁波在有界空间中的传播特性  “路”、“场”结合 第六章微波网络 考试范围: R、L、C电路计算 麦克斯韦方程组",
+      "range_summary": "考试范围六章；路/场/路场结合框架。",
+      "treatment": "融入",
+      "targets": [
+        "content/guide/exam-review.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 4,
+      "chapter": "第1章 绪论",
+      "text_len": 0,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [],
+      "short_excerpt": "六章总复习思维导图：概念→传输机制→波导→微带→谐振→网络；六步知识主线。",
+      "range_summary": "绪论配图页。",
+      "treatment": "审计",
+      "targets": [
+        "content/knowledge/01-传播与传输线/01-长线短线与分布参数.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 37,
+      "vision_notes": "绪论配图，对应 exam-review 6章导航",
+      "vision_reviewed": true
+    },
+    {
+      "page": 5,
+      "chapter": "第1章 绪论",
+      "text_len": 218,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [],
+      "short_excerpt": "微波基本特性 绪论 微波频率f：300M~300GHz 低频波段——集总参数电路 短线  – 频率低，无相位滞后、趋肤、辐射效应；  – 电压、电流有明确含义，电压、电流与空间  分布无关；  – 电场、磁场能量分别集中于电容、电感。 微波波段——分布参数电路 长线  – 频率高，有相位滞后、趋肤、辐射效应；  – 电压、电流不再有明确含义，电压、电流与  空间分布、时间均有关； ",
+      "range_summary": "微波频段、集总 vs 分布参数；三大参量引入。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/01-长线短线与分布参数.md",
+        "content/knowledge/01-传播与传输线/02-行波相位常数与特性阻抗.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 6,
+      "chapter": "第1章 绪论",
+      "text_len": 126,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "传输线"
+      ],
+      "short_excerpt": "用“路”的方法求解 长线理论 方程的解为： 相移常数： 单位距离内电压波和电流波相位的 变化量，单位为弧度/米 相速：电压波和电流波的等相位面沿传播方向移动的速度 vp 特性阻抗：传输线上入射波电压Ui (z)与入射波电流Ii (z)之比 参量表达式：",
+      "range_summary": "微波频段、集总 vs 分布参数；三大参量引入。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/01-长线短线与分布参数.md",
+        "content/knowledge/01-传播与传输线/02-行波相位常数与特性阻抗.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 7,
+      "chapter": "第2章 传输线",
+      "text_len": 0,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [],
+      "short_excerpt": "长线参量公式图页：分布参数 R/L/G/C 与传输线等效示意（手写标注）。",
+      "range_summary": "参量公式图页。",
+      "treatment": "审计",
+      "targets": [
+        "content/knowledge/01-传播与传输线/02-行波相位常数与特性阻抗.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 37,
+      "vision_notes": "公式图，链 02-行波相位常数",
+      "vision_reviewed": true
+    },
+    {
+      "page": 8,
+      "chapter": "第2章 传输线",
+      "text_len": 82,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "匹配"
+      ],
+      "short_excerpt": "重点内容 长线三大参量 性质： 匹配负载时，任意位置 的输入阻抗都等于Zc，为行波状态 λ/2重复性 λ/4变换性 （感性→容性 开路→短路 大于Z→小于Z）",
+      "range_summary": "Zc 行波性质、λ/2 与 λ/4 变换；Γ、ρ 及三者关系。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/03-反射驻波与输入阻抗.md",
+        "content/solutions/06-考前复习/99-公式与图像.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 9,
+      "chapter": "第2章 传输线",
+      "text_len": 16,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [],
+      "short_excerpt": "输入阻抗 Zin(l)=Zc(Zl+jZc tanβl)/(Zc+jZl tanβl) 及三推论：向源变换、反求 Zl、匹配点 Zin=Zc。",
+      "range_summary": "Zc 行波性质、λ/2 与 λ/4 变换；Γ、ρ 及三者关系。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/03-反射驻波与输入阻抗.md",
+        "content/solutions/06-考前复习/99-公式与图像.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 71,
+      "vision_notes": "03-反射驻波与输入阻抗",
+      "vision_reviewed": true
+    },
+    {
+      "page": 10,
+      "chapter": "第2章 传输线",
+      "text_len": 59,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "圆图"
+      ],
+      "short_excerpt": "反射系数 长线三大参量 输入阻抗与反射系数的关系： 性质： 大小恒定，构成圆图 λ/2重复性 取值范围为 0~1",
+      "range_summary": "Zc 行波性质、λ/2 与 λ/4 变换；Γ、ρ 及三者关系。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/03-反射驻波与输入阻抗.md",
+        "content/solutions/06-考前复习/99-公式与图像.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 11,
+      "chapter": "第2章 传输线",
+      "text_len": 118,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "传输线"
+      ],
+      "short_excerpt": "驻波比 长线三大参量 λ/4变换性： 电压振幅值最大点（波腹点）与最小点（波节点）之 间相距四分之一波长；电流的波腹点与波节点也相 距四分之一波长。 驻波比： 性质： 实数，不具有相位 驻波比沿传输线不变 取值范围为 1 ~ +∞",
+      "range_summary": "Zc 行波性质、λ/2 与 λ/4 变换；Γ、ρ 及三者关系。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/03-反射驻波与输入阻抗.md",
+        "content/solutions/06-考前复习/99-公式与图像.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 12,
+      "chapter": "第2章 传输线",
+      "text_len": 16,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [],
+      "short_excerpt": "Zin↔Γ↔S 互化：Zin=Zc(1+Γ)/(1-Γ)；S=(1+|Γ|)/(1-|Γ|)；|Γ|∈[0,1]，S∈[1,∞)。",
+      "range_summary": "Zc 行波性质、λ/2 与 λ/4 变换；Γ、ρ 及三者关系。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/03-反射驻波与输入阻抗.md",
+        "content/solutions/06-考前复习/99-公式与图像.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 65,
+      "vision_notes": "99-公式 Γ/ρ 关系",
+      "vision_reviewed": true
+    },
+    {
+      "page": 13,
+      "chapter": "第2章 传输线",
+      "text_len": 170,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "传输线",
+        "习题"
+      ],
+      "short_excerpt": "习题 1. 已知在距离负载z1=λ/8处的反射系数为Г(z1) = -j0.5，其中均匀无耗传输线特 性阻抗Zc = 60 Ω。（1）试求负载反射系数ГL和负载阻抗ZL；（2）如果传输线 上传输电磁波波长λp =10 cm，则求任意观察点z处的反射系数Г(z)和输入阻抗 Zin(z)；（3）试说明输入阻抗Zin(z)与负载阻抗ZL的关系。",
+      "range_summary": "习题：Γ(z1) 反求负载；SWR 与波节反求 ZL。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/01-传输线基础/04-Lec04.md",
+        "content/solutions/06-考前复习/README.md"
+      ],
+      "exercise_refs": [
+        "p13→Lec04·第3题",
+        "p14→Lec04·第4题"
+      ]
+    },
+    {
+      "page": 14,
+      "chapter": "第2章 传输线",
+      "text_len": 64,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "同轴",
+        "习题"
+      ],
+      "short_excerpt": "习题 1. 一个特性阻抗Z0为50Ω的同轴线，测得线上的驻波比ρ=2，一个电压波节点 距离终端负载为0.666λ，试求终端负载。",
+      "range_summary": "习题：Γ(z1) 反求负载；SWR 与波节反求 ZL。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/01-传输线基础/04-Lec04.md",
+        "content/solutions/06-考前复习/README.md"
+      ],
+      "exercise_refs": [
+        "p13→Lec04·第3题",
+        "p14→Lec04·第4题"
+      ]
+    },
+    {
+      "page": 15,
+      "chapter": "第2章 传输线",
+      "text_len": 12,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "传输线"
+      ],
+      "short_excerpt": "行波状态：ZL=Z0 匹配无反射；Γ=0、ρ=1、K=1；Z(z)=Z0；沿线幅值恒定、行波同相。",
+      "range_summary": "三种工作状态场图：行波、纯驻波、行驻波及波形分析。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/04-行波纯驻波与行驻波.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 49,
+      "vision_notes": "三种工作状态系列：行波",
+      "vision_reviewed": true
+    },
+    {
+      "page": 16,
+      "chapter": "第2章 传输线",
+      "text_len": 13,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "传输线"
+      ],
+      "short_excerpt": "纯驻波：|Γl|=1；Zl=0/∞/±jXl 三类；终端全反射，|U|/|I| 驻波分布与等效 L/C 段。",
+      "range_summary": "三种工作状态场图：行波、纯驻波、行驻波及波形分析。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/04-行波纯驻波与行驻波.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 54,
+      "vision_notes": "04-行波纯驻波与行驻波",
+      "vision_reviewed": true
+    },
+    {
+      "page": 17,
+      "chapter": "第2章 传输线",
+      "text_len": 17,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "传输线"
+      ],
+      "short_excerpt": "纯驻波·短路：Zl=0，Γl=-1，s→∞；U(z)、I(z) 分布；Zin(z)=jZc tanβz。",
+      "range_summary": "三种工作状态场图：行波、纯驻波、行驻波及波形分析。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/04-行波纯驻波与行驻波.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 52,
+      "vision_notes": "短路终端专节",
+      "vision_reviewed": true
+    },
+    {
+      "page": 18,
+      "chapter": "第2章 传输线",
+      "text_len": 13,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "传输线"
+      ],
+      "short_excerpt": "纯驻波·开路：Zl→∞，Il=0；Γ(z)=e^{-j2βz}；Zin(z)=-jZc cotβz；与短路 tan 对照。",
+      "range_summary": "三种工作状态场图：行波、纯驻波、行驻波及波形分析。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/04-行波纯驻波与行驻波.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 61,
+      "vision_notes": "开路终端专节",
+      "vision_reviewed": true
+    },
+    {
+      "page": 19,
+      "chapter": "第2章 传输线",
+      "text_len": 13,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "传输线"
+      ],
+      "short_excerpt": "纯电抗负载 Zl=±jX：电感等效短路支节 l_sl=(λ/2π)arctan(Xl/Zc)；电容等效开路/λ/4~λ/2 短路支节。",
+      "range_summary": "三种工作状态场图：行波、纯驻波、行驻波及波形分析。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/04-行波纯驻波与行驻波.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 67,
+      "vision_notes": "纯电抗等效支节长度",
+      "vision_reviewed": true
+    },
+    {
+      "page": 20,
+      "chapter": "第2章 传输线",
+      "text_len": 14,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "传输线"
+      ],
+      "short_excerpt": "驻波波形分析过渡页（正文空白，仅标题）。",
+      "range_summary": "三种工作状态场图：行波、纯驻波、行驻波及波形分析。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/04-行波纯驻波与行驻波.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 20,
+      "vision_notes": "占位页",
+      "vision_reviewed": true
+    },
+    {
+      "page": 21,
+      "chapter": "第2章 传输线",
+      "text_len": 13,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "传输线"
+      ],
+      "short_excerpt": "行驻波：波腹/波节位置与 |U|max/min；Rmax=sZc，Rmin=Zc/s；Rmax·Rmin=Zc²（λ/4 变换性）。",
+      "range_summary": "三种工作状态场图：行波、纯驻波、行驻波及波形分析。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/01-传播与传输线/04-行波纯驻波与行驻波.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 66,
+      "vision_notes": "04-行波纯驻波与行驻波 · 行驻波段",
+      "vision_reviewed": true
+    },
+    {
+      "page": 22,
+      "chapter": "第2章 传输线",
+      "text_len": 98,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "习题 Z L Z L Z L R 2 R 2 R 2 R 1 R 1 R 1 Z c Z c Z c Z c Z c Z c Z c Z c Z c Z c Z c Z c Z c Z c Z c",
+      "range_summary": "行驻波习题拓扑图（多段 R/Zc 网络）。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/01-传输线基础/04-Lec04.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 23,
+      "chapter": "第2章 传输线",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "习题1-8：已知 Zc、K、z_min 反求 ZL；波节处 Zin=K·Zc 再阻抗变换回负载。",
+      "range_summary": "Smith 圆图结构与圆图法习题（含答案页）。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/02-反射与匹配/02-Smith圆图怎么读.md",
+        "content/solutions/02-圆图与匹配/03-Lec08-09/README.md"
+      ],
+      "exercise_refs": [
+        "p23→习1-8",
+        "Lec04·第4题型"
+      ],
+      "vision_len": 48,
+      "vision_reviewed": true
+    },
+    {
+      "page": 24,
+      "chapter": "第2章 传输线",
+      "text_len": 5,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "圆图"
+      ],
+      "short_excerpt": "Smith 圆图三部分：等|Γ|极坐标、等电阻圆过(1,0)、等电抗圆弧过(1,0)；顺/逆旋转方向。",
+      "range_summary": "Smith 圆图结构与圆图法习题（含答案页）。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/02-反射与匹配/02-Smith圆图怎么读.md",
+        "content/solutions/02-圆图与匹配/03-Lec08-09/README.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 51,
+      "vision_notes": "02-Smith圆图怎么读",
+      "vision_reviewed": true
+    },
+    {
+      "page": 25,
+      "chapter": "第2章 传输线",
+      "text_len": 5,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "圆图"
+      ],
+      "short_excerpt": "阻抗圆图特殊点：短路(-1,0)、开路(1,0)、匹配(0,0)；右/左半实轴读 ρ/K；上半感性下半容性。",
+      "range_summary": "Smith 圆图结构与圆图法习题（含答案页）。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/02-反射与匹配/02-Smith圆图怎么读.md",
+        "content/solutions/02-圆图与匹配/03-Lec08-09/README.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 54,
+      "vision_notes": "圆图读数要点",
+      "vision_reviewed": true
+    },
+    {
+      "page": 26,
+      "chapter": "第2章 传输线",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "圆图习题：多段 λ/4 分支；A=j50，B=-j50，C=50，D=0，E=25-25j（Zc=50Ω）。",
+      "range_summary": "Smith 圆图结构与圆图法习题（含答案页）。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/02-反射与匹配/02-Smith圆图怎么读.md",
+        "content/solutions/02-圆图与匹配/03-Lec08-09/README.md"
+      ],
+      "exercise_refs": [
+        "p26→圆图综合",
+        "Lec08-09"
+      ],
+      "vision_len": 54,
+      "vision_reviewed": true
+    },
+    {
+      "page": 27,
+      "chapter": "第2章 传输线",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "例：Zc=400Ω，l=0.6λ≡0.1λ，y_in=0.35-j0.735，圆图逆时针向负载转 0.1λ 求 y_l。",
+      "range_summary": "Smith 圆图结构与圆图法习题（含答案页）。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/02-反射与匹配/02-Smith圆图怎么读.md",
+        "content/solutions/02-圆图与匹配/03-Lec08-09/README.md"
+      ],
+      "exercise_refs": [
+        "p27→圆图反求负载"
+      ],
+      "vision_len": 60,
+      "vision_reviewed": true
+    },
+    {
+      "page": 28,
+      "chapter": "第2章 传输线",
+      "text_len": 6,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "圆图解：A 点 g=0.35,b=-0.735；向负载转 0.1λ 得 y_l=1.9-j2.15；Y_l=y_l/Zc。",
+      "range_summary": "Smith 圆图结构与圆图法习题（含答案页）。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/02-反射与匹配/02-Smith圆图怎么读.md",
+        "content/solutions/02-圆图与匹配/03-Lec08-09/README.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 61,
+      "vision_notes": "p27 答案页",
+      "vision_reviewed": true
+    },
+    {
+      "page": 29,
+      "chapter": "第2章 传输线",
+      "text_len": 13,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "匹配"
+      ],
+      "short_excerpt": "λ/4 变换器：先找实数阻抗点 Rx，接 Zc1=√(Zc·Rx) 的 λ/4 段；窄带匹配。",
+      "range_summary": "λ/4 变换、单/双支节匹配；死区简答重点。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/02-反射与匹配/03-并联支节匹配.md",
+        "content/guide/exam-review.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 47,
+      "vision_notes": "03-并联支节匹配 · λ/4",
+      "vision_reviewed": true
+    },
+    {
+      "page": 30,
+      "chapter": "第2章 传输线",
+      "text_len": 11,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "匹配",
+        "支节"
+      ],
+      "short_excerpt": "单支节：线上找 g=1 点 d，并联支节 l 抵消 jb；两组解；可解析或圆图。",
+      "range_summary": "λ/4 变换、单/双支节匹配；死区简答重点。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/02-反射与匹配/03-并联支节匹配.md",
+        "content/guide/exam-review.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 40,
+      "vision_notes": "Lec08-09 单支节",
+      "vision_reviewed": true
+    },
+    {
+      "page": 31,
+      "chapter": "第2章 传输线",
+      "text_len": 11,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "匹配",
+        "支节"
+      ],
+      "short_excerpt": "双支节辅助圆法：g=1 圆逆旋 Δφ=4πd2/λ；d2=λ/8/λ/4/3λ/8 对应 90°/180°/270°。",
+      "range_summary": "λ/4 变换、单/双支节匹配；死区简答重点。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/02-反射与匹配/03-并联支节匹配.md",
+        "content/guide/exam-review.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 59,
+      "vision_notes": "03-并联支节匹配 · 双支节",
+      "vision_reviewed": true
+    },
+    {
+      "page": 32,
+      "chapter": "第2章 传输线",
+      "text_len": 17,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "匹配",
+        "死区"
+      ],
+      "short_excerpt": "死区简答：与辅助圆相切的等G圆内无法到达；三 stub 可跳出；d2=λ/4 时死区最大。",
+      "range_summary": "λ/4 变换、单/双支节匹配；死区简答重点。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/02-反射与匹配/03-并联支节匹配.md",
+        "content/guide/exam-review.md"
+      ],
+      "exercise_refs": [
+        "p32→死区简答",
+        "exam-review 第5项"
+      ],
+      "vision_len": 45,
+      "vision_notes": "=#stub-dead-zone",
+      "vision_reviewed": true
+    },
+    {
+      "page": 33,
+      "chapter": "第2章 传输线",
+      "text_len": 92,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "传输线",
+        "圆图",
+        "匹配",
+        "习题"
+      ],
+      "short_excerpt": "习题 传输线终端负载的导纳为YL=（0.0425+j0.0175）S，用并联单株短路线进行匹配，主线和 支线的特性阻抗均为100Ω，试分别用1）解析法和2）圆图法，求支线的位置和长度。",
+      "range_summary": "习题：并联单支节匹配 YL=(0.0425+j0.0175)S。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/02-圆图与匹配/03-Lec08-09/第01题.md"
+      ],
+      "exercise_refs": [
+        "p33→Lec08-09 单支节"
+      ]
+    },
+    {
+      "page": 34,
+      "chapter": "第2章 传输线",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "例题：Zc=50Ω，Zl=50+j25，λ=10cm，并联短路支节求接入位置与支节长度。",
+      "range_summary": "匹配习题续页。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/02-圆图与匹配/03-Lec08-09/README.md"
+      ],
+      "exercise_refs": [
+        "p34→单支节算例"
+      ],
+      "vision_len": 44,
+      "vision_reviewed": true
+    },
+    {
+      "page": 35,
+      "chapter": "第3章 微波传输线",
+      "text_len": 18,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "传输线"
+      ],
+      "short_excerpt": "进入场分析：导波/波导/谐振器定义；TEM(Ez=Hz=0)、TM(Hz=0)、TE(Ez=0) 三类模。",
+      "range_summary": "进入场分析过渡页。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/03-波导中的场与边界/00-从传输线到波导.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 53,
+      "vision_notes": "00-从传输线到波导",
+      "vision_reviewed": true
+    },
+    {
+      "page": 36,
+      "chapter": "第3章 微波传输线",
+      "text_len": 49,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "传输线",
+        "TEM",
+        "TE"
+      ],
+      "short_excerpt": "简答：单导体不能传 TEM——空心无纵向 J，TEM 又无 Ez，无法维持横向 H（麦克斯韦旋度）。",
+      "range_summary": "简答：单导体为何不能传 TEM。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/04-截止色散与速度/04-为什么空心波导没有TEM.md"
+      ],
+      "exercise_refs": [
+        "p36→简答无TEM",
+        "04-为什么空心波导没有TEM"
+      ],
+      "vision_len": 50,
+      "vision_reviewed": true
+    },
+    {
+      "page": 37,
+      "chapter": "第3章 微波传输线",
+      "text_len": 12,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导"
+      ],
+      "short_excerpt": "波导 γ=α+jβ；无耗 α=0；Kc²=K²-β²；fc=Kc/(2π√με)；λc=2π/Kc。",
+      "range_summary": "波导传输参量：λg、vp、vg 及参量关系图。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/04-截止色散与速度/01-三种波长.md",
+        "content/knowledge/04-截止色散与速度/02-色散相速与群速.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 50,
+      "vision_notes": "04-截止色散与速度",
+      "vision_reviewed": true
+    },
+    {
+      "page": 38,
+      "chapter": "第3章 微波传输线",
+      "text_len": 64,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "波导"
+      ],
+      "short_excerpt": "波导的传输参量 重点内容 波导波长 ：波导内沿轴向传播的电磁波相邻的两个同相位点之间的距离, 也就是相位 相差2π的两点间的距离",
+      "range_summary": "波导传输参量：λg、vp、vg 及参量关系图。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/04-截止色散与速度/01-三种波长.md",
+        "content/knowledge/04-截止色散与速度/02-色散相速与群速.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 39,
+      "chapter": "第3章 微波传输线",
+      "text_len": 12,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导"
+      ],
+      "short_excerpt": "波型阻抗：ZTE=η·λg/λ>η；ZTM=η·λ/λg<η；ZTEM=η；各截面相同。",
+      "range_summary": "波导传输参量：λg、vp、vg 及参量关系图。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/04-截止色散与速度/01-三种波长.md",
+        "content/knowledge/04-截止色散与速度/02-色散相速与群速.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 44,
+      "vision_notes": "05-矩形波导工程",
+      "vision_reviewed": true
+    },
+    {
+      "page": 40,
+      "chapter": "第3章 微波传输线",
+      "text_len": 15,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导"
+      ],
+      "short_excerpt": "参量对照：自由(k,λ,v=c,f)↔波导(β,λg,vp/vg,f)↔截止(kc,λc,fc)；kc²=k²-β²。",
+      "range_summary": "波导传输参量：λg、vp、vg 及参量关系图。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/04-截止色散与速度/01-三种波长.md",
+        "content/knowledge/04-截止色散与速度/02-色散相速与群速.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 59,
+      "vision_notes": "01-三种波长 · 02-色散相速与群速",
+      "vision_reviewed": true
+    },
+    {
+      "page": 41,
+      "chapter": "第3-5章 汇总",
+      "text_len": 73,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "波导",
+        "矩形",
+        "圆波导",
+        "同轴",
+        "谐振",
+        "谐振腔",
+        "TE",
+        "TM"
+      ],
+      "short_excerpt": "公式汇总：矩形/圆/同轴 Kc 与主模；矩形/圆柱腔 K；同轴腔 λ/2、λ/4、电容加载三类。",
+      "range_summary": "波导与谐振腔公式汇总表（矩形/圆/同轴/腔体）。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/06-考前复习/99-公式与图像.md"
+      ],
+      "exercise_refs": [
+        "p41→99-公式汇总"
+      ],
+      "vision_len": 48,
+      "vision_notes": "=#wg-cavity-formulas",
+      "vision_reviewed": true
+    },
+    {
+      "page": 42,
+      "chapter": "第3章 微波传输线",
+      "text_len": 4,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导",
+        "矩形"
+      ],
+      "short_excerpt": "矩形 TE/TM：Kc=√((mπ/a)²+(nπ/b)²)；TE m或n可有一个为0，TM 均非0；主模 TE10/TM11。",
+      "range_summary": "矩形波导传输特性、简并模定义与习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/05-矩形波导工程计算/01-模谱主模与简并.md",
+        "content/solutions/03-规则波导与矩形波导/03-Lec13-16/README.md"
+      ],
+      "exercise_refs": [
+        "p45-46→2-5~2-9 型"
+      ],
+      "vision_len": 64,
+      "vision_notes": "01-模谱主模与简并",
+      "vision_reviewed": true
+    },
+    {
+      "page": 43,
+      "chapter": "第3章 微波传输线",
+      "text_len": 24,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导",
+        "矩形",
+        "简并"
+      ],
+      "short_excerpt": "矩形波导 λc、λg、vp、vg、ZTE/ZTM；模谱图；简并模：同 Kc/λc 不同场分布的 TE_mn 与 TM_mn。",
+      "range_summary": "矩形波导传输特性、简并模定义与习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/05-矩形波导工程计算/01-模谱主模与简并.md",
+        "content/solutions/03-规则波导与矩形波导/03-Lec13-16/README.md"
+      ],
+      "exercise_refs": [
+        "p45-46→2-5~2-9 型"
+      ],
+      "vision_len": 62,
+      "vision_notes": "简并模简答",
+      "vision_reviewed": true
+    },
+    {
+      "page": 44,
+      "chapter": "第3章 微波传输线",
+      "text_len": 6,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导",
+        "矩形"
+      ],
+      "short_excerpt": "TE10 专节：Kc=π/a，λc=2a；Pbr 与 αc、αd 公式（dB/m）。",
+      "range_summary": "矩形波导传输特性、简并模定义与习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/05-矩形波导工程计算/01-模谱主模与简并.md",
+        "content/solutions/03-规则波导与矩形波导/03-Lec13-16/README.md"
+      ],
+      "exercise_refs": [
+        "p45-46→2-5~2-9 型"
+      ],
+      "vision_len": 42,
+      "vision_notes": "05-波导段反射驻波",
+      "vision_reviewed": true
+    },
+    {
+      "page": 45,
+      "chapter": "第3章 微波传输线",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "例：a=8cm,b=4cm,f=3GHz→λ=10cm；仅 TE10(λc=16cm) 可传，TE20/TE01 截止。",
+      "range_summary": "矩形波导传输特性、简并模定义与习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/05-矩形波导工程计算/01-模谱主模与简并.md",
+        "content/solutions/03-规则波导与矩形波导/03-Lec13-16/README.md"
+      ],
+      "exercise_refs": [
+        "p45→2-5型",
+        "Lec13-16"
+      ],
+      "vision_len": 60,
+      "vision_reviewed": true
+    },
+    {
+      "page": 46,
+      "chapter": "第3章 微波传输线",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "例：23×10mm 铜波导 10GHz TE10：λc=4.6cm，λg、vp、vg、Z、Pbr、α 与 PL 计算。",
+      "range_summary": "矩形波导传输特性、简并模定义与习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/05-矩形波导工程计算/01-模谱主模与简并.md",
+        "content/solutions/03-规则波导与矩形波导/03-Lec13-16/README.md"
+      ],
+      "exercise_refs": [
+        "p46→2-9型"
+      ],
+      "vision_len": 59,
+      "vision_reviewed": true
+    },
+    {
+      "page": 47,
+      "chapter": "第3章 微波传输线",
+      "text_len": 7,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导",
+        "圆波导",
+        "TM"
+      ],
+      "short_excerpt": "圆波导 TM：Jm(KcR)=0，Kc=νmn/R，λc=2πR/νmn；TM01 主模 λc=2.62R。",
+      "range_summary": "圆波导 TE/TM 模、极化简并简答与习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/06-圆波导同轴线微带线/01-圆波导模式与贝塞尔根.md",
+        "content/solutions/04-后续专题/01-Lec17-18-圆波导/README.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 54,
+      "vision_notes": "01-圆波导模式",
+      "vision_reviewed": true
+    },
+    {
+      "page": 48,
+      "chapter": "第3章 微波传输线",
+      "text_len": 7,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导",
+        "圆波导",
+        "TE"
+      ],
+      "short_excerpt": "圆波导 TE：J'm(KcR)=0，Kc=μmn/R；主模 TE11(λc=3.41R)；TE01 λc=1.64R。",
+      "range_summary": "圆波导 TE/TM 模、极化简并简答与习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/06-圆波导同轴线微带线/01-圆波导模式与贝塞尔根.md",
+        "content/solutions/04-后续专题/01-Lec17-18-圆波导/README.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 59,
+      "vision_notes": "01-圆波导模式",
+      "vision_reviewed": true
+    },
+    {
+      "page": 49,
+      "chapter": "第3章 微波传输线",
+      "text_len": 3,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导",
+        "圆波导"
+      ],
+      "short_excerpt": "圆波导单模：TE11 主模；2.61R<λ<3.41R（TM01 与 TE11 之间）。",
+      "range_summary": "圆波导 TE/TM 模、极化简并简答与习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/06-圆波导同轴线微带线/01-圆波导模式与贝塞尔根.md",
+        "content/solutions/04-后续专题/01-Lec17-18-圆波导/README.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 44,
+      "vision_notes": "单模条件",
+      "vision_reviewed": true
+    },
+    {
+      "page": 50,
+      "chapter": "第3章 微波传输线",
+      "text_len": 15,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导",
+        "圆波导",
+        "简并"
+      ],
+      "short_excerpt": "圆波导简并：EH 简并 μ0n=ν1n→TE0n 与 TM1n；极化简并 cos/sin(mφ) 正交（m≠0）。",
+      "range_summary": "圆波导 TE/TM 模、极化简并简答与习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/06-圆波导同轴线微带线/01-圆波导模式与贝塞尔根.md",
+        "content/solutions/04-后续专题/01-Lec17-18-圆波导/README.md"
+      ],
+      "exercise_refs": [
+        "p50→简并简答"
+      ],
+      "vision_len": 57,
+      "vision_reviewed": true
+    },
+    {
+      "page": 51,
+      "chapter": "第3章 微波传输线",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "习题：R=2cm TE01，空气 fc；填 εr=2.1 保持 fc 时 a→1.38cm（λc=1.64a）。",
+      "range_summary": "圆波导 TE/TM 模、极化简并简答与习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/06-圆波导同轴线微带线/01-圆波导模式与贝塞尔根.md",
+        "content/solutions/04-后续专题/01-Lec17-18-圆波导/README.md"
+      ],
+      "exercise_refs": [
+        "p51→圆波导算例",
+        "Lec17-18"
+      ],
+      "vision_len": 56,
+      "vision_reviewed": true
+    },
+    {
+      "page": 52,
+      "chapter": "第3章 微波传输线",
+      "text_len": 5,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导",
+        "同轴"
+      ],
+      "short_excerpt": "同轴 TEM：Kc=0，β=K，λg=λ，vp=vg；高次模 TE/TM；单模 λ>π(a+b)；b/a=2.3→50Ω。",
+      "range_summary": "同轴线 TEM 与单模尺寸选择原则、习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/06-圆波导同轴线微带线/02-同轴线TEM与高阶模.md",
+        "content/solutions/04-后续专题/02-Lec19-20-同轴与微带/README.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 61,
+      "vision_notes": "02-同轴线TEM",
+      "vision_reviewed": true
+    },
+    {
+      "page": 53,
+      "chapter": "第3章 微波传输线",
+      "text_len": 15,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "波导"
+      ],
+      "short_excerpt": "单模尺寸：矩形 a<λ<2a 且 λ>2b；圆 2.61R<λ<3.41R；同轴 λ>π(a+b)。",
+      "range_summary": "同轴线 TEM 与单模尺寸选择原则、习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/06-圆波导同轴线微带线/02-同轴线TEM与高阶模.md",
+        "content/solutions/04-后续专题/02-Lec19-20-同轴与微带/README.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 50,
+      "vision_notes": "工程选择原则",
+      "vision_reviewed": true
+    },
+    {
+      "page": 54,
+      "chapter": "第3章 微波传输线",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "习题2-9~2-13：矩形单模条件、10GHz 尺寸、截止频率、给定尺寸/频率求可传模。",
+      "range_summary": "同轴线 TEM 与单模尺寸选择原则、习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/06-圆波导同轴线微带线/02-同轴线TEM与高阶模.md",
+        "content/solutions/04-后续专题/02-Lec19-20-同轴与微带/README.md"
+      ],
+      "exercise_refs": [
+        "p54→2-9~2-13",
+        "Lec13-16 README"
+      ],
+      "vision_len": 44,
+      "vision_reviewed": true
+    },
+    {
+      "page": 55,
+      "chapter": "第3章 微波传输线",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "习题2-26~2-30：圆波导 λc 表、10GHz 模式判定、TE01 fc、低损耗模特性、介质改半径。",
+      "range_summary": "同轴线 TEM 与单模尺寸选择原则、习题。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/06-圆波导同轴线微带线/02-同轴线TEM与高阶模.md",
+        "content/solutions/04-后续专题/02-Lec19-20-同轴与微带/README.md"
+      ],
+      "exercise_refs": [
+        "p55→2-26~2-30",
+        "Lec17-18"
+      ],
+      "vision_len": 53,
+      "vision_reviewed": true
+    },
+    {
+      "page": 56,
+      "chapter": "第3章 微波传输线",
+      "text_len": 94,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "同轴",
+        "TEM",
+        "TE",
+        "习题"
+      ],
+      "short_excerpt": "习题 1. 欲在同轴线中只传输TEM波型，其条件是什么；若一个空气填充的同轴线，其 内导体的外半径a=5cm，外导体的内半径b=5.6a，求只传输TEM波型时，最短 的工作波长应等于多少？",
+      "range_summary": "习题：同轴 TEM 条件与最短工作波长。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/04-后续专题/02-Lec19-20-同轴与微带/第07题.md"
+      ],
+      "exercise_refs": [
+        "p56→同轴 TEM"
+      ]
+    },
+    {
+      "page": 57,
+      "chapter": "第5章 谐振腔",
+      "text_len": 484,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "谐振",
+        "LC"
+      ],
+      "short_excerpt": "简答：LC 高频缺点(损耗↑、尺寸↓)；微波谐振器为分布参数、多谐振点、Q 高；基本参量 fr、Q0、G0。",
+      "range_summary": "简答：LC 回路升高频缺点 vs 微波谐振器三点对比。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md"
+      ],
+      "exercise_refs": [
+        "p57→LC对比简答"
+      ],
+      "vision_len": 54,
+      "vision_notes": "=#lc-vs-microwave-resonator",
+      "vision_reviewed": true
+    },
+    {
+      "page": 58,
+      "chapter": "第5章 谐振腔",
+      "text_len": 484,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "谐振",
+        "LC"
+      ],
+      "short_excerpt": "微波谐振器 简答题 低频LC振荡回路随着频率的升高，LC回路出现的缺点： ①损耗增加。这是因为导体损耗、介质损耗及辐射损耗均随频率的升高而增大，从而导致品 质因数降低，选频特性变差。 ②尺寸变小。为了提高ω0必须减少LC数值，回路尺寸相应地需要变小，这将导致回路储能减 少，功率容量降低，寄生参量影响变大，加工困难。 微波谐振器和LC谐振回路的不同之处： 1、LC谐振回路的电场能量集中在电容器中，磁",
+      "range_summary": "简答：LC 回路升高频缺点 vs 微波谐振器三点对比。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 59,
+      "chapter": "第5章 谐振腔",
+      "text_len": 44,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "谐振",
+        "谐振腔"
+      ],
+      "short_excerpt": "圆柱腔 TE_mnp：βl=pπ，K=√((μmn/R)²+(pπ/l)²)；p 为 z 向半波节数。",
+      "range_summary": "圆柱腔 TE/TM 谐振条件与计算例题。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/05-谐振器网络元件与测量综合/01-Lec22-23-微波谐振器/第03题.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 51,
+      "vision_notes": "Lec22-23 圆柱腔",
+      "vision_reviewed": true
+    },
+    {
+      "page": 60,
+      "chapter": "第5章 谐振腔",
+      "text_len": 46,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "谐振",
+        "谐振腔"
+      ],
+      "short_excerpt": "圆柱腔 TM_mnp：Jm(νmn R)=0，K=√((νmn/R)²+(pπ/l)²)；p 可取 0。",
+      "range_summary": "圆柱腔 TE/TM 谐振条件与计算例题。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/05-谐振器网络元件与测量综合/01-Lec22-23-微波谐振器/第03题.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 52,
+      "vision_notes": "Lec22-23 圆柱腔 TM",
+      "vision_reviewed": true
+    },
+    {
+      "page": 61,
+      "chapter": "第5章 谐振腔",
+      "text_len": 237,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "谐振",
+        "谐振腔",
+        "TE",
+        "TM"
+      ],
+      "short_excerpt": "圆柱形谐振腔 计算题 R R K mn c / 832 .3 /     2 2 011 2 1 64 .1 1 1 TE           l R r R R K mn c / 841 .1 /     2 2 111 2 1 41 .3 1 1 TE           l R r R R v K mn c / ",
+      "range_summary": "圆柱腔 TE/TM 谐振条件与计算例题。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/05-谐振器网络元件与测量综合/01-Lec22-23-微波谐振器/第03题.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 62,
+      "chapter": "第5章 谐振腔",
+      "text_len": 5,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "矩形",
+        "谐振",
+        "谐振腔"
+      ],
+      "short_excerpt": "矩形腔 TE_mnp：k=√((mπ/a)²+(nπ/b)²+(pπ/l)²)；与波导区别在 z 向 sin/cos；最低 TE101。",
+      "range_summary": "矩形谐振腔场结构与公式图页。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 68,
+      "vision_notes": "01-微波谐振器",
+      "vision_reviewed": true
+    },
+    {
+      "page": 63,
+      "chapter": "第5章 谐振腔",
+      "text_len": 5,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "矩形",
+        "谐振",
+        "谐振腔"
+      ],
+      "short_excerpt": "矩形腔 TM_mnp：Ez 正弦×正弦×余弦；m,n≥1；p 可取 0；Q 公式见 P141-142。",
+      "range_summary": "矩形谐振腔场结构与公式图页。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 51,
+      "vision_notes": "01-微波谐振器 TM",
+      "vision_reviewed": true
+    },
+    {
+      "page": 64,
+      "chapter": "第5章 谐振腔",
+      "text_len": 5,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "矩形",
+        "谐振",
+        "谐振腔"
+      ],
+      "short_excerpt": "矩形腔 fr、λr 通式；TE101：λr=2al/√(a²+l²)；TE 的 p≥1，TM 的 p 可取 0。",
+      "range_summary": "矩形谐振腔场结构与公式图页。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md"
+      ],
+      "exercise_refs": [],
+      "vision_len": 56,
+      "vision_notes": "谐振波长频率",
+      "vision_reviewed": true
+    },
+    {
+      "page": 65,
+      "chapter": "第5章 谐振腔",
+      "text_len": 552,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "同轴",
+        "谐振",
+        "谐振腔"
+      ],
+      "short_excerpt": "同轴腔：λ/2 型 l=pλr/2；λ/4 型 l=(2p-1)λr/4；电容加载 AA' 面 ΣB=0 求 fr 或 l。",
+      "range_summary": "同轴腔 λ/2、λ/4、电容加载谐振条件（电纳法）。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md"
+      ],
+      "exercise_refs": [
+        "p65→同轴腔电纳法"
+      ],
+      "vision_len": 62,
+      "vision_notes": "=#coaxial-cavity",
+      "vision_reviewed": true
+    },
+    {
+      "page": 66,
+      "chapter": "第5章 谐振腔",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "习题5-6~5-8：TM021 腔长、l<2.1R 最低模、TE011 填介质改长度关系。",
+      "range_summary": "谐振腔习题图页。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/05-谐振器网络元件与测量综合/01-Lec22-23-微波谐振器/README.md",
+        "content/solutions/06-考前复习/README.md"
+      ],
+      "exercise_refs": [
+        "p66→4-8~4-15型",
+        "Lec22-23 README"
+      ],
+      "vision_len": 45,
+      "vision_reviewed": true
+    },
+    {
+      "page": 67,
+      "chapter": "第5章 谐振腔",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "习题5-21 立方 TE101 求 λr；5-24 双波长双模式定 a,l（TE101@10cm、TE103@5cm）。",
+      "range_summary": "谐振腔习题图页。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/05-谐振器网络元件与测量综合/01-Lec22-23-微波谐振器/README.md",
+        "content/solutions/06-考前复习/README.md"
+      ],
+      "exercise_refs": [
+        "p67→5-21/5-24"
+      ],
+      "vision_len": 60,
+      "vision_reviewed": true
+    },
+    {
+      "page": 68,
+      "chapter": "第6章 微波网络",
+      "text_len": 87,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [],
+      "short_excerpt": "微波网络 阻抗矩阵 双口 网络 T 1 T 2 ＋ － U 1 ＋ － U 2 Z e1 Z e2 I 1 I 2 U1=Z11I1+Z12I2 U2=Z21I1+Z22I2",
+      "range_summary": "Z 矩阵、S 矩阵定义；互易/对称/无耗条件。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 69,
+      "chapter": "第6章 微波网络",
+      "text_len": 69,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "散射"
+      ],
+      "short_excerpt": "微波网络 散射矩阵 T 1 T 2 双口 网络 a 1 a 2 b 1 b 2 b1=S11a1+S12a2 b2=S21a1+S22a2",
+      "range_summary": "Z 矩阵、S 矩阵定义；互易/对称/无耗条件。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 70,
+      "chapter": "第6章 微波网络",
+      "text_len": 206,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "散射"
+      ],
+      "short_excerpt": "微波网络 散射矩阵 互易网络： S12=S21 ［S］=［S］T T号表示转置矩阵 对称网络： S11=S22 S12=S21 无耗网络： ［S］+［S］=［I］ +号表示转置共轭矩阵,［I］为单位矩阵 互易无耗网络： ［S］*［S］=［I］ *号表示共轭矩阵, ［I］为单位矩阵 互易无耗网络的［S］具有单式性（么正性、一元性）： 2 2 11 21 1 S S   2 2 12 22 1 S",
+      "range_summary": "Z 矩阵、S 矩阵定义；互易/对称/无耗条件。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 71,
+      "chapter": "第6章 微波网络",
+      "text_len": 49,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [],
+      "short_excerpt": "三点测量法：Γin=S11+S12²ΓL/(1-S22ΓL)；短路/开路/匹配得 Γs,Γo,Γm，解 S11,S12²,S22。",
+      "range_summary": "三点测量法示意图。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/05-谐振器网络元件与测量综合/02-Lec24-微波网络基础/第04题.md"
+      ],
+      "exercise_refs": [
+        "p71→Lec24·第4题"
+      ],
+      "vision_len": 65,
+      "vision_reviewed": true
+    },
+    {
+      "page": 72,
+      "chapter": "第6章 微波网络",
+      "text_len": 348,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "匹配"
+      ],
+      "short_excerpt": "工作特性参量（输出匹配）：S11=Γi；ρ=(1+|S11|)/(1-|S11|)；T=S21；θ=arg S21。",
+      "range_summary": "工作特性参量：S11、插入驻波比、T、插入相移、插入衰减。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.md"
+      ],
+      "exercise_refs": [
+        "p72→工作特性参量"
+      ],
+      "vision_len": 58,
+      "vision_notes": "=#network-operating-params",
+      "vision_reviewed": true
+    },
+    {
+      "page": 73,
+      "chapter": "第6章 微波网络",
+      "text_len": 119,
+      "ocr_len": 0,
+      "sparse": false,
+      "tags": [
+        "匹配"
+      ],
+      "short_excerpt": "微波网络 工作特性参量 5.插入衰减A 定义：当网络输出端接匹配负载时，输入口的输入功率Pi与负载吸收功率Pl 之比称为网络的插入衰减，记以A，即: (4. 5. 6) 显然，上式等于电压传输系数T的模的倒数平方，故: (4. 5. 7)",
+      "range_summary": "工作特性参量：S11、插入驻波比、T、插入相移、插入衰减。",
+      "treatment": "融入",
+      "targets": [
+        "content/knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.md"
+      ],
+      "exercise_refs": []
+    },
+    {
+      "page": 74,
+      "chapter": "第6章 微波网络",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "习题7-16/6-4-2型：互易二端口 Γ1=S11+S12²Γ2/(1-S22Γ2)；魔 T/混合器散射矩阵题。",
+      "range_summary": "散射矩阵习题（6-4-2、6-11、6-12 等型）。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/06-考前复习/第02题-魔T散射矩阵分析.md",
+        "content/solutions/06-考前复习/第03题-混合器散射矩阵分析.md",
+        "content/solutions/06-考前复习/第04题-可变衰减器魔T结构.md"
+      ],
+      "exercise_refs": [
+        "p74→6-4-2/6-11",
+        "第02题-魔T"
+      ],
+      "vision_len": 57,
+      "vision_reviewed": true
+    },
+    {
+      "page": 75,
+      "chapter": "第6章 微波网络",
+      "text_len": 2,
+      "ocr_len": 0,
+      "sparse": true,
+      "tags": [
+        "习题"
+      ],
+      "short_excerpt": "习题7-30：Γ1s/Γ1o/Γ1c 三点法；S11=Γ1c，S22 与 S12 显式解；6-12 可变衰减器型。",
+      "range_summary": "散射矩阵习题（6-4-2、6-11、6-12 等型）。",
+      "treatment": "融入",
+      "targets": [
+        "content/solutions/06-考前复习/第02题-魔T散射矩阵分析.md",
+        "content/solutions/06-考前复习/第03题-混合器散射矩阵分析.md",
+        "content/solutions/06-考前复习/第04题-可变衰减器魔T结构.md"
+      ],
+      "exercise_refs": [
+        "p75→6-12",
+        "第04题-可变衰减器魔T"
+      ],
+      "vision_len": 57,
+      "vision_reviewed": true
+    }
+  ]
+}
