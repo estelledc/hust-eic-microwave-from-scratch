@@ -40,28 +40,7 @@ jobs:
         run: python scripts/tools/check_exam_integration.py
 
       - name: Verify internal links
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import re
-          from urllib.parse import unquote
-          site = Path("site")
-          LINK_RE = re.compile(r'(href|src)="([^"#?][^"#?]*)"')
-          missing = []
-          for f in site.rglob("*.html"):
-              for attr, link in LINK_RE.findall(f.read_text()):
-                  if link.startswith(("http://", "https://", "mailto:", "//", "data:")):
-                      continue
-                  target = (f.parent / unquote(link)).resolve()
-                  if not target.exists():
-                      missing.append(f"{f.relative_to(site)}: {attr}={link}")
-          if missing:
-              print("Missing links:")
-              for m in missing[:20]:
-                  print(" ", m)
-              raise SystemExit(1)
-          print("All internal links resolved.")
-          PY
+        run: python scripts/tools/check_internal_links.py
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
