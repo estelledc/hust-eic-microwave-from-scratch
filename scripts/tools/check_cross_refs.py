@@ -38,7 +38,7 @@ def md_links(text: str) -> list[str]:
 
 def page_links_to(page: Path, target_dir: Path) -> list[str]:
     """Return resolved links from `page` that point inside `target_dir`."""
-    text = page.read_text()
+    text = page.read_text(encoding="utf-8")
     out = []
     for raw in md_links(text):
         if raw.startswith(("http://", "https://", "mailto:", "#")):
@@ -132,7 +132,7 @@ def main() -> None:
     lines.append("- 修复后重跑本脚本验证。")
 
     REPORT.parent.mkdir(parents=True, exist_ok=True)
-    REPORT.write_text("\n".join(lines) + "\n")
+    REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Report written to {REPORT.relative_to(ROOT)}")
     print(f"Knowledge pages without solution/experiment link: {len(knowledge_unlinked)}")
     print(f"Solution pages without knowledge link: {len(solutions_no_knowledge_link)}")
