@@ -68,4 +68,20 @@
 | 电子板复习题.md | 缺口大题 | `content/solutions/06-考前复习/第01–04题*.md` | 模式图、魔 T、混合器、可变衰减器标准解答 | — |
 | — | 模式图配图 | `assets/images/gpt-cylindrical-cavity-mode-chart.webp` | 示意模式图（脚本生成，非教材原图） | 教材扫描图 |
 
-索引入口：[考前复习总览](../content/guide/exam-review.md)、[电子板习题索引](../content/solutions/06-考前复习/README.md)。
+### BLQ 考前串讲 PDF（2026-06-13）
+
+`sources/微波技术基础考前串讲_blq.pdf`（75 页，电信 2301 班）为第二串讲源。抽取脚本：`scripts/tools/extract_blq_review.py`；逐页索引：`docs/blq_review_extraction_index.json`；页段审计：`docs/BLQ_REVIEW_INTEGRATION.md`。
+
+| 源文件 | 主题 | 融入页面 | 采用内容 | 舍弃内容 |
+|---|---|---|---|---|
+| blq.pdf | 教材 6 章导航、13 项划重点补强 | `content/guide/exam-review.md` | 6 章页码表、双支节死区、LC 对比、工作特性参量入口 | PDF 原文、整页截图 |
+| blq.pdf p57–58 | LC vs 微波谐振器简答 | `content/knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md` | 缺点 2 条 + 对比 3 条 + 参量变化 | 重复板书 |
+| blq.pdf p65 | 同轴腔电纳法 | 同上 · 同轴腔小节 | 电容加载谐振条件表述 | 公式 OCR 噪声 |
+| blq.pdf p72–73 | 工作特性参量 | `content/knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.md` | 插入反射/SWR/T/θ/A 五参量表 | — |
+| blq.pdf p32 | 双支节死区简答 | `content/knowledge/02-反射与匹配/03-并联支节匹配.md` | 定义、成因、间距、工程处理 | — |
+| blq.pdf p41 | 波导/谐振腔公式汇总 | `content/solutions/06-考前复习/99-公式与图像.md` | 一行式速查表 | 原图 |
+| blq.pdf 习题页 | 页码→题解映射 | `content/solutions/06-考前复习/README.md` | BLQ 页码索引表 | 图像页原题扫描 |
+| blq.pdf | 6 章↔Lec↔阶段 | `content/appendices/讲次-作业-教材章节-知识点矩阵.md` | 对照表 | — |
+| — | 关键页预览 | `assets/course/blq-review-p*-preview.webp` | 维护者复核用（稀疏页全量 + 关键页） | 课件源预览仍在 `assets/images/course/course-*` |
+
+索引入口：[考前复习总览](../content/guide/exam-review.md)、[电子板习题索引](../content/solutions/06-考前复习/README.md)、[BLQ 页码映射](../content/solutions/06-考前复习/README.md#blq-串讲页码映射)。

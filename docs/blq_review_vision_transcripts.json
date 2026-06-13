@@ -1,0 +1,234 @@
+{
+  "_comment": "Vision transcripts from Cursor chat (2026-06-13). Keys are PDF page numbers.",
+  "pages": {
+    "1": {
+      "short_excerpt": "封面：微波技术基础；电信2301班 白洛琦；2026年6月9日。",
+      "notes": "审计页，无习题"
+    },
+    "4": {
+      "short_excerpt": "六章总复习思维导图：概念→传输机制→波导→微带→谐振→网络；六步知识主线。",
+      "notes": "绪论配图，对应 exam-review 6章导航"
+    },
+    "7": {
+      "short_excerpt": "长线参量公式图页：分布参数 R/L/G/C 与传输线等效示意（手写标注）。",
+      "notes": "公式图，链 02-行波相位常数"
+    },
+    "9": {
+      "short_excerpt": "输入阻抗 Zin(l)=Zc(Zl+jZc tanβl)/(Zc+jZl tanβl) 及三推论：向源变换、反求 Zl、匹配点 Zin=Zc。",
+      "notes": "03-反射驻波与输入阻抗"
+    },
+    "12": {
+      "short_excerpt": "Zin↔Γ↔S 互化：Zin=Zc(1+Γ)/(1-Γ)；S=(1+|Γ|)/(1-|Γ|)；|Γ|∈[0,1]，S∈[1,∞)。",
+      "notes": "99-公式 Γ/ρ 关系"
+    },
+    "15": {
+      "short_excerpt": "行波状态：ZL=Z0 匹配无反射；Γ=0、ρ=1、K=1；Z(z)=Z0；沿线幅值恒定、行波同相。",
+      "notes": "三种工作状态系列：行波"
+    },
+    "16": {
+      "short_excerpt": "纯驻波：|Γl|=1；Zl=0/∞/±jXl 三类；终端全反射，|U|/|I| 驻波分布与等效 L/C 段。",
+      "notes": "04-行波纯驻波与行驻波"
+    },
+    "17": {
+      "short_excerpt": "纯驻波·短路：Zl=0，Γl=-1，s→∞；U(z)、I(z) 分布；Zin(z)=jZc tanβz。",
+      "notes": "短路终端专节"
+    },
+    "18": {
+      "short_excerpt": "纯驻波·开路：Zl→∞，Il=0；Γ(z)=e^{-j2βz}；Zin(z)=-jZc cotβz；与短路 tan 对照。",
+      "notes": "开路终端专节"
+    },
+    "19": {
+      "short_excerpt": "纯电抗负载 Zl=±jX：电感等效短路支节 l_sl=(λ/2π)arctan(Xl/Zc)；电容等效开路/λ/4~λ/2 短路支节。",
+      "notes": "纯电抗等效支节长度"
+    },
+    "20": {
+      "short_excerpt": "驻波波形分析过渡页（正文空白，仅标题）。",
+      "notes": "占位页"
+    },
+    "21": {
+      "short_excerpt": "行驻波：波腹/波节位置与 |U|max/min；Rmax=sZc，Rmin=Zc/s；Rmax·Rmin=Zc²（λ/4 变换性）。",
+      "notes": "04-行波纯驻波与行驻波 · 行驻波段"
+    },
+    "23": {
+      "short_excerpt": "习题1-8：已知 Zc、K、z_min 反求 ZL；波节处 Zin=K·Zc 再阻抗变换回负载。",
+      "exercise_refs": ["p23→习1-8", "Lec04·第4题型"]
+    },
+    "24": {
+      "short_excerpt": "Smith 圆图三部分：等|Γ|极坐标、等电阻圆过(1,0)、等电抗圆弧过(1,0)；顺/逆旋转方向。",
+      "notes": "02-Smith圆图怎么读"
+    },
+    "25": {
+      "short_excerpt": "阻抗圆图特殊点：短路(-1,0)、开路(1,0)、匹配(0,0)；右/左半实轴读 ρ/K；上半感性下半容性。",
+      "notes": "圆图读数要点"
+    },
+    "26": {
+      "short_excerpt": "圆图习题：多段 λ/4 分支；A=j50，B=-j50，C=50，D=0，E=25-25j（Zc=50Ω）。",
+      "exercise_refs": ["p26→圆图综合", "Lec08-09"]
+    },
+    "27": {
+      "short_excerpt": "例：Zc=400Ω，l=0.6λ≡0.1λ，y_in=0.35-j0.735，圆图逆时针向负载转 0.1λ 求 y_l。",
+      "exercise_refs": ["p27→圆图反求负载"]
+    },
+    "28": {
+      "short_excerpt": "圆图解：A 点 g=0.35,b=-0.735；向负载转 0.1λ 得 y_l=1.9-j2.15；Y_l=y_l/Zc。",
+      "notes": "p27 答案页"
+    },
+    "29": {
+      "short_excerpt": "λ/4 变换器：先找实数阻抗点 Rx，接 Zc1=√(Zc·Rx) 的 λ/4 段；窄带匹配。",
+      "notes": "03-并联支节匹配 · λ/4"
+    },
+    "30": {
+      "short_excerpt": "单支节：线上找 g=1 点 d，并联支节 l 抵消 jb；两组解；可解析或圆图。",
+      "notes": "Lec08-09 单支节"
+    },
+    "31": {
+      "short_excerpt": "双支节辅助圆法：g=1 圆逆旋 Δφ=4πd2/λ；d2=λ/8/λ/4/3λ/8 对应 90°/180°/270°。",
+      "notes": "03-并联支节匹配 · 双支节"
+    },
+    "32": {
+      "short_excerpt": "死区简答：与辅助圆相切的等G圆内无法到达；三 stub 可跳出；d2=λ/4 时死区最大。",
+      "exercise_refs": ["p32→死区简答", "exam-review 第5项"],
+      "notes": "=#stub-dead-zone"
+    },
+    "34": {
+      "short_excerpt": "例题：Zc=50Ω，Zl=50+j25，λ=10cm，并联短路支节求接入位置与支节长度。",
+      "exercise_refs": ["p34→单支节算例"]
+    },
+    "35": {
+      "short_excerpt": "进入场分析：导波/波导/谐振器定义；TEM(Ez=Hz=0)、TM(Hz=0)、TE(Ez=0) 三类模。",
+      "notes": "00-从传输线到波导"
+    },
+    "36": {
+      "short_excerpt": "简答：单导体不能传 TEM——空心无纵向 J，TEM 又无 Ez，无法维持横向 H（麦克斯韦旋度）。",
+      "exercise_refs": ["p36→简答无TEM", "04-为什么空心波导没有TEM"]
+    },
+    "37": {
+      "short_excerpt": "波导 γ=α+jβ；无耗 α=0；Kc²=K²-β²；fc=Kc/(2π√με)；λc=2π/Kc。",
+      "notes": "04-截止色散与速度"
+    },
+    "39": {
+      "short_excerpt": "波型阻抗：ZTE=η·λg/λ>η；ZTM=η·λ/λg<η；ZTEM=η；各截面相同。",
+      "notes": "05-矩形波导工程"
+    },
+    "40": {
+      "short_excerpt": "参量对照：自由(k,λ,v=c,f)↔波导(β,λg,vp/vg,f)↔截止(kc,λc,fc)；kc²=k²-β²。",
+      "notes": "01-三种波长 · 02-色散相速与群速"
+    },
+    "41": {
+      "short_excerpt": "公式汇总：矩形/圆/同轴 Kc 与主模；矩形/圆柱腔 K；同轴腔 λ/2、λ/4、电容加载三类。",
+      "exercise_refs": ["p41→99-公式汇总"],
+      "notes": "=#wg-cavity-formulas"
+    },
+    "42": {
+      "short_excerpt": "矩形 TE/TM：Kc=√((mπ/a)²+(nπ/b)²)；TE m或n可有一个为0，TM 均非0；主模 TE10/TM11。",
+      "notes": "01-模谱主模与简并"
+    },
+    "43": {
+      "short_excerpt": "矩形波导 λc、λg、vp、vg、ZTE/ZTM；模谱图；简并模：同 Kc/λc 不同场分布的 TE_mn 与 TM_mn。",
+      "notes": "简并模简答"
+    },
+    "44": {
+      "short_excerpt": "TE10 专节：Kc=π/a，λc=2a；Pbr 与 αc、αd 公式（dB/m）。",
+      "notes": "05-波导段反射驻波"
+    },
+    "45": {
+      "short_excerpt": "例：a=8cm,b=4cm,f=3GHz→λ=10cm；仅 TE10(λc=16cm) 可传，TE20/TE01 截止。",
+      "exercise_refs": ["p45→2-5型", "Lec13-16"]
+    },
+    "46": {
+      "short_excerpt": "例：23×10mm 铜波导 10GHz TE10：λc=4.6cm，λg、vp、vg、Z、Pbr、α 与 PL 计算。",
+      "exercise_refs": ["p46→2-9型"]
+    },
+    "47": {
+      "short_excerpt": "圆波导 TM：Jm(KcR)=0，Kc=νmn/R，λc=2πR/νmn；TM01 主模 λc=2.62R。",
+      "notes": "01-圆波导模式"
+    },
+    "48": {
+      "short_excerpt": "圆波导 TE：J'm(KcR)=0，Kc=μmn/R；主模 TE11(λc=3.41R)；TE01 λc=1.64R。",
+      "notes": "01-圆波导模式"
+    },
+    "49": {
+      "short_excerpt": "圆波导单模：TE11 主模；2.61R<λ<3.41R（TM01 与 TE11 之间）。",
+      "notes": "单模条件"
+    },
+    "50": {
+      "short_excerpt": "圆波导简并：EH 简并 μ0n=ν1n→TE0n 与 TM1n；极化简并 cos/sin(mφ) 正交（m≠0）。",
+      "exercise_refs": ["p50→简并简答"]
+    },
+    "51": {
+      "short_excerpt": "习题：R=2cm TE01，空气 fc；填 εr=2.1 保持 fc 时 a→1.38cm（λc=1.64a）。",
+      "exercise_refs": ["p51→圆波导算例", "Lec17-18"]
+    },
+    "52": {
+      "short_excerpt": "同轴 TEM：Kc=0，β=K，λg=λ，vp=vg；高次模 TE/TM；单模 λ>π(a+b)；b/a=2.3→50Ω。",
+      "notes": "02-同轴线TEM"
+    },
+    "53": {
+      "short_excerpt": "单模尺寸：矩形 a<λ<2a 且 λ>2b；圆 2.61R<λ<3.41R；同轴 λ>π(a+b)。",
+      "notes": "工程选择原则"
+    },
+    "54": {
+      "short_excerpt": "习题2-9~2-13：矩形单模条件、10GHz 尺寸、截止频率、给定尺寸/频率求可传模。",
+      "exercise_refs": ["p54→2-9~2-13", "Lec13-16 README"]
+    },
+    "55": {
+      "short_excerpt": "习题2-26~2-30：圆波导 λc 表、10GHz 模式判定、TE01 fc、低损耗模特性、介质改半径。",
+      "exercise_refs": ["p55→2-26~2-30", "Lec17-18"]
+    },
+    "57": {
+      "short_excerpt": "简答：LC 高频缺点(损耗↑、尺寸↓)；微波谐振器为分布参数、多谐振点、Q 高；基本参量 fr、Q0、G0。",
+      "exercise_refs": ["p57→LC对比简答"],
+      "notes": "=#lc-vs-microwave-resonator"
+    },
+    "59": {
+      "short_excerpt": "圆柱腔 TE_mnp：βl=pπ，K=√((μmn/R)²+(pπ/l)²)；p 为 z 向半波节数。",
+      "notes": "Lec22-23 圆柱腔"
+    },
+    "60": {
+      "short_excerpt": "圆柱腔 TM_mnp：Jm(νmn R)=0，K=√((νmn/R)²+(pπ/l)²)；p 可取 0。",
+      "notes": "Lec22-23 圆柱腔 TM"
+    },
+    "62": {
+      "short_excerpt": "矩形腔 TE_mnp：k=√((mπ/a)²+(nπ/b)²+(pπ/l)²)；与波导区别在 z 向 sin/cos；最低 TE101。",
+      "notes": "01-微波谐振器"
+    },
+    "63": {
+      "short_excerpt": "矩形腔 TM_mnp：Ez 正弦×正弦×余弦；m,n≥1；p 可取 0；Q 公式见 P141-142。",
+      "notes": "01-微波谐振器 TM"
+    },
+    "64": {
+      "short_excerpt": "矩形腔 fr、λr 通式；TE101：λr=2al/√(a²+l²)；TE 的 p≥1，TM 的 p 可取 0。",
+      "notes": "谐振波长频率"
+    },
+    "65": {
+      "short_excerpt": "同轴腔：λ/2 型 l=pλr/2；λ/4 型 l=(2p-1)λr/4；电容加载 AA' 面 ΣB=0 求 fr 或 l。",
+      "exercise_refs": ["p65→同轴腔电纳法"],
+      "notes": "=#coaxial-cavity"
+    },
+    "66": {
+      "short_excerpt": "习题5-6~5-8：TM021 腔长、l<2.1R 最低模、TE011 填介质改长度关系。",
+      "exercise_refs": ["p66→4-8~4-15型", "Lec22-23 README"]
+    },
+    "67": {
+      "short_excerpt": "习题5-21 立方 TE101 求 λr；5-24 双波长双模式定 a,l（TE101@10cm、TE103@5cm）。",
+      "exercise_refs": ["p67→5-21/5-24"]
+    },
+    "71": {
+      "short_excerpt": "三点测量法：Γin=S11+S12²ΓL/(1-S22ΓL)；短路/开路/匹配得 Γs,Γo,Γm，解 S11,S12²,S22。",
+      "exercise_refs": ["p71→Lec24·第4题"]
+    },
+    "72": {
+      "short_excerpt": "工作特性参量（输出匹配）：S11=Γi；ρ=(1+|S11|)/(1-|S11|)；T=S21；θ=arg S21。",
+      "exercise_refs": ["p72→工作特性参量"],
+      "notes": "=#network-operating-params"
+    },
+    "74": {
+      "short_excerpt": "习题7-16/6-4-2型：互易二端口 Γ1=S11+S12²Γ2/(1-S22Γ2)；魔 T/混合器散射矩阵题。",
+      "exercise_refs": ["p74→6-4-2/6-11", "第02题-魔T"]
+    },
+    "75": {
+      "short_excerpt": "习题7-30：Γ1s/Γ1o/Γ1c 三点法；S11=Γ1c，S22 与 S12 显式解；6-12 可变衰减器型。",
+      "exercise_refs": ["p75→6-12", "第04题-可变衰减器魔T"]
+    }
+  }
+}

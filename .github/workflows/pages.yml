@@ -33,6 +33,12 @@ jobs:
       - name: Build static site
         run: python build.py
 
+      - name: Verify cross references
+        run: python scripts/tools/check_cross_refs.py
+
+      - name: Verify exam integration anchors
+        run: python scripts/tools/check_exam_integration.py
+
       - name: Verify internal links
         run: |
           python3 - <<'PY'
