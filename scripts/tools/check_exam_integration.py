@@ -1,7 +1,6 @@
 """Validate exam/BLQ integration links and anchors after content fixes."""
 from __future__ import annotations
 
-import re
 import sys
 from pathlib import Path
 
@@ -12,6 +11,7 @@ SITE = ROOT / "site"
 # markdown path (under content/) -> required anchor ids that must exist in built HTML
 ANCHOR_CHECKS: tuple[tuple[str, str], ...] = (
     ("guide/exam-review.md", "textbook-6ch-nav"),
+    ("guide/exam-review.md", "老师-13-项划重点"),
     ("solutions/06-考前复习/README.md", "blq-page-map"),
     ("solutions/06-考前复习/README.md", "gap-solutions"),
     ("knowledge/02-反射与匹配/03-并联支节匹配.md", "stub-dead-zone"),
