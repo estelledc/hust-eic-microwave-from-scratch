@@ -1,14 +1,16 @@
 # 项目结构与状态说明
 
-更新时间：2026-06-10
+更新时间：2026-06-14
 
-本文件记录 `/Users/jason/Documents/vrShare/微波` 当前项目边界、目录职责、验证结果与待处理问题。站点已通过 GitHub Actions 发布到 GitHub Pages；仓库 remote 为 `estelledc/hust-eic-microwave-from-scratch`。
+本文件记录项目边界、目录职责、验证结果与待处理问题。站点已通过 GitHub Actions 发布到 GitHub Pages；仓库 remote 为 `estelledc/hust-eic-microwave-from-scratch`。
+
+**贡献者交接**（2026-06-14）：已添加 [CONTRIBUTING.md](../CONTRIBUTING.md)、[AGENTS.md](../AGENTS.md)、[good-first-issues.md](good-first-issues.md)、GitHub Issue/PR 模板与 `pr-check.yml`。设计参考见 [REFERENCES.md](REFERENCES.md)。
 
 重构与完善计划见 [REFACTOR_PLAN.md](REFACTOR_PLAN.md)，逐节/逐题反查清单见 [KNOWLEDGE_AUDIT.md](KNOWLEDGE_AUDIT.md) 与 [QUESTION_AUDIT.md](QUESTION_AUDIT.md)。
 
 ## 项目边界
 
-- 项目工作目录：`/Users/jason/Documents/vrShare/微波`
+- 项目工作目录：本地 clone 路径（如 `C:/Users/.../微波`）
 - 默认分支：`main`
 - GitHub remote：`https://github.com/estelledc/hust-eic-microwave-from-scratch.git`
 - 发布方式：`.github/workflows/pages.yml` → `python build.py` → GitHub Pages（Source 选 **GitHub Actions**）
@@ -26,7 +28,9 @@
 | `build.py` | Markdown → 静态网页书（含 PageKind 壳层分叉） |
 | `scripts/plots/` | 配图生成，输出到 `assets/images/` |
 | `scripts/tools/` | 交叉引用检查、拆题等维护脚本 |
-| `docs/` | 审计、重构计划、站点调研记录 |
+| `docs/` | 审计、重构计划、Agent 交接（AGENTS、PR_CHECKLIST、good-first-issues） |
+| `CONTRIBUTING.md` / `AGENTS.md` | 人类与 Agent 贡献入口 |
+| `.github/` | Pages、PR 校验、Issue/PR 模板 |
 | `site/` | **构建输出**（`.gitignore` 忽略，仅保留 `site/.gitkeep`） |
 
 `sources/` 原始材料只保留在本地，通过 `.gitignore` 排除，不上传到 GitHub，也不纳入正式网页书构建。
@@ -44,16 +48,16 @@
 
 ## 验证状态
 
-最近一次构建与检查（2026-06-10）：
+最近一次构建与检查（2026-06-14）：
 
 | 范围 | 结果 |
 |------|------|
-| 静态站点构建 | `Built 151 pages into site` |
+| 静态站点构建 | `Built 169 pages into site` |
 | 交叉引用 | knowledge / solutions / experiments 缺失均为 0 |
 | 首页壳层 | Hero + 卡片；无 `.page-meta` / `.pager` / `.toc-panel` |
 | Hub 页 | `layout-hub`，无 pager |
 | 精读页 | 保留 meta、TOC、pager |
-| CI | `.github/workflows/pages.yml` 构建 + 内链校验 |
+| CI | `pages.yml` 部署；`pr-check.yml` 对 PR 跑 build + 校验 |
 
 本地预览：
 
@@ -69,12 +73,20 @@ Python 语法检查：
 python3 -m py_compile build.py scripts/plots/*.py scripts/tools/*.py
 ```
 
+## 当前 WIP（git）
+
+| 项 | 说明 |
+|----|------|
+| 未提交改动 | `scripts/plots/*.py`、`scripts/tools/split_lec13_16_questions.py` 可能仅有 CRLF/LF 行尾差异，无逻辑 diff |
+| 建议 | Agent/贡献者勿批量 `git add scripts/`；行尾统一应单独 `chore/` PR |
+
 ## 待处理问题
 
 | 优先级 | 问题 | 说明 |
 |--------|------|------|
 | P3 | `compact_nav_label` 硬编码导航标签 | ✅ 已外置到 `nav.json`（2026-06-10） |
-| 维护 | `content/appendices/Word大纲回填指南.md` 部分路径仍写旧目录名 | 维护者文档，不影响站点构建 |
+| 维护 | `content/appendices/Word大纲回填指南.md` 部分路径仍写旧目录名 | 见 [good-first-issues.md](good-first-issues.md) GFI-03 |
+| 维护 | 远程 stale 分支 | 见 [MAINTAINERS.md](MAINTAINERS.md) |
 | 可选 | 公式卡片视图、Smith 圆图小计算器 | 见 [SITE_RESEARCH_AND_OPTIMIZATION.md](SITE_RESEARCH_AND_OPTIMIZATION.md) |
 
 ## 后续变更检查清单

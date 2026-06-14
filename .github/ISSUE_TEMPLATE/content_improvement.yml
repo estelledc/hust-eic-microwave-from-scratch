@@ -1,0 +1,63 @@
+name: 内容改进
+description: 知识点、题解、guide、实验、配图内容增补或修正
+title: "[content]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        内容标准见 [MANUAL_CONTENT_STANDARD.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/MANUAL_CONTENT_STANDARD.md)。
+        禁止批量 AI 生成未校验题解。
+
+  - type: dropdown
+    id: content_type
+    attributes:
+      label: 内容类型
+      options:
+        - knowledge 知识点
+        - solutions 作业解答
+        - guide 学习指南
+        - experiments 实验
+        - Smith 圆图专题
+        - 公式记忆
+        - 配图 / assets
+        - appendices / 矩阵
+    validations:
+      required: true
+
+  - type: input
+    id: paths
+    attributes:
+      label: 涉及文件路径
+      placeholder: "content/knowledge/02-反射与匹配/02-Smith圆图怎么读.md"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 改进说明
+      description: 要补什么、解决读者什么障碍
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: 范围确认
+      options:
+        - label: 不涉及题解数值变更
+          required: false
+        - label: 需要更新 nav.json
+          required: false
+        - label: 需要重新跑 plot 脚本
+          required: false
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准
+      placeholder: build 通过；交叉引用 0 缺失；...
+    validations:
+      required: false

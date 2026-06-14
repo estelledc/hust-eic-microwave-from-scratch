@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 贡献指南
+    url: https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/CONTRIBUTING.md
+    about: Fork、分支命名、build 与 PR 流程
+  - name: Good First Issues（文档）
+    url: https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/good-first-issues.md
+    about: 入门任务列表与 Agent prompt
+  - name: Agent 工作指南
+    url: https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/AGENTS.md
+    about: Cursor / Codex 接手本项目

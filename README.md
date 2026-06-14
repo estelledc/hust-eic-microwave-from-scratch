@@ -4,6 +4,8 @@
 
 内容面向刚开始学习微波技术的读者：尽量先用图像解释传播、反射、匹配、波导中的场、谐振器和网络参数，再给出公式推导与作业题校验。
 
+**在线站点**：<https://estelledc.github.io/hust-eic-microwave-from-scratch/>
+
 ## 内容入口
 
 - [课程地图](content/index.md)：首页任务入口与快速导航。
@@ -22,23 +24,61 @@
 
 ## 本地预览
 
-安装依赖后可构建静态页面：
-
 ```bash
-.venv/bin/python build.py
+python -m pip install -r requirements.txt   # 首次
+python build.py
+python -m http.server -d site 8000        # http://localhost:8000
 ```
 
-构建结果会输出到 `site/`，其中的 `index.html` 可作为网页书入口。
+构建结果输出到 `site/`（不纳入 Git，由 CI 发布）。
 
 常用检查：
 
 ```bash
-PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY'
-import build
-print(len(build.collect_pages()))
-PY
-
-python3 scripts/tools/check_cross_refs.py
+python scripts/tools/check_cross_refs.py
+python scripts/tools/check_exam_integration.py   # 改考前复习相关时
+python -m py_compile build.py scripts/plots/*.py scripts/tools/*.py
 ```
 
-站点调研和十轮优化记录见 [docs/SITE_RESEARCH_AND_OPTIMIZATION.md](docs/SITE_RESEARCH_AND_OPTIMIZATION.md)。
+## 项目结构
+
+| 路径 | 说明 |
+|------|------|
+| `content/` | Markdown 内容源（knowledge / solutions / guide / experiments） |
+| `build.py` | 构建静态网页书 |
+| `nav.json` | 侧栏短标题 |
+| `scripts/plots/` | matplotlib 配图 → `assets/images/` |
+| `scripts/tools/` | 交叉引用与维护脚本 |
+| `docs/` | 审计、维护、Agent 交接文档 |
+| `.github/` | Pages 部署、PR 校验、Issue/PR 模板 |
+
+详见 [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md)。
+
+## 贡献
+
+欢迎 fork 后提 PR。默认 base 分支为 **`main`**。
+
+| 文档 | 读者 |
+|------|------|
+| [CONTRIBUTING.md](CONTRIBUTING.md) | 人类贡献者：fork、分支、build、PR |
+| [docs/good-first-issues.md](docs/good-first-issues.md) | 12 个入门任务（含验收标准） |
+| [docs/MAINTAINERS.md](docs/MAINTAINERS.md) | 维护者：分支卫生、labels |
+
+### 用 Agent 贡献
+
+后继同学可用 Cursor / Codex 等接手小任务：
+
+1. 让 Agent 阅读 [AGENTS.md](AGENTS.md)（详版：[docs/AGENTS.md](docs/AGENTS.md)）
+2. 从 [docs/good-first-issues.md](docs/good-first-issues.md) 复制 **Agent prompt** 执行
+3. 提交前走 [docs/PR_CHECKLIST.md](docs/PR_CHECKLIST.md)，再 `gh pr create --base main`
+
+PR 模板：`.github/PULL_REQUEST_TEMPLATE.md` · CI：`.github/workflows/pr-check.yml`
+
+### 设计参考
+
+贡献流程设计来源与本地化说明：[docs/REFERENCES.md](docs/REFERENCES.md)
+
+## 更多文档
+
+- 站点调研：[docs/SITE_RESEARCH_AND_OPTIMIZATION.md](docs/SITE_RESEARCH_AND_OPTIMIZATION.md)
+- 发布说明：[.github/PUBLISHING.md](.github/PUBLISHING.md)

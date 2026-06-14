@@ -1,0 +1,66 @@
+name: Bug 报告
+description: 构建失败、链接错误、nav 异常、脚本报错
+title: "[fix]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先尝试 `python build.py` 与 `python scripts/tools/check_cross_refs.py`。
+        贡献流程见 [CONTRIBUTING.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/CONTRIBUTING.md)。
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 问题区域
+      options:
+        - build.py / 站点构建
+        - 交叉引用 / 内链
+        - nav.json / 侧栏
+        - scripts/plots
+        - scripts/tools
+        - GitHub Actions / CI
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. python build.py
+        2. 观察到 ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 环境
+      placeholder: "OS / Python 版本，例如 Windows 11, Python 3.11"
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相关日志
+      render: shell
+    validations:
+      required: false
