@@ -62,7 +62,7 @@ python -m py_compile build.py scripts/plots/*.py scripts/tools/*.py
 | 文档 | 读者 |
 |------|------|
 | [CONTRIBUTING.md](CONTRIBUTING.md) | 人类贡献者：fork、分支、build、PR |
-| [docs/good-first-issues.md](docs/good-first-issues.md) | 12 个入门任务（含验收标准与 Agent prompt） |
+| [docs/good-first-issues.md](docs/good-first-issues.md) | **18** 个入门任务（P0/P1/P2 分层；含验收标准、Agent prompt；P0 已开 GitHub Issue） |
 | [docs/MAINTAINERS.md](docs/MAINTAINERS.md) | 维护者：分支卫生、labels |
 | [docs/AGENTS.md](docs/AGENTS.md) | Agent playbook（根 [AGENTS.md](AGENTS.md) 为快捷入口） |
 

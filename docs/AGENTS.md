@@ -41,7 +41,7 @@
 | 分支 | `main`，与 `origin/main` 同步 |
 | 未提交改动 | `scripts/plots/*.py`、`scripts/tools/split_lec13_16_questions.py` 有 **行尾符（LF/CRLF）** 差异，无逻辑 diff；Agent 勿批量 `git add scripts/` 除非确实改了脚本逻辑 |
 | 构建 | `python build.py` → **169 pages**；交叉引用缺失 **0** |
-| 待维护 | 见 [good-first-issues.md](good-first-issues.md)、[PROJECT_STATUS.md](PROJECT_STATUS.md) |
+| 待维护 | 见 [good-first-issues.md](good-first-issues.md)（**18** 项，P0×9）、[PROJECT_STATUS.md](PROJECT_STATUS.md) |
 
 ## 必跑命令
 
@@ -128,7 +128,9 @@ Closes #（如有）
 
 ## Good First Issues
 
-复制即用任务列表：[good-first-issues.md](good-first-issues.md)（含 **Agent prompt 示例**）。
+复制即用任务列表：[good-first-issues.md](good-first-issues.md)（**18** 项：P0×9 / P1×6 / P2×3；每项含 **Agent prompt**、验收标准、建议分支）。
+
+**Agent 接手流程**：先读本文件 → 打开 GFI 条目或对应 GitHub Issue → 按 Agent prompt 执行 → [PR_CHECKLIST.md](PR_CHECKLIST.md) → 开 PR 并 `Closes #N`。
 
 ## 禁止事项
 
