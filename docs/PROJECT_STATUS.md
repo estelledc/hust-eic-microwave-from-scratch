@@ -18,9 +18,9 @@
 | 路径 | 状态 |
 |------|------|
 | `content/knowledge/` | 8 阶段知识点讲义（第一性原理路线），正式内容源 |
-| `content/solutions/` | 5 次作业标准解答（已拆题），正式内容源 |
+| `content/solutions/` | 5 次正式作业 + `06-考前复习` 串讲索引（已拆题），正式内容源 |
 | `content/experiments/` | 2 个实验模块，正式内容源 |
-| `content/guide/` | 初学者手册、阅读地图、指南索引 |
+| `content/guide/` | 初学者手册、阅读地图、考前复习、公式记忆专章 |
 | `content/appendices/` | 知识点矩阵、Word 回填、真源说明（仅矩阵进站点） |
 | `assets/` | 样式、交互、配图、jx 设计令牌 |
 | `build.py` | Markdown → 静态网页书（含 PageKind 壳层分叉） |
