@@ -19,11 +19,11 @@
 
 | 文档 | 用途 |
 |------|------|
-| [CONTRIBUTING.md](../../CONTRIBUTING.md) | Fork、分支、`build.py`、提 PR |
-| [docs/good-first-issues.md](../../docs/good-first-issues.md) | 12 个入门任务（含 Agent prompt） |
-| [docs/AGENTS.md](../../docs/AGENTS.md) | Agent playbook 与禁止事项 |
-| [docs/PR_CHECKLIST.md](../../docs/PR_CHECKLIST.md) | 提交前逐步自检 |
-| [docs/PROJECT_STATUS.md](../../docs/PROJECT_STATUS.md) | 目录职责、验证记录、待维护项 |
+| [CONTRIBUTING.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/CONTRIBUTING.md) | Fork、分支、`build.py`、提 PR |
+| [docs/good-first-issues.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/good-first-issues.md) | 12 个入门任务（含 Agent prompt） |
+| [docs/AGENTS.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/AGENTS.md) | Agent playbook 与禁止事项 |
+| [docs/PR_CHECKLIST.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/PR_CHECKLIST.md) | 提交前逐步自检 |
+| [docs/PROJECT_STATUS.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/PROJECT_STATUS.md) | 目录职责、验证记录、待维护项 |
 
 改 `content/guide/exam-review.md` 或串讲习题索引后，请跑 `python scripts/tools/check_exam_integration.py`。
 

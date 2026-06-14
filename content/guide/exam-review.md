@@ -169,6 +169,6 @@ flowchart LR
 - 原始串讲 PDF/图片只保留在本地 `sources/考试前复习/` 与 `sources/微波技术基础考前串讲_blq.pdf`，**不上传 GitHub**。
 - 闭卷默写 canonical 入口：[公式记忆专章](公式记忆/README.md)；扩展速查：[06-考前复习 · 99-公式与图像](../solutions/06-考前复习/99-公式与图像.md)。
 - BLQ 逐页审计：`docs/BLQ_REVIEW_INTEGRATION.md`；改本页或串讲索引后跑 `python scripts/tools/check_exam_integration.py`。
-- 内容贡献任务见 [docs/good-first-issues.md](../../docs/good-first-issues.md)。
+- 内容贡献任务见 [docs/good-first-issues.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/good-first-issues.md)。
 
 </details>

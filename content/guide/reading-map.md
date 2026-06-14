@@ -101,4 +101,4 @@
 
 ## 维护者与贡献者
 
-改 Markdown 内容或 `nav.json` 后请跑 `python build.py` 与 `python scripts/tools/check_cross_refs.py`。入门任务见仓库 [docs/good-first-issues.md](../../docs/good-first-issues.md)；Agent 流程见 [docs/AGENTS.md](../../docs/AGENTS.md)。
+改 Markdown 内容或 `nav.json` 后请跑 `python build.py` 与 `python scripts/tools/check_cross_refs.py`。入门任务见仓库 [docs/good-first-issues.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/good-first-issues.md)；Agent 流程见 [docs/AGENTS.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/AGENTS.md)。
