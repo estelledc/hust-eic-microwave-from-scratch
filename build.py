@@ -236,6 +236,7 @@ def section_order(rel: Path) -> tuple[int, int, tuple[tuple[int, int | str], ...
             "03-规则波导与矩形波导": 3,
             "04-后续专题": 4,
             "05-谐振器网络元件与测量综合": 5,
+            "06-考前复习": 6,
         }.get(homework, 99)
         name = rel.name
         local_order = 5
@@ -261,6 +262,22 @@ def section_order(rel: Path) -> tuple[int, int, tuple[tuple[int, int | str], ...
         if len(rel.parts) >= 4 and rel.parts[2] == "公式记忆":
             local_order = 0 if rel.name.lower() == "readme.md" else 1
             return (6, local_order, natural_key(rel.as_posix()))
+
+    if rel.parts[:2] == ("content", "experiments"):
+        if rel == Path("content/experiments/index.md"):
+            return (0, 0, ())
+        if rel.name == "00-符号与导读.md":
+            return (1, 0, natural_key(rel.as_posix()))
+        if len(rel.parts) == 3 and rel.name.startswith("99-"):
+            return (99, 0, natural_key(rel.as_posix()))
+        if len(rel.parts) >= 3:
+            modules = {
+                "01-矢网与传输线": 2,
+                "02-元件参数测量": 3,
+            }
+            module = rel.parts[2]
+            local_order = 0 if rel.name.lower() == "readme.md" else 1
+            return (modules.get(module, 98), local_order, natural_key(rel.as_posix()))
 
     return (99, 0, natural_key(rel.as_posix()))
 
