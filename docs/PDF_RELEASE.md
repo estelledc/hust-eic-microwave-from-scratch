@@ -12,7 +12,7 @@
 | 中文与公式 | 复用站点 CSS + MathJax（CDN）；打印前等待公式排版完成 |
 | 图片 | `assets/images/` 已在 HTML 中引用，Chromium 打印时嵌入 |
 | 站外出处 | 仅导出 `content/` 公开页；不含 `sources/`、BLQ 原文或课件 PDF |
-| 体量 | 约 **169** 篇 HTML；分 4 卷 + 可选全书合集，避免单文件过大 |
+| 体量 | 约 **169** 篇 HTML；分 4 卷 + **全书合集**（推荐离线通读） |
 
 不推荐 Pandoc 直转 Markdown：公式、Mermaid、侧栏结构与现有 CSS 难以一次对齐。
 
@@ -24,9 +24,9 @@
 | 知识点讲义 | `microwave-knowledge-*.pdf` | 8 阶段知识点 | ~55 |
 | 作业解答 | `microwave-solutions-*.pdf` | 五次作业 + 考前复习 | ~85 |
 | 实验环节 | `microwave-experiments-*.pdf` | 实验模块 | ~12 |
-| 全书合集（可选） | `microwave-complete-*.pdf` | 以上全部 | ~169 |
+| 全书合集（推荐） | `microwave-complete-*.pdf` | 四分卷合并 + 分节页 | ~169 |
 
-每卷开头自动生成**目录页**；正文页脚带页码。卷内顺序与站点侧栏一致（同 `build.py` 的 `collect_pages()`）。
+每卷（含全书合集）开头自动生成**目录页**；全书合集目录按四分卷分组，各卷之间插入**分节页**。正文页脚带页码。卷内顺序与站点侧栏一致（同 `build.py` 的 `collect_pages()`）。
 
 ## 本地生成
 
@@ -37,23 +37,31 @@ python -m pip install -r requirements-pdf.txt
 playwright install chromium
 ```
 
+**中文字体（必看）**：Playwright headless 打印依赖 CJK 字体。构建脚本会自动下载 `assets/fonts/noto-sans-sc-*.woff2`（`@font-face` 嵌入 PDF）；CI 另安装 `fonts-noto-cjk` 作为系统回退。若本地中文变方块/乱码：
+
+```bash
+python scripts/tools/ensure_pdf_fonts.py   # 下载 bundled 字体
+# Linux 还可：sudo apt install fonts-noto-cjk
+python scripts/tools/verify_pdf_cjk.py     # 构建后校验文本层
+```
+
 ### 命令
 
 ```bash
-# 构建站点并导出全部分卷（默认不含全书合集）
+# 构建站点并导出四分卷 + 全书合集（默认）
 python scripts/tools/build_pdf.py --rebuild
 
 # 指定版本后缀（与 Release 文件名一致）
 python scripts/tools/build_pdf.py --rebuild --edition 2026.06
 
-# 额外生成单 PDF 全书（体积大、耗时长）
-python scripts/tools/build_pdf.py --rebuild --edition 2026.06 --include-complete
+# 冒烟测试：跳过全书合集、每卷仅前 2 篇
+python scripts/tools/build_pdf.py --sample 2 --skip-complete
 
-# 只构建某一卷
-python scripts/tools/build_pdf.py --volume knowledge --edition 2026.06
+# 只构建某一卷（含全书合集）
+python scripts/tools/build_pdf.py --volume complete --edition 2026.06
 
-# 冒烟测试：每卷仅前 2 篇
-python scripts/tools/build_pdf.py --sample 2
+# 构建后校验中文文本层
+python scripts/tools/verify_pdf_cjk.py --include-complete
 ```
 
 产物目录：`dist/pdf/`（已加入 `.gitignore`），并写入 `manifest.json`（页数、体积、分卷列表）。
@@ -62,7 +70,7 @@ python scripts/tools/build_pdf.py --sample 2
 
 - 单卷 PDF 页数通常为「文章数 × 2～6」页（含公式与配图）。
 - 四分卷合计约 **400～900** 页、**30～80 MiB**（视配图与公式密度而定）。
-- 全书合集可能 **100+ MiB**，仅建议在 Release 或 `--include-complete` 时使用。
+- **全书合集**约 **500～1000** 页、**40～120 MiB**（含分节页与分组目录）；CI Release 默认上传。
 
 ## CI / GitHub Release
 
@@ -72,8 +80,8 @@ Workflow： [`.github/workflows/pdf-release.yml`](../.github/workflows/pdf-relea
 
 | 触发 | 行为 |
 |------|------|
-| **Actions → PDF Release → Run workflow** | 手动构建；可填 `edition`、勾选 `include_complete` |
-| **推送 tag `pdf-v*`** | 自动构建并创建/更新 Release，上传 PDF |
+| **Actions → PDF Release → Run workflow** | 手动构建；可填 `edition`；默认含全书合集 |
+| **推送 tag `pdf-v*`** | 自动构建四分卷 + 全书合集，创建/更新 Release 并上传 |
 | **Release published** | 将 `dist/pdf/*.pdf` 附加到该 Release |
 
 ### 维护者发版流程
@@ -82,9 +90,9 @@ Workflow： [`.github/workflows/pdf-release.yml`](../.github/workflows/pdf-relea
 # 1. 确保 main 已合并最新内容
 git checkout main && git pull
 
-# 2. 打 tag 并推送（触发 CI）
-git tag pdf-v2026.06
-git push origin pdf-v2026.06
+# 2. 打 tag 并推送（触发 CI；字体修复版示例）
+git tag pdf-v2026.06.2
+git push origin pdf-v2026.06.2
 
 # 或本地构建后手动发 Release：
 python scripts/tools/build_pdf.py --rebuild --edition 2026.06
@@ -107,6 +115,7 @@ gh release create pdf-v2026.06 dist/pdf/*.pdf \
 
 | 现象 | 处理 |
 |------|------|
+| **中文乱码 / 方块** | 运行 `python scripts/tools/ensure_pdf_fonts.py`；Linux 安装 `fonts-noto-cjk`；重新构建并用 `verify_pdf_cjk.py` 校验。推荐下载最新 `pdf-v*` Release（如 `pdf-v2026.06.2`） |
 | `playwright` 未安装浏览器 | 运行 `playwright install chromium` |
 | 公式为空白 | 检查网络（MathJax CDN）；CI 需能访问 jsdelivr |
 | 某页超时 | 单独打开对应 `site/...html` 预览；Mermaid 页等待更久 |
@@ -117,6 +126,9 @@ gh release create pdf-v2026.06 dist/pdf/*.pdf \
 | 路径 | 说明 |
 |------|------|
 | `scripts/tools/build_pdf.py` | PDF 构建入口 |
-| `assets/pdf.css` | 打印/PDF 额外样式 |
+| `scripts/tools/ensure_pdf_fonts.py` | 下载 bundled Noto Sans SC |
+| `scripts/tools/verify_pdf_cjk.py` | 构建后中文文本层校验 |
+| `assets/pdf.css` | 打印/PDF 额外样式（含 `@font-face`） |
+| `assets/fonts/` | bundled woff2（构建时下载，不入库） |
 | `requirements-pdf.txt` | Playwright 等 PDF 专用依赖 |
 | `build.py` | 站点构建（PDF 前置步骤） |

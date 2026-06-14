@@ -36,11 +36,23 @@ except ImportError as exc:  # pragma: no cover
         "  playwright install chromium"
     ) from exc
 
+TOOLS_DIR = Path(__file__).resolve().parent
+if str(TOOLS_DIR) not in sys.path:
+    sys.path.insert(0, str(TOOLS_DIR))
+
+from ensure_pdf_fonts import ensure_fonts  # noqa: E402
+
 
 SITE_DIR = site_build.SITE_DIR
 PDF_CSS = ROOT / "assets" / "pdf.css"
 DIST_DIR = ROOT / "dist" / "pdf"
 MANIFEST_NAME = "manifest.json"
+
+# Must match assets/pdf.css — used in Playwright header/footer templates (outside page CSS).
+CJK_FONT_FAMILY = (
+    '"PDF Noto Sans SC", "Noto Sans CJK SC", "Noto Sans SC", '
+    '"Source Han Sans SC", "Microsoft YaHei", sans-serif'
+)
 
 VOLUMES: dict[str, dict[str, object]] = {
     "guide": {
@@ -70,18 +82,24 @@ VOLUMES: dict[str, dict[str, object]] = {
     },
 }
 
+# Complete edition merges the four release volumes in this order (with divider pages).
+COMPLETE_SECTION_KEYS = ["guide", "knowledge", "solutions", "experiments"]
+
 PDF_OPTIONS = {
     "format": "A4",
     "print_background": True,
+    "prefer_css_page_size": True,
     "margin": {"top": "18mm", "right": "14mm", "bottom": "20mm", "left": "14mm"},
     "display_header_footer": True,
     "header_template": (
-        '<div style="font-size:8px;width:100%;text-align:center;color:#666;'
-        'font-family:system-ui,sans-serif;">微波技术基础 · 离线版</div>'
+        f'<div style="font-size:8px;width:100%;text-align:center;color:#666;'
+        f"font-family:{CJK_FONT_FAMILY};"
+        f'">微波技术基础 · 离线版</div>'
     ),
     "footer_template": (
-        '<div style="font-size:8px;width:100%;text-align:center;color:#666;'
-        'font-family:system-ui,sans-serif;">'
+        f'<div style="font-size:8px;width:100%;text-align:center;color:#666;'
+        f"font-family:{CJK_FONT_FAMILY};"
+        f'">'
         '<span class="pageNumber"></span> / <span class="totalPages"></span></div>'
     ),
 }
@@ -107,6 +125,15 @@ def pages_for_volume(pages: list[site_build.Page], volume_key: str) -> list[site
     return [page for page in pages if page.group in groups]
 
 
+def stylesheet_links() -> str:
+    return f"""
+  <link rel="stylesheet" href="{ROOT.as_uri()}/site/assets/jx/tokens.css">
+  <link rel="stylesheet" href="{ROOT.as_uri()}/site/assets/jx/base.css">
+  <link rel="stylesheet" href="{ROOT.as_uri()}/site/assets/style.css">
+  <link rel="stylesheet" href="{PDF_CSS.as_uri()}">
+"""
+
+
 def render_toc_html(volume_key: str, pages: list[site_build.Page], edition: str) -> str:
     spec = VOLUMES[volume_key]
     title = html.escape(str(spec["title"]))
@@ -120,11 +147,7 @@ def render_toc_html(volume_key: str, pages: list[site_build.Page], edition: str)
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>{title} · 目录</title>
-  <link rel="stylesheet" href="{ROOT.as_uri()}/site/assets/jx/tokens.css">
-  <link rel="stylesheet" href="{ROOT.as_uri()}/site/assets/jx/base.css">
-  <link rel="stylesheet" href="{ROOT.as_uri()}/site/assets/style.css">
-  <link rel="stylesheet" href="{PDF_CSS.as_uri()}">
+  <title>{title} · 目录</title>{stylesheet_links()}
 </head>
 <body>
   <article class="article pdf-toc">
@@ -132,6 +155,66 @@ def render_toc_html(volume_key: str, pages: list[site_build.Page], edition: str)
     <p>华中科技大学《微波技术基础》离线 PDF · {edition_text}</p>
     <p>共 {len(pages)} 篇，按站点阅读顺序排列。正文不含原始课件或站外出处引用。</p>
     <ol>{items}</ol>
+  </article>
+</body>
+</html>
+"""
+
+
+def render_complete_toc_html(
+    edition: str,
+    sections: list[tuple[str, list[site_build.Page]]],
+) -> str:
+    edition_text = html.escape(edition)
+    total_articles = sum(len(pages) for _, pages in sections)
+    blocks: list[str] = []
+    for index, (section_key, section_pages) in enumerate(sections, start=1):
+        section_title = html.escape(str(VOLUMES[section_key]["title"]))
+        items = "\n".join(
+            f"<li>{html.escape(page.title)} "
+            f'<span style="color:#666;">({html.escape(page.group)})</span></li>'
+            for page in section_pages
+        )
+        blocks.append(
+            f'<section class="pdf-toc-section">'
+            f"<h2>{index}. {section_title}</h2>"
+            f"<p>{len(section_pages)} 篇</p>"
+            f"<ol>{items}</ol>"
+            f"</section>"
+        )
+    body = "\n".join(blocks)
+    return f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>全书合集 · 总目录</title>{stylesheet_links()}
+</head>
+<body>
+  <article class="article pdf-toc pdf-toc-complete">
+    <h1>全书合集</h1>
+    <p>华中科技大学《微波技术基础》离线 PDF · {edition_text}</p>
+    <p>共 {total_articles} 篇，按<strong>学习指南 → 知识点讲义 → 作业解答 → 实验环节</strong>顺序编排；各卷之间插入分节页，并保留分卷目录。</p>
+    {body}
+  </article>
+</body>
+</html>
+"""
+
+
+def render_section_divider_html(section_title: str, edition: str, section_index: int) -> str:
+    title = html.escape(section_title)
+    edition_text = html.escape(edition)
+    return f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>{title}</title>{stylesheet_links()}
+</head>
+<body>
+  <article class="article pdf-section-divider">
+    <p class="pdf-section-divider__edition">{edition_text}</p>
+    <h1>{title}</h1>
+    <p>全书合集 · 分卷 {section_index} / {len(COMPLETE_SECTION_KEYS)}</p>
   </article>
 </body>
 </html>
@@ -166,17 +249,35 @@ def wait_for_render(page) -> None:
     page.wait_for_timeout(400)
 
 
+def inject_pdf_styles(page) -> None:
+    if PDF_CSS.exists():
+        page.add_style_tag(path=str(PDF_CSS))
+    # Belt-and-suspenders: force CJK stack even if site CSS loads late.
+    page.add_style_tag(
+        content=(
+            "html, body, .article, .content, p, li, td, th { "
+            f"font-family: {CJK_FONT_FAMILY} !important; "
+            "}"
+        )
+    )
+
+
 def html_to_pdf(context, html_path: Path, output_path: Path) -> None:
     page = context.new_page()
     try:
         page.goto(html_path.as_uri(), wait_until="domcontentloaded", timeout=120_000)
-        if PDF_CSS.exists():
-            page.add_style_tag(path=str(PDF_CSS))
+        inject_pdf_styles(page)
         wait_for_render(page)
         page.emulate_media(media="print")
         page.pdf(path=str(output_path), **PDF_OPTIONS)
     finally:
         page.close()
+
+
+def html_string_to_pdf(context, html_content: str, tmp_dir: Path, output_path: Path) -> None:
+    html_path = tmp_dir / f"{output_path.stem}.html"
+    html_path.write_text(html_content, encoding="utf-8")
+    html_to_pdf(context, html_path, output_path)
 
 
 def merge_pdfs(parts: list[Path], output_path: Path) -> int:
@@ -188,9 +289,18 @@ def merge_pdfs(parts: list[Path], output_path: Path) -> int:
         page_count += doc.page_count
         doc.close()
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    merged.save(output_path, garbage=4, deflate=True)
+    # Avoid aggressive garbage collection — preserves embedded font subsets.
+    merged.save(output_path, garbage=0, deflate=True)
     merged.close()
     return page_count
+
+
+def volume_output_path(volume_key: str, edition: str, *, sample: int | None) -> Path:
+    spec = VOLUMES[volume_key]
+    filename = f"{spec['filename']}-{edition}.pdf"
+    if sample:
+        filename = f"{spec['filename']}-{edition}-sample.pdf"
+    return DIST_DIR / filename
 
 
 def build_volume(
@@ -225,10 +335,7 @@ def build_volume(
             html_to_pdf(context, html_path, part_pdf)
             part_paths.append(part_pdf)
 
-        filename = f"{spec['filename']}-{edition}.pdf"
-        if sample:
-            filename = f"{spec['filename']}-{edition}-sample.pdf"
-        output_path = DIST_DIR / filename
+        output_path = volume_output_path(volume_key, edition, sample=sample)
         page_count = merge_pdfs(part_paths, output_path)
         size_mb = output_path.stat().st_size / (1024 * 1024)
         print(f"  → {output_path.relative_to(ROOT)} ({page_count} pages, {size_mb:.1f} MiB)")
@@ -238,6 +345,66 @@ def build_volume(
             "file": output_path.name,
             "pages": page_count,
             "articles": len(selected),
+            "size_mb": round(size_mb, 2),
+        }
+
+
+def build_complete_volume(
+    context,
+    all_pages: list[site_build.Page],
+    *,
+    edition: str,
+    sample: int | None,
+    section_pdfs: dict[str, Path],
+) -> dict[str, object]:
+    spec = VOLUMES["complete"]
+    sections: list[tuple[str, list[site_build.Page]]] = []
+    for key in COMPLETE_SECTION_KEYS:
+        section_pages = pages_for_volume(all_pages, key)
+        if sample:
+            section_pages = section_pages[:sample]
+        sections.append((key, section_pages))
+
+    with tempfile.TemporaryDirectory(prefix="mw-pdf-complete-") as tmp_dir:
+        tmp = Path(tmp_dir)
+        part_paths: list[Path] = []
+
+        master_toc_pdf = tmp / "00-master-toc.pdf"
+        html_string_to_pdf(
+            context,
+            render_complete_toc_html(edition, sections),
+            tmp,
+            master_toc_pdf,
+        )
+        part_paths.append(master_toc_pdf)
+
+        for index, key in enumerate(COMPLETE_SECTION_KEYS):
+            section_pdf = section_pdfs.get(key)
+            if section_pdf is None or not section_pdf.exists():
+                raise SystemExit(f"Missing section PDF for complete volume: {key!r}")
+            if index > 0:
+                divider_pdf = tmp / f"divider-{key}.pdf"
+                html_string_to_pdf(
+                    context,
+                    render_section_divider_html(
+                        str(VOLUMES[key]["title"]), edition, index + 1
+                    ),
+                    tmp,
+                    divider_pdf,
+                )
+                part_paths.append(divider_pdf)
+            part_paths.append(section_pdf)
+
+        output_path = volume_output_path("complete", edition, sample=sample)
+        page_count = merge_pdfs(part_paths, output_path)
+        size_mb = output_path.stat().st_size / (1024 * 1024)
+        print(f"  → {output_path.relative_to(ROOT)} ({page_count} pages, {size_mb:.1f} MiB)")
+        return {
+            "volume": "complete",
+            "title": spec["title"],
+            "file": output_path.name,
+            "pages": page_count,
+            "articles": sum(len(pages) for _, pages in sections),
             "size_mb": round(size_mb, 2),
         }
 
@@ -262,12 +429,17 @@ def parse_args() -> argparse.Namespace:
         "--volume",
         choices=[*VOLUMES.keys(), "all"],
         default="all",
-        help="Which volume to build (default: all except skipping complete unless --include-complete).",
+        help="Which volume to build (default: all four volumes plus complete edition).",
     )
     parser.add_argument(
         "--include-complete",
         action="store_true",
-        help="Also build the single-file complete volume (large).",
+        help=argparse.SUPPRESS,
+    )
+    parser.add_argument(
+        "--skip-complete",
+        action="store_true",
+        help="Skip the complete volume when building all volumes.",
     )
     parser.add_argument(
         "--edition",
@@ -285,6 +457,11 @@ def parse_args() -> argparse.Namespace:
         metavar="N",
         help="Only export first N articles per volume (for smoke tests).",
     )
+    parser.add_argument(
+        "--skip-font-download",
+        action="store_true",
+        help="Do not download bundled Noto Sans SC woff2 (use system CJK fonts only).",
+    )
     return parser.parse_args()
 
 
@@ -292,24 +469,35 @@ def volume_keys_to_build(args: argparse.Namespace) -> list[str]:
     if args.volume != "all":
         return [args.volume]
     keys = [key for key in VOLUMES if key != "complete"]
-    if args.include_complete:
+    include_complete = args.include_complete or not args.skip_complete
+    if include_complete:
         keys.append("complete")
     return keys
 
 
 def main() -> None:
     args = parse_args()
+    if not args.skip_font_download:
+        print("Ensuring bundled CJK fonts …")
+        ensure_fonts()
+
     pages = ensure_site(rebuild=args.rebuild)
     print(f"Site has {len(pages)} HTML pages.")
 
     keys = volume_keys_to_build(args)
+    want_complete = "complete" in keys
+    section_keys = [key for key in keys if key != "complete"]
+    if want_complete and not section_keys:
+        section_keys = list(COMPLETE_SECTION_KEYS)
+
     entries: list[dict[str, object]] = []
+    section_pdf_paths: dict[str, Path] = {}
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
         context = browser.new_context()
         try:
-            for key in keys:
+            for key in section_keys:
                 volume_pages = pages_for_volume(pages, key)
                 print(f"\n=== {VOLUMES[key]['title']} ({len(volume_pages)} articles) ===")
                 entries.append(
@@ -319,6 +507,19 @@ def main() -> None:
                         volume_pages,
                         edition=args.edition,
                         sample=args.sample,
+                    )
+                )
+                section_pdf_paths[key] = volume_output_path(key, args.edition, sample=args.sample)
+
+            if want_complete:
+                print(f"\n=== {VOLUMES['complete']['title']} (merge) ===")
+                entries.append(
+                    build_complete_volume(
+                        context,
+                        pages,
+                        edition=args.edition,
+                        sample=args.sample,
+                        section_pdfs=section_pdf_paths,
                     )
                 )
         finally:

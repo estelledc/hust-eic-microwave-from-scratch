@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       edition:
-        description: "Edition suffix for filenames (e.g. 2026.06)"
+        description: "Edition suffix for filenames (e.g. 2026.06.2)"
         required: false
         default: ""
       include_complete:
         description: "Also build the single-file complete volume"
         type: boolean
-        default: false
+        default: true
   push:
     tags:
       - "pdf-v*"
@@ -29,6 +29,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+
+      - name: Install CJK fonts (system fallback)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends fonts-noto-cjk
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -58,10 +63,14 @@ jobs:
             EDITION="$(date -u +%Y.%m)"
           fi
           ARGS=(--edition "$EDITION")
-          if [ "$INCLUDE_COMPLETE" = "true" ]; then
+          if [ "$INCLUDE_COMPLETE" = "true" ] || [ "${{ github.event_name }}" = "push" ]; then
             ARGS+=(--include-complete)
           fi
           python scripts/tools/build_pdf.py "${ARGS[@]}"
+
+      - name: Verify Chinese text in PDFs
+        run: |
+          python scripts/tools/verify_pdf_cjk.py --include-complete
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4

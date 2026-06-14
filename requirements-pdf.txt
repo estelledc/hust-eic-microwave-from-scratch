@@ -1,3 +1,4 @@
 # Offline PDF release (scripts/tools/build_pdf.py)
 -r requirements.txt
 playwright>=1.44
+pymupdf>=1.24

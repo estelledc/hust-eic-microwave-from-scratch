@@ -1,6 +1,73 @@
 /* Extra print rules for offline PDF export (injected by scripts/tools/build_pdf.py). */
 
+/* Bundled Noto Sans SC — fallback when system CJK fonts are missing (CI headless). */
+@font-face {
+  font-family: "PDF Noto Sans SC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/noto-sans-sc-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "PDF Noto Sans SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/noto-sans-sc-bold.woff2") format("woff2");
+}
+
+:root {
+  --pdf-font-sans: "PDF Noto Sans SC", "Noto Sans CJK SC", "Noto Sans SC",
+    "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+  --pdf-font-serif: "Noto Serif CJK SC", "Noto Serif SC", "Source Han Serif SC",
+    "Songti SC", "PDF Noto Sans SC", serif;
+  --pdf-font-mono: "JetBrains Mono", "Noto Sans Mono CJK SC", "Cascadia Mono",
+    ui-monospace, monospace;
+}
+
 @media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html,
+  body,
+  .content,
+  .article,
+  .sidebar,
+  .home-dashboard,
+  p,
+  li,
+  td,
+  th,
+  blockquote,
+  .callout,
+  .jx-footer,
+  .pdf-toc {
+    font-family: var(--pdf-font-sans) !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .article h1 {
+    font-family: var(--pdf-font-serif) !important;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre,
+  .highlight,
+  .codehilite {
+    font-family: var(--pdf-font-mono) !important;
+  }
+
   .github-corner,
   .jx-footer,
   .jx-return-to-hub,
@@ -58,5 +125,36 @@
 
   .pdf-toc li {
     margin: 0.35rem 0;
+  }
+
+  .pdf-toc-complete .pdf-toc-section {
+    margin-top: 1.25rem;
+    break-inside: avoid;
+  }
+
+  .pdf-toc-complete .pdf-toc-section h2 {
+    font-size: 13pt;
+    margin-bottom: 0.35rem;
+  }
+
+  .pdf-section-divider {
+    break-before: page;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pdf-section-divider h1 {
+    font-size: 24pt;
+    margin: 0 0 1rem;
+  }
+
+  .pdf-section-divider__edition {
+    color: #666;
+    font-size: 10pt;
+    letter-spacing: 0.08em;
   }
 }
