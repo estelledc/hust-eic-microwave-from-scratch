@@ -8,7 +8,7 @@
 
 **文档清理**（2026-06-14）：从「考试复习交接」转为「长期维护」视角。删除已完成的一次性计划与修复日志（见下表）；保留审计真源（KNOWLEDGE_AUDIT、QUESTION_AUDIT、BLQ_REVIEW_INTEGRATION 等）。`content/guide/exam-review.md` 侧栏标题改为「课程复习索引」，正文保留 13 项考点与串讲导航。
 
-逐节/逐题反查清单见 [KNOWLEDGE_AUDIT.md](KNOWLEDGE_AUDIT.md) 与 [QUESTION_AUDIT.md](QUESTION_AUDIT.md)。P0–P4 重构与壳层增强已于 2026-06 完成（`PageKind`、首页课程地图、`nav.json` 外置等），不再单独维护 `REFACTOR_PLAN.md`。
+逐节/逐题反查清单见 [KNOWLEDGE_AUDIT.md](KNOWLEDGE_AUDIT.md) 与 [QUESTION_AUDIT.md](QUESTION_AUDIT.md)。P0–P4 重构与壳层增强已于 2026-06 完成（`PageKind`、首页课程地图、`nav.json` 外置等）；结构与完成度以本文件与 AUDIT 文档为真源。
 
 ## 项目边界
 
@@ -99,7 +99,7 @@ python3 -m py_compile build.py scripts/plots/*.py scripts/tools/*.py
 |--------|------|------|
 | P3 | `compact_nav_label` 硬编码导航标签 | ✅ 已外置到 `nav.json`（2026-06-10） |
 | 维护 | `content/appendices/Word大纲回填指南.md` 部分路径仍写旧目录名 | 见 [good-first-issues.md](good-first-issues.md) GFI-03 |
-| 维护 | 远程 stale 分支 | 见 [MAINTAINERS.md](MAINTAINERS.md) |
+| 维护 | 远程 stale 分支 | ✅ 已于 2026-06-14 删除（见 [MAINTAINERS.md](MAINTAINERS.md)） |
 | 可选 | 公式卡片视图、Smith 圆图小计算器 | 见 [SITE_RESEARCH_AND_OPTIMIZATION.md](SITE_RESEARCH_AND_OPTIMIZATION.md) |
 
 ## 后续变更检查清单

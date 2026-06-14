@@ -11,11 +11,11 @@
 | Pages | GitHub Actions → `.github/workflows/pages.yml` |
 | 本地路径示例 | `C:/Users/zx775/Documents/vrShare/微波` |
 
-## Labels（已有 + 建议）
+## Labels
 
 `gh label list` 当前已有：`bug`, `documentation`, `good first issue`, `help wanted`, `enhancement` 等。
 
-建议 PR/Issue 时额外使用（可选新建）：
+2026-06-14 已创建内容类 label；PR/Issue 时请使用：
 
 | Label | 用途 |
 |-------|------|
@@ -45,18 +45,14 @@ git fetch --prune
 git branch -d chore/gitattributes-lf codex/knowledge-content-enrichment feat/formula-quick-view feat/github-corner feat/smith-chart-topic codex/local-wip-before-main-update docs/knowledge-draft-paper-complete
 ```
 
-### 远程 stale 分支（建议维护者删除）
+### 远程 stale 分支（已于 2026-06-14 删除）
 
 | 远程分支 | 说明 |
 |----------|------|
-| `origin/codex/knowledge-content-enrichment` | 已合并 |
-| `origin/feat/formula-quick-view` | 已合并 |
-| `origin/fix/exam-review-ci-links` | 已合并 |
-| `origin/feat/smith-chart-topic` | 已由 #29 取代 |
-
-```bash
-git push origin --delete codex/knowledge-content-enrichment feat/formula-quick-view fix/exam-review-ci-links feat/smith-chart-topic
-```
+| `origin/codex/knowledge-content-enrichment` | 已合并，已删 |
+| `origin/feat/formula-quick-view` | 已合并，已删 |
+| `origin/fix/exam-review-ci-links` | 已合并，已删 |
+| `origin/feat/smith-chart-topic` | 已由 #29 取代，已删 |
 
 **不要** force push `main`。
 
