@@ -175,21 +175,19 @@ python build.py 后本地预览 Smith 圆图专题侧栏。分支 fix/nav-smith-
 
 ---
 
-## GFI-10 · 考前复习页增加「维护者说明」段
+## ~~GFI-10 · 课程复习页增加「维护者说明」段~~ ✅（2026-06-14 已完成）
+
+已在 `content/guide/exam-review.md` 页末加入 collapsible「维护者说明」。后续贡献者可跳过此项，选用 GFI-11 等开放任务。
+
+<details>
+<summary>原任务描述（归档）</summary>
 
 | 字段 | 内容 |
 |------|------|
-| **难度** | ⭐⭐ 简单 |
 | **涉及路径** | `content/guide/exam-review.md` |
-| **建议分支** | `content/exam-review-maintainer-note` |
-| **验收标准** | 页末增加简短「维护者」段：串讲真源在本地 sources/，站点链到公式记忆 canonical 入口；不破坏读者阅读流 |
-| **Labels** | `good first issue`, `documentation` |
+| **验收标准** | 页末增加简短「维护者」段：串讲真源在本地 sources/，站点链到公式记忆 canonical 入口 |
 
-**Agent prompt：**
-
-```
-在 content/guide/exam-review.md 文末（公式速查之后）加「维护者说明」collapsible 或二级标题，说明本地 sources/考试前复习 不上传、公式 canonical 入口见公式记忆 README。跑 check_exam_integration.py。
-```
+</details>
 
 ---
 

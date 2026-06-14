@@ -6,7 +6,7 @@
 
 ## 项目是什么
 
-华中科技大学电信学院《微波技术基础》**静态复习站点**：Markdown 源文件经 `build.py` 生成为 `site/` 下的 HTML 网页书，通过 GitHub Pages 发布。
+华中科技大学电信学院《微波技术基础》**静态学习站点**：Markdown 源文件经 `build.py` 生成为 `site/` 下的 HTML 网页书，通过 GitHub Pages 发布。
 
 - Remote：`estelledc/hust-eic-microwave-from-scratch`
 - 默认分支：`main`
@@ -19,7 +19,7 @@
 ├── content/           # 正式内容源（会进站点）
 │   ├── knowledge/     # 8 阶段知识点
 │   ├── solutions/     # 作业解答 + 06-考前复习
-│   ├── guide/         # 阅读地图、公式记忆、Smith 圆图专题
+│   ├── guide/         # 学习指南、阅读地图、课程复习索引、公式记忆
 │   ├── experiments/   # 实验模块
 │   └── appendices/    # 仅矩阵等少数页进站点
 ├── assets/images/     # plot 脚本输出 + 配图

@@ -6,7 +6,9 @@
 
 **贡献者交接**（2026-06-14）：已添加 [CONTRIBUTING.md](../CONTRIBUTING.md)、[AGENTS.md](../AGENTS.md)、[good-first-issues.md](good-first-issues.md)、GitHub Issue/PR 模板与 `pr-check.yml`。设计参考见 [REFERENCES.md](REFERENCES.md)。
 
-重构与完善计划见 [REFACTOR_PLAN.md](REFACTOR_PLAN.md)，逐节/逐题反查清单见 [KNOWLEDGE_AUDIT.md](KNOWLEDGE_AUDIT.md) 与 [QUESTION_AUDIT.md](QUESTION_AUDIT.md)。
+**文档清理**（2026-06-14）：从「考试复习交接」转为「长期维护」视角。删除已完成的一次性计划与修复日志（见下表）；保留审计真源（KNOWLEDGE_AUDIT、QUESTION_AUDIT、BLQ_REVIEW_INTEGRATION 等）。`content/guide/exam-review.md` 侧栏标题改为「课程复习索引」，正文保留 13 项考点与串讲导航。
+
+逐节/逐题反查清单见 [KNOWLEDGE_AUDIT.md](KNOWLEDGE_AUDIT.md) 与 [QUESTION_AUDIT.md](QUESTION_AUDIT.md)。P0–P4 重构与壳层增强已于 2026-06 完成（`PageKind`、首页课程地图、`nav.json` 外置等），不再单独维护 `REFACTOR_PLAN.md`。
 
 ## 项目边界
 
@@ -22,18 +24,29 @@
 | `content/knowledge/` | 8 阶段知识点讲义（第一性原理路线），正式内容源 |
 | `content/solutions/` | 5 次正式作业 + `06-考前复习` 串讲索引（已拆题），正式内容源 |
 | `content/experiments/` | 2 个实验模块，正式内容源 |
-| `content/guide/` | 初学者手册、阅读地图、考前复习、公式记忆专章 |
+| `content/guide/` | 学习指南、阅读地图、课程复习索引、公式记忆、Smith 圆图专题 |
 | `content/appendices/` | 知识点矩阵、Word 回填、真源说明（仅矩阵进站点） |
 | `assets/` | 样式、交互、配图、jx 设计令牌 |
 | `build.py` | Markdown → 静态网页书（含 PageKind 壳层分叉） |
 | `scripts/plots/` | 配图生成，输出到 `assets/images/` |
 | `scripts/tools/` | 交叉引用检查、拆题等维护脚本 |
-| `docs/` | 审计、重构计划、Agent 交接（AGENTS、PR_CHECKLIST、good-first-issues） |
+| `docs/` | 审计、维护、Agent 交接（AGENTS、PR_CHECKLIST、good-first-issues） |
 | `CONTRIBUTING.md` / `AGENTS.md` | 人类与 Agent 贡献入口 |
 | `.github/` | Pages、PR 校验、Issue/PR 模板 |
 | `site/` | **构建输出**（`.gitignore` 忽略，仅保留 `site/.gitkeep`） |
 
 `sources/` 原始材料只保留在本地，通过 `.gitignore` 排除，不上传到 GitHub，也不纳入正式网页书构建。
+
+## 2026-06-14 文档清理记录
+
+| 操作 | 路径 | 原因 |
+|------|------|------|
+| 删除 | `docs/plans/2026-06-03-*.md`（4 文件） | 2026-06 知识深化会话计划，任务已落地 |
+| 删除 | `docs/INTEGRATION_FIX_LOG.md` | BLQ 融入 100 项修复的一次性日志，修复已合入正文 |
+| 删除 | `docs/REFACTOR_PLAN.md` | P0–P4 均已完成，职责由本文件 + AUDIT 文档承接 |
+| 更新 | `README.md`、`content/guide/index.md`、`reading-map.md`、`exam-review.md` | 学习者/维护者双入口，弱化纯考试语气 |
+| 更新 | `nav.json` | `exam-review.md` 侧栏标题 →「课程复习索引」 |
+| 更新 | `content/knowledge/**/README.md` | 「本轮反查状态」→「内容校验状态」（已完成，非 WIP） |
 
 ## 已完成整理
 
