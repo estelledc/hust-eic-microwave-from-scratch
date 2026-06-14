@@ -233,4 +233,4 @@ python build.py 后本地预览 Smith 圆图专题侧栏。分支 fix/nav-smith-
 2. 开分支 → 完成 → PR 关联 Issue
 3. 维护者 merge 后关闭 Issue
 
-建议仓库额外 label（可选创建）：`content`、`plots` — 见 [MAINTAINERS.md](MAINTAINERS.md)
+仓库 label `content`、`plots` 已于 2026-06-14 创建 — 见 [MAINTAINERS.md](MAINTAINERS.md)
