@@ -14,6 +14,7 @@
     "03-规则波导与矩形波导": "03 · 波导作业",
     "04-后续专题": "04 · 后续专题",
     "05-谐振器网络元件与测量综合": "05 · 谐振器网络综合",
+    "公式记忆": "公式记忆",
     "01-矢网与传输线": "实验一 · 矢网与传输线",
     "02-元件参数测量": "实验二 · 元件参数测量",
     "03-Lec08-09": "Lec08-09",
@@ -28,7 +29,13 @@
     "content/solutions/index.md": "作业总览",
     "content/experiments/index.md": "实验总览",
     "content/appendices/讲次-作业-教材章节-知识点矩阵.md": "讲次知识矩阵",
-    "content/guide/exam-review.md": "考前复习"
+    "content/guide/exam-review.md": "考前复习",
+    "content/guide/公式记忆/README.md": "公式记忆",
+    "content/guide/公式记忆/01-传输线与匹配.md": "01 · 传输线与匹配",
+    "content/guide/公式记忆/02-波导与色散.md": "02 · 波导与色散",
+    "content/guide/公式记忆/03-圆同轴微带.md": "03 · 圆同轴微带",
+    "content/guide/公式记忆/04-谐振腔与网络.md": "04 · 谐振腔与网络",
+    "content/guide/公式记忆/05-实验测量与VNA.md": "05 · 实验测量与 VNA"
   },
   "filenames": {
     "01-长线短线与分布参数.md": "长线/短线",
