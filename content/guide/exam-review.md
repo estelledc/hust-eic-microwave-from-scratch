@@ -1,6 +1,6 @@
 # 课程复习 · 索引
 
-> 本页汇总课堂串讲口径下的核心考点、教材章导航与公式速查，与 [串讲习题索引](../solutions/06-考前复习/README.md) 和五次作业解答配套。原始串讲材料只保留在本地 `sources/考试前复习/` 与 `sources/微波技术基础考前串讲_blq.pdf`，站点不发布原文。
+> 本页汇总课堂串讲口径下的核心考点、教材章导航与公式速查，与 [串讲习题索引](../solutions/06-考前复习/README.md) 和五次作业解答配套。题解与知识点均已自洽，无需对照站外材料。
 
 ## 怎么用这个页面
 
@@ -18,7 +18,7 @@
 | [电子板复习题索引](../solutions/06-考前复习/README.md) | 按 6 章列出串讲习题，链到作业解答或缺口标准解答 |
 | [讲次-作业-知识点矩阵](../appendices/讲次-作业-教材章节-知识点矩阵.md) | 按 Lec01–Lec28 反查还没掌握的讲次 |
 | [考前公式卡](../solutions/06-考前复习/99-公式与图像.md) | 扩展速查表 + 分作业公式卡索引（派生视图） |
-| [BLQ 串讲页码映射](../solutions/06-考前复习/README.md#blq-page-map) | 教材 6 章串讲 PDF 页 ↔ 站点题解 |
+| [考点专题索引](../solutions/06-考前复习/README.md#topic-index) | 按专题链到知识点与题解 |
 
 ## 公式从哪里找 {#formula-canonical}
 
@@ -34,20 +34,18 @@
 
 ---
 
-## 教材 6 章串讲导航（BLQ 口径） {#textbook-6ch-nav}
+## 教材 6 章导航 {#textbook-6ch-nav}
 
 按教材章节快速定位；与 Lec/8 阶段路线并行使用，不互相替代。
 
-| 章 | 串讲页 | 核心内容 | 站点入口 |
-|----|--------|----------|----------|
-| 第 1 章 绪论 | p2–6 | 路/场/路场结合；集总 vs 分布参数 | [01 · 长线短线](../knowledge/01-传播与传输线/01-长线短线与分布参数.md) |
-| 第 2 章 传输线理论 | p8–34 | $\Gamma$/$\rho$/Z；三态；Smith；λ/4 与支节 | [01-传播与传输线](../knowledge/01-传播与传输线/README.md)、[02-反射与匹配](../knowledge/02-反射与匹配/README.md) |
-| 第 3 章 微波传输线 | p35–56 | 无 TEM；波导参量；矩形/圆/同轴 | [03–05 阶段](../knowledge/03-波导中的场与边界/README.md)、[06 阶段](../knowledge/06-圆波导同轴线微带线/README.md) |
-| 第 4 章 微带传输线 | （并入第 3 章后段与作业） | 准 TEM、$\varepsilon_{\mathrm{eff}}$ | [03 · 微带准 TEM](../knowledge/06-圆波导同轴线微带线/03-微带线准TEM与有效介电常数.md) |
-| 第 5 章 微波谐振腔 | p57–67 | LC vs 微波谐振器；三类腔体 | [01 · 谐振器](../knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md) |
-| 第 6 章 微波网络 | p68–75 | Z/S 矩阵；工作特性参量；魔 T/混合器 | [02 · S 参数](../knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.md)、[03 · 魔 T/混合器](../knowledge/08-谐振器网络与课程综合/03-常用微波元件网络化描述.md#magic-t)、[缺口题](../solutions/06-考前复习/README.md#gap-solutions) |
-
-维护者逐页审计见仓库 `docs/BLQ_REVIEW_INTEGRATION.md`（不进入站点构建）。
+| 章 | 核心内容 | 站点入口 |
+|----|----------|----------|
+| 第 1 章 绪论 | 路/场/路场结合；集总 vs 分布参数 | [01 · 长线短线](../knowledge/01-传播与传输线/01-长线短线与分布参数.md) |
+| 第 2 章 传输线理论 | $\Gamma$/$\rho$/Z；三态；Smith；λ/4 与支节 | [01-传播与传输线](../knowledge/01-传播与传输线/README.md)、[02-反射与匹配](../knowledge/02-反射与匹配/README.md) |
+| 第 3 章 微波传输线 | 无 TEM；波导参量；矩形/圆/同轴 | [03–05 阶段](../knowledge/03-波导中的场与边界/README.md)、[06 阶段](../knowledge/06-圆波导同轴线微带线/README.md) |
+| 第 4 章 微带传输线 | 准 TEM、$\varepsilon_{\mathrm{eff}}$ | [03 · 微带准 TEM](../knowledge/06-圆波导同轴线微带线/03-微带线准TEM与有效介电常数.md) |
+| 第 5 章 微波谐振腔 | LC vs 微波谐振器；三类腔体 | [01 · 谐振器](../knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md) |
+| 第 6 章 微波网络 | Z/S 矩阵；工作特性参量；魔 T/混合器 | [02 · S 参数](../knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.md)、[03 · 魔 T/混合器](../knowledge/08-谐振器网络与课程综合/03-常用微波元件网络化描述.md#magic-t)、[缺口题](../solutions/06-考前复习/README.md#gap-solutions) |
 
 ---
 
@@ -83,8 +81,6 @@
 | 11 | $\lambda/4$ + 支节匹配 | 两种方案：先支节后变换 / 先变换后支节 | [Smith 圆图专题 · 导纳匹配](Smith圆图专题/02-导纳与支节匹配.md)、[01 · 多段线与 λ/4](../knowledge/02-反射与匹配/01-多段线并联与四分之一波长.md)、[Lec08-09 第 5–6 题](../solutions/02-圆图与匹配/03-Lec08-09/第05题.md) |
 | 12 | Q 值 | 定义；$Q_L$ vs $Q_0$；变量变化趋势 | [01 · 品质因数 Q](../knowledge/08-谐振器网络与课程综合/01-微波谐振器与谐振腔.md#quality-factor-q)、[03 · Q 值测量](../knowledge/07-实验测量与微波元件/03-谐振器Q值与功率传输法.md) |
 | 13 | 场结构 / 开缝辐射 | 切**壁电流**可辐射；切**电力线**不辐射 | [05 · 壁电流与开槽](../knowledge/05-矩形波导工程计算/05-波导段反射驻波与匹配.md#wall-current-slots) |
-
-> **BLQ 页速查**：#4→p15–21 · #5→p24–32 · #7→p12 · #8→p43/p50 · #11→p29–34 · #1→p71–75 · #2→p57–67
 
 ---
 
@@ -166,9 +162,9 @@ flowchart LR
 <details>
 <summary>本地素材与公式入口（维护者）</summary>
 
-- 原始串讲 PDF/图片只保留在本地 `sources/考试前复习/` 与 `sources/微波技术基础考前串讲_blq.pdf`，**不上传 GitHub**。
+- 原始材料不公开；**勿在面向读者的 `content/` 中引用站外出处**。维护者审计见 `docs/SOURCE_EXTRACTION_AUDIT.md`。
 - 闭卷默写 canonical 入口：[公式记忆专章](公式记忆/README.md)；扩展速查：[06-考前复习 · 99-公式与图像](../solutions/06-考前复习/99-公式与图像.md)。
-- BLQ 逐页审计：`docs/BLQ_REVIEW_INTEGRATION.md`；改本页或串讲索引后跑 `python scripts/tools/check_exam_integration.py`。
+- 改本页或串讲索引后跑 `python scripts/tools/check_exam_integration.py`。
 - 内容贡献任务见 [docs/good-first-issues.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/good-first-issues.md)。
 
 </details>

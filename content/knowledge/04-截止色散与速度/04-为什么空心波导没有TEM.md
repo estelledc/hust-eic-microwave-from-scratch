@@ -88,7 +88,7 @@ $$
 2. 写 Laplace + 管壁等势 $\Rightarrow$ 单连通腔内势为常数 $\Rightarrow$ 无场。
 3. 对比双导体存在电位差 $\Rightarrow$ 可有 TEM。
 
-**串讲四步（BLQ p36，旋度口径）**：TEM 要求 $E_z=H_z=0$，横向场需纵向传导电流 $J_z$ 或位移电流 $\partial D_z/\partial t$ 支撑。空心单导体管内无纵向 $J_z$；TEM 又无纵向 $E_z$，故无纵向位移电流 → 无法维持横向 $\boldsymbol H$ → 亦无横向 $\boldsymbol E$。教材详述见 P66。
+**串讲四步（，旋度口径）**：TEM 要求 $E_z=H_z=0$，横向场需纵向传导电流 $J_z$ 或位移电流 $\partial D_z/\partial t$ 支撑。空心单导体管内无纵向 $J_z$；TEM 又无纵向 $E_z$，故无纵向位移电流 → 无法维持横向 $\boldsymbol H$ → 亦无横向 $\boldsymbol E$。。
 
 ---
 

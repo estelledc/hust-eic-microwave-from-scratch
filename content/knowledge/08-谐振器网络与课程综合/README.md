@@ -25,19 +25,19 @@
 
 ---
 
-## 课件与实验二补强
+## 实验二与阶段补强
 
-`微波谐振腔.pdf` 和 `微波网络基础2.pdf` 已融入本阶段：谐振器不再只停留在“腔内场分布”，而是继续接到 Q 值、端口网络和 VNA 读数。实验二报告数据则作为最终测量综合的真实例子。
+谐振器、网络与 VNA 读数内容已融入本阶段；实验二报告数据作为测量综合的真实例子。
 
-| 来源 | 融入页面 | 作用 |
+| 主题 | 融入页面 | 作用 |
 |---|---|---|
 | 微波谐振腔 | [01 微波谐振器与谐振腔](01-微波谐振器与谐振腔.md) | 从传输线/波导驻波过渡到腔体谐振频率和 Q |
 | 微波网络基础 | [02 微波网络基础与 S 参数](02-微波网络基础与S参数.md) | 用 $S$ 矩阵描述二端口/多端口 |
 | 实验二报告 | [04 微波测量与课程综合](04-微波测量与课程综合.md) | 把 Q、耦合度、驻波比、功分器指标落到实测数据 |
 
-![微波谐振腔课件精选页](../../../assets/images/course/course-microwave-resonator-source-preview.webp)
+![微波谐振腔精选配图](../../../assets/images/course/course-microwave-resonator-source-preview.webp)
 
-![微波网络基础课件精选页](../../../assets/images/course/course-microwave-network-source-preview.webp)
+![微波网络基础精选配图](../../../assets/images/course/course-microwave-network-source-preview.webp)
 
 ---
 

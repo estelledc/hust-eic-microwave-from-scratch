@@ -18,11 +18,11 @@
 
 ---
 
-## 课件补强后的读法
+## 阶段内容补强
 
-![矩形波导工程计算课件精选页](../../../assets/images/course/course-rectangular-waveguide-source-preview.webp)
+![矩形波导工程计算精选配图](../../../assets/images/course/course-rectangular-waveguide-source-preview.webp)
 
-`矩形波导1.pdf` 的工程题部分已融入本阶段。遇到尺寸和频率题，按下面四步写草稿：
+遇到尺寸和频率题，按下面四步写草稿：
 
 1. 列出候选 $\mathrm{TE}_{mn}$ / $\mathrm{TM}_{mn}$，先排除非法下标。
 2. 对每个模算 $\lambda_{\mathrm c}$ 或 $f_{\mathrm c}$，按门槛排序。

@@ -6,7 +6,7 @@
 
 **对应大纲**：Lec17–Lec18，圆波导。
 
-**BLQ 串讲对照**：p47–51 圆波导 TE/TM 与单模；**p51** 填 $\varepsilon_r=2.1$ 保持 $f_{\mathrm c}$ 时改半径（$R=2\,\mathrm{cm}$ $\mathrm{TE}_{01}$ 型）→ [第 4–6 题](第04题.md)；p55 习题 2-26~2-30 → 本 README 各题。
+**串讲习题对照**：圆波导 TE/TM 与单模；填 $\varepsilon_r=2.1$ 保持 $f_{\mathrm c}$ 时改半径（$R=2\,\mathrm{cm}$ $\mathrm{TE}_{01}$ 型）→ [第 4–6 题](第04题.md)；p55 习题 2-26~2-30 → 本 README 各题。
 
 圆波导用柱坐标 \((r,\varphi,z)\) 描述横截面场。模式由角向阶数 \(m\) 与径向贝塞尔根序号 \(n\) 双指标标识。\(\mathrm{TE}_{mn}\)/\(\mathrm{TM}_{mn}\) 的截止波数为
 

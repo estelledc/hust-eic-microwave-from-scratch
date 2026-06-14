@@ -55,7 +55,7 @@ $$
 
 工程常见值：$\varepsilon_r=2.1$（聚四氟乙烯）、$Z_c=50\,\Omega$ 时 $b/a\approx 3.36$。
 
-**串讲口径（BLQ p52–53）**：TEM 无截止（$k_{\mathrm c}=0$，$\beta=k$，$\lambda_{\mathrm g}=\lambda$，$v_{\mathrm p}=v_{\mathrm g}=v$）。单模条件 $\lambda_0>\pi(a+b)$。兼顾功率容量与衰减时取 $b/a\approx2.3$ 得空气填充 $Z_0\approx50\,\Omega$（串讲数值，与上式 $3.36$ 为不同折中目标）。
+**串讲口径**：TEM 无截止（$k_{\mathrm c}=0$，$\beta=k$，$\lambda_{\mathrm g}=\lambda$，$v_{\mathrm p}=v_{\mathrm g}=v$）。单模条件 $\lambda_0>\pi(a+b)$。兼顾功率容量与衰减时取 $b/a\approx2.3$ 得空气填充 $Z_0\approx50\,\Omega$（串讲数值，与上式 $3.36$ 为不同折中目标）。
 
 ---
 

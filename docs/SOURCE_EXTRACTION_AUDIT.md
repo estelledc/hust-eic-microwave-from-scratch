@@ -2,7 +2,9 @@
 
 更新时间：2026-06-13
 
-本文件记录 `sources/` 本地资料如何被消化进站点。原始 PDF/DOCX 不发布、不纳入版本控制；站点只使用重构后的 Markdown、审计摘要和精选 WebP 图片。
+本文件记录 `sources/` 本地资料如何被消化进站点（**维护者内部**）。原始 PDF/DOCX 不发布、不纳入版本控制；站点只使用重构后的 Markdown、审计摘要和精选 WebP 图片。
+
+**面向读者的 `content/` 正文不得引用 `sources/`、BLQ 页码、课件 PDF 文件名等站外出处**；知识点与题解应自洽，或仅链到本站页面与配图。
 
 页级复核详见 `docs/COURSE_INTEGRATION_REVIEW.md`；完整逐页 JSON 索引见 `docs/source_extraction_index.json`。JSON 每页只保存标题候选、关键词标签和短摘要，不保存完整课件正文。
 

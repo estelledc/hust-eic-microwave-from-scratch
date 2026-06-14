@@ -14,7 +14,7 @@
 |------|------|
 | `nav.json` 缺 knowledge 06 单讲页 | 侧栏对 06 阶段 4 讲 + 99 自检仍用长文件名 |
 | plot 脚本 docstring 不统一 | 9 个 `plot_*.py` 中 6 个缺 `Run:` / 输出目录说明 |
-| Lec05 第 5 题无配图 | 依赖教材图 1-1，站点仅有填空表、无拓扑示意 |
+| Lec05 第 5 题无配图 | 多段线网络拓扑题，站点仅有填空表、无拓扑示意 |
 | 圆柱腔 / TE10 色散图无 regenerate 说明 | 图已引用，但 knowledge 页未写 plot 命令 |
 | Word 回填指南缺 guide 专章 | 8 阶段路径已对齐，但未列公式记忆 / Smith 专题 / 考前复习 |
 
@@ -97,7 +97,7 @@ python build.py && python scripts/tools/check_cross_refs.py。
 | **Labels** | `good first issue`, `plots`, `content` |
 | **GitHub** | [#32](https://github.com/estelledc/hust-eic-microwave-from-scratch/issues/32) |
 
-**背景**：`QUESTION_AUDIT.md` 标记 Lec05 第 5 题为「方法已校验、依赖教材图 1-1」；题解仅有填空表，零基础读者无法对照网络拓扑。
+**背景**：`QUESTION_AUDIT.md` 标记 Lec05 第 5 题为「方法已校验、需网络拓扑示意」；题解仅有填空表，零基础读者无法对照网络拓扑。
 
 **具体任务**
 
@@ -150,23 +150,23 @@ python build.py && python scripts/tools/check_cross_refs.py。
 
 ---
 
-### GFI-05 · Smith 专题 02 补 BLQ p34 单支节手算例题
+### GFI-05 · Smith 专题 02 补单支节手算例题
 
 | 字段 | 内容 |
 |------|------|
 | **类型** | content |
 | **难度** | ⭐⭐ 简单 |
-| **涉及文件** | `content/guide/Smith圆图专题/02-导纳与支节匹配.md`, `content/knowledge/02-反射与匹配/03-并联支节匹配.md#blq-p34-stub-example` |
-| **建议分支** | `content/smith-blq-p34-example` |
+| **涉及文件** | `content/guide/Smith圆图专题/02-导纳与支节匹配.md`, `content/knowledge/02-反射与匹配/03-并联支节匹配.md#stub-matching-example` |
+| **建议分支** | `content/smith-stub-matching-example` |
 | **Labels** | `good first issue`, `content` |
 | **GitHub** | [#34](https://github.com/estelledc/hust-eic-microwave-from-scratch/issues/34) |
 
-**背景**：`02-导纳与支节匹配.md` 有操作流与 Lec08 链，但缺一道**完整数值 walkthrough**；knowledge 03 已有 BLQ p34 算例（$Z_L=50+\mathrm j25\,\Omega$），专题页应摘一版「圆图七步」口语化步骤。
+**背景**：`02-导纳与支节匹配.md` 有操作流与 Lec08 链，但缺一道**完整数值 walkthrough**；knowledge 03 已有单支节算例（$Z_L=50+\mathrm j25\,\Omega$），专题页应摘一版「圆图七步」口语化步骤。
 
 **具体任务**
 
-- [ ] 阅读 knowledge `03-并联支节匹配.md#blq-p34-stub-example` 与 Lec08 第 4 题
-- [ ] 在 Smith 专题 02 末尾增「算例 · BLQ p34」小节（归一化 → $g=1$ → 读 $b$ → 定 $l$，数值与 knowledge 一致）
+- [ ] 阅读 knowledge `03-并联支节匹配.md#stub-matching-example` 与 Lec08 第 4 题
+- [ ] 在 Smith 专题 02 末尾增「算例 · 单支节匹配」小节（归一化 → $g=1$ → 读 $b$ → 定 $l$，数值与 knowledge 一致）
 - [ ] 链到 Lec08 第 4 题与已有 `smith_lec08_q4_single_stub.webp`
 - [ ] 不重复 01 页已有 Lec07 Q1 算例
 - [ ] `python build.py` + `check_cross_refs.py`
@@ -176,9 +176,9 @@ python build.py && python scripts/tools/check_cross_refs.py。
 **Agent prompt：**
 
 ```
-先读 docs/AGENTS.md、content/knowledge/02-反射与匹配/03-并联支节匹配.md#blq-p34-stub-example。
-在 content/guide/Smith圆图专题/02-导纳与支节匹配.md 末尾增加 BLQ p34 单支节手算 walkthrough（圆图七步，数值与 knowledge 一致），链到 Lec08 第 4 题。
-python build.py && python scripts/tools/check_cross_refs.py。分支 content/smith-blq-p34-example。
+先读 docs/AGENTS.md、content/knowledge/02-反射与匹配/03-并联支节匹配.md#stub-matching-example。
+在 content/guide/Smith圆图专题/02-导纳与支节匹配.md 末尾增加单支节手算 walkthrough（圆图七步，数值与 knowledge 一致），链到 Lec08 第 4 题。
+python build.py && python scripts/tools/check_cross_refs.py。分支 content/smith-stub-matching-example。
 ```
 
 ---

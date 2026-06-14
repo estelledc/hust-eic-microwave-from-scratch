@@ -12,7 +12,7 @@ SITE = ROOT / "site"
 ANCHOR_CHECKS: tuple[tuple[str, str], ...] = (
     ("guide/exam-review.md", "textbook-6ch-nav"),
     ("guide/exam-review.md", "老师-13-项划重点"),
-    ("solutions/06-考前复习/README.md", "blq-page-map"),
+    ("solutions/06-考前复习/README.md", "topic-index"),
     ("solutions/06-考前复习/README.md", "gap-solutions"),
     ("knowledge/02-反射与匹配/03-并联支节匹配.md", "stub-dead-zone"),
     ("knowledge/08-谐振器网络与课程综合/02-微波网络基础与S参数.md", "network-operating-params"),
@@ -63,11 +63,7 @@ def main() -> int:
         if needle not in readme:
             errors.append(f"06-考前复习/README.md missing: {needle}")
 
-    # Wrong-link guards
-    if "03-Lec03.md)" in readme and "p13" in readme:
-        block = readme.split("BLQ 串讲页码映射")[1].split("## 相关链接")[0]
-        if "p13" in block and "04-Lec04" not in block.split("p13")[1].split("\n")[0]:
-            errors.append("BLQ p13 still links to Lec03 instead of Lec04")
+    # Legacy BLQ page-map guard removed (topic-index replaces blq-page-map)
 
     if errors:
         print("INTEGRATION CHECK FAILED:")

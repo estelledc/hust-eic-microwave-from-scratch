@@ -18,11 +18,11 @@
 
 ---
 
-## 课件补强后的读法
+## 阶段内容补强
 
-![矩形波导截止课件精选页](../../../assets/images/course/course-rectangular-waveguide-source-preview.webp)
+![矩形波导精选配图](../../../assets/images/course/course-rectangular-waveguide-source-preview.webp)
 
-`矩形波导1.pdf` 中关于截止与速度的内容已融入本阶段。阅读时只抓一个判断：
+阅读时只抓一个判断：
 
 | 问题 | 先看什么 | 合格结论 |
 |---|---|---|

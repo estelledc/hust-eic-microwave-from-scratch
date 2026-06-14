@@ -34,9 +34,9 @@
 
 ---
 
-## 课件与实验二补强
+## 实验二与阶段补强
 
-`微波谐振腔.pdf` 和 `微波网络基础2.pdf` 中的 Q 值、S 参数和多端口网络内容已融入本阶段；`sources/微波实验2` 的报告数据已拆入 [实验二报告范例](../../experiments/02-元件参数测量/05-实验报告范例.md)。
+Q 值、S 参数和多端口网络内容已融入本阶段；实验二报告数据见 [实验二报告范例](../../experiments/02-元件参数测量/05-实验报告范例.md)。
 
 | 读数类型 | 知识点入口 | 实验二入口 |
 |---|---|---|
@@ -44,9 +44,9 @@
 | 定向耦合器 $C/I/D$ | [04 定向耦合器与功率分配器](04-定向耦合器与功率分配器.md) | [定向耦合器特性](../../experiments/02-元件参数测量/02-定向耦合器特性.md) |
 | Wilkinson 功分器 | [04 定向耦合器与功率分配器](04-定向耦合器与功率分配器.md) | [功率分配器测量](../../experiments/02-元件参数测量/03-功率分配器测量.md) |
 
-![微波谐振器课件精选页](../../../assets/images/course/course-microwave-resonator-source-preview.webp)
+![微波谐振器精选配图](../../../assets/images/course/course-microwave-resonator-source-preview.webp)
 
-![微波网络基础课件精选页](../../../assets/images/course/course-microwave-network-source-preview.webp)
+![微波网络基础精选配图](../../../assets/images/course/course-microwave-network-source-preview.webp)
 
 ---
 

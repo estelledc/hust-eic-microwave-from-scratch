@@ -14,24 +14,24 @@
 
 本阶段 4 个单讲页已做一致性复核。重点核对圆波导贝塞尔根与 $\mathrm{TE}_{11}$ 主模、同轴 TEM 与高阶模上限、微带准 TEM 与 $\varepsilon_{\mathrm{eff}}$ 边界，以及四类结构工程选择口径。
 
-## 课件补强后的读法
+## 阶段内容补强
 
-这一阶段吸收了 `圆波导.pdf`、`同轴线.pdf`、`微波传输线1-2.pdf` 和 `微波集成传输线.pdf`。四份课件不再分散成四个库，而是统一回答“结构不同，模和工程取舍怎样变”。
+统一回答「结构不同，模和工程取舍怎样变」：
 
-| 课件来源 | 对应页面 | 核心判断 |
+| 结构 | 对应页面 | 核心判断 |
 |---|---|---|
 | 圆波导 | [01 圆波导模式与贝塞尔根](01-圆波导模式与贝塞尔根.md) | 单导体，主模 $\mathrm{TE}_{11}$，模式排序看贝塞尔根 |
 | 同轴线 | [02 同轴线 TEM 与高阶模](02-同轴线TEM与高阶模.md) | 双导体，TEM 无截止，但高阶模给出最高工作频率 |
-| 微波集成传输线 | [03 微带线准 TEM 与有效介电常数](03-微带线准TEM与有效介电常数.md) | 半填充介质，准 TEM，工程上用 $\varepsilon_{\mathrm{eff}}$ |
-| 微波传输线类型 | [04 从矩形到圆与微带的对照](04-从矩形到圆与微带的对照.md) | 按“主模、单模窗口、损耗、加工”选结构 |
+| 微带线 | [03 微带线准 TEM 与有效介电常数](03-微带线准TEM与有效介电常数.md) | 半填充介质，准 TEM，工程上用 $\varepsilon_{\mathrm{eff}}$ |
+| 结构对照 | [04 从矩形到圆与微带的对照](04-从矩形到圆与微带的对照.md) | 按「主模、单模窗口、损耗、加工」选结构 |
 
-![圆波导课件精选页](../../../assets/images/course/course-circular-waveguide-source-preview.webp)
+![圆波导精选配图](../../../assets/images/course/course-circular-waveguide-source-preview.webp)
 
-![同轴线课件精选页](../../../assets/images/course/course-coaxial-line-source-preview.webp)
+![同轴线精选配图](../../../assets/images/course/course-coaxial-line-source-preview.webp)
 
-![微波传输线类型课件精选页](../../../assets/images/course/course-microwave-transmission-lines-source-preview.webp)
+![微波传输线类型精选配图](../../../assets/images/course/course-microwave-transmission-lines-source-preview.webp)
 
-![微波集成传输线课件精选页](../../../assets/images/course/course-integrated-microwave-lines-source-preview.webp)
+![微波集成传输线精选配图](../../../assets/images/course/course-integrated-microwave-lines-source-preview.webp)
 
 ---
 
