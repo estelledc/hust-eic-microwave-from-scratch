@@ -8,3 +8,4 @@ sources/
 # build.py regenerates the full static tree; CI is the publish source of truth.
 site/
 !site/.gitkeep
+dist/pdf/

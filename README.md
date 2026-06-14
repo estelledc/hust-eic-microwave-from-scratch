@@ -6,6 +6,8 @@
 
 **在线站点**：<https://estelledc.github.io/hust-eic-microwave-from-scratch/>
 
+**离线 PDF**：[最新 Release 下载](https://github.com/estelledc/hust-eic-microwave-from-scratch/releases/latest)（分卷：指南 / 知识点 / 题解 / 实验；生成说明见 [docs/PDF_RELEASE.md](docs/PDF_RELEASE.md)）
+
 ## 学习者入口
 
 - [课程地图](content/index.md)：首页任务入口与快速导航（由 `build.py` 生成）。
@@ -30,6 +32,16 @@ python -m pip install -r requirements.txt   # 首次
 python build.py
 python -m http.server -d site 8000        # http://localhost:8000
 ```
+
+离线 PDF（需 Playwright）：
+
+```bash
+python -m pip install -r requirements-pdf.txt
+playwright install chromium
+python scripts/tools/build_pdf.py --rebuild --edition 2026.06
+```
+
+详见 [docs/PDF_RELEASE.md](docs/PDF_RELEASE.md)。
 
 构建结果输出到 `site/`（不纳入 Git，由 CI 发布）。
 

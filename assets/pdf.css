@@ -1,0 +1,62 @@
+/* Extra print rules for offline PDF export (injected by scripts/tools/build_pdf.py). */
+
+@media print {
+  .github-corner,
+  .jx-footer,
+  .jx-return-to-hub,
+  .menu-button,
+  .icon-button[data-theme-toggle],
+  .icon-button[data-sidebar-close],
+  .sidebar-head,
+  .sidebar-source-note {
+    display: none !important;
+  }
+
+  .content {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .article {
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+
+  .article h1 {
+    font-size: 18pt;
+    break-after: avoid;
+  }
+
+  .article img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .home-dashboard .card-link,
+  .home-cta {
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+
+  .pdf-section-break {
+    break-before: page;
+  }
+
+  .pdf-toc {
+    font-size: 11pt;
+  }
+
+  .pdf-toc h1 {
+    font-size: 20pt;
+    margin-bottom: 1rem;
+  }
+
+  .pdf-toc ol {
+    padding-left: 1.2rem;
+  }
+
+  .pdf-toc li {
+    margin: 0.35rem 0;
+  }
+}
