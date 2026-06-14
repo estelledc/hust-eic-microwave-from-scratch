@@ -3,7 +3,7 @@
 感谢你愿意继续完善《微波技术基础》复习站点。本仓库是 **Markdown 内容 + Python 静态构建** 的课程笔记项目，不是传统 Web 应用；贡献方式以文档、配图和构建脚本为主。
 
 - 在线站点：<https://estelledc.github.io/hust-eic-microwave-from-scratch/>
-- 维护者文档：[docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md)
+- 维护者文档：[docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) · 索引：[docs/README.md](docs/README.md)
 - **Agent 接手**：[docs/AGENTS.md](docs/AGENTS.md) · [docs/PR_CHECKLIST.md](docs/PR_CHECKLIST.md)
 - 入门任务：[docs/good-first-issues.md](docs/good-first-issues.md)
 - 设计参考：[docs/REFERENCES.md](docs/REFERENCES.md)

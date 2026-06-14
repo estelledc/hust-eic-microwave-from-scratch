@@ -3,8 +3,8 @@
 This script treats ``sources/`` as local-only input. It never copies source
 PDF/DOCX files into the published site. Outputs are intentionally small:
 
-- docs/SOURCE_EXTRACTION_AUDIT.md
-- docs/source_extraction_index.json
+- docs/audit/SOURCE_EXTRACTION_AUDIT.md
+- docs/audit/source_extraction_index.json
 - assets/images/course/*-source-preview.webp
 - assets/images/exp2/*.webp
 """
@@ -27,9 +27,9 @@ PDF_SOURCE_DIR = ROOT / "sources" / "课件PDF"
 EXP2_SOURCE_DIR = ROOT / "sources" / "微波实验2"
 COURSE_IMAGE_DIR = ROOT / "assets" / "images" / "course"
 EXP2_IMAGE_DIR = ROOT / "assets" / "images" / "exp2"
-AUDIT_MD = ROOT / "docs" / "SOURCE_EXTRACTION_AUDIT.md"
-AUDIT_JSON = ROOT / "docs" / "source_extraction_index.json"
-INTEGRATION_REVIEW_MD = ROOT / "docs" / "COURSE_INTEGRATION_REVIEW.md"
+AUDIT_MD = ROOT / "docs" / "audit" / "SOURCE_EXTRACTION_AUDIT.md"
+AUDIT_JSON = ROOT / "docs" / "audit" / "source_extraction_index.json"
+INTEGRATION_REVIEW_MD = ROOT / "docs" / "audit" / "COURSE_INTEGRATION_REVIEW.md"
 
 
 @dataclass(frozen=True)
@@ -526,7 +526,7 @@ def write_audit(index: dict[str, object]) -> None:
         "",
         "本文件记录 `sources/` 本地资料如何被消化进站点。原始 PDF/DOCX 不发布、不纳入版本控制；站点只使用重构后的 Markdown、审计摘要和精选 WebP 图片。",
         "",
-        "页级复核详见 `docs/COURSE_INTEGRATION_REVIEW.md`；完整逐页 JSON 索引见 `docs/source_extraction_index.json`。JSON 每页只保存标题候选、关键词标签和短摘要，不保存完整课件正文。",
+        "页级复核详见 `docs/audit/COURSE_INTEGRATION_REVIEW.md`；完整逐页 JSON 索引见 `docs/audit/source_extraction_index.json`。JSON 每页只保存标题候选、关键词标签和短摘要，不保存完整课件正文。",
         "",
         "## 课件 PDF 映射",
         "",
@@ -596,7 +596,7 @@ def write_integration_review(index: dict[str, object]) -> None:
         "",
         "本文件用于回答“每一张 PPT 应该如何理解、应该融入哪里”。处理原则是先逐页抽取主题信号，再把每页归入现有 `knowledge / experiments / solutions` 主线；封面、结束页、重复引入页和空白图页只保留审计记录，不发布为站点正文。",
         "",
-        "完整逐页索引保存在 `docs/source_extraction_index.json` 的 `course_sources[].page_index[]` 中。这里按连续页段列出人工复核后的融入决策，每个页段都覆盖原 PDF 页码，不遗漏页面。",
+        "完整逐页索引保存在 `docs/audit/source_extraction_index.json` 的 `course_sources[].page_index[]` 中。这里按连续页段列出人工复核后的融入决策，每个页段都覆盖原 PDF 页码，不遗漏页面。",
     ]
 
     for item in index["course_sources"]:

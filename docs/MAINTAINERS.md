@@ -82,3 +82,5 @@ git branch -d chore/gitattributes-lf codex/knowledge-content-enrichment feat/for
 3. [docs/good-first-issues.md](good-first-issues.md) 中的 Agent prompt
 
 设计依据：[docs/REFERENCES.md](REFERENCES.md)
+
+文档索引：[docs/README.md](README.md) · 历史审计：[docs/audit/README.md](audit/README.md)

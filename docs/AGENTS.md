@@ -85,7 +85,7 @@ Windows：上述 `python` 可换为 `.venv\Scripts\python`。
 
 1. 在 `content/solutions/` 对应讲次下编辑或新建
 2. 文首链到「对应知识点」
-3. 数值变更需手算或脚本校验，更新 `docs/QUESTION_AUDIT.md` 状态（若维护者要求）
+3. 数值变更需手算或脚本校验，更新 [audit/QUESTION_AUDIT.md](audit/QUESTION_AUDIT.md) 状态（若维护者要求）
 
 ### 加 Smith 圆图配图
 
@@ -149,3 +149,5 @@ Closes #（如有）
 | [REFERENCES.md](REFERENCES.md) | 贡献流程设计参考来源 |
 | [MAINTAINERS.md](MAINTAINERS.md) | 分支卫生、label 建议 |
 | [PROJECT_STATUS.md](PROJECT_STATUS.md) | 完成度与验证记录 |
+| [README.md](README.md) | docs 目录索引（谁该读哪个） |
+| [audit/README.md](audit/README.md) | 历史审计（维护者考古） |

@@ -6,9 +6,9 @@
 
 **贡献者交接**（2026-06-14）：已添加 [CONTRIBUTING.md](../CONTRIBUTING.md)、[AGENTS.md](../AGENTS.md)、[good-first-issues.md](good-first-issues.md)、GitHub Issue/PR 模板与 `pr-check.yml`。设计参考见 [REFERENCES.md](REFERENCES.md)。
 
-**文档清理**（2026-06-14）：从「考试复习交接」转为「长期维护」视角。删除已完成的一次性计划与修复日志（见下表）；保留审计真源（KNOWLEDGE_AUDIT、QUESTION_AUDIT、BLQ_REVIEW_INTEGRATION 等）。`content/guide/exam-review.md` 侧栏标题改为「课程复习索引」，正文保留 13 项考点与串讲导航。
+**文档清理**（2026-06-14）：从「考试复习交接」转为「长期维护」视角。删除已完成的一次性计划与修复日志（见下表）；历史审计迁入 [audit/](audit/README.md)。`content/guide/exam-review.md` 侧栏标题改为「课程复习索引」，正文保留 13 项考点与串讲导航。
 
-逐节/逐题反查清单见 [KNOWLEDGE_AUDIT.md](KNOWLEDGE_AUDIT.md) 与 [QUESTION_AUDIT.md](QUESTION_AUDIT.md)。P0–P4 重构与壳层增强已于 2026-06 完成（`PageKind`、首页课程地图、`nav.json` 外置等）；结构与完成度以本文件与 AUDIT 文档为真源。
+逐节/逐题反查清单见 [audit/KNOWLEDGE_AUDIT.md](audit/KNOWLEDGE_AUDIT.md) 与 [audit/QUESTION_AUDIT.md](audit/QUESTION_AUDIT.md)。P0–P4 重构与壳层增强已于 2026-06 完成（`PageKind`、首页课程地图、`nav.json` 外置等）；结构与完成度以本文件与 audit 文档为真源。文档索引：[README.md](README.md)。
 
 ## 项目边界
 
@@ -30,7 +30,7 @@
 | `build.py` | Markdown → 静态网页书（含 PageKind 壳层分叉） |
 | `scripts/plots/` | 配图生成，输出到 `assets/images/` |
 | `scripts/tools/` | 交叉引用检查、拆题等维护脚本 |
-| `docs/` | 审计、维护、Agent 交接（AGENTS、PR_CHECKLIST、good-first-issues） |
+| `docs/` | 贡献者入口 + 维护状态；历史审计在 `docs/audit/`（见 [README.md](README.md)） |
 | `CONTRIBUTING.md` / `AGENTS.md` | 人类与 Agent 贡献入口 |
 | `.github/` | Pages、PR 校验、Issue/PR 模板 |
 | `site/` | **构建输出**（`.gitignore` 忽略，仅保留 `site/.gitkeep`） |
@@ -47,6 +47,7 @@
 | 更新 | `README.md`、`content/guide/index.md`、`reading-map.md`、`exam-review.md` | 学习者/维护者双入口，弱化纯考试语气 |
 | 更新 | `nav.json` | `exam-review.md` 侧栏标题 →「课程复习索引」 |
 | 更新 | `content/knowledge/**/README.md` | 「本轮反查状态」→「内容校验状态」（已完成，非 WIP） |
+| 迁入 | 10 个审计文件 → `docs/audit/` | 贡献者入口与历史审计分离；新增 `docs/README.md` |
 
 ## 已完成整理
 
@@ -100,7 +101,7 @@ python3 -m py_compile build.py scripts/plots/*.py scripts/tools/*.py
 | P3 | `compact_nav_label` 硬编码导航标签 | ✅ 已外置到 `nav.json`（2026-06-10） |
 | 维护 | `content/appendices/Word大纲回填指南.md` 部分路径仍写旧目录名 | 见 [good-first-issues.md](good-first-issues.md) GFI-03 |
 | 维护 | 远程 stale 分支 | ✅ 已于 2026-06-14 删除（见 [MAINTAINERS.md](MAINTAINERS.md)） |
-| 可选 | 公式卡片视图、Smith 圆图小计算器 | 见 [SITE_RESEARCH_AND_OPTIMIZATION.md](SITE_RESEARCH_AND_OPTIMIZATION.md) |
+| 可选 | 公式卡片视图、Smith 圆图小计算器 | 见 [audit/SITE_RESEARCH_AND_OPTIMIZATION.md](audit/SITE_RESEARCH_AND_OPTIMIZATION.md) |
 
 ## 后续变更检查清单
 

@@ -47,7 +47,7 @@
 
 无需安装 Tesseract：运行 ``python scripts/tools/extract_blq_review.py --export-all-sparse``
 导出 ``assets/course/blq-review-pNN-preview.webp``，在 Cursor 对话中逐张读图；
-转写结果写入 ``docs/blq_review_vision_transcripts.json`` 后重跑本脚本即可合并。
+转写结果写入 ``docs/audit/blq_review_vision_transcripts.json`` 后重跑本脚本即可合并。
 
 ## 站点入口
 

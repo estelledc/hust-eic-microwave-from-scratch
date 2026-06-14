@@ -162,7 +162,7 @@ flowchart LR
 <details>
 <summary>本地素材与公式入口（维护者）</summary>
 
-- 原始材料不公开；**勿在面向读者的 `content/` 中引用站外出处**。维护者审计见 `docs/SOURCE_EXTRACTION_AUDIT.md`。
+- 原始材料不公开；**勿在面向读者的 `content/` 中引用站外出处**。维护者审计见 [SOURCE_EXTRACTION_AUDIT.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/audit/SOURCE_EXTRACTION_AUDIT.md)。
 - 闭卷默写 canonical 入口：[公式记忆专章](公式记忆/README.md)；扩展速查：[06-考前复习 · 99-公式与图像](../solutions/06-考前复习/99-公式与图像.md)。
 - 改本页或串讲索引后跑 `python scripts/tools/check_exam_integration.py`。
 - 内容贡献任务见 [docs/good-first-issues.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/good-first-issues.md)。

@@ -48,7 +48,7 @@
 
 1. 已校验的作业解答和符号导读。
 2. 现有知识点页的公式口径。
-3. `docs/KNOWLEDGE_AUDIT.md`、`docs/QUESTION_AUDIT.md`、`docs/AUDIT_NOTES.md` 中的反查结论。
+3. [audit/KNOWLEDGE_AUDIT.md](audit/KNOWLEDGE_AUDIT.md)、[audit/QUESTION_AUDIT.md](audit/QUESTION_AUDIT.md)、[audit/AUDIT_NOTES.md](audit/AUDIT_NOTES.md) 中的反查结论。
 4. 已融入课程资料的阶段 README。
 
 不确定的结论必须标注为经验判断、近似条件或课程口径，不得写成绝对定律。

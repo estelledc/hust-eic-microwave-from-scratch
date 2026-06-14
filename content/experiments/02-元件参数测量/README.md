@@ -52,4 +52,4 @@
 ## 六、必读
 
 - [符号与导读](../00-符号与导读.md)
-- 来源抽取与融入审计：仓库文档 `docs/SOURCE_EXTRACTION_AUDIT.md`
+- 来源抽取与融入审计：[SOURCE_EXTRACTION_AUDIT.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/audit/SOURCE_EXTRACTION_AUDIT.md)

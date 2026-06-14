@@ -6,7 +6,7 @@
 
 **面向读者的 `content/` 正文不得引用 `sources/`、BLQ 页码、课件 PDF 文件名等站外出处**；知识点与题解应自洽，或仅链到本站页面与配图。
 
-页级复核详见 `docs/COURSE_INTEGRATION_REVIEW.md`；完整逐页 JSON 索引见 `docs/source_extraction_index.json`。JSON 每页只保存标题候选、关键词标签和短摘要，不保存完整课件正文。
+页级复核详见 `docs/audit/COURSE_INTEGRATION_REVIEW.md`；完整逐页 JSON 索引见 `docs/audit/source_extraction_index.json`。JSON 每页只保存标题候选、关键词标签和短摘要，不保存完整课件正文。
 
 ## 课件 PDF 映射
 
@@ -72,7 +72,7 @@
 
 ### BLQ 考前串讲 PDF（2026-06-13）
 
-`sources/微波技术基础考前串讲_blq.pdf`（75 页，电信 2301 班）为第二串讲源。抽取脚本：`scripts/tools/extract_blq_review.py`；逐页索引：`docs/blq_review_extraction_index.json`；页段审计：`docs/BLQ_REVIEW_INTEGRATION.md`。
+`sources/微波技术基础考前串讲_blq.pdf`（75 页，电信 2301 班）为第二串讲源。抽取脚本：`scripts/tools/extract_blq_review.py`；逐页索引：`docs/audit/blq_review_extraction_index.json`；页段审计：`docs/audit/BLQ_REVIEW_INTEGRATION.md`。
 
 | 源文件 | 主题 | 融入页面 | 采用内容 | 舍弃内容 |
 |---|---|---|---|---|

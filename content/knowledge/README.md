@@ -14,7 +14,7 @@
 
 ## 内容来源说明（维护者）
 
-原始材料不公开；**勿在面向读者的 `content/` 中引用站外出处**。维护者抽取记录见 `docs/SOURCE_EXTRACTION_AUDIT.md`，融入位置复核见 `docs/COURSE_INTEGRATION_REVIEW.md`。
+原始材料不公开；**勿在面向读者的 `content/` 中引用站外出处**。维护者抽取记录见 [SOURCE_EXTRACTION_AUDIT.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/audit/SOURCE_EXTRACTION_AUDIT.md)，融入位置复核见 [COURSE_INTEGRATION_REVIEW.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/audit/COURSE_INTEGRATION_REVIEW.md)。
 
 | 主题 | 融入阶段 | 主要补强点 |
 |---|---|---|

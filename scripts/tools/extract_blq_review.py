@@ -1,8 +1,8 @@
 """Extract page index from BLQ exam-review PDF (local-only source).
 
 Outputs:
-- docs/blq_review_extraction_index.json
-- docs/BLQ_REVIEW_INTEGRATION.md
+- docs/audit/blq_review_extraction_index.json
+- docs/audit/BLQ_REVIEW_INTEGRATION.md
 - assets/course/blq-review-p{NN}-preview.webp (key sparse pages)
 
 Sparse / image-heavy pages can be read without Tesseract:
@@ -22,9 +22,9 @@ from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[2]
 PDF_PATH = ROOT / "sources" / "微波技术基础考前串讲_blq.pdf"
-JSON_OUT = ROOT / "docs" / "blq_review_extraction_index.json"
-MD_OUT = ROOT / "docs" / "BLQ_REVIEW_INTEGRATION.md"
-VISION_DEFAULT = ROOT / "docs" / "blq_review_vision_transcripts.json"
+JSON_OUT = ROOT / "docs" / "audit" / "blq_review_extraction_index.json"
+MD_OUT = ROOT / "docs" / "audit" / "BLQ_REVIEW_INTEGRATION.md"
+VISION_DEFAULT = ROOT / "docs" / "audit" / "blq_review_vision_transcripts.json"
 PREVIEW_DIR = ROOT / "assets" / "course"
 
 SPARSE_THRESHOLD = 50
@@ -493,7 +493,7 @@ def render_markdown(pages: list[dict[str, object]], page_count: int) -> str:
             "",
             "无需安装 Tesseract：运行 ``python scripts/tools/extract_blq_review.py --export-all-sparse``",
             "导出 ``assets/course/blq-review-pNN-preview.webp``，在 Cursor 对话中逐张读图；",
-            "转写结果写入 ``docs/blq_review_vision_transcripts.json`` 后重跑本脚本即可合并。",
+            "转写结果写入 ``docs/audit/blq_review_vision_transcripts.json`` 后重跑本脚本即可合并。",
             "",
             "## 站点入口",
             "",

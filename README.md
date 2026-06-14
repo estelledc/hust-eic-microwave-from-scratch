@@ -50,7 +50,7 @@ python -m py_compile build.py scripts/plots/*.py scripts/tools/*.py
 | `nav.json` | 侧栏短标题 |
 | `scripts/plots/` | matplotlib 配图 → `assets/images/` |
 | `scripts/tools/` | 交叉引用与维护脚本 |
-| `docs/` | 维护、审计、Agent 交接文档 |
+| `docs/` | 维护、审计、Agent 交接文档（索引见 [docs/README.md](docs/README.md)） |
 | `.github/` | Pages 部署、PR 校验、Issue/PR 模板 |
 
 详见 [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md)。
@@ -80,5 +80,6 @@ PR 模板：`.github/PULL_REQUEST_TEMPLATE.md` · CI：`.github/workflows/pr-che
 
 ## 更多文档
 
-- 站点调研与可选优化：[docs/SITE_RESEARCH_AND_OPTIMIZATION.md](docs/SITE_RESEARCH_AND_OPTIMIZATION.md)
+- 文档目录索引：[docs/README.md](docs/README.md)（谁该读哪个）
+- 站点调研与可选优化：[docs/audit/SITE_RESEARCH_AND_OPTIMIZATION.md](docs/audit/SITE_RESEARCH_AND_OPTIMIZATION.md)
 - 发布说明：[.github/PUBLISHING.md](.github/PUBLISHING.md)

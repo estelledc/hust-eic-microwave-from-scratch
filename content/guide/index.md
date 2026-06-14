@@ -37,7 +37,7 @@
 | **十轮读法** | [阅读地图](reading-map.md#十轮读法复习任务轴) | 按任务复习全课 | 全课复盘（矩阵 + 考点专题索引查漏） |
 | **十轮深读地图** | [知识点总览 · 十轮深读](../knowledge/README.md#十轮深读地图公式与工程) | 想把「看过」变成「会用」 | 画一张传输线→测量综合闭环图 |
 
-维护文档里的「十轮内容优化」指 2026-06 站点内容审计轮次，**不是**上面三张读者用表；见仓库 `docs/AUDIT_NOTES.md`。
+维护文档里的「十轮内容优化」指 2026-06 站点内容审计轮次，**不是**上面三张读者用表；见仓库 [AUDIT_NOTES.md](https://github.com/estelledc/hust-eic-microwave-from-scratch/blob/main/docs/audit/AUDIT_NOTES.md)。
 
 ## 学习主轴与坐标系 {#learning-spine}
 

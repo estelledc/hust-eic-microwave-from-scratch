@@ -15,6 +15,7 @@ python scripts/tools/check_cross_refs.py
 - [docs/AGENTS.md](docs/AGENTS.md) — 目录、playbook、禁止事项
 - [docs/PR_CHECKLIST.md](docs/PR_CHECKLIST.md) — 提交 PR 前逐步检查
 - [docs/good-first-issues.md](docs/good-first-issues.md) — 入门任务 + Agent prompt
+- [docs/README.md](docs/README.md) — docs 目录索引
 - [CONTRIBUTING.md](CONTRIBUTING.md) — 人类贡献者流程
 
 默认分支：`main`。不要 force push `main`，不要提交 `site/`。

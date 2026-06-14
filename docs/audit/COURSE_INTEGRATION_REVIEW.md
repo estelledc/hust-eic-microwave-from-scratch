@@ -4,7 +4,7 @@
 
 本文件用于回答“每一张 PPT 应该如何理解、应该融入哪里”。处理原则是先逐页抽取主题信号，再把每页归入现有 `knowledge / experiments / solutions` 主线；封面、结束页、重复引入页和空白图页只保留审计记录，不发布为站点正文。
 
-完整逐页索引保存在 `docs/source_extraction_index.json` 的 `course_sources[].page_index[]` 中。这里按连续页段列出人工复核后的融入决策，每个页段都覆盖原 PDF 页码，不遗漏页面。
+完整逐页索引保存在 `docs/audit/source_extraction_index.json` 的 `course_sources[].page_index[]` 中。这里按连续页段列出人工复核后的融入决策，每个页段都覆盖原 PDF 页码，不遗漏页面。
 
 ## 传输线理论1.pdf
 
