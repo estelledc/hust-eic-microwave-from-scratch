@@ -11,7 +11,7 @@
 | **第一次贡献** | [CONTRIBUTING.md](../CONTRIBUTING.md) | [good-first-issues.md](good-first-issues.md) → [PR_CHECKLIST.md](PR_CHECKLIST.md) |
 | **Cursor / Codex Agent** | 根目录 [AGENTS.md](../AGENTS.md) | [AGENTS.md](AGENTS.md)（详版）→ GFI 条目 → PR_CHECKLIST |
 | **写知识点 / 题解** | [MANUAL_CONTENT_STANDARD.md](MANUAL_CONTENT_STANDARD.md) | [good-first-issues.md](good-first-issues.md) 中 content 类任务 |
-| **维护者 / 后继负责人** | [PROJECT_STATUS.md](PROJECT_STATUS.md) | [MAINTAINERS.md](MAINTAINERS.md) → [audit/README.md](audit/README.md) |
+| **维护者 / 后继负责人** | [HANDOFF_STATUS.md](HANDOFF_STATUS.md) | [PROJECT_STATUS.md](PROJECT_STATUS.md) → [MAINTAINERS.md](MAINTAINERS.md) |
 | **发离线 PDF** | [PDF_RELEASE.md](PDF_RELEASE.md) | [PDF_RELEASE_NOTES_TEMPLATE.md](PDF_RELEASE_NOTES_TEMPLATE.md) |
 
 ## 贡献者入口（保留在 `docs/` 根目录）
@@ -28,6 +28,7 @@
 
 | 文件 | 用途 |
 |------|------|
+| [HANDOFF_STATUS.md](HANDOFF_STATUS.md) | **交接会话汇总**：各 Agent 子任务是否完成、PDF 有效 tag、勿重复工作 |
 | [PROJECT_STATUS.md](PROJECT_STATUS.md) | 目录职责、验证记录、WIP、待维护项 |
 | [MAINTAINERS.md](MAINTAINERS.md) | 分支卫生、labels、发布与 Agent 指向 |
 | [CROSS_REF_REPORT.md](CROSS_REF_REPORT.md) | `check_cross_refs.py` 自动生成；交叉引用健康度 |
