@@ -30,7 +30,7 @@
 | **难度** | ⭐ 入门 |
 | **涉及文件** | `nav.json` |
 | **建议分支** | `fix/nav-knowledge-06-filenames` |
-| **Labels** | `good first issue`, `documentation` |
+| **Labels** | `good first issue`, `documentation`, `nav` |
 | **GitHub** | [#30](https://github.com/estelledc/hust-eic-microwave-from-scratch/issues/30) |
 
 **背景**：`nav.json` 的 `directories` 已有 `"06-圆波导同轴线微带线"`，但 `filenames` 缺少该阶段 4 个单讲页与 99 自检，侧栏显示完整中文文件名。
@@ -587,6 +587,6 @@ grep 旧路径名确保无残留。分支 docs/word-guide-guide-sections。先�
 2. 开分支 → 完成 → PR 关联 Issue（`Closes #N`）
 3. 维护者 merge 后关闭 Issue
 
-**Labels**：`good first issue` · `content` · `plots` · `documentation` · `help wanted` — 见 [MAINTAINERS.md](MAINTAINERS.md)
+**Labels**：`good first issue` · `content` · `plots` · `documentation` · `nav` · `tooling` · `help wanted` — 见 [MAINTAINERS.md](MAINTAINERS.md)
 
 **统计**：开放 **18** 项（P0×9 · P1×6 · P2×3）+ 4 项归档

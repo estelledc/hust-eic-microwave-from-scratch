@@ -13,16 +13,25 @@
 
 ## Labels
 
-`gh label list` 当前已有：`bug`, `documentation`, `good first issue`, `help wanted`, `enhancement` 等。
+仓库 Issue/PR 用 label 以 `gh label list` 为准。2026-06-14 审计后：
 
-2026-06-14 已创建内容类 label；PR/Issue 时请使用：
+**已删除**（GitHub 默认或重复语义、且 0 引用）：`duplicate`、`enhancement`、`invalid`、`question`、`wontfix`。内容与功能类工作请用 `content` / `tooling`，勿再用 `enhancement`。
+
+**保留**（核心或仍可能用到）：
 
 | Label | 用途 |
 |-------|------|
-| `content` | 知识点 / 题解 / guide 正文 |
-| `plots` | `scripts/plots/` 配图 |
+| `bug` | 缺陷 |
+| `documentation` | 文档、说明、PROJECT_STATUS 等 |
+| `good first issue` | 新人友好任务（见 [good-first-issues.md](good-first-issues.md)） |
+| `help wanted` | 需要额外讨论或设计（如 UX 类） |
+| `content` | 知识库 / 解答 / guide 正文 |
+| `plots` | `scripts/plots/` 出图与 regenerate 说明 |
+| `tooling` | `scripts/tools/`、`build.py`、仓库工具链 |
+| `nav` | `nav.json` 侧栏标题与目录结构 |
 
-Good first issue 候选：[docs/good-first-issues.md](good-first-issues.md)
+打标习惯：GFI 必有 `good first issue`，并加 `content` / `plots` / `documentation` / `nav` / `tooling` 之一或组合。
+
 
 ## 分支卫生（2026-06-14 交接记录）
 
