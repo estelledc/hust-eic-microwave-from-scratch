@@ -262,6 +262,15 @@ def section_order(rel: Path) -> tuple[int, int, tuple[tuple[int, int | str], ...
         if len(rel.parts) >= 4 and rel.parts[2] == "公式记忆":
             local_order = 0 if rel.name.lower() == "readme.md" else 1
             return (6, local_order, natural_key(rel.as_posix()))
+        if len(rel.parts) >= 4 and rel.parts[2] == "Smith圆图专题":
+            name_order = {
+                "readme.md": 0,
+                "01-六口诀读图.md": 1,
+                "02-导纳与支节匹配.md": 2,
+                "99-易错自检.md": 3,
+            }
+            local_order = name_order.get(rel.name.lower(), 4)
+            return (7, local_order, natural_key(rel.as_posix()))
 
     if rel.parts[:2] == ("content", "experiments"):
         if rel == Path("content/experiments/index.md"):
@@ -755,6 +764,12 @@ def nav_segments(page: Page) -> list[str]:
     if rel.parts[:2] == ("content", "guide"):
         if len(rel.parts) >= 4 and rel.parts[2] == "公式记忆":
             segments = [directory_nav_label("公式记忆")]
+            if rel.name.lower() == "readme.md":
+                return segments
+            segments.append(compact_nav_label(page))
+            return segments
+        if len(rel.parts) >= 4 and rel.parts[2] == "Smith圆图专题":
+            segments = [directory_nav_label("Smith圆图专题")]
             if rel.name.lower() == "readme.md":
                 return segments
             segments.append(compact_nav_label(page))
