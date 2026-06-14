@@ -9,4 +9,5 @@ sources/
 site/
 !site/.gitkeep
 dist/pdf/
+_pdf_artifact/
 assets/fonts/*.woff2

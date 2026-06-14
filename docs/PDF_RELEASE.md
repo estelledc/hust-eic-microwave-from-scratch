@@ -91,8 +91,8 @@ Workflow： [`.github/workflows/pdf-release.yml`](../.github/workflows/pdf-relea
 git checkout main && git pull
 
 # 2. 打 tag 并推送（触发 CI；字体修复版示例）
-git tag pdf-v2026.06.2
-git push origin pdf-v2026.06.2
+git tag pdf-v2026.06.1
+git push origin pdf-v2026.06.1
 
 # 或本地构建后手动发 Release：
 python scripts/tools/build_pdf.py --rebuild --edition 2026.06
@@ -115,7 +115,7 @@ gh release create pdf-v2026.06 dist/pdf/*.pdf \
 
 | 现象 | 处理 |
 |------|------|
-| **中文乱码 / 方块** | 运行 `python scripts/tools/ensure_pdf_fonts.py`；Linux 安装 `fonts-noto-cjk`；重新构建并用 `verify_pdf_cjk.py` 校验。推荐下载最新 `pdf-v*` Release（如 `pdf-v2026.06.2`） |
+| **中文乱码 / 方块** | 运行 `python scripts/tools/ensure_pdf_fonts.py`；Linux 安装 `fonts-noto-cjk`；重新构建并用 `verify_pdf_cjk.py` 校验。推荐下载 Latest Release（如 `pdf-v2026.06.1`） |
 | `playwright` 未安装浏览器 | 运行 `playwright install chromium` |
 | 公式为空白 | 检查网络（MathJax CDN）；CI 需能访问 jsdelivr |
 | 某页超时 | 单独打开对应 `site/...html` 预览；Mermaid 页等待更久 |

@@ -6,7 +6,7 @@
 
 **在线站点**：<https://estelledc.github.io/hust-eic-microwave-from-scratch/>
 
-**离线 PDF**：[最新 Release 下载](https://github.com/estelledc/hust-eic-microwave-from-scratch/releases/latest)（**全书合集**推荐通读；亦可按卷下载：指南 / 知识点 / 题解 / 实验。若中文乱码请下载最新 tag，如 `pdf-v2026.06.2`；生成说明见 [docs/PDF_RELEASE.md](docs/PDF_RELEASE.md)）
+**离线 PDF**：[最新 Release 下载](https://github.com/estelledc/hust-eic-microwave-from-scratch/releases/latest)（**全书合集**推荐通读；亦可按卷下载：指南 / 知识点 / 题解 / 实验。若中文乱码请下载 Latest（当前 `pdf-v2026.06.1`），勿用旧版 `pdf-v2026.06`；生成说明见 [docs/PDF_RELEASE.md](docs/PDF_RELEASE.md)）
 
 ## 学习者入口
 
