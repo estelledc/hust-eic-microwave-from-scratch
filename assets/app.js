@@ -203,7 +203,7 @@
         || (!explicitTheme && window.matchMedia("(prefers-color-scheme: dark)").matches);
       window.mermaid.initialize({
         startOnLoad: true,
-        securityLevel: "loose",
+        securityLevel: "strict",
         theme: isDark ? "dark" : "base",
       });
     }

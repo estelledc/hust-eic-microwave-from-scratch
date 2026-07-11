@@ -10,6 +10,7 @@ import re
 import shutil
 from dataclasses import dataclass
 from enum import Enum
+from functools import lru_cache
 from pathlib import Path
 from typing import Callable
 from urllib.parse import quote, unquote
@@ -33,6 +34,7 @@ else:
 
 ROOT = Path(__file__).resolve().parent
 SITE_DIR = ROOT / "site"
+ERROR_SOURCE = ROOT / "content" / "404.md"
 NAV_CONFIG_PATH = ROOT / "nav.json"
 PUBLIC_ROOTS = (
     Path("content/index.md"),
@@ -107,6 +109,13 @@ HOME_STRATEGY_BULLETS: tuple[str, ...] = (
     "零基础第一轮：扫主线 → 补三张图像 → 做一道题的完整闭环。",
     "精读页先看「零基础读前翻译」，题解页先看「对应知识点」。",
     "临考前用讲次矩阵反查还没掌握的题型，不要只背公式表。",
+)
+NAV_HUBS: tuple[tuple[str, str], ...] = (
+    ("首页", "content/index.md"),
+    ("学习指南", "content/guide/index.md"),
+    ("知识点", "content/knowledge/README.md"),
+    ("作业解答", "content/solutions/index.md"),
+    ("实验测量", "content/experiments/index.md"),
 )
 
 
@@ -415,12 +424,69 @@ def render_markdown(text: str) -> tuple[str, str]:
     return restore_math(html_body, math_tokens), restore_math(md.toc, math_tokens)
 
 
-def enhance_html_body(body: str) -> str:
-    return re.sub(
-        r"<img(?![^>]*\bloading=)([^>]*)>",
-        r'<img loading="lazy" decoding="async"\1>',
-        body,
-    )
+IMG_TAG_RE = re.compile(r"<img\b([^>]*)>", re.IGNORECASE)
+IMG_SRC_RE = re.compile(r'\bsrc=["\']([^"\']+)["\']', re.IGNORECASE)
+
+
+@lru_cache(maxsize=None)
+def image_dimensions(path: Path) -> tuple[int, int] | None:
+    if not path.is_file():
+        return None
+    if path.suffix.lower() == ".svg":
+        source = path.read_text(encoding="utf-8", errors="ignore")[:2048]
+        width_match = re.search(r'\bwidth=["\']([0-9.]+)', source)
+        height_match = re.search(r'\bheight=["\']([0-9.]+)', source)
+        if width_match and height_match:
+            return round(float(width_match.group(1))), round(float(height_match.group(1)))
+        view_box = re.search(r'\bviewBox=["\'][^"\']*?([0-9.]+)\s+([0-9.]+)["\']', source)
+        if view_box:
+            return round(float(view_box.group(1))), round(float(view_box.group(2)))
+        return None
+    if Image is None:
+        return None
+    try:
+        with Image.open(path) as image:
+            return image.size
+    except OSError:
+        return None
+
+
+def image_source_path(page: Page, src: str) -> Path | None:
+    clean = unquote(src.split("#", 1)[0].split("?", 1)[0])
+    if not clean or clean.startswith(("http://", "https://", "data:", "//")):
+        return None
+    built_target = (SITE_DIR / clean.lstrip("/")) if clean.startswith("/") else (page.output.parent / clean)
+    resolved_target = built_target.resolve()
+    if resolved_target.is_file():
+        return resolved_target
+    try:
+        relative = resolved_target.relative_to(SITE_DIR.resolve())
+    except ValueError:
+        return None
+    return ROOT / relative
+
+
+def enhance_html_body(body: str, page: Page) -> str:
+    def replace(match: re.Match[str]) -> str:
+        attrs = match.group(1)
+        additions: list[str] = []
+        if not re.search(r"\bloading=", attrs):
+            additions.append('loading="lazy"')
+        if not re.search(r"\bdecoding=", attrs):
+            additions.append('decoding="async"')
+        src_match = IMG_SRC_RE.search(attrs)
+        source_path = image_source_path(page, src_match.group(1)) if src_match else None
+        dimensions = image_dimensions(source_path) if source_path else None
+        if dimensions:
+            width, height = dimensions
+            if not re.search(r"\bwidth=", attrs):
+                additions.append(f'width="{width}"')
+            if not re.search(r"\bheight=", attrs):
+                additions.append(f'height="{height}"')
+        suffix = (" " + " ".join(additions)) if additions else ""
+        return f"<img{attrs}{suffix}>"
+
+    return IMG_TAG_RE.sub(replace, body)
 
 
 FORMULA_APPENDIX_NAME = "99-公式与图像.md"
@@ -624,6 +690,15 @@ def render_formula_cards_html(cards: list[FormulaCard]) -> str:
             md_parts.append(card.hint)
         md_parts.append(card.math_markdown)
         card_html, _ = render_markdown("\n\n".join(md_parts))
+        # The same headings also exist in the full article below. Quick-view
+        # cards are an alternate presentation, so they must not duplicate DOM ids.
+        card_html = re.sub(r'\s+id="[^"]*"', "", card_html)
+        card_html = re.sub(
+            r'<a\b[^>]*class="headerlink"[^>]*>.*?</a>',
+            "",
+            card_html,
+            flags=re.DOTALL,
+        )
         parts.append(f'<section class="formula-card" id="formula-card-{index}">{card_html}</section>')
     return "\n".join(parts)
 
@@ -843,28 +918,66 @@ def render_nav_nodes(
 
 
 def render_nav(page: Page, pages: list[Page]) -> str:
-    groups: dict[str, list[Page]] = {}
-    for item in pages:
-        groups.setdefault(item.group, []).append(item)
-
-    chunks: list[str] = []
-    for group, items in groups.items():
-        if group == "首页" and len(items) == 1:
-            item = items[0]
-            active = " active" if item.source == page.source else ""
-            chunks.append(
-                f'<a class="nav-root-link{active}" href="{relative_url(page.output, item.output)}">首页</a>'
-            )
+    by_source = {item.rel_source.as_posix(): item for item in pages}
+    hub_items: list[str] = []
+    hub_pages: list[Page] = []
+    for label, source_rel in NAV_HUBS:
+        target = by_source.get(source_rel)
+        if not target:
             continue
-        open_attr = " open" if group == page.group else ""
-        chunks.append(f'<details class="nav-group"{open_attr}>')
-        chunks.append(f"<summary>{html.escape(group)}</summary>")
-        tree: dict[str, NavNode] = {}
-        for item in items:
-            add_nav_node(tree, nav_segments(item), item)
-        chunks.append(render_nav_nodes(tree, page, page))
-        chunks.append("</details>")
-    return "\n".join(chunks)
+        hub_pages.append(target)
+        active = target == page or (target.group == page.group and page.group != "首页")
+        current = ' aria-current="page"' if target == page else ""
+        hub_items.append(
+            f'<li><a class="nav-root-link{" active" if active else ""}" '
+            f'href="{relative_url(page.output, target.output)}"{current}>{html.escape(label)}</a></li>'
+        )
+
+    context_pages: list[Page] = []
+    current_hub = next((hub for hub in hub_pages if hub == page), None)
+    if current_hub and page.group != "首页":
+        root_dir = current_hub.rel_source.parent
+        for item in pages:
+            if item.group != page.group or item == current_hub:
+                continue
+            try:
+                relative = item.rel_source.relative_to(root_dir)
+            except ValueError:
+                continue
+            if len(relative.parts) == 1 or (
+                len(relative.parts) == 2 and relative.name.lower() in {"readme.md", "index.md"}
+            ):
+                context_pages.append(item)
+    elif page.group != "首页":
+        context_pages = [
+            item for item in pages
+            if item.group == page.group and item.rel_source.parent == page.rel_source.parent
+        ]
+
+    context_html = ""
+    if context_pages:
+        context_label = directory_nav_label(page.rel_source.parent.name)
+        links = []
+        for item in context_pages:
+            current = ' aria-current="page"' if item == page else ""
+            active = " active" if item == page else ""
+            links.append(
+                f'<li class="nav-item{active}"><a href="{relative_url(page.output, item.output)}"{current}>'
+                f'{html.escape(compact_nav_label(item))}</a></li>'
+            )
+        context_html = (
+            f'<details class="nav-context" open><summary>本节 · {html.escape(context_label)}</summary>'
+            f'<ol class="nav-list nav-context-list">{"".join(links)}</ol></details>'
+        )
+
+    return (
+        '<nav class="nav-compact" aria-label="课程核心导航">'
+        '<p class="nav-compact-label">核心入口</p>'
+        f'<ol class="nav-hubs">{"".join(hub_items)}</ol>'
+        f'{context_html}'
+        '<p class="nav-compact-note">其余页面请用顶部搜索或正文中的上/下一篇继续。</p>'
+        '</nav>'
+    )
 
 
 def display_path(page: Page) -> str:
@@ -1032,7 +1145,8 @@ def structured_data(page: Page, title: str, description: str) -> str:
     canonical = canonical_url(page)
     creator = {
         "@type": "Person",
-        "name": "Jason Xu",
+        "@id": f"{PORTFOLIO_URL}#person",
+        "name": "Jason Xun",
         "url": PORTFOLIO_URL,
         "sameAs": ["https://github.com/estelledc"],
     }
@@ -1102,10 +1216,13 @@ def render_home_body(
     knowledge_href = page_href(page, "content/knowledge/README.md", pages_by_source)
     solution_href = page_href(page, "content/solutions/index.md", pages_by_source)
     experiment_href = page_href(page, "content/experiments/index.md", pages_by_source)
+    smith_href = page_href(page, "content/guide/Smith圆图专题/README.md", pages_by_source)
+    smith_problem_href = page_href(page, "content/solutions/02-圆图与匹配/README.md", pages_by_source)
+    vna_href = page_href(page, "content/experiments/01-矢网与传输线/README.md", pages_by_source)
     hero_ctas = [
-        ("从零开始学习", start_href, "home-cta-primary"),
-        ("查看系统证据", "#evidence", ""),
-        ("GitHub 源码", GITHUB_REPO_URL, ""),
+        ("学概念", smith_href, "home-cta-primary"),
+        ("做题", smith_problem_href, ""),
+        ("看测量", vna_href, ""),
     ]
     cta_html = "".join(
         f'<a class="home-cta {class_name}" href="{html.escape(href, quote=True)}">'
@@ -1137,17 +1254,25 @@ def render_home_body(
       <p class="home-lead-en" lang="en">A course learning system that connects physical intuition, equations, worked problems, and lab measurement through a searchable and auditable path.</p>
       <div class="home-cta-row">{cta_html}</div>
     </div>
-    <div class="signal-board" aria-label="微波课程学习主线">
-      <div class="signal-board-head"><span>LEARNING SIGNAL PATH</span><span>λg / S11 / TE10</span></div>
-      <ol>
-        <li><span>01</span><strong>传播</strong><small>把长线画成行波</small></li>
-        <li><span>02</span><strong>反射</strong><small>从不连续看到匹配</small></li>
-        <li><span>03</span><strong>边界</strong><small>由金属结构筛选模式</small></li>
-        <li><span>04</span><strong>端口</strong><small>用网络参数连接系统</small></li>
-        <li><span>05</span><strong>测量</strong><small>让公式落到 VNA 曲线</small></li>
-      </ol>
-      <p>{html.escape(HOME_MAINLINE)}</p>
-    </div>
+    <aside class="signal-board measurement-proof" aria-labelledby="measurement-proof-title">
+      <div class="signal-board-head"><span>CORE PROOF · REFLECTION</span><span>SMITH ↔ VNA</span></div>
+      <h2 id="measurement-proof-title">同一个反射问题，既能画在圆图上，也能读在仪器曲线上。</h2>
+      <div class="measurement-proof-grid">
+        <a href="{html.escape(smith_href, quote=True)}">
+          <figure>
+            <img src="assets/images/smith_lec07_q0_anatomy.webp" alt="Smith 圆图上的等电阻圆、等电抗圆与匹配中心" width="1672" height="941" loading="eager" decoding="async" fetchpriority="high">
+            <figcaption><strong>Smith chart</strong><span>从 Γ 映射到归一化阻抗与匹配路径</span></figcaption>
+          </figure>
+        </a>
+        <a href="{html.escape(vna_href, quote=True)}">
+          <figure>
+            <img src="assets/images/exp2/exp2-resonator-s21-curve.webp" alt="VNA 扫频得到的谐振器 S21 谐振曲线" width="1050" height="788" loading="eager" decoding="async">
+            <figcaption><strong>VNA trace</strong><span>从 S 参数曲线读谐振点与带宽</span></figcaption>
+          </figure>
+        </a>
+      </div>
+      <p class="measurement-proof-boundary">仓库现有教学图与实验报告曲线 · 不是新增实验测量数据</p>
+    </aside>
   </section>
 
   <dl class="showcase-metrics" aria-label="项目可核验数据">
@@ -1305,9 +1430,11 @@ def render_page(
     title_override: str | None = None,
 ) -> str:
     raw = page.source.read_text(encoding="utf-8")
+    has_math = any(pattern.search(raw) for pattern in MATH_PATTERNS)
+    has_mermaid = bool(re.search(r"```\s*mermaid\b", raw, re.IGNORECASE))
     rewritten = rewrite_markdown_links(raw, page.source, page, pages_by_source)
     body, toc = render_markdown(rewritten)
-    body = enhance_html_body(body)
+    body = enhance_html_body(body, page)
     if body_override is not None:
         body = body_override
     formula_cards = extract_formula_cards(page.source, raw)
@@ -1341,6 +1468,35 @@ def render_page(
     shell_classes = "shell"
     if shell_class:
         shell_classes += f" {shell_class}"
+    mathjax_scripts = ""
+    if has_math:
+        mathjax_scripts = """  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+        displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      chtml: {
+        mtextInheritFont: true,
+        scale: 1.04
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+"""
+    mermaid_script = (
+        '  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>\n'
+        if has_mermaid else ""
+    )
+    resource_scripts = (
+        f'  <script>window.SITE_ROOT = "{prefix}";</script>\n'
+        f"{mathjax_scripts}{mermaid_script}"
+        f'  <script defer src="{prefix}assets/app.js"></script>'
+    )
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -1348,7 +1504,7 @@ def render_page(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{full_title}</title>
   <meta name="description" content="{description_html}">
-  <meta name="author" content="Jason Xu">
+  <meta name="author" content="Jason Xun">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#0f766e">
   <link rel="canonical" href="{html.escape(canonical, quote=True)}">
@@ -1373,26 +1529,7 @@ def render_page(
   <link rel="stylesheet" href="{prefix}assets/jx/base.css">
   <link rel="stylesheet" href="{prefix}assets/jx/components.css">
   <link rel="stylesheet" href="{prefix}assets/style.css">
-  <script>
-    window.MathJax = {{
-      tex: {{
-        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-        displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-        processEscapes: true
-      }},
-      options: {{
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }},
-      chtml: {{
-        mtextInheritFont: true,
-        scale: 1.04
-      }}
-    }};
-    window.SITE_ROOT = "{prefix}";
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-  <script defer src="{prefix}assets/app.js"></script>
+{resource_scripts}
 </head>
 <body>
   <a class="jx-skip-link" href="#content">跳到正文</a>
@@ -1626,6 +1763,32 @@ def write_pages(pages: list[Page]) -> None:
         page.output.write_text(html, encoding="utf-8")
 
 
+def write_error_page(pages: list[Page]) -> None:
+    error_page = Page(
+        source=ERROR_SOURCE,
+        output=SITE_DIR / "404.html",
+        title=title_for(ERROR_SOURCE),
+        group="Navigation",
+    )
+    rendered = render_page(
+        error_page,
+        pages,
+        path_to_page(pages),
+        show_meta=False,
+        show_pager=False,
+        show_toc=False,
+        shell_class="layout-hub",
+        breadcrumbs_override='<span class="crumb-current">404 · Navigation</span>',
+        title_override="页面未找到 · 微波技术基础",
+    )
+    rendered = rendered.replace(
+        '<meta name="robots" content="index,follow,max-image-preview:large">',
+        '<meta name="robots" content="noindex,follow">',
+        1,
+    )
+    error_page.output.write_text(rendered, encoding="utf-8")
+
+
 def clean_site() -> None:
     if SITE_DIR.exists():
         shutil.rmtree(SITE_DIR)
@@ -1639,6 +1802,7 @@ def main() -> None:
     clean_site()
     copy_static_assets()
     write_pages(pages)
+    write_error_page(pages)
     build_search_index(pages)
     write_public_discovery(pages)
     print(f"Built {len(pages)} pages into {SITE_DIR.relative_to(ROOT)}")

@@ -25,6 +25,9 @@
 
 ## 学习者入口
 
+- **学概念**：[Smith 圆图专题](content/guide/Smith圆图专题/README.md)，从反射系数映射到阻抗与匹配路径。
+- **做题**：[第二次作业 · 圆图与匹配](content/solutions/02-圆图与匹配/README.md)，完成从条件、公式到检查的闭环。
+- **看测量**：[实验一 · 矢网与传输线](content/experiments/01-矢网与传输线/README.md)，把反射与匹配落到 VNA 的 S 参数曲线。
 - [课程地图](content/index.md)：首页任务入口与快速导航（由 `build.py` 生成）。
 - [学习指南](content/guide/index.md)：阅读地图、课程复习索引、公式记忆与 Smith 圆图专题。
 - [阅读地图](content/guide/reading-map.md)：十轮读法与按任务进入的详细路线。
@@ -60,6 +63,8 @@ python scripts/tools/verify_pdf_cjk.py --include-complete
 详见 [docs/PDF_RELEASE.md](docs/PDF_RELEASE.md)。
 
 构建结果输出到 `site/`（不纳入 Git，由 CI 发布）。
+
+生成器会按页面内容条件加载 MathJax / Mermaid，并为正文图片写入 `width`、`height`、`loading` 与 `decoding`。侧栏只展示核心枢纽和当前目录，其余页面通过顶部搜索、正文交叉链接及上/下一篇进入。
 
 常用检查：
 

@@ -9,7 +9,7 @@
 | GitHub | `estelledc/hust-eic-microwave-from-scratch` |
 | 默认分支 | `main` |
 | Pages | GitHub Actions → `.github/workflows/pages.yml` |
-| 本地路径示例 | `C:/Users/zx775/Documents/vrShare/微波` |
+| 本地路径示例 | `$HOME/projects/microwave` |
 
 ## Labels
 
