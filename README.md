@@ -8,6 +8,21 @@
 
 **离线 PDF**：[最新 Release 下载](https://github.com/estelledc/hust-eic-microwave-from-scratch/releases/latest)（**全书合集**推荐通读；亦可按卷下载：指南 / 知识点 / 题解 / 实验。若中文乱码请下载 Latest（当前 `pdf-v2026.06.1`），勿用旧版 `pdf-v2026.06`；生成说明见 [docs/PDF_RELEASE.md](docs/PDF_RELEASE.md)）
 
+## 公开展示契约
+
+这个仓库同时是一份可分享的学习系统案例，但展示层不扩大课程事实：
+
+| 展示内容 | 证据真源 | 边界 |
+|---|---|---|
+| 当前构建页数 | `python build.py` 的实际输出 | 首页从构建结果动态读取，不手填宣传数字 |
+| 8 阶段知识路线、5 组作业、2 个实验模块 | `build.py` 的导航常量与对应 `content/` 目录 | 模块存在不等于学习效果已验证 |
+| 63 条题目审计记录 | [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) 与 [QUESTION_AUDIT.md](docs/audit/QUESTION_AUDIT.md) | 表示仓内校验状态，不代表校方认证 |
+| 页面间交叉引用缺失为 0 | `python scripts/tools/check_cross_refs.py` | 只验证本站知识页、题解页、实验页的连接关系 |
+
+**角色边界**：Jason 负责学习主线、信息架构、课程口径复核、公开边界与最终发布；AI coding agents 协助批量整理、静态构建、交叉引用检查和维护文档初稿，不独立替代课程判断，也不生成未经复核的实验结论。
+
+**身份边界**：本站是个人维护的开放学习资料，不是华中科技大学或任课教师的官方课程站；没有新增实验测量数据，也不承诺特定成绩或学习效果。
+
 ## 学习者入口
 
 - [课程地图](content/index.md)：首页任务入口与快速导航（由 `build.py` 生成）。
@@ -51,8 +66,13 @@ python scripts/tools/verify_pdf_cjk.py --include-complete
 ```bash
 python scripts/tools/check_cross_refs.py
 python scripts/tools/check_exam_integration.py   # 改课程复习索引或公式入口时
+python scripts/tools/check_internal_links.py
+python scripts/tools/audit_showcase.py           # SEO、证据、公开边界、分享图
+python -m unittest discover -s tests
 python -m py_compile build.py scripts/plots/*.py scripts/tools/*.py
 ```
+
+分享图由 `python scripts/tools/generate_showcase_og.py` 确定性生成；调整首页事实数字或视觉语言时需同步重生成并运行 `audit_showcase.py`。
 
 ## 项目结构
 
