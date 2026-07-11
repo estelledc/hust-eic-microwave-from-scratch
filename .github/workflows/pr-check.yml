@@ -11,10 +11,10 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.11"
 
@@ -35,5 +35,11 @@ jobs:
       - name: Verify internal links
         run: python scripts/tools/check_internal_links.py
 
+      - name: Verify public showcase contract
+        run: python scripts/tools/audit_showcase.py
+
+      - name: Run showcase unit tests
+        run: python -m unittest discover -s tests
+
       - name: Python syntax check
-        run: python -m py_compile build.py scripts/plots/*.py scripts/tools/*.py
+        run: python -m py_compile build.py scripts/plots/*.py scripts/tools/*.py tests/*.py

@@ -8,8 +8,8 @@
   let activeSearchIndex = -1;
 
   function applyTheme(theme) {
-    if (theme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
+    if (theme === "dark" || theme === "light") {
+      document.documentElement.setAttribute("data-theme", theme);
     } else {
       document.documentElement.removeAttribute("data-theme");
     }
@@ -203,7 +203,7 @@
         || (!explicitTheme && window.matchMedia("(prefers-color-scheme: dark)").matches);
       window.mermaid.initialize({
         startOnLoad: true,
-        securityLevel: "loose",
+        securityLevel: "strict",
         theme: isDark ? "dark" : "base",
       });
     }
