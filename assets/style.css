@@ -244,6 +244,9 @@ input:focus-visible {
   color: var(--ink);
   font: 700 1.1rem/1 var(--sans);
   cursor: pointer;
+  transition: transform var(--jx-duration-press) var(--jx-ease-out),
+              border-color var(--jx-duration-fast) var(--jx-ease-out),
+              color var(--jx-duration-fast) var(--jx-ease-out);
 }
 
 .icon-button:hover {
@@ -870,7 +873,10 @@ input:focus-visible {
   font-size: 0.88rem;
   font-weight: 750;
   padding: 8px 14px;
-  transition: background 150ms ease, border-color 150ms ease;
+  transition: transform var(--jx-duration-press) var(--jx-ease-out),
+              background-color var(--jx-duration-fast) var(--jx-ease-out),
+              border-color var(--jx-duration-fast) var(--jx-ease-out),
+              color var(--jx-duration-fast) var(--jx-ease-out);
 }
 
 .formula-quick-toggle:hover {
@@ -882,6 +888,12 @@ input:focus-visible {
   background: var(--accent-strong);
   border-color: var(--accent-strong);
   color: var(--paper);
+}
+
+.formula-quick-toggle:active,
+.icon-button:active,
+.home-cta:active {
+  transform: scale(var(--jx-press-scale));
 }
 
 .formula-quick-grid {
@@ -1070,6 +1082,10 @@ body.sidebar-open {
   font-size: 0.92rem;
   font-weight: 700;
   text-decoration: none;
+  transition: transform var(--jx-duration-press) var(--jx-ease-out),
+              background-color var(--jx-duration-fast) var(--jx-ease-out),
+              border-color var(--jx-duration-fast) var(--jx-ease-out),
+              color var(--jx-duration-fast) var(--jx-ease-out);
 }
 
 .home-cta:hover {
@@ -1183,13 +1199,8 @@ body.sidebar-open {
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
-  transition: border-color 120ms ease, transform 120ms ease;
-}
-
-.measurement-proof-grid a:hover {
-  border-color: var(--accent);
-  color: inherit;
-  transform: translateY(-1px);
+  transition: border-color var(--jx-duration-fast) var(--jx-ease-out),
+              transform var(--jx-duration-press) var(--jx-ease-out);
 }
 
 .measurement-proof-grid figure { margin: 0; }
@@ -1439,13 +1450,9 @@ body.sidebar-open {
   background: var(--paper);
   color: inherit;
   text-decoration: none;
-  transition: border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
-}
-
-.card-link:hover {
-  border-color: color-mix(in srgb, var(--jx-accent, var(--accent)) 45%, var(--line));
-  box-shadow: 0 8px 18px rgba(67, 52, 28, 0.08);
-  transform: translateY(-1px);
+  transition: border-color var(--jx-duration-fast) var(--jx-ease-out),
+              transform var(--jx-duration-press) var(--jx-ease-out),
+              box-shadow var(--jx-duration-fast) var(--jx-ease-out);
 }
 
 .card-link strong {
@@ -1562,7 +1569,7 @@ body.sidebar-open {
     max-height: 100vh;
     border-radius: 0;
     transform: translateX(-105%);
-    transition: transform 180ms ease;
+    transition: transform var(--jx-duration-popover) var(--jx-ease-drawer);
   }
 
   .shell.layout-home > .sidebar {
@@ -1693,11 +1700,37 @@ body.sidebar-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-    scroll-behavior: auto !important;
+  html { scroll-behavior: auto; }
+
+  .sidebar {
+    transition: none;
+  }
+
+  .formula-quick-toggle,
+  .icon-button,
+  .home-cta,
+  .measurement-proof-grid a,
+  .card-link {
+    transform: none !important;
+  }
+
+  .measurement-proof-grid a,
+  .card-link {
+    transition-property: border-color, box-shadow;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .measurement-proof-grid a:hover {
+    border-color: var(--accent);
+    color: inherit;
+    transform: translateY(-1px);
+  }
+
+  .card-link:hover {
+    border-color: color-mix(in srgb, var(--jx-accent, var(--accent)) 45%, var(--line));
+    box-shadow: 0 8px 18px rgba(67, 52, 28, 0.08);
+    transform: translateY(-1px);
   }
 }
 
@@ -1714,7 +1747,8 @@ body.sidebar-open {
   letter-spacing: 0.05em;
   text-transform: lowercase;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.15s, color 0.15s;
+  transition: border-color var(--jx-duration-fast) var(--jx-ease-out),
+              color var(--jx-duration-fast) var(--jx-ease-out);
   margin-right: 1rem;
   white-space: nowrap;
 }

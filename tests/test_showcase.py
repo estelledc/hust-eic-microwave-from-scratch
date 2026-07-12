@@ -141,6 +141,10 @@ class ShowcaseContractTests(unittest.TestCase):
         app = (build.ROOT / "assets/app.js").read_text(encoding="utf-8")
         self.assertIn("@media (max-width: 360px)", css)
         self.assertIn("@media (prefers-reduced-motion: reduce)", css)
+        self.assertIn("@media (hover: hover) and (pointer: fine)", css)
+        self.assertNotIn("transition: all", css)
+        self.assertNotIn("transition: none !important", css)
+        self.assertIn('reduceMotion ? "auto" : "smooth"', app)
         self.assertIn("summary:focus-visible", css)
         self.assertIn('securityLevel: "strict"', app)
 

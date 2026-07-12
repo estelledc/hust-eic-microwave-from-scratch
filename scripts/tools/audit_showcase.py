@@ -218,9 +218,15 @@ def main() -> int:
 
     project_status = (ROOT / "docs/PROJECT_STATUS.md").read_text(encoding="utf-8")
     check("QUESTION_AUDIT 63 条题" in project_status, "63-record claim lost its repository evidence", errors)
-    check((ROOT / "assets/jx/VERSION").read_text(encoding="utf-8").strip() == "2.1.0", "Jason DS version must be 2.1.0", errors)
+    check((ROOT / "assets/jx/VERSION").read_text(encoding="utf-8").strip() == "2.2.0", "Jason DS version must be 2.2.0", errors)
+    motion_css = (ROOT / "assets/style.css").read_text(encoding="utf-8")
+    check("@media (hover: hover) and (pointer: fine)" in motion_css, "fine-pointer hover gate is missing", errors)
+    check("@media (prefers-reduced-motion: reduce)" in motion_css, "reduced-motion handling is missing", errors)
+    check(not re.search(r"\btransition\s*:\s*all\b", motion_css, re.I), "transition: all is forbidden", errors)
+    check("transition: none !important" not in motion_css, "global motion reset removes equivalent feedback", errors)
     app_js = (ROOT / "assets/app.js").read_text(encoding="utf-8")
     check('securityLevel: "strict"' in app_js, "Mermaid must use strict security mode", errors)
+    check('reduceMotion ? "auto" : "smooth"' in app_js, "formula quick view must respect reduced motion", errors)
 
     for workflow in sorted((ROOT / ".github/workflows").glob("*.y*ml")):
         for action_ref in ACTION_REF_RE.findall(workflow.read_text(encoding="utf-8")):
